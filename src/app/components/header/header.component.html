@@ -1,0 +1,123 @@
+
+<app-mobile-header *ngIf="desktop == undefined" [home]="home" [back_route]="back_route" [no_home]="no_home" [no_cart]="no_cart" [title]="title" [no_search_icon]="no_search_icon"></app-mobile-header>
+
+<div>
+<div *ngIf="(!db.ismobile && db.header_info && db.header_info.enable_top_menu && db.header_info.enable_top_menu == 1)" [class.disable_top]="db.scroll_event.header_sticky_on_top && db.header_info.sticky_on_top == 0" class="go1-cms-top-bar" [ngClass]="{removecls:containerActive}" >
+  <!-- first-toolbar-container -->
+  <div class="d__flex container just-s main-width">
+  <div *ngIf="(db.header_info && db.header_info.top_menu && db.header_info.top_menu.left_items && db.header_info.top_menu.left_items.length != 0)" class="box_1  d__flex">
+      <div  class="d__flex" *ngFor="let item of db.header_info.top_menu.left_items;let i = index">
+        <div  class="top_menu d__flex" [class.icongap]="item.icon">
+          <img [src]="db.product_img(item.icon)">
+          <a href="{{item.redirect_url}}" class="action-link" >{{item.menu_label}}</a>
+        </div>    
+      </div>
+    </div>
+    <div  class="d__flex box_2" >
+    </div>
+    <div *ngIf="(db.header_info && db.header_info.top_menu && db.header_info.top_menu.right_items && db.header_info.top_menu.right_items.length != 0)" class="d__flex box_3">
+       <div class="d__flex">
+        <div  class="links d__flex" *ngFor="let item of db.header_info.top_menu.right_items;let i = index">
+          <a class="d__flex a" *ngIf="item.redirect_url" href="{{item.redirect_url}}" target="blank">
+            <img *ngIf="item.icon" [src]="db.product_img(item.icon)">
+            <a *ngIf="!item.icon" class="follow_us m-0">{{item.menu_label}}</a>
+          </a>
+          <a *ngIf="!item.redirect_url" class="follow_us m-0">{{item.menu_label}}</a>
+        </div>
+       </div>
+      </div>
+  </div>
+   <div *ngIf="db.header_info.is_dismissable && db.header_info.is_dismissable == 1"  class="closeicon mouse"  (click)="removeicon()">
+      <ion-icon name="close-outline"></ion-icon>
+    </div>
+</div>   
+
+
+
+<!-- Web site header -->
+<!--  [class.transparent_header]="db.transparent_header && db.transparent_header == 1 && !db.scroll_event.transparent_header"  -->
+<div *ngIf="desktop && !db.ismobile"  class="web__header go1-cms-header" [class.transparent_header]="db.header_info && db.header_info.is_transparent_header && db.header_info.is_transparent_header == 1 && !db.scroll_event.transparent_header"   [ngStyle]="(!db.scroll_event.header_sticky && sub_header_value && sub_header_value.enabled && sub_header_value.enabled == 1 && sub_header_value.is_transparent == 1) ? (sub_header_value.sub_header_bg_img ?  db.img_style(sub_header_value.sub_header_bg_img,'full-bg-img__')  : db.img_style(sub_header_value.sub_header_bg_color,'color')) : null"  (click)="close_menu()" [class.non_web__header]="db.video_header && db.path == '/'" >
+    <!-- [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0" -->
+    <div class="main-width">
+      <app-web-header (cart_pop)="cart_pop.emit($event)" [sub_header_value]="sub_header_value"  [cat_products]="cat_products" ></app-web-header>
+    </div>
+    <div class="defalut_head">
+      <div class="main-width">
+       <app-default-header [menu]="db.header_info.menu" *ngIf="(db.header_info && db.header_info.is_menu_full_width == 1 && db.header_info.menu) " (cart_pop)="cart_pop.emit($event)" ></app-default-header>
+      </div>
+    </div>
+    <div *ngIf="!db.scroll_event.header_sticky && sub_header_value && (sub_header_value.enabled == 1 && sub_header_value.is_transparent == 1)">
+      <app-sub-list-header [sub_header_value]="sub_header_value" ></app-sub-list-header>
+   </div>
+    <!-- <app-secondary-header  *ngIf="(db.header_info && db.header_info.is_static_menu == 0 && db.header_info.is_menu_full_width == 1) && db.path?.split('/')[1] != 'my-profile' && db.path != '/checkout' && db.path != '/vendor-registration' && db.path?.split('/')[1] != 'thankyou'" [cat_products]="cat_products"></app-secondary-header> -->
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Bala -->
+<!--  [class.web__header_back_null]="!db.scroll_event.header_sticky && db.header_within_slider == 1" -->
+<!-- Web site header -->
+<!-- [class.web__header]="db.scroll_event.header_sticky"
+<div *ngIf="desktop && !db.ismobile"  class="web__header"  [ngStyle]="(!db.scroll_event.header_sticky && sub_header_value && sub_header_value.enabled && sub_header_value.enabled == 1 && sub_header_value.is_transparent == 1) ? (sub_header_value.sub_header_bg ?  db.img_style(sub_header_value.sub_header_bg,'full-bg-img__')  : db.img_style(sub_header_value.sub_header_bg_color,'color')) : null"  (click)="close_menu()" [class.non_web__header]="db.video_header && db.path == '/'" >
+    <div *ngIf="(db.header_info && db.enable_first_menu == 1)" class="first-toolbar-container" >
+      <div class="d__flex container just-s main-width">
+        <div *ngIf="(db.header_info && db.header_info.top_menu && db.header_info.top_menu.left_items && db.header_info.top_menu.left_items.length != 0)" class="box_1  d__flex">
+          
+          <div  class="d__flex" *ngFor="let item of db.header_info.top_menu.left_items;let i = index">
+            <div  class="top_menu d__flex">
+              <img [src]="db.product_img(item.icon)">
+              <a href="{{item.redirect_url}}" class="action-link">{{item.menu_label}}</a>
+            </div>
+          </div>
+        </div>
+        <div  class="d__flex box_2" >
+        </div>
+        <div *ngIf="(db.header_info && db.header_info.top_menu && db.header_info.top_menu.right_items && db.header_info.top_menu.right_items.length != 0)" class="d__flex box_3">
+           <div class="d__flex">
+            <div  class="links d__flex" *ngFor="let item of db.header_info.top_menu.right_items;let i = index">
+              <a class="d__flex a" *ngIf="item.redirect_url" href="{{item.redirect_url}}" target="blank">
+                <img *ngIf="item.icon" [src]="db.product_img(item.icon)">
+                <p *ngIf="!item.icon" class="follow_us m-0">{{item.menu_label}}</p>
+              </a>
+              <p *ngIf="!item.redirect_url" class="follow_us m-0">{{item.menu_label}}</p>
+            </div>
+           </div>
+          </div>
+      </div>
+    </div>
+    <div class="main-width" [class.absolute_position]="db.enable_center_header == 0 && db.enable_absolute_header == 1"  [class.center_full_header]="db.enable_center_header == 1 && db.enable_absolute_header == 0">
+      <app-web-header (cart_pop)="cart_pop.emit($event)" [class.absolute_header]="db.enable_absolute_header && db.enable_absolute_header==1 && db.enable_first_menu==0 && !db.scroll_event.absolute_sticky" 
+      [class.absolute__sticky]="db.enable_absolute_header && db.enable_absolute_header==1 && db.enable_first_menu==0 && db.scroll_event.absolute_sticky" [cat_products]="cat_products" ></app-web-header>
+    </div>
+    <div class="defalut_head">
+      <div class="main-width">
+       <app-default-header *ngIf="(db.header_info && db.header_info.is_static_menu == 1 && db.header_info.is_menu_full_width == 1) " [sub_list_color]='sub_header_value' (cart_pop)="cart_pop.emit($event)" ></app-default-header>
+      </div>
+    </div>
+    <app-secondary-header  *ngIf="(db.header_info && db.header_info.is_static_menu == 0 && db.header_info.is_menu_full_width == 1) && db.path?.split('/')[1] != 'my-profile' && db.path != '/checkout' && db.path != '/vendor-registration' && db.path?.split('/')[1] != 'thankyou'" [cat_products]="cat_products"></app-secondary-header>
+  <div *ngIf="!db.scroll_event.header_sticky && sub_header_value && (sub_header_value.enabled == 1 && sub_header_value.is_transparent == 1)">
+    <app-sub-list-header [sub_header_value]="sub_header_value" ></app-sub-list-header>
+ </div>
+</div>
+ -->

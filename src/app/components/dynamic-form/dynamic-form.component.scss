@@ -1,0 +1,137 @@
+.myform{
+    .label{
+        margin: 5px 0 !important;
+        font-size: 12px;
+        font-weight: 500;
+        color: #434343;
+    }
+
+    ion-checkbox{
+        --border-width: 1px;
+        height: 15px;
+        width: 15px;
+        margin: 5px;
+      }
+    ion-input,ion-select{
+        height: 40px;
+        --padding-end: 8px;
+    }
+    ion-input ,ion-textarea,ion-select{
+        border: 1px solid #dddd;
+        // background: #f1f1f1;
+        border-radius: 6px;
+        padding-right: 5px;
+        font-size: 14px;
+        --padding-end: 8px;
+    }
+
+
+    .focus{
+        border: 1px solid #673ab7;
+    }
+
+    .error_txt{
+        span{
+        font-size: 12px;
+        margin: 0;
+        color: red;
+        }
+    }
+    
+}
+
+// .ion-radio-group{
+//     flex-wrap: wrap;
+//     ion-item{
+//         flex: 0 0 calc(50% - 10px);
+//         margin: 5px;
+//     }
+// }
+
+@media screen and (min-width:768px) {
+
+    .myform{
+        .input-box{
+            flex-direction: column;
+            // margin: 10px 0;
+            flex: 0 0 calc(50% - 10px);
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .myform{
+        .input-box{
+            margin:  0;
+            flex: 0 0 calc(100% - 5px);
+        }
+    }
+}
+
+
+.tooltips{
+    margin: 0;
+    height: 16px;
+    padding: 0 3px;
+    ion-icon{
+        color: #222;
+        font-size: 14px;
+    }
+    img{
+        height: 14px;
+        padding-left: 3px;
+    }
+    .arrow{  
+        top: 50%;
+        left: 0;
+        margin-top: -5px;
+        border-width: 5px 5px 5px 0;
+        border-right-color: #000; 
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+    }
+
+    .tooltiptext{
+        position: absolute;
+        top: -5px;
+        max-width: 200px;
+        padding: 3px 8px;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        background-color: #000;
+        border-radius: 4px;
+        z-index: 999999;
+        font-size: 11px;
+    }
+}
+
+.group-title{
+    font-weight: 700;
+    // margin: 0;
+}
+
+
+.flex-100{
+    flex : 0 0 100%;
+}
+
+ion-radio{
+    margin: 5px !important;
+}
+.op-7{
+    font-size: 15px;
+    font-weight: 500;
+    min-height: 27px;
+}
+.required_{
+    font-size: 18px;
+    color: red;
+}
+
+.fit-content{
+    width: fit-content !important;
+}

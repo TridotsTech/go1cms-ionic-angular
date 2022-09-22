@@ -1,0 +1,29 @@
+.fnt-22{
+  font-size: 22px;
+  color: var(--body-text-color);
+}
+
+ion-header{
+  height: 51px;
+  border-bottom: 1px solid var(--border);
+}
+
+@media screen and (max-width: 768px){
+   ion-button {
+      color: var(--body-text-color);
+      margin: 0;
+      --overflow: none;
+      --ripple-color: transparent;
+      --padding-start: 0;
+      --padding-end: 0;
+      background: unset !important;
+      padding: 0 5px;
+  }
+}
+
+.h-45{
+  height: 45px;
+}
+
+.p-x-5{padding: 0 5px;height: -webkit-fill-available;}
+

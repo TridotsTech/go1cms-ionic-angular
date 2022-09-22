@@ -1,0 +1,87 @@
+<div >
+
+  <div *ngIf="value.data == 'title'"  >
+    <h1 class="webkit-text" [style.--line]="2">{{detail[0][value.data]}}</h1>
+  </div>
+
+  <div *ngIf="value.data == 'blog_intro'"  >
+    <p>{{detail[0][value.data]}}</p>
+  </div>
+
+  <div *ngIf="value.data == 'blogger'">
+    <a>{{detail[0][value.data]}}</a>
+  </div>
+
+  <div *ngIf="value.data == 'published_on'"  >
+    <a>{{detail[0][value.data] }}</a>
+  </div>
+
+  
+  <div class="free_text" *ngIf="value.data == 'Final_Results' || value.data == 'project_summary'" >
+    <h3>{{detail[0][value.data].title }}</h3>
+    <div *ngIf="detail[0][value.data].image" class="image d__flex just-c">
+      <img src="{{db.product_img(detail[0][value.data].image)}}">
+    </div>
+    <p>{{detail[0][value.data].intro }}</p>
+  </div>
+
+  <div *ngIf="value.data == 'content'"  >
+    <p [innerHtml]="detail[0][value.data]"></p>
+  </div>
+
+  <div class="gallery" *ngIf="value.data == 'gallery'"  >
+    <h3>{{detail[0][value.data].title}}</h3>
+    <app-gallery-details [item]="detail[0][value.data].gallery_values" data="" [scrollable]="db.ismobile?'grid-1-50':'grid-4'" ></app-gallery-details>
+  </div>
+
+  
+
+  <table *ngIf="value.data == 'table'" id="customers" >
+  
+    <h3>{{detail[0]['table'].title}}</h3>
+
+    <tr *ngFor="let data of detail[0]['table'].table_values">
+       <td>
+         <h6 class="m-0 heading">{{data.label}}</h6>
+       </td>
+       <td>
+         <p class="m-0 sub_heading" >{{data.value}}</p>
+       </td>
+    </tr>           
+
+  </table>  
+
+
+  <div class="related__" *ngIf="value.data == 'related_bloglist'"  >
+    <span class="heading__r_p">Related Items</span>
+    <app-detail-related-post [side_list]="true" [list_value]="detail[0][value.data]" [row_count]="1"></app-detail-related-post>
+    <!-- <app-list-box  [list_value]="detail[0][data]" [scrollable]="db.ismobile?'grid-1-50':'grid-3'" [row_count]="3"></app-list-box> -->
+  </div>
+
+  <ul *ngIf="value.data == 'social_share'"  class="d__flex gap-10 social"  >
+    <li>
+      <a class="" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=someone@gmail.com&body={{share_url}}" target="_blank">
+      <img class="share" src="/assets/icon/share/mail-02.svg" />
+      </a>
+    </li>
+    <li>
+      <a class="" href="https://www.facebook.com/sharer/sharer.php?u={{share_url}}" target="_blank">
+        <img class="share" src="/assets/icon/share/fb-02.svg" />
+      </a>
+    </li>
+    <li>
+      <a class="" href="https://twitter.com/share?url={{share_url}}" target="_blank">
+       <img class="share" src="/assets/icon/share/twitter-02.svg" />
+      </a>
+    </li>
+    <li>
+      <a class=""  href="http://pinterest.com/pin/create/link/?url={{share_url}}" target="_blank">
+       <img class="share" src="/assets/icon/share/pin-02.svg" />
+      </a>
+    </li>
+  </ul>
+ 
+
+
+</div>  
+ 

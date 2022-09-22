@@ -1,0 +1,23 @@
+        <!-- 2 Image -->
+          <!-- image -->
+          <div *ngIf="row.component_type =='Image'" class="component_container simple_image">
+            <img [src]="db.product_img(row.data.image)" alt="" class="image"> 
+          </div>
+          <!-- round image -->
+          <div *ngIf="row.component_type=='Image Style2'" class="component_container round_image">
+            <img [src]="row.data.image" alt="">
+          </div>
+          <!--animate image-->
+          <div *ngIf="row.component_type=='Image Style3'" class="image_component2 component_container">
+            <div class="image_component2_main animate_image">
+              <img [src]="row.data.image" alt="app dashboard overview">
+            </div>
+          </div>
+          <!--4 video -->
+          <div *ngIf="row.component_type=='Video Style1'" class="component_container video_component">
+            <video controls>
+              <source [src]="row.data.video" type="video/mp4">
+              <source [src]="row.data.video" type="video/ogg">
+              Your browser does not support HTML video.
+            </video>
+          </div>

@@ -1,0 +1,27 @@
+<app-header *ngIf="db.ismobile"   title="home" [home]="true" ></app-header>
+
+<ion-content class="landing-page">
+
+  <div class="" [class.absolute_class]="db.scroll_event.header_sticky && db.header_info.is_transparent_header == 1"  [class.sticky__header]="db.scroll_event.header_sticky && db.header_info && db.header_info.sticky_header && db.header_info.sticky_header == 1 && db.header_info.is_transparent_header == 0" >
+    <app-header class="desktop-header"  
+    [class.sticky_header]="db.scroll_event.sticky_header"
+    [class.transparent_sticky]="db.header_info  && db.header_info.is_transparent_header && db.header_info.is_transparent_header == 1 && db.header_info.sticky_header == 1"
+    [class.transparent_scroll]="db.header_info  && db.header_info.is_transparent_header && db.header_info.is_transparent_header == 1 && db.header_info.sticky_header == 0"
+    [desktop]="true"></app-header>
+ </div>
+  <!-- <app-header class="desktop-header"  [desktop]="true"></app-header> -->
+
+  <div  [class.min-vh]="!db.ismobile">
+    <app-page-builder *ngIf="content_data && content_data.length != 0" [about_us]="true" [internship]="" [viewContent]="content_data"></app-page-builder>
+  </div>
+
+  <div class="color" *ngIf="!db.ismobile">
+    <div class="m-h">
+      <app-footer  class="footer"></app-footer>
+    </div>
+  </div>
+
+  <div class="scolltoTop" *ngIf="!db.ismobile && scroll_top && db.website_settings.theme_settings.back_to_top == 1" (click)="scrollToTop()">
+  <ion-icon name="chevron-up-outline"></ion-icon>
+  </div>
+</ion-content>

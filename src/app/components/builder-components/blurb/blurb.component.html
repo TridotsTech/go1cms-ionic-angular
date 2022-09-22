@@ -1,0 +1,102 @@
+<!--18 Blurb/card -->
+          <!-- card 1 -->
+          <!-- <div class="component_container card_component" *ngIf="row.component_type=='Card_Style1'">
+              <img
+                [src]="row.image" alt="">
+              <div class="card1_content">
+                <h4 class="title">{{row.title}}</h4>
+                <p class="content">{{row.content}}
+                </p>
+                <ul class="social-icons">
+                  <li><a href="#">
+                      <ion-icon name="logo-twitter"></ion-icon>
+                    </a></li>
+                </ul>
+              </div>
+          </div> -->
+          <!-- card 1 -->
+          <div *ngIf="row.component_type=='Card Style1'" class="feature_image_width component_container d__flex">   
+            <div class="feature_card" *ngFor="let card of row.data.data">
+              <div class="faq_icon">
+                <!-- <ion-icon name="mail" size="large" class="counter_icon"></ion-icon> -->
+                <img [src]="db.product_img(card.image)" alt="icon" class="image">
+              </div>
+              <div class="title_ text-left">
+                <h4 class="title" [style.--line]="1">{{card.title}}</h4>
+                <p class="content" [style.--line]="5">{{card.content}} </p>
+              </div>
+            </div>
+          </div>  
+          <!-- 2 -->
+          <div class="content__container component_container d__flex" *ngIf="row.component_type=='Card Style2'">
+            <div class="cards_list" *ngFor="let card of row.data.data">
+              <div class="sub_card_con">
+                <div class="feature_title_">
+                  <h4 class="title">
+                    {{card.title}}
+                  </h4>
+                </div>
+                <div class=" description_text desc_class fnt-16 fnt_400">
+                  <p class="content webkit-text" [style.--line]="3">{{card.content}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 3 -->
+          <div class="card_list__container_main d__flex component_container" *ngIf="row.component_type=='Card Style3'">   
+            <div *ngFor="let card of row.data.data" class="card_list__container">
+              <div class="top_icon bg_icon">
+                <!-- <ion-icon name="mail" class="counter_icon"></ion-icon> -->
+                <img *ngIf="card.image" [src]="db.product_img(card.image)">
+              </div>
+              <div class="feature__title_">
+                <h4 class="title">
+                  {{card.title}}
+                </h4>
+              </div>
+              <p class="content">{{card.content}}</p>
+              <div class="learn_more d__flex">
+                <h5 class="button_name">
+                  {{card.button_name}}
+                </h5>
+                <ion-icon name="chevron-forward-outline"></ion-icon>  
+              </div>
+            </div>           
+          </div>
+          <!--  4-->
+          <div class="hover_card_list__container component_container d__flex" *ngIf="row.component_type=='Card Style4'">
+            <div class="cards_list" *ngFor="let card of row.data.data">
+              <div class="top_icon_card_container d__flex">
+                <div class="top_icon">
+                  <!-- <ion-icon name="mail" class="counter_icon"></ion-icon> -->
+                  <img *ngIf="card.image" [src]="db.product_img(card.image)" class="image">
+                </div>
+                <div class="hover_title_">
+                  <h4 class="title">
+                    {{card.title}}
+                  </h4>
+                </div>
+                <p class="content webkit-text"
+                  [style.--line]="3">{{card.content}} </p>
+                <!-- <div class="learn_more d__flex">
+                  <h4 class="button_name">
+                    {{card.button_name}}
+                  </h4>
+                  <ion-icon name="chevron-forward-outline"></ion-icon>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <!-- List Card -->
+<!-- 5 -->
+<!-- <div class="cardsection-main1" *ngIf="row.component_type=='Card Style4'">
+    <div class="cardsection d__flex">
+      <div class="card-box">
+        <img src="" alt="" class="icon1">
+        <div class="card-b">
+          <h4 class="m-0 title1">data.title1</h4>
+          <p class="content1">data.content1</p>
+        </div>
+      </div>
+    </div>
+</div> -->

@@ -1,0 +1,24 @@
+.header__{
+    padding: 0 10px;
+}
+
+.content_section{
+  padding: 10px 15px;
+}
+
+.border-b{
+  border-bottom: 1px solid var(--border);
+  background: #f1f1f1;
+}
+
+.close-button{
+    ion-button{
+        background: transparent !important;
+    }
+}
+
+.content{
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: 400;
+}

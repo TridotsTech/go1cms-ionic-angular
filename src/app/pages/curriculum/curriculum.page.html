@@ -1,0 +1,40 @@
+
+<app-header title="Curriculum" [no_home]="true" [back_route]="db.ismobile?'/home':'/'" [no_cart]="true"></app-header>
+
+<!-- [scrollEvents]="true" (ionScroll)="db.scrolled($event)" -->
+
+<ion-content >
+  <!-- <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher> -->
+  <app-header class="desktop-header"  [desktop]="true"></app-header>
+
+
+   <ion-grid class="header-bg" *ngIf="!db.ismobile">
+      <ion-row>
+         <ion-col>
+            <div class="header-title" >
+               <h1 class="white-text">Curriculum</h1>
+               <div class="Breadcrumb mb-15 robot-font" >
+                  <span class="mr-5 mouse white-text font-14" routerLink="/" routerDirection="root" >Home</span>
+                  <ion-icon class="top-v  white-text" name="chevron-forward"></ion-icon>
+                  <span class="mouse mr-5 primary primary-name white-text font-14">Curriculum</span>
+               </div>
+            </div>
+         </ion-col>
+      </ion-row>
+   </ion-grid>
+
+  <!-- <div class="pagebuilder__container back_image">
+    
+    <app-page-builder ></app-page-builder>
+  </div> -->
+  <app-page-builder *ngIf="content_data && content_data.length !=0" [about_us]="true" [viewContent]="content_data"></app-page-builder>
+  <div class="color" *ngIf="!db.ismobile">
+      <div class="main-width m-h">
+          <app-footer  class="footer"></app-footer>
+      </div>
+  </div>
+</ion-content>
+
+

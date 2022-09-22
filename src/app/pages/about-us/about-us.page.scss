@@ -1,0 +1,67 @@
+
+// ul {
+//     list-style-type: unset !important;
+//     margin: 0;
+//     padding: 0;
+// }
+
+.m-h{
+    min-height: 0% !important;
+   
+    // background: #cccc;
+}
+
+.top-v{
+    top: 2px;
+    position: relative;
+}
+.header-bg{
+    background-image:  url('/assets/image/about-us.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.action-link{
+    color: var(--heading-text-color);
+}
+.action-link:hover{
+    color: var(--body-text-color);
+}
+.header-title h1{
+    text-align: center;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.Breadcrumb{
+    text-align: center;
+}
+.font-14{
+    font-size: 14px;
+}
+.title{
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--title-color);
+}
+
+.contact-icon{
+    background: var(--body-text-color);
+    color: #fff;
+    padding: 8px;
+    border-radius: 5px;
+    margin-right: 8px;
+    font-size: 18px;
+}
+.contact-position{
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+.w-100{
+    width: 100% !important;
+}

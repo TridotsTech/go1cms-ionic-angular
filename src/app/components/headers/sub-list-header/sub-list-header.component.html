@@ -1,0 +1,12 @@
+
+<div  class="aboutus  sub_header bt1_bg" [class.is_transparent]="sub_header_value && sub_header_value.is_transparent == 1" [class.is_transparent_null]="sub_header_value && sub_header_value.is_transparent == 0" [ngStyle]="(sub_header_value.enabled == 1 && sub_header_value.is_transparent == 0) ? (sub_header_value.sub_header_bg_img ?  db.img_style(sub_header_value.sub_header_bg_img,'full-bg-img__')  : db.img_style(sub_header_value.sub_header_bg_color,'color')) : null" >
+          <div class="header-title main-width">
+             <h2 *ngIf="sub_header_value.sub_header_title" [style.color]="sub_header_value.text_color ? sub_header_value.text_color : null" class="white-text_ title">{{sub_header_value.sub_header_title}}</h2>
+             <div *ngIf="sub_header_value.sub_header_title" class="Breadcrumb">
+                <span class="mr-5 mouse" [style.color]="sub_header_value.text_color ? sub_header_value.text_color : null" routerLink="/" routerDirection="root">Home</span>
+                <ion-icon [style.color]="sub_header_value.text_color ? sub_header_value.text_color : null" name="chevron-forward-outline"></ion-icon>
+                <!-- <img class="top-v white-text icon" src="{{db.product_img(item.icon)}}" [ngStyle]="db.img_style(item.bt1_bg,'full-bg-img__')" alt=""> -->
+                <span [style.color]="sub_header_value.text_color ? sub_header_value.text_color : null" class="mouse mr-5 ">{{sub_header_value.sub_header_title}}</span>
+             </div>
+          </div>
+ </div>

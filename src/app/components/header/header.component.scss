@@ -1,0 +1,152 @@
+.disable_top{
+  display: none;
+  opacity: 0;
+}
+
+
+@media (max-width: 768px) {
+  .desktop__header {
+    display: none;
+  }
+}
+
+//bala
+.transparent_header{
+  padding: 20px 0;
+  background-color: transparent!important;
+}
+.web__header{
+  transition: all .7s ease; 
+  animation: 300ms ease-in-out 0s normal none 1 running fadeInDown;
+}
+.icongap{
+  gap: 15px;
+}
+.go1-cms-top-bar{
+  position: relative;
+
+.closeicon{
+  position: absolute;
+    font-size: 18px;
+    right: 11px;
+    top: 10px;
+    display: flex;
+    background: white;
+    border-radius: 50px;
+   
+}
+}
+.removecls{
+  display: none;
+}
+
+ion-button, ion-badge {
+    background: var(--body-text-color);
+    color: var(--button-text-color);
+    border-radius: 50px;
+}
+
+.non_web__header{
+  position: fixed;
+  z-index: 12;
+  width: 100%;
+  background: transparent;
+}
+
+ .links{
+    ion-icon{
+      font-size: 20px;
+    }
+    .a{
+      img{
+        height: 23px;
+      }
+    }
+  }
+  .top_menu{
+    img{
+      height: 15px;
+    }
+  }
+
+  .follow_us{
+    padding: 0 5px;
+  }
+  
+// .absolute_position{
+//   position: relative;
+// }
+// .absolute_header{
+//   position: absolute;
+//   width: 100%;
+//   z-index: 9;
+// }
+
+// .absolute__sticky{
+//   position: fixed!important;
+//   top: 0;
+//   width: 89%;
+//   // transition: all .4s ease; transition: all 0.3s ease 0s;
+// }
+  // .web__header_{
+
+  // }
+  // .defalut_head{
+  //   background: var(--heading-text-color);
+  // }
+  
+  // .web__header{
+  //   display: flex;
+  //   background: #fff;
+  //   box-shadow: rgb(0 0 0 / 8%) 0px 5px 6px;
+  //   padding: 10px;
+  //   padding-right: 17px;
+  //   border-bottom: 1px solid rgb(0 0 0 / 5%);
+  //   box-shadow: rgb(0 0 0 / 8%) 0px 2px 12px;
+
+  // }
+  // .center_full_header{
+//   width: 100%!important;
+//   max-width: 1765px!important;
+//   padding: 0 40px;
+// }
+// .first-toolbar-container {
+  //   height: 40px;
+  //    background: var(--primary-color);
+  //   border-bottom: 1px solid rgb(255 255 255 / 17%) !important;
+  //    border-bottom: none;
+  //    font-size: 14px;
+  //   line-height: 14px;
+  //    color: #fff;
+  //   position: relative;
+  //   margin-right: -17px;
+  //   z-index: 20;
+  //   .apple_icon{
+  //     padding-top: 5px;
+  //     margin-left: 2px;
+  //   }
+  //   .first__link,a {
+  //     padding: 0px 7px;
+  //     cursor: pointer;
+  //     color: var(--white);
+  //     transition: color 0.3s;
+  //   }
+  //   .first__link:hover,
+  //   a:hover {
+  //     color: var(--white);;
+  //   }
+  //   p{
+  //     color: var(--white);
+  //   }
+  // }
+  
+// .width-32{
+//   width: 29px;
+//   position: relative;
+//   top: 0px;
+//   padding-right: 5px;
+// }
+
+// .web__header_back_null{
+//   background: unset !important;
+// }

@@ -1,0 +1,140 @@
+<div class="desktop__header"  [class.without_location]="db.website_settings.enable_multi_vendor == 1">
+    <ion-row *ngIf="db.header_info && db.header_info.layout_json && db.header_info.layout_json.length != 0" class=" d__flex just-s header__" >
+     
+     <div *ngFor="let data of db.header_info.layout_json[0].columns" class=""  [ngStyle]="db.img_style(data.width,'width')">
+        <div  *ngIf="data.layout_data.section_name == 'Header Logo' && data.layout_data.section_type == 'Static Section'" class="header_logo logo logos gap-50" >
+        <a routerLink="/" routerDirection="root">
+          <!-- <img *ngIf="db.video_header" class="home__logo mouse"  src="assets/imgs/white-logo.png" [src]="db.product_img((!db.scroll_event.sticky_header && db.header_info.is_transparent_header == 1 && (sub_header_value && sub_header_value.enabled == 1 && sub_header_value.is_transparent == 1)) ? db.website_settings.theme_settings.secondary_logo : db.website_settings.theme_settings.website_logo )"> -->
+          <img *ngIf="sub_header_value && sub_header_value.enabled == 1 && sub_header_value.is_transparent == 1; else page_header"  class="home__logo mouse"  [src]="db.product_img((!db.scroll_event.sticky_header && (sub_header_value && sub_header_value.enabled == 1 && sub_header_value.is_transparent == 1)) ? db.website_settings.theme_settings.secondary_logo : db.website_settings.theme_settings.website_logo )" >
+
+          <ng-template #page_header>
+            <img  class="home__logo mouse"  [src]="db.product_img((!db.scroll_event.sticky_header && db.header_info.is_transparent_header == 1) ? db.website_settings.theme_settings.secondary_logo : db.website_settings.theme_settings.website_logo )" >
+          </ng-template>
+        </a>
+
+      </div>
+  
+        <div *ngIf="data.layout_data.section_name == 'Header Menu' && data.layout_data.section_type == 'Menu'">
+          <app-default-header [web_header]="true" [menu]="data.layout_data" *ngIf="(db.header_info && db.header_info.is_menu_full_width == 0)" ></app-default-header>
+          <!-- <app-secondary-header  *ngIf="(db.header_info && db.header_info.is_static_menu == 0 && db.header_info.is_menu_full_width == 0) && db.secondary_header " [cat_products]="cat_products" [css_hide]="'css_hide'"></app-secondary-header> -->
+
+          <!-- <app-default-header [web_header]="true" [menu]="data.layout_data" ></app-default-header> -->
+        </div>
+
+        <!-- (click)="cart_pop.emit('mycart')" -->
+        <div *ngIf="data.layout_data.section_name == 'Header Button' && data.layout_data.section_type == 'Static Section'"  class="custom-button cart__badge d__flex m-0 w-100 mouse"  >
+            <div class="d__column" *ngIf="data.layout_data.button_text">
+              <ion-button button class="primary-btn" fill="clear" [href]="data.layout_data.button_link" [target]="data.layout_data.link_target">{{data.layout_data.button_text}}</ion-button>
+            </div> 
+        </div>
+     
+     </div>
+
+    
+  
+      <!-- <app-search-products *ngIf="db.header_info.enable_search_bar == 1"  class="searchbar"></app-search-products> -->
+  
+     
+     
+      
+      <!-- db.header_info.enable_wishlist == 1 || db.header_info.enable_cart == 1 ||  -->
+    
+      <!-- <div *ngIf="db.header_info.enable_account_menu == 1" class="d__flex menu__buttons"> -->
+  
+        <!-- <ion-button fill="clear" class="box box_2 mouse d__flex" routerLink="/register-form/student">
+          <ion-icon src="/assets/icon/register.svg"></ion-icon>
+          <p class="m-0 title">Register</p>
+        </ion-button> -->
+        
+        <!-- <div class="custom-button  wish__cart__badge d__flex m-0  mouse"  (click)="cart_pop.emit('wishcart')" >
+          <div class="d__column">
+            <img class="icon" *ngIf="db.website_settings && db.website_settings.app_settings" [src]="db.product_img(db.website_settings.app_settings.wishlist_icon)" alt="">  -->
+            <!-- <ion-badge >{{db.wish_count}}</ion-badge> -->
+            <!-- <span [ngClass]="db.video_header?'white':'black'">Wishlist</span>
+          </div> 
+        </div> -->
+  
+        <!-- <div class="custom-button cart__badge d__flex m-0  mouse"  (click)="cart_pop.emit('mycart')" >
+          <div class="d__column">
+            <img class="icon" *ngIf="db.website_settings && db.website_settings.app_settings" [src]="db.product_img(db.website_settings.app_settings.cart_icon)" alt="">  -->
+            <!-- <ion-badge >{{db.cart_count}}</ion-badge> -->
+            <!-- <span [ngClass]="db.video_header?'white':'black'">Cart</span>
+          </div> 
+        </div> -->
+        <!-- <div #dropdown2 class="custom-button mouse ion-text-right position-relative"  (mouseenter)="(db.cust_name || db.guest_cust_name)?drop_down2 = true:null" (click)="db.openLogin()" (mouseleave)="drop_down2 = false">
+  
+          <div class="d__column" (click)="(db.cust_name || db.guest_cust_name) ? drop_down2 = !drop_down2:null">
+            <img class="icon" *ngIf="db.website_settings && db.website_settings.app_settings" [src]="db.product_img(db.website_settings.app_settings.user_icon)" alt=""> 
+            <span [ngClass]="db.video_header?'white':'black'" class="webkit-text" [style.--line]="1">{{(db.cust_name || db.guest_cust_name) ? (db.cust_name || db.guest_cust_name):'Sign In'}}</span>
+          </div>
+  
+          <div *ngIf="drop_down2 && (db.cust_name || db.guest_cust_name)"  class="dropdown-box" >
+            <ion-item button   *ngFor="let item of _menu" (click)="drop_down2 = false" [routerLink]="'/'+item.route" lines="none"> {{item.title}}</ion-item>
+            <ion-item button  lines="none" (click)="drop_down2 = false" (click)="cart_pop.emit('wishcart')">  Wishlist</ion-item>
+            <ion-item button  lines="none" (click)="drop_down2 = false" (click)="db.logout()"> Logout  </ion-item>
+          </div>
+  
+        </div> -->
+  
+  
+  
+    </ion-row>
+  
+  </div>
+  
+  
+  <!-- <div class="desktop__header"  [class.without_location]="db.website_settings.enable_multi_vendor == 1">
+    <ion-row class=" d__flex just-s  pr-17" [class.py-10]="db.path != '/' && db.path != '/home' && db.path != '/p/about-us' && db.path != '/p/community' && db.path != '/contact-us' && db.path != '/p/terms-condition' && db.path != '/p/privacy-policy' && db.path != '/p/return-policy'">
+  
+      <div class="d__flex logos gap-50" >
+        <a *ngIf="db.path != '/' && db.path != '/home' && db.path != '/p/about-us' && db.path != '/p/community' && db.path != '/contact-us' && db.path != '/p/terms-condition' && db.path != '/p/privacy-policy' && db.path != '/p/return-policy'" routerLink="/" routerDirection="root"><img class="home__logo mouse"  [src]="db.product_img(db.website_settings.website_logo)" ></a>
+  
+        <div class="location__container border" *ngIf="db.website_settings.enable_multi_vendor == 0 && (db.website_settings.enable_multi_store == 1 || db.website_settings.enable_map == 1 )" fill="clear" id="trigger-button"  (click)="db.path != '/checkout'?db.location_modal():null" >
+          <div class="d__flex gap-5 mouse">
+            <img class=" location-icon" button *ngIf="db.website_settings && db.website_settings.app_settings" [src]="db.product_img(db.website_settings.app_settings.header_location_icon)" alt=""> 
+              <div>
+                <span class="location__title d__flex gap-5">{{db.location_info.city ? db.location_info.city:'Location'}} <ion-icon class="fnt-12" name="chevron-down-outline"></ion-icon> </span>
+                <div class="fnt-12 location-subtitle webkit-text" [style.--line]="1">{{db.location}}</div>
+              </div>
+          </div>
+        </div>
+      </div>
+  
+      <app-search-products *ngIf="db.path != '/' && db.path != '/home' && db.path != '/p/about-us' && db.path != '/p/community' && db.path != '/contact-us' && db.path != '/p/terms-condition' && db.path != '/p/privacy-policy' && db.path != '/p/return-policy'" class="searchbar"></app-search-products>
+  
+      <div *ngIf="db.path != '/' && db.path != '/home' && db.path != '/p/about-us' && db.path != '/p/community' && db.path != '/contact-us' && db.path != '/p/terms-condition' && db.path != '/p/privacy-policy' && db.path != '/p/return-policy'" class="d__flex menu__buttons gap-15 ion-justify-content-end">
+  
+        <div class="custom-button  wish__cart__badge d__flex m-0  mouse"  (click)="cart_pop.emit('wishcart')" >
+          <div class="d__column">
+            <img class="icon" *ngIf="db.website_settings && db.website_settings.app_settings" [src]="db.product_img(db.website_settings.app_settings.wishlist_icon)" alt=""> 
+            <ion-badge >{{db.wish_count}}</ion-badge>
+            <span [ngClass]="!db.video_header?'white':'black'">Wishlist</span>
+          </div> 
+        </div>
+  
+        <div class="custom-button cart__badge d__flex m-0  mouse"  (click)="cart_pop.emit('mycart')" >
+          <div class="d__column">
+            <img class="icon" *ngIf="db.website_settings && db.website_settings.app_settings" [src]="db.product_img(db.website_settings.app_settings.cart_icon)" alt=""> 
+            <ion-badge >{{db.cart_count}}</ion-badge>
+            <span [ngClass]="!db.video_header?'white':'black'">Cart</span>
+          </div> 
+        </div>
+        <div #dropdown2 class="custom-button mouse ion-text-right position-relative"  (mouseenter)="(db.cust_name || db.guest_cust_name)?drop_down2 = true:null" (click)="db.openLogin()" (mouseleave)="drop_down2 = false">
+  
+          <div class="d__column" (click)="(db.cust_name || db.guest_cust_name) ? drop_down2 = !drop_down2:null">
+            <img class="icon" *ngIf="db.website_settings && db.website_settings.app_settings" [src]="db.product_img(db.website_settings.app_settings.user_icon)" alt=""> 
+            <span [ngClass]="!db.video_header?'white':'black'" class="webkit-text" [style.--line]="1">{{(db.cust_name || db.guest_cust_name) ? (db.cust_name || db.guest_cust_name):'Sign In'}}</span>
+          </div>
+  
+          <div *ngIf="drop_down2 && (db.cust_name || db.guest_cust_name)"  class="dropdown-box" >
+            <ion-item button   *ngFor="let item of _menu" (click)="drop_down2 = false" [routerLink]="'/'+item.route" lines="none"> {{item.title}}</ion-item>
+            <ion-item button  lines="none" (click)="drop_down2 = false" (click)="cart_pop.emit('wishcart')">  Wishlist</ion-item>
+            <ion-item button  lines="none" (click)="drop_down2 = false" (click)="db.logout()"> Logout  </ion-item>
+          </div>
+  
+        </div>
+  
+      </div>
+  
+    </ion-row>
+  </div> -->

@@ -1,0 +1,15 @@
+   <!-- POrtfolio -->
+   <div class="main_container mt-20 animate {{item.class_name}}" *ngIf="item.section_type == 'Static Section' && item.section_name =='Portfolio'"
+   [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+     <ul class="flex_box ourteam_two_images">
+      <li *ngFor="let data of item.profile" class="ourteam_card mouse" (mouseenter)="data.show = true" (mouseleave)="data.show = false">
+         <div class="ourteam_two_image">
+            <img [src]="db.product_img(data.image)" alt="">
+            <div *ngIf="data.show" class="ourteam_two_details">
+               <h2 class="ourteam_two_name txt-c m-0">{{data.name}}</h2>
+               <h4 class="ourteam_role txt-c m-0">{{data.role}}</h4>
+            </div>
+         </div>
+      </li>
+     </ul>
+ </div>

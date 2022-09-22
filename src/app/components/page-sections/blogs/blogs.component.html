@@ -1,0 +1,103 @@
+<div>
+  <!-- blog list -->
+  <ion-grid class="main-width  blog__container row-pad pad-40" *ngIf="item.section_type == 'Custom Section' && item.section_name == 'Blog List'" [style.background]="item.background_color?item.background_color:null">
+    <ion-row class="text-center">
+      <ion-col>
+        <div class="d__flex header_wth_bg" [class.py-10]="db.ismobile" [ngStyle]="db.img_style(item.background_image,'img')">
+          <div *ngIf="!db.ismobile"></div>
+          <div class="title_with_back_g" [class.just-c]="!db.ismobile">
+            <h2 *ngIf="!db.ismobile" class="title-card" [class.ion-text-left]="db.ismobile">{{item.title}}
+              <span>{{item.title1}}</span></h2>
+            <span class="linecenter"></span>
+            <h2 *ngIf="db.ismobile" [style.color]="item.heading_text_color ? item.heading_text_color: null" class="title-card" [class.ion-text-left]="db.ismobile">{{item.title}} <span>{{item.title1}}</span>
+            </h2>
+          </div>
+          <div class="mouse d__flex view_all mr-5" button [style.background]="item.view_all_bg_color?item.view_all_bg_color:null" routerLink="/blog-list">
+            <p class="m-0 " [style.color]="item.view_all_text_color?item.view_all_text_color:null">View more</p>
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </div>
+        </div>
+        <ul class="home-card3-blog  d__flex">
+          <li *ngFor="let data of item.data">
+            <div class="card1 blog-s">
+              <a class="pos-r" [routerLink]="['/blog-detail/',data.route]">
+                <div class="img-wrapper blog-img">
+                  <img src="{{db.product_img(data.meta_image)}}">
+                </div>
+              </a>
+              <a>
+                <a [routerLink]="['/blog-detail/',data.route]">
+                  <h6 class="webkit-text" [style.--line]="1">{{data.title}}</h6>
+                </a>
+                <p class="webkit-text" [style.--line]="2">{{data.blog_intro}}</p>
+              </a>
+              <div class="d__flex date_w_button just-s">
+                <ion-button class="blog-btn" fill="clear" [routerLink]="['/blog-detail/',data.route]">View More
+                </ion-button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- blog section 1 -->
+  <div class="container blog1_sec main-width" *ngIf="item.section_type == 'Custom Section' && item.section_name =='Blog List 1'">
+    <div class="title_&_subtitle text-center">
+      <h2 class="title heading">{{item.title}}</h2>
+      <h5 class="subtitle">{{item.sub_title}}</h5>
+    </div>
+    <div class="blog_icon_prev mouse" (click)="blog1_prev()">
+      <ion-icon class="blog1_next" name="chevron-back-outline"></ion-icon>
+    </div>
+    <div class="blog_icon_next mouse" (click)="blog1_next()">
+      <ion-icon class="blog1_prev" name="chevron-forward-outline"></ion-icon>
+    </div>
+    <ion-slides class="blog_1_element d__flex" loop="true" [options]="blog_slider_one" #IonSlides>
+      <ion-slide class="blog_1_card blog_1_shadow" *ngFor="let data of item.data">
+        <div class="blog_1_img"><img src="{{db.product_img(data.meta_image)}}" /></div>
+        <div class="b1_content">
+          <div class="tag_with_date d__flex">
+            <p class="b1_tag m-0 b1_fnt_size">{{data.blog_category}}</p>
+            <div class="blog_dot "></div>
+            <p class="b1_post_by m-0 b1_fnt_size">{{data.blogger}}</p>
+            <div class="blog_dot"></div>
+            <p class="b1_date m-0 b1_fnt_size">{{data.published_on}}</p>
+          </div>
+          <h4 [style.--line]="3" class="b1_card_title webkit-text heading">{{data.title}}</h4>
+          <p [style.--line]="3" class="b1_card_subtitle webkit-text">{{data.blog_intro}}</p>
+          <h6 class="b1_see_more color_sample mouse">CONTINUE READING </h6>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <!-- blog section 2 -->
+  <!-- <div class="container blog1_sec main-width" *ngIf="item.section_type == 'Custom Section' && item.section_name =='Blog List 1'">
+      <div class="title_&_subtitle text-center">
+         <h2 class="title heading">{{item.title}}</h2>
+         <p class="subtitle">{{item.sub_title}}</p>
+      </div>
+      <div class="blog_icon_prev mouse"(click)="blog1_prev()">
+         <ion-icon class="blog1_next"   name="chevron-back-outline"></ion-icon>
+        </div>
+      <div class="blog_icon_next mouse"(click)="blog1_next()">
+         <ion-icon  class="blog1_prev"  name="chevron-forward-outline"></ion-icon>
+      </div>
+      <ion-slides class="blog_1_element d__flex" loop="true" [options]="blog_slider_one" #IonSlides>
+         <ion-slide class="blog_1_card " *ngFor="let data of item.data">
+            <div class="blog_2_img"><img  src="{{db.product_img(data.meta_image)}}" /></div>
+            <div class="b1_content">
+            <div class="tag_with_date d__flex">
+                <p class="b1_tag m-0 b1_fnt_size">{{data.blog_category}}</p>
+                <div class="blog_dot "></div>
+                <p class="b1_post_by m-0 b1_fnt_size">{{data.blogger}}</p>
+                <div class="blog_dot"></div>
+                <p class="b1_date m-0 b1_fnt_size">{{data.published_on}}</p>
+            </div>
+            <h4 class="b1_card_title heading">{{data.title}}</h4>
+            <h6 class="b1_see_more color_sample mouse">CONTINUE READING </h6>
+         </div>
+      </ion-slide>
+      </ion-slides>
+   </div> -->
+</div>

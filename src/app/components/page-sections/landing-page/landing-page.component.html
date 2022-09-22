@@ -1,0 +1,151 @@
+<div>
+  <div *ngIf="item.section_type == 'Static Section' && item.section_name == 'landing page content slider'" class="header_slider_four_bg Landing-sec0 {{item.class_name}}">
+    <div class="main-width">
+          <div class="slider_four_content">
+            <h5 class="slider_four_subtitle  sub_title">{{item.sub_title}}</h5>
+            <h1 class="slider_four_title title heading">{{item.title}}</h1>
+            <p class="slider_sec_four_title subtitle content">{{item.content}}</p>
+            <div class="d__flex just-c">
+              <div *ngIf="item.btn_text" class="button2 txt-c">
+                <ion-button fill="clear" (click)="db.route_url(item.btn_text.btn_redirect_url)">{{item.btn_text.btn_text}}</ion-button>
+              </div>
+              <div *ngIf="item.btn_text1" class="button3 txt-c">
+                <ion-button fill="clear" (click)="db.route_url(item.btn_text1.btn_redirect_url)">{{item.btn_text1.btn_text}}</ion-button>
+              </div>
+            </div>
+          </div>
+          <div class="main_cointain">
+            <div class="slider_center_image main_image">
+              <img src={{db.product_img(item.main_image)}} />
+            </div>
+            <ul *ngIf="!db.ismobile" class="content_list just-c" [class.d__flex]="!db.ismobile">
+              <li *ngFor="let con of item.content_list">
+                <div class="d__flex content1">
+                  <ion-icon name="checkmark-circle"></ion-icon>
+                  <p class="m-0">{{con.content}}</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+    </div> 
+  </div>
+
+  <div class="{{item.class_name}} py-30 mb-40 Landing-sec1" *ngIf="item.section_type == 'Static Section' && item.section_name == '3 Column Card Section'">
+    <div [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0" >
+        <div class="">
+          <h5 class="subtitle txt-c">{{item.subtitle}}</h5>
+          <h2 class="title txt-c">{{item.title}}</h2>
+          <p class="description txt-c text-width">{{item.description}}</p>
+        </div>
+        <ul class="list_section1 d__flex gap-15">
+            <li class="" *ngFor="let data of item.list_data;let i = index">
+                <div class="mouse title">
+                    <p class=" txt-c color_white">{{data.title}}</p>
+                </div>
+                <p class="m-0 txt-c color_white content">{{data.description}}</p>
+                  <img src="{{db.product_img(data.image)}}" alt="">
+            </li>
+        </ul> 
+    </div>
+  </div>
+
+  <div class="{{item.class_name}} py-30 mb-40 Landing-sec2" *ngIf="item.section_type == 'Static Section' && item.section_name == 'CMS Elements Section'">
+    <div [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0" >
+        <div class="">
+          <h5 class="subtitle txt-c">{{item.subtitle}}</h5>
+          <h2 class="title txt-c">{{item.title}}</h2>
+          <p class="description txt-c text-width">{{item.description}}</p>
+        </div>
+        <ul class="list_section2 d__flex">
+            <li class="" *ngFor="let data of item.list">
+              <h4 class="txt-c m-0">{{data.title_content}}</h4>
+              <p class="txt-c m-0">{{data.element_text}}</p>
+            </li>
+        </ul> 
+    </div>
+  </div>
+
+  <div class="{{item.class_name}} py-30 Landing-sec3 mb-40" *ngIf="item.section_type == 'Static Section' && item.section_name == '3 Column Image Section'">
+    <div [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0" >
+        <div class="">
+          <h5 class="subtitle txt-c">{{item.subtitle}}</h5>
+          <h2 class="Title txt-c">{{item.Title}}</h2>
+          <p class="description txt-c text-width">{{item.description}}</p>
+        </div>
+        <ul class="list_section3 overlay_img d__flex gap-15">
+            <li class="" *ngFor="let data of item.List_data">
+              <img src="{{db.product_img(data.image)}}" alt="">
+            </li>
+        </ul>
+        <div *ngIf="item.btn_text" class="button txt-c">
+          <ion-button fill="clear" (click)="db.route_url(item.btn_text.btn_redirect_url)">{{item.btn_text.btn_text}}</ion-button>
+        </div>
+    </div>
+  </div>
+
+  <div class="{{item.class_name}} py-30 Landing-sec4 mb-40" *ngIf="item.section_type == 'Static Section' && item.section_name == 'UI Blocks Section'">
+    <div [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0" >
+        <div class="">
+          <h5 class="subtitle txt-c">{{item.subtitle}}</h5>
+          <h2 class="title txt-c">{{item.title}}</h2>
+          <p class="description txt-c text-width">{{item.description}}</p>
+          <ul class="content_list just-c" [class.d__flex]="!db.ismobile">
+            <li *ngFor="let con of item.content_list">
+              <div class="d__flex content1 just-c">
+                <ion-icon name="checkmark-circle"></ion-icon>
+                <p class="m-0">{{con.content}}</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <ul class="list_section4 d__flex flex-w just-c">
+            <li class="" *ngFor="let data of item.list_data">
+              <p class="txt-c m-0">{{data.ui_name}}</p>
+            </li>
+        </ul> 
+    </div>
+  </div>
+
+  <div class="{{item.class_name}} py-30 Landing-sec5 mb-40" *ngIf="item.section_type == 'Static Section' && item.section_name == 'Customize Section'">
+    <div [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0" >
+        <div class="">
+          <h5 class="subtitle txt-c">{{item.subtitle}}</h5>
+          <h2 class="title txt-c">{{item.title}}</h2>
+          <p class="description text-width txt-c">{{item.description}}</p>
+        </div>
+        <div class="">
+          <img src="{{db.product_img(item.image)}}" alt="">
+        </div>
+    </div>
+  </div>
+
+  <div class="{{item.class_name}} py-30 Landing-sec6" *ngIf="item.section_type == 'Static Section' && item.section_name == 'Left Content Button with Right Image'">
+    <div [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0" class="content">
+        <div class="box1">
+          <h5 class="subtitle">{{item.subtitle}}</h5>
+          <h2 class="title">{{item.title}}</h2>
+          <div class="d__flex">
+            <div *ngIf="item.btn_text" class="button2 txt-c">
+              <ion-button fill="clear" (click)="db.route_url(item.btn_text.btn_redirect_url)">{{item.btn_text.btn_text}}</ion-button>
+            </div>
+            <div *ngIf="item.btn_text1" class="button3 txt-c">
+              <ion-button fill="clear" (click)="db.route_url(item.btn_text1.btn_redirect_url)">{{item.btn_text1.btn_text}}</ion-button>
+            </div>
+          </div>
+          <ul class="content_list" [class.d__flex]="!db.ismobile">
+            <li *ngFor="let con of item.content_list">
+              <div class="d__flex content1">
+                <ion-icon name="checkmark-circle"></ion-icon>
+                <p class="m-0">{{con.content}}</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="box2">
+          <img src="{{db.product_img(item.image)}}" alt="">
+        </div>
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,101 @@
+<div *ngIf="item.side_menu && item.side_menu.enabled && item.side_menu.enabled == 1 && item.side_menu.position =='Top'"  class="top_bar" [class.filter_shadow]="db.scroll_event.header_sticky">
+  <app-list-filter [item]="item" (get_category_values)="get_category($event)" ></app-list-filter>
+</div>
+
+
+<div class="d__flex main-width container_box"  [ngClass]="{'position_left': item.side_menu && item.side_menu.enabled && item.side_menu.position =='Left', 'position_right':  item.side_menu && item.side_menu.enabled && item.side_menu.position =='Right'}">
+
+  <div *ngIf="item.side_menu && item.side_menu.enabled && item.side_menu.enabled == 1 && (item.side_menu.position == 'Left' || item.side_menu.position == 'Right')" class="box__1">
+      <ul class="blog_list_con">
+        <li *ngFor="let menu of item.side_menu.data" class="blog_list mouse d__flex just-s" (click)="get_category_values(menu,item)">
+           <a class="blog_list_title">{{menu[item.side_menu.display_field]}}</a>
+           <ion-icon name='chevron-forward-outline'></ion-icon>
+        </li>
+      </ul>
+  </div>
+
+  <div class="box__2">
+    <!-- Grid -->
+    <div class="box_" *ngIf="(item.page_type == 'List' && (item.list_style == 'Single Column List Style'))">
+      <app-list-box [list_value]="item.list_content" [row_count]="1"></app-list-box>
+    </div>
+
+    <div class="box_" *ngIf="(item.page_type == 'List' && (item.list_style == '3 Column Grid List Style'))">
+      <app-list-box [list_value]="item.list_content" [row_count]="3"></app-list-box>
+    </div>
+
+    <div class="box_" *ngIf="(item.page_type == 'List' && (item.list_style == '4 Column Grid List Style'))">
+      <app-list-box [list_value]="item.list_content" [row_count]="4"></app-list-box>
+    </div>
+
+    <div class="box_" *ngIf="(item.page_type == 'List' && (item.list_style == '5 Column Grid List Style'))">
+      <app-list-box [list_value]="item.list_content" [row_count]="5"></app-list-box>
+    </div>
+
+    <!-- Grid cover -->
+
+    <div class="box_" *ngIf="(item.page_type == 'List' && (item.list_style == '3 Column Grid Cover List Style'))">
+      <app-list-box [list_value]="item.list_content" [grid_cover]="true" [row_count]="3"></app-list-box>
+    </div>
+
+    <div class="box_" *ngIf="(item.page_type == 'List' && (item.list_style == '4 Column Grid Cover List Style'))">
+      <app-list-box [list_value]="item.list_content" [grid_cover]="true" [row_count]="4"></app-list-box>
+    </div>
+
+    <div class="box_" *ngIf="(item.page_type == 'List' && (item.list_style == '5 Column Grid Cover List Style'))">
+      <app-list-box [list_value]="item.list_content" [grid_cover]="true" [row_count]="5"></app-list-box>
+    </div>
+
+    <!-- Grid without description -->
+
+    <div class="box_" *ngIf="(item.page_type == 'List' && (item.list_style == '3 Column Grid Without Description List Style'))">
+      <app-list-box [list_value]="item.list_content" [description_null]="true"  [row_count]="3"></app-list-box>
+    </div>
+
+    <div class="box_" *ngIf="(item.page_type == 'List' && (item.list_style == '4 Column Grid Without Description List Style'))">
+      <app-list-box [list_value]="item.list_content" [description_null]="true"  [row_count]="4"></app-list-box>
+    </div>
+
+    <!-- Grid with Blogger -->
+
+    <div class="box_" *ngIf="(item.page_type == 'List' && (item.list_style == '3 Column Grid Bolgger Image List Style'))">
+      <app-list-box [list_value]="item.list_content" [blogger]="true"  [row_count]="3"></app-list-box>
+    </div>
+  
+    <div class="box_" *ngIf="(item.page_type == 'List' && (item.list_style == '4 Column Grid Bolgger Image List Style'))">
+      <app-list-box [list_value]="item.list_content" [blogger]="true"  [row_count]="4"></app-list-box>
+    </div>
+
+    <!-- Grid masonry -->
+
+    <div class="box_" *ngIf="(item.page_type == 'List' && (item.list_style == '3 Column Grid Masonry List Style'))">
+      <app-list-box-masonry [list_value]="item.list_content" [column_count]="3"></app-list-box-masonry>
+    </div>
+
+    <div class="box_" *ngIf="(item.page_type == 'List' && (item.list_style == '4 Column Grid Masonry List Style'))">
+      <app-list-box-masonry [list_value]="item.list_content" [column_count]="4"></app-list-box-masonry>
+    </div>
+
+    <!-- Grid horizontal -->
+
+    <div class="box_" *ngIf="(item.page_type == 'List' && (item.list_style == '2 Column Grid Horizontal List Style'))">
+      <app-list-horizontal [list_value]="item.list_content" [row_count]="2"></app-list-horizontal>
+    </div>
+
+
+    <!-- Null Values -->
+
+    <div class="empty_list d__flex" *ngIf="item && item.list_content && item.list_content.length == 0 && no_products">
+      <img  class="icon" button  [src]="db.product_img('https://innila.tridotstech.com//files/no-product.svg')">
+      <h6 >No Records Found!</h6>
+      <!-- <p>Sorry, there’re no products for this search!</p> -->
+    </div>
+
+    <ion-infinite-scroll  *ngIf="!no_products" threshold="800px" (ionInfinite)="loadData($event,item)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText=""></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+  </div>
+
+</div>
+

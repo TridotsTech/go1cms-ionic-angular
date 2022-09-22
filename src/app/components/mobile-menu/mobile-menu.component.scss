@@ -1,0 +1,100 @@
+
+    .menu__content{
+        // background: url('https://cdn.gokommerce.com/meatton/GIDL90MP_side-menu.jpg') no-repeat ;
+        background: url('/assets/imgs/Side-menu.png') no-repeat ;
+        background-size:cover;
+        min-height: 100%;
+    }
+
+    ion-item{
+        --background: transparent;
+        ion-label{
+            // color: var(--heading-text-color);
+            font-size: 15px;
+        }
+        ion-icon{
+            font-size: 18px;
+            color: #000;
+        }
+    }
+
+    ion-label{
+        font-family: unset !important;
+    }
+
+    .user{
+        padding:0 5px;
+        border-bottom: 1px solid;
+        border-color: var(--border);
+    }
+
+    .user-title{
+        p{
+            color: var(--heading-text-color);
+            margin: 2px 0;
+            width: 200px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+    .menu-icon{
+        margin-right: 15px;
+        font-size: 24px;
+        color: var(--heading-text-color);
+    }
+    .menu-user{
+        margin-right: 12px;
+        color: var(--heading-text-color);
+        font-size: 50px;
+        margin-top: 5px;
+    }
+
+    ion-item:hover{
+        --ion-item-color : var(--heading-text-color);
+    }
+
+  .policy{
+      margin-left: 10px;
+  }
+
+  .social__icons{
+      ion-icon{
+        font-size: 30px;
+      }
+      p{
+        font-size: 13px;
+        color: #686868;
+        font-weight: 500;
+      }
+  }
+
+  .home__logo{
+      border-bottom: 1px solid #ddd;
+        padding-left: 20px;
+      img{
+          height: 40px;
+          padding: 6px 0;
+      }
+  }
+  ion-item{
+      border-bottom: 1px solid #ddd;
+  }
+
+  .bottom-abs{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+//   .hide_policy{
+//       opacity: 0;
+//     //   transition: visibility 0s linear 0.33s, opacity 0.33s linear;
+//       transition: 0.3s;
+//       height: 0;
+//   }
+
+//   .show_policy{
+//       transition: 0.3s;
+//       transition: visibility 0s linear 0.33s, opacity 0.33s linear;
+//       height: unset !important;
+//   }

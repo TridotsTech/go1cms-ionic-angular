@@ -1,0 +1,58 @@
+
+.mobile-search-bar{
+    // background: var(--body-text-color);
+    border: 1px solid transparent;
+    padding: 10px;
+    font-size: 13px;
+  // background: var(--heading-text-color);
+    .mobile-location{
+        flex: 0 0 calc(50% - 5px);
+        margin-right: 8px;
+        border: 1px solid;
+        height: 40px;
+        border-color: var(--border);
+        padding: 3px 5px;
+        border-radius: 3px;
+            background: #fff;
+        ion-icon,div,p{
+            color: var(--heading-text-color);
+            font-weight: 300;
+        }
+        ion-icon{
+                position: relative;
+                top: 2px;
+        }
+        .locat-icon{
+            height: 20px;
+            width: 25px;
+            color: var(--primary-text);
+        }
+        div:nth-child(1){
+            flex: 0 0 15%;
+            overflow: hidden;
+        }
+    }
+    ion-input{
+        // flex: 0 0 50%;
+        --padding-bottom: 9px;
+        --padding-top: 9px;
+        background: #ffffff;
+    background: #ffffff;
+      height: 40px;
+      border: 1px solid;
+      border-color: var(--border);
+    border-radius: 3px;
+
+    }
+    .search-icon{
+        font-size: 14px;
+        padding-right: 10px;
+    }
+}
+
+.mobile-search{
+    position: absolute;
+    right: 10px;
+    font-size: 16px;
+    color: hsl(0deg 0% 0% / 49%);
+}

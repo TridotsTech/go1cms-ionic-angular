@@ -1,0 +1,28 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="" (click)="modalCtrl.dismiss()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Review-product</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<app-header [title]="datas.posted_by" [no_home]="true" [no_cart]="true"></app-header>
+
+<ion-content>
+
+  <div class="container" >
+   
+    <div *ngIf="!db.ismobile" class="header__ border-b d__flex just-s">
+      <h6 class="title ">{{datas.posted_by}}</h6>
+      <div class="close-button" *ngIf="!db.ismobile">
+        <ion-button fill="clear" (click)="modalCtrl.dismiss()"><ion-icon name="close-outline"></ion-icon></ion-button>
+      </div>
+    </div>
+
+    <div class="content_section">
+      <p class="m-0 content">{{datas.content}}</p>
+    </div>
+   
+</div>
+</ion-content>

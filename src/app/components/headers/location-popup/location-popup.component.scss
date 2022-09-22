@@ -1,0 +1,300 @@
+
+
+input:focus{
+    border: none !important;
+}
+
+.search{
+    margin-right: 10px;
+    ion-input{
+        font-weight: 500;
+        font-size: 14px;
+        background: #fff;
+        ion-icon{
+            font-size: 20px;
+        }
+    }
+}
+
+ion-item{
+    --padding-start:0;
+    --inner-padding-end:0;
+    div{
+        margin: 0 10px;
+    }
+}
+
+
+// .location-button{
+//     padding: 5px 10px;
+// }
+.search__location{
+    height: calc(100vh - 103px);
+}
+
+.location-container{
+    display: grid;
+    // place-items: end;
+    // justify-content: center;
+    min-height: 100%;
+}
+
+
+
+
+
+// .location-dropdown-box {
+//   box-shadow: 0 1px 15px rgb(0 0 0 / 25%);
+//   background-color: #fff;
+//   min-width: 140px;
+//   position: absolute;
+//   z-index: 20;
+// }
+
+.location-dropdown-box{
+    padding: 10px;
+    // z-index: 20;
+    // right: unset;
+    // left: 200px;
+    // min-height: 140px;
+    // width: 490px;
+    // border-radius: 5px;
+    // background: #fff;
+    // padding: 15px;
+    // box-shadow: 0 1px 15px rgb(0 0 0 / 25%);
+
+    .location-button-wb{
+        background: #ddd;
+        border-radius: 4px;
+        height: 32px;
+        font-size: 12px;
+        margin-left: 5px;
+        // ion-icon{
+        //     color: #fff;
+        // }
+        // color: var(--heading-text-color);
+      }
+
+
+    .current_location{
+        font-size: 14px;
+        ion-spinner{
+            height: 20px;
+            color: var(--body-text-color);
+        }
+
+        ion-icon,.warn{
+          color: red;
+        }
+
+    }
+    .locat_heading {
+        font-weight: 600;
+        color: #252525;
+        font-size: 15px;
+      }
+
+
+    .location__input{
+        margin: 15px 0;
+        .location__search{
+            input{
+                height: 40px;
+                width: 100%;
+                font-size: 13px;
+                border: 1px solid var(--border);
+                padding-left: 12px;
+            }
+        //   position: relative;
+        //   .local__locations{
+        //     position: absolute;
+        //     top: 40px;
+        //     z-index: 3;
+        //     background: #ffff;
+        //     right: 0;
+        //     left: 0;
+        //     box-shadow: rgb(82 82 82 / 20%) 0px 7px 29px 0px;
+        //     overflow-y: auto;
+        //     max-height: 200px;
+        //     li{
+        //       margin: 10px 20px;
+        //       cursor: pointer;
+        //       font-size: 12px;
+        //       overflow: hidden;
+        //       // user-select: none;
+        //       // -moz-user-select: none;
+        //     }
+        //     li:hover{
+        //       background: #8080801c;
+        //     }
+        //   }
+
+        }
+
+
+        // ion-input{
+        //     border: 1px solid var(--body-text-color);
+        // }
+        span{
+            flex: 0 0 10%;
+            text-align: center;
+        }
+        input,ion-button{
+            // flex: 0 0 45%;
+            height: 40px;
+            border-radius: 3px;
+        }
+    }
+
+    .top__locations{
+        margin:  10px 0;
+        .avail__locations,.avail__pincodes{
+            margin: 10px;
+            
+            // flex-wrap: wrap;
+            // flex-direction: column;
+            .avail__locat{
+                border: 1px solid var(--border);
+                border-radius: 19px;
+                font-size: 14px;
+                padding: 4px 10px;
+                font-weight: 600;
+                min-width: 100px;
+                p{
+                    text-align: center;
+                }
+            }
+            .active-area{
+                background: var(--body-text-color);
+                
+                .p_area{
+                    color: #fff !important;
+                }
+            }
+        }
+
+
+        .avail__pincode{
+            height: 140px;
+            align-items: flex-start;
+            overflow: auto;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 15px;
+             div,ion-item{
+                width: 100%;
+                padding: 10px 0;
+                border-bottom: 1px solid;
+                border-color: var(--border);
+                 p{
+                     font-size: 14px;
+                     padding-left: 10px
+                 }
+             }
+             div:hover{
+                 background: #f1f1f1;
+             }
+        }
+    }
+
+    .location-error{
+        color: red;
+        font-size: 15px;
+        text-align: center;
+        background: #ff000012;
+        padding: 4px;
+    }
+}
+
+._location {
+
+    h6 {
+      margin: 0;
+      padding: 5px 0;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    ._locat {
+      color: var(--primary-text);
+      padding-right: 7px;
+      font-size: 14px;
+    }
+
+    // .input {
+    //   background: #f2f2f2;
+    //   border-radius: 4px;
+    //   padding: 1px;
+    //   ion-input {
+    //     position: relative;
+    //     height: 32px;
+    //   }
+    //   ._loc-height1 {
+    //     top: 120px !important;
+    //   }
+
+    //   .search-area {
+    //     background: #f2f2f2;
+    //     position: absolute;
+    //     z-index: 1;
+    //     top: 73px;
+    //     overflow-y: auto;
+    //     max-height: 200px;
+    //     ion-item {
+    //       --background: transparent;
+    //       color: #424242 !important;
+    //       height: 35px;
+    //     }
+    //   }
+    //   ion-input,
+    //   .search-area {
+    //     font-size: 12px !important;
+    //     width: 180px;
+    //   }
+    // }
+  }
+
+
+
+
+
+   input:focus{
+        border-width: 0.5px !important;
+      
+   }
+
+   @media screen and (min-width:768px) {
+    //    .avail__pincode{
+        //    position: fixed;
+            // z-index: 999999999999999;
+            // background: #fff;
+    //    }
+
+    //    ::-webkit-scrollbar{
+    //        display: none;
+    //        width: 0;
+    //    }
+   }
+
+   .close-icon{
+       font-size: 25px;
+   }
+
+
+   input:focus{
+    border: none !important;
+}
+
+@media screen and (max-width:768px) {
+    .input{
+     font-size: 13px;
+     width: 100%;
+     height: 40px;
+     border: none;
+     padding: 0 0 0 10px;
+     margin: 0;
+     border-radius: 2px;
+     background: #fff;
+    }
+}

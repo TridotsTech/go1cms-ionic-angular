@@ -1,0 +1,118 @@
+@media screen and (min-width:768px) {
+
+  .con {
+    width: 65%;
+    margin: 0 auto;
+    padding: 20px;
+
+    .box_2 {
+      flex: 0 0 10 0%;
+    }
+
+    .box_1 {
+      padding: 10px;
+    }
+  }
+}
+
+@media screen and (max-width:768px) {
+
+  .con {
+    padding: 10px;
+    flex-direction: column;
+
+    .box_1,
+    .box_2 {
+      flex: 0 0 50%;
+    }
+  }
+}
+
+.go_back {
+  width: auto;
+  text-align: center;
+
+  .next {
+    width: max-content;
+    background: #003dd9;
+    color: #fff;
+    border-radius: 5px;
+    text-transform: capitalize;
+  }
+}
+
+.button {
+  margin: 10px 0;
+  width: 100%;
+
+  .back {
+    width: max-content;
+    font-weight: bold;
+    background: #003dd9;
+    color: #fff;
+    border-radius: 5px;
+    text-transform: capitalize;
+  }
+}
+
+.logo {
+
+  img {
+    border-radius: 6px;
+  }
+}
+
+.h5 {
+  margin-top: 10px;
+  color: #003dd9;
+  font-size: 20px;
+}
+
+.form {
+  border-radius: 10px;
+}
+
+.successfully {
+  border: 1px solid #dddd;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 6px;
+
+  .title1 {
+    color: #3BB77E;
+    text-align: center;
+  }
+
+  .title2 {
+    color: #333333;
+    font-size: 13px;
+    text-align: center;
+
+    span {
+      font-weight: 700;
+    }
+  }
+}
+
+p {
+  color: #757575;
+  font-size: 14px;
+}
+
+.paymet {
+  text-align: center;
+
+  img {
+    width: 35%;
+  }
+}
+
+.m-h {
+  min-height: 0% !important;
+}
+
+
+.clear-image {
+  image-rendering: -webkit-optimize-contrast;
+  object-fit: cover;
+}

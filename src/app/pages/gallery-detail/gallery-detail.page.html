@@ -1,0 +1,14 @@
+
+<app-header title="" [no_home]="true" [back_route]="db.ismobile?'/home':'/'" [no_cart]="true"></app-header>
+
+<ion-content>
+  <div class="sticky__header">
+    <app-header class="desktop-header"  [desktop]="true"></app-header>
+  </div>
+  <div class="main-width">
+    <div *ngIf="gallery_details">
+      <h5>{{gallery_details.title}}</h5>
+      <app-gallery-details [item]="gallery_details.gallery"></app-gallery-details>
+    </div>
+  </div>
+</ion-content>

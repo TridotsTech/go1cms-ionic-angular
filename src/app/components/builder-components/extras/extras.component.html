@@ -1,0 +1,73 @@
+        <!-- 6 Forms -->
+          <!-- form 1 -->
+          <div *ngIf="row.component_type=='contact_form'" class="contact_block component_container">
+            <form>
+              <div *ngFor="let label of row.data" class="input-group">
+                <input type="text" class="form-control" placeholder="{{label.place_holder}}" formControlName="fullname">
+                <label for="fullName">{{label.label}}</label>
+              </div>
+              <div class="input-group form-textarea">
+                <textarea class="form-control" placeholder="Message" formControlName="message"></textarea>
+                <label for="message">Message</label>
+              </div>
+              <div class="input-group">
+                <button type="submit" class="button_2">{{row.button_name}} <i class="fas fa-arrow-right"></i></button>
+              </div>
+            </form>
+          </div>
+          <!-- form 2 -->
+          <!-- 16 break -->
+          <div *ngIf="row.component_type=='Break'" class="component_container">
+            <br>
+          </div>
+          <!-- 17 divider -->
+          <div *ngIf="row.component_type=='Divider'" class="divider component_container">
+          </div>
+
+          <!--19  CTA  -->
+          <div>
+            <div class="about_container" *ngIf="row.component_type=='CTA Style1'">
+              <h2 class="title">{{row.data.title}}</h2>
+              <p class="content">{{row.data.content}}</p>
+              <ion-button class="button_name" fill="clear"> {{row.data.button_name}}</ion-button>
+            </div>
+          </div>
+          <!-- 21 Menu -->
+          <div class="d__flex Menu Component" *ngIf="row.component_type=='Horizontal Menu'">
+            <div class="menu_item" *ngFor="let data of row.data"> 
+              <a href="">{{data.label}}</a>
+              <ul class="child_menu" *ngIf="data.child">
+                <li *ngFor="let child of data.child" class="child_item">
+                  <a href="">{{child.label}}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- SubHeader -->
+          <div *ngIf="row.component_type=='Subheader Style1'" class="aboutus bt1_bg">
+            <!-- [ngStyle]="img_style(row.data.image,'full-bg-img__')"> -->
+            <div class="header-title">
+              <h6 class="name">{{row.data.name}}</h6>
+              <div class="Breadcrumb robot-font">
+                <span class=" mouse home" routerLink="/p/home-page"
+                  routerDirection="root">Home</span>
+                <img class="image" [src]="db.product_img(row.dataimage)" alt="">
+                <!-- <ion-icon class="top-v white-text icon" src="{{db.product_img(item.icon)}}"></ion-icon> -->
+                <span class="mouse name">{{row.name}}</span>
+              </div>
+            </div>
+          </div>
+          <!-- 20 Tabs -->
+          <!-- <div *ngIf="row.component_type=='tabs'" class="component_container tabs_component">
+            <div class="tab__ d__flex">
+              <div class="tablinks" *ngFor="let tab of row.data;let i=index" [class.active.tablinks]="tab.isShow"
+                (click)="checkIsShow(row.tabs,i,row)">
+                <div>
+                  {{tab.name}}
+                </div>
+              </div>
+            </div>
+            <div *ngIf="row.content" class="tab_content">
+              {{row.content}}
+            </div>
+          </div> -->  

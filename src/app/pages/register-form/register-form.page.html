@@ -1,0 +1,24 @@
+<app-header [title]="titles+' Registration'" [no_home]="true" [back_route]="db.ismobile?'/home':'/'" [no_cart]="true"></app-header>
+<ion-content class="register-form">
+  <app-header class="desktop-header" [desktop]="true"></app-header>
+  <div class="con" [class.min-vh]="!db.ismobile">
+    <div class="logo" *ngIf="form_type == 'student'">
+      <img class="clear-image" src="assets/image/registration-slider-alt.png" alt="">
+    </div>
+    <h5 *ngIf="!db.submitted_data" class="h5">{{titles}} Registration</h5>
+    <div class="form" *ngIf="!db.submitted_data">
+      <app-dynamic-form [myform]="order_form" [form_values]="item" [submitted]="submitted" [form_data]="forms_data1" [current_value]="current_value"></app-dynamic-form>
+      <div class="button d__flex">
+        <ion-button class="back" fill="clear" (click)="save_form()">Submit</ion-button>
+      </div>
+    </div>
+    <div class="successfully" *ngIf="db.submitted_data && form_type != 'student'">
+      <h3 class="title1">Thanks you for your submission!</h3>
+    </div>
+  </div>
+  <div class="color" *ngIf="!db.ismobile">
+    <div class="main-width m-h">
+      <app-footer class="footer"></app-footer>
+    </div>
+  </div>
+</ion-content>

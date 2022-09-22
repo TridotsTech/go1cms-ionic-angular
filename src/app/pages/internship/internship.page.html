@@ -1,0 +1,81 @@
+
+
+
+<app-header *ngIf="db.ismobile" title="{{internship}}" [no_home]="true" [back_route]="db.ismobile?'/home':'/'" [no_cart]="true"></app-header>
+
+<ion-content [scrollEvents]="true" (ionScroll)="db.scrolled($event)" class="{{route_value}}">
+
+<!-- [class.transparent_header]="db.transparent_header==1 && db.transparent_header"-->
+<!-- -->
+<div class="" [class.absolute_class]="db.scroll_event.header_sticky && db.header_info.is_transparent_header == 1"  [class.sticky__header]="db.scroll_event.header_sticky && db.header_info && db.header_info.sticky_header && db.header_info.sticky_header == 1 && db.header_info.is_transparent_header == 0" >
+   <app-header class="desktop-header"  
+   [class.sticky_header]="db.scroll_event.sticky_header"
+   [class.transparent_sticky]="db.header_info  && db.header_info.is_transparent_header && db.header_info.is_transparent_header == 1 && db.header_info.sticky_header == 1"
+   [class.transparent_scroll]="db.header_info  && db.header_info.is_transparent_header && db.header_info.is_transparent_header == 1 && db.header_info.sticky_header == 0"
+   [desktop]="true"
+   [sub_header_value]="db.sub_header_data" >
+  </app-header>
+</div>
+
+<div *ngIf="db.sub_header_data && (db.sub_header_data.enabled == 1 && db.sub_header_data.is_transparent == 0)">
+   <app-sub-list-header [sub_header_value]="db.sub_header_data" ></app-sub-list-header>
+</div>
+
+   <!-- <ion-grid class="header-bg" *ngIf="!db.ismobile">
+      <ion-row>
+         <ion-col>
+            <div class="header-title">
+               <h1 class="white-text">{{internship}}</h1>
+               <div class="Breadcrumb mb-15 robot-font" >
+                  <span class="mr-5 mouse white-text font-14" routerLink="/" routerDirection="root" >Home</span>
+                  <ion-icon class="top-v  white-text" name="chevron-forward"></ion-icon>
+                  <span class="mouse mr-5 primary primary-name white-text font-14">{{internship}}</span>
+               </div>
+            </div>
+         </ion-col>
+      </ion-row>
+   </ion-grid>  -->
+
+   
+   <div  [class.min-vh]="!db.ismobile">
+      <app-page-builder *ngIf="content_data && content_data.length != 0" [about_us]="true" [internship]="internship" [viewContent]="content_data"></app-page-builder>
+   </div>
+   
+   <div class="color">
+      <div class="m-h">
+        <app-footer  class="footer"></app-footer>
+      </div>
+  </div>
+
+  <div class="scolltoTop" *ngIf="!db.ismobile && scroll_top && db.website_settings.theme_settings.back_to_top == 1" (click)="scrollToTop()">
+   <ion-icon name="chevron-up-outline"></ion-icon>
+  </div>
+
+</ion-content>
+
+ <!-- <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher> -->
+  
+   <!-- <ion-grid class="header-bg" *ngIf="!db.ismobile">
+      <ion-row>
+         <ion-col>
+            <div class="header-title">
+               <h1 class="white-text">About Us</h1>
+               <div class="Breadcrumb mb-15 robot-font" >
+                  <span class="mr-5 mouse white-text font-14" routerLink="/" routerDirection="root" >Home</span>
+                  <ion-icon class="top-v  white-text" name="chevron-forward"></ion-icon>
+                  <span class="mouse mr-5 primary primary-name white-text font-14">About Us</span>
+               </div>
+            </div>
+         </ion-col>
+      </ion-row>
+   </ion-grid> -->
+
+  <!-- <div class="pagebuilder__container back_image">
+    
+    <app-page-builder ></app-page-builder>
+  </div> -->
+
+
+  <!-- [scrollEvents]="true" (ionScroll)="db.scrolled($event)" -->

@@ -1,0 +1,85 @@
+  <!-- 11 pricing -->
+  <div class=" pricing_card component_container cards card_sub" *ngIf="row.component_type=='Pricing Style1'">          
+    <h4 class="title">{{row.data.title}}</h4>
+    <h6 class="price">{{row.data.price}}</h6>                    
+<div class="ion-text-center features">
+  <h4 class="feature_name">{{row.data.feature_name}}</h4>
+  <div *ngFor="let detail of row.data.data" class="d__flex features_list">
+    <ion-icon name="checkmark-outline"></ion-icon>
+    <p class="m-0 feature">{{detail.feature}}</p>
+  </div>
+</div>              
+  <ion-button class="button_name" fill="clear">
+    <span>{{row.data.button_name}}</span>
+  </ion-button>            
+</div>
+<!--  2-->
+<div class="cards1 pricing_card component_container" *ngIf="row.component_type=='Pricing Style2'">            
+<div class="d__flex just-s border-b1 pb-15">
+  <div>
+    <h4 class="title">{{row.data.title}}</h4>
+    <h6 class="feature_name">{{row.data.feature_name}}</h6>
+  </div>
+  <h4 class="price">{{row.data.price}} </h4>
+</div>
+<div class="ion-text-center features">
+  <div *ngFor="let features of row.data.data" class="d__flex features_list">
+    <ion-icon name="checkmark-outline"></ion-icon>
+    <p class="m-0 f_list">{{features.feature}}</p>
+  </div>        
+</div>
+<div class="ion-text-center">
+  <ion-button class="card1_btn" fill="clear">
+    <span>{{row.data.button_name}}</span>
+  </ion-button>
+</div>
+</div>
+
+<!-- 3 -->
+<div class="cards2  pt-15 pricing_card component_container" *ngIf="row.component_type=='Pricing Style3'">
+<div class="just-s">  
+  <h4 class="title">{{row.data.title}}</h4>
+  <h6 class="price">{{row.data.price}}</h6>
+</div>
+<div class="ion-text-center features">
+  <h4 class="feature_name">{{row.data.feature_name}}</h4>
+  <div *ngFor="let features of row.data.data" class="d__flex features_list">
+    <ion-icon name="checkmark-circle-outline"></ion-icon>
+    <p class="m-0 f_list">{{features.feature}}</p>
+  </div>
+</div>   
+<div class="ion-text-center">
+  <ion-button class="card1_btn" fill="clear">
+    <span>
+      {{row.data.button_name}}
+    </span>
+  </ion-button>
+</div>    
+</div>
+<!--  -->
+<!-- <ul class="gap-15 pt-15 pricing_card component_container" *ngIf="row.component_type=='Pricing Style4'">
+<li class="cards3 d__flex price_card">
+<div class="flex-20 txt-c border-r">
+  <h6 class="m-0 name ">{{row.name}}</h6>
+  <p class="m-0 r_price heading">{{row.name}} </p>
+</div>
+<div class="flex-5"></div>
+<div class="ion-text-center flex-25 features">
+  <div *ngFor="let features of row.data" class="d__flex features_list">
+    <ion-icon name="checkmark-circle-outline"></ion-icon>
+    <p class="m-0 f_list">Features</p>
+  </div>
+</div>
+<div class="ion-text-center flex-25 features">
+  <div *ngFor="let features of data" class="d__flex features_list">
+    <ion-icon name="checkmark-circle-outline"></ion-icon>
+    <p class="m-0 f_list">{{features.name}}</p>
+  </div>
+</div>
+<div class="ion-text-center flex-25">
+  <ion-button class="card1_btn" fill="clear">
+    <span>{{row.button_name}}</span>
+  </ion-button>
+</div>
+</li>
+</ul> -->

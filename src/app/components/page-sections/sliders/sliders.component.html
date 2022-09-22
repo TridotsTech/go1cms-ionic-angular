@@ -1,0 +1,143 @@
+<div>
+  <!-- slider -->
+  <div *ngIf="item.section_type == 'Slider' && (item.section_name == 'Slider' || item.section_name == 'Slider(Image & Video)')">
+    <div class="position-relative">
+      <div *ngIf="!db.ismobile && item.data" class="back" (click)="slidePrev()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </div>
+      <!--  [options]="{onlyExternal: false}" [options]="slideOpts"-->
+      <!-- pager="true" -->
+      <ion-slides class="web-slider mouse" loop="true" [options]="db.ismobile?mobile_slider:web_slider">
+        <ion-slide *ngFor="let data of item.data">
+          <img *ngIf="!db.ismobile && data.slider_type == 'Image'" src="{{db.product_img(data.web_image)}}" defaultImage="" alt="" (click)="redirect_next_page.emit(data.redirect_url)">
+          <img *ngIf="db.ismobile && data.slider_type == 'Image'" src="{{db.product_img(data.mobile_app_image)}}" defaultImage="" alt="" (click)="redirect_next_page.emit(data.redirect_url)">
+          <!-- <iframe *ngIf="data.slider_type == 'Video' && data.video_type == 'Youtube'" [src]="sanitize_url(data.web_videoyoutube_id)" width="100%" [height]="db.ismobile?'180':'600'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> -->
+        </ion-slide>
+      </ion-slides>
+      <div *ngIf="!db.ismobile && item.data" class="next" (click)="slideNext()">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </div>
+    </div>
+  </div>
+  <!--Content Sliders -->
+  <div *ngIf="item.section_name == 'Content Slider' && item.section_type == 'Static Section'" class="main-width2 {{item.class_name}} animate">
+    <div class="position-relative">
+      <div *ngIf="!db.ismobile" class="back" loop="slider" (click)="slidePrev()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </div>
+      <ion-slides class="web-slider mouse" pager="true" [options]="db.ismobile?mobile_slider:web_slider" loop="true">
+        <ion-slide *ngFor="let data of item.sliders" (click)="redirect_next_page.emit(data.redirect_url1)">
+          <div>
+            <img *ngIf="!db.ismobile && data.web_image1" src="{{db.product_img(data.web_image1)}}" class="web_image1" defaultImage="" alt="">
+            <img *ngIf="db.ismobile && data.mobile_image1" src="{{db.product_img(data.mobile_image1)}}" class="mobile_image1" defaultImage="" alt="">
+          </div>
+        </ion-slide>
+      </ion-slides>
+      <div *ngIf="!db.ismobile" class="next" (click)="slideNext()">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </div>
+    </div>
+  </div>
+  <!-- slider 2 -->
+  <!-- [ngStyle]="{'background':'linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)),url('+db.product_img(item.bg_img)+')','background-repeat':'no-repeat','background-size':'cover'}"  -->
+  <!-- [style.background-image]="'url('+db.product_img(item.bg_image)+')'" -->
+  <div *ngIf="item.section_type == 'Static Section' && item.section_name == 'Content with slider 1'"  [style.background-image]="'url('+db.product_img(item.bg_img)+')'" class="{{item.class_name}} bg_img header_slider_bg">
+    <div class="main-width d__flex main-contain" [class.jus_start]="(item.position =='left'||item.position =='Left'||item.position =='LEFT'||item.position =='start'||item.position =='Start'||item.position =='START') && item.position" [class.jus_center]="(item.position =='center'||item.position =='Center'||item.position =='CENTER') && item.position"  [class.jus_end]="(item.position =='right'||item.position =='Right'||item.position =='RIGHT'||item.position =='End'||item.position =='end'||item.position =='END') && item.position">
+      <div class="slider_content">
+        <h5 class="slider_subtitle title heading m-0 sub_title">{{item.sub_title}}</h5>
+        <h1 class="slider_title title heading">{{item.title}}</h1>
+        <p class="slider_sec_title subtitle content"[class.txt_center]="(item.position =='center'||item.position =='Center'||item.position =='CENTER') && item.position">
+          {{item.content}}</p>
+        <div class="d__flex" [class.jus_center]="(item.position =='center'||item.position =='Center'||item.position =='CENTER') && item.position">
+          <ion-button *ngIf="item.btn_text" class="header_btn btn" fill="clear" (click)="db.route_url(item.btn_text.btn_redirect_url)">{{item.btn_text.btn_text}}</ion-button>
+          <ion-button *ngIf="item.btn_text1" class="header_btn btn1" fill="clear" routerLink="/{{item.btn_text1.btn_redirect_url}}">{{item.btn_text1.btn_text}}</ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- slider 3-->
+  <div *ngIf="item.section_type == 'Static Section' && item.section_name == 'Content with slider 2'" class="{{item.class_name}} header_slider_three_bg bg_image" [style.background-image]="'url('+db.product_img(item.bg_image)+')'">
+    <div class="main-width flex_row d__flex">
+      <div class="slider_three_content ">
+        <h5 *ngIf="item.sub_title"  class="slider_three_subtitle title heading sub_title">{{item.sub_title}}</h5>
+        <h1 *ngIf="item.title"  class="slider_three_title title heading m-0">{{item.title}}</h1>
+        <p *ngIf="item.content"  class="slider_sec_three_title subtitle content">{{item.content}}</p>
+        <ion-button *ngIf="item.btn_text" class="header_three_btn btn" fill="clear" (click)="db.route_url(item.btn_text.btn_redirect_url)">{{item.btn_text.btn_text}}</ion-button>
+        <ion-button *ngIf="item.btn_text1" class="header_three_btn btn1" fill="clear" routerLink="/{{item.btn_text1.btn_redirect_url}}">{{item.btn_text1.btn_text}}</ion-button>
+    </div>
+      <div class="slider_three_rgt_image">
+        <div class="right_image_slider right_image">
+          <img src={{db.product_img(item.right_image)}} />
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+
+  <!-- slider 4 -->
+  <!-- [style.background-image]="'url('+db.product_img(item.bg_image)+')'" -->
+  <div *ngIf="item.section_type == 'Static Section' && item.section_name == 'Content with slider 3'" class="header_slider_four_bg {{item.class_name}}" [style.background-image]="item.bg_image==undefined ? '' : 'url('+db.product_img(item.bg_image)+')'">
+    <div class="main-width ">
+            <div class="slider_four_content">
+            <h1 class="slider_four_title title heading">{{item.title}}</h1>
+            <p class="slider_sec_four_title subtitle content">{{item.content}}</p>
+            <ion-button *ngIf="item.btn_text" class="header_four_btn btn" fill="clear" (click)="db.route_url(item.btn_text.btn_redirect_url)">{{item.btn_text.btn_text}}</ion-button>
+            <ion-button *ngIf="item.btn_text1" class="header_four_btn btn1" fill="clear" routerLink="/{{item.btn_text1.btn_redirect_url}}">{{item.btn_text1.btn_text}}</ion-button>
+          </div>
+          <div class=" main_cointain">
+            <div class="slider_center_image main_image">
+              <img src={{db.product_img(item.main_image)}} />
+            </div>
+          </div>
+    </div> 
+  </div>
+
+<!-- SLider--5 -->
+  <!-- [style.background-image]="'url('+db.product_img(item.bg_image)+')'" -->
+  <div *ngIf="item.section_type == 'Static Section' && item.section_name == 'Content with slider 4'" class="header_slider_five_bg {{item.class_name}} "[style.background-image]="item.bg_image==undefined ? '' : 'url('+db.product_img(item.bg_image)+')'">
+    <div class="main-width flex_row main_flex">
+      <div class="slider_five_content ">
+        <h5 class="slider_five_subtitle title heading sub_title m-0">{{item.sub_title}}</h5>
+        <h1 class="slider_five_title title heading">{{item.title}}</h1>
+        <p class="slider_sec_five_title subtitle content">{{item.content}}</p>
+        <div>
+        <ion-button *ngIf="item.btn_text" class="header_five_btn btn" fill="clear" (click)="db.route_url(item.btn_text.btn_redirect_url)">{{item.btn_text.btn_text}}</ion-button>
+        <ion-button *ngIf="item.btn_text1" class="header_five_btn btn1" fill="clear" routerLink="/{{item.btn_text1.btn_redirect_url}}">{{item.btn_text1.btn_text}}</ion-button>
+      </div></div>
+    <div class="slider_five_rgt_image">
+      <div class="right_back_img" [style.background-image]="'url('+db.product_img(item.back_image)+')'">
+        <div class="right_image_slider bg2_image">
+          <img src={{db.product_img(item.front_image)}} />
+        </div>
+      </div></div>
+    </div>
+</div>
+
+<!-- slider 6 -->
+<!-- <div *ngIf="item.section_type == 'Static Section' && item.section_name == 'Content with slider 4'" class="header_slider_six_bg {{item.class_name}} "[style.background-image]="'url('+db.product_img(item.bg_image)+')'">
+  <div class="main-width flex_row main_flex">
+    <div class="slider_six_content ">
+      <h1 class="slider_six_subtitle title heading sub_title">{{item.sub_title}}</h1>
+      <h1 class="slider_six_title title heading">{{item.title}}</h1>
+      <p class="slider_sec_six_title subtitle content">{{item.content}}</p>
+      <div>
+      <ion-button *ngIf="item.btn_text" class="header_five_btn btn" fill="clear" (click)="db.route_url(item.btn_text.btn_redirect_url)">{{item.btn_text.btn_text}}</ion-button>
+      <ion-button *ngIf="item.btn_text1" class="header_five_btn btn1" fill="clear" routerLink="/{{item.btn_text1.btn_redirect_url}}">{{item.btn_text1.btn_text}}</ion-button>
+    </div></div>
+  <div class="slider_six_rgt_image">
+    <div class="fiex_half_iamge" >
+    <img src={{db.product_img(item.front_image)}} />  -->
+      <!-- <div class="right_image_slider bg2_image"> 
+      </div> -->
+    <!-- </div></div>
+  </div>
+</div> -->
+
+
+
+
+</div>
+
+
+

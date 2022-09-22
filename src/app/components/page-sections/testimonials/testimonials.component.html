@@ -1,0 +1,195 @@
+    <div>
+      <!-- Testimonial one -->
+       <div class="main_container align-center {{item.class_name}}" *ngIf="item.section_type == 'Custom Section' && item.section_name =='Testimonials Style 1'"
+       [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+  
+        <div class="position-relative">
+          <div class="creative_header">
+            <h2 class="txt-c title">{{item.title}}</h2>
+          </div>
+          
+          <ion-slides class="web-slider mouse testimonial_slides" pager="true" loop="true" [options]="db.ismobile?mobile_slider:web_slider_one">
+            <ion-slide *ngFor="let data of item.data;let i=index">
+                 <div class="testimonial_card">
+                    <div class="testimonial_card_image txt-l">
+                        <img [src]="db.product_img(data.image)" alt="">
+                    </div>
+                    <div class="testimonial_details">
+                        <h4 class="testimonial_name m-0">{{data.title}}</h4>
+                        <h6 class="ourteam_three_role m-0">{{data.posted_by}}</h6>
+                        <p class="webkit-text" [style.--line]="5">{{data.content}}</p>
+                        <div>
+                          <ion-icon color="warning" name="star"></ion-icon>
+                          <ion-icon color="warning" name="star"></ion-icon>
+                          <ion-icon color="warning" name="star"></ion-icon>
+                          <ion-icon color="warning" name="star"></ion-icon>
+                          <ion-icon color="warning" name="star"></ion-icon>
+                        </div>
+                    </div>
+                  </div>
+              
+            </ion-slide>
+          </ion-slides>
+     
+        </div>
+      </div>
+     
+         <!-- Testimonial two -->
+         <div class="main_container align-center {{item.class_name}}" *ngIf="item.section_type == 'Custom Section' && item.section_name =='Testimonials Style 2'"
+         [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+           <div class="position-relative" >
+             <div class="creative_header">
+               <h2 class="title">{{item.title}}</h2>
+             </div>
+             <div class="flex_box testimonialtwo_cards">
+               <div *ngFor="let data of item.data;let i=index" class="testimonialtwo_card">
+                 <div class="testimonial_details">
+                   <div>
+                     <ion-icon color="warning" name="star"></ion-icon>
+                     <ion-icon color="warning" name="star"></ion-icon>
+                     <ion-icon color="warning" name="star"></ion-icon>
+                     <ion-icon color="warning" name="star"></ion-icon>
+                     <ion-icon color="warning" name="star"></ion-icon>
+                   </div>
+                   <p class="testimonialtwo_content webkit-text" [style.--line]="5">{{data.content}}</p>               
+                 </div>
+               <div class="flex_box testimonialtwo_profile">
+                 <div class="testimonialtwo_card_image">
+                   <img [src]="db.product_img(data.image)" alt="">
+                 </div>
+                 <div>
+                   <h4 class="testimonial_name m-0">{{data.title}}</h4>
+                   <h6 class="ourteam_three_role m-0">{{data.posted_by}}</h6>
+                 </div>
+               </div>
+              </div>
+             </div>
+           </div>
+         </div>
+
+   <!-- testimonial six -->
+  <div  class="testimonialsix_container align_center mb-40" *ngIf="item.section_type == 'Custom Section' && item.section_name =='Testimonials Style 6'"
+      [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+    <div class="sliders">
+      <div class="testimonialsix_header heading ">
+        <h2 class="m-0 title">{{item.title}} <span class="span_title">{{item.span_title}}</span></h2>
+        <div class="testi_slider_six_btn">
+          <ion-button (click)="swipe_back()" class="slide_btn" size="small" fill="clear"><ion-icon name="chevron-back-outline"></ion-icon></ion-button>
+          <ion-button (click)="swipe_next()" class="slide_btn" size="small" fill="clear"><ion-icon name="chevron-forward-outline"></ion-icon></ion-button>
+        </div>
+      </div>
+      <ion-slides class="web-slider mouse testimonial_slides" loop="true"
+      [options]="db.ismobile?mobile_slider:web_slider_one" #testimonialSix>
+        <ion-slide *ngFor="let data of item.data">
+          <div class="testimonialThree_card">
+            <div class="image_position">
+              <div class="testimonialThree_image image">
+                <img [src]="db.product_img(data.image)" alt="">
+            </div>
+            </div>
+                <div class="testimonial_details">
+                    <h4 class="mg_10 name title heading cent-text  h2titile">{{data.person_name}}</h4>
+                    <h6 class=" role heading cent-text">{{data.person_role}}</h6>
+                    <p class="mg_30 content webkit-text" [style.--line]="5">{{data.content}}</p>
+                    <div class="mg_30">
+                      <ion-icon color="warning" name="star"></ion-icon>
+                      <ion-icon color="warning" name="star"></ion-icon>
+                      <ion-icon color="warning" name="star"></ion-icon>
+                      <ion-icon color="warning" name="star"></ion-icon>
+                      <ion-icon color="warning" name="star"></ion-icon>
+                    </div>
+                </div>
+              </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </div>
+
+  <!-- testimonial Five -->
+  <div class="testimonialFive_container align_center mb-40" *ngIf="item.section_type == 'Custom Section' && item.section_name =='Testimonials Style 5'"
+      [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">  
+    <ion-slides class="web-slider mouse testimonial_slides"  loop="true" [options]="db.ismobile?mobile_slider:web_slider_two" #testimonialFive>
+    <ion-slide *ngFor="let data of item.data">
+      <div class="testimonialThree_card">
+        <div class="testimonialThree_image">
+          <img [src]="db.product_img(data.image)" alt="">
+        </div>
+        <div class="testimonial_col2">
+          <div class="col2_content">
+            <h2 class="heading testi_5_head">{{data.title}}</h2>
+            <p class="mg_40 content webkit-text" [style.--line]="5">{{data.content}}</p>
+            <div class="testimonialFive_info mg_40">
+              <div class="testi_five">
+                <div class="testi_logo_img">
+                  <img [src]="db.product_img(data.company_log)">
+                </div>
+                <div>
+                <h4 class="txt_size title heading">{{data.person_name}}</h4>
+                <h6 class="role ">{{data.person_role}}</h6>
+              </div>
+              </div>
+              <div>
+                <ion-button class="slidebtn" (click)="slideFive_back()" size="small" fill="clear"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
+                <ion-button class="slidebtn" (click)="slideFive_next()" size="small" fill="clear"><ion-icon name="arrow-forward-outline"></ion-icon></ion-button>
+                <!-- <ion-icon (click)="slideFive_back()" name="arrow-back-outline"></ion-icon>
+                <ion-icon (click)="slideFive_next()" name="arrow-forward-outline"></ion-icon> -->
+              </div>  
+            </div>   
+          </div>  
+        </div>  
+      </div> 
+    </ion-slide> 
+    </ion-slides>  
+  </div> 
+
+<!--  testimonial four-->
+<div class="testimonialFour_container align_center mb-40" *ngIf="item.section_type == 'Custom Section' && item.section_name =='Testimonials Style 4'"
+[class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+  <h2 class="title heading testi_4_title txt-c">{{item.title}}</h2>
+  <div class="line"></div>
+  <ion-slides class="web-slider mouse testimonial_slides"  loop="true" [options]="db.ismobile?mobile_slider:web_slider_two"> 
+  <ion-slide *ngFor="let data of item.data">
+    <div class="testimonialThree_card">
+      <div class="testimonialThree_image">
+        <img [src]="db.product_img(data.image)" alt="">
+      </div>
+      <div class="testimonial_col2">
+        <h4 class="command">"{{data.title}}"</h4>
+        <p class="mg_40 content webkit-text" [style.--line]="5">{{data.content}}</p>
+        <h4 class="mg_40 name">{{data.person_name}}</h4>
+        <h6 class=" role">{{data.person_role}}</h6>
+      </div>
+    </div>
+  </ion-slide>
+  </ion-slides>
+</div>
+  <!-- testimonial three-->
+
+  <div class="testimonialThree_container align_center mb-40" *ngIf="item.section_type == 'Custom Section' && item.section_name =='Testimonials Style 3'"
+  [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+    <p class="title txt-c">{{item.title}}</p>
+    <h2 class="subtitle txt-c">{{item.sub_title}}</h2>
+    <ion-slides class="web-slider mouse testimonial_slides" pager="true" loop="true" 
+    [options]="db.ismobile?mobile_slider:web_slider_one">
+    <ion-slide *ngFor="let data of item.data">
+      <div class="testimonialThree_card">
+        <div class="testimonialThree_image">
+          <img [src]="db.product_img(data.image)" alt="">
+        </div>
+        <h4 class="">"{{data.title}}"</h4>
+        <div class="mg_10">
+          <ion-icon color="warning" name="star"></ion-icon>
+          <ion-icon color="warning" name="star"></ion-icon>
+          <ion-icon color="warning" name="star"></ion-icon>
+          <ion-icon color="warning" name="star"></ion-icon>
+          <ion-icon color="warning" name="star"></ion-icon>
+        </div>
+        <p class="mg_10  content webkit-text" [style.--line]="5">"{{data.content}}"</p>
+        <h4 class="heading">{{data.person_name}}</h4>
+        <h6 class="">{{data.person_role}}</h6>
+      </div>
+    </ion-slide>
+    </ion-slides>
+  </div>
+  
+</div>

@@ -1,0 +1,1912 @@
+<div class="page-builders">
+  <!-- <app-mobile-header2 *ngIf="db.ismobile && home"></app-mobile-header2> -->
+  <div class="mini-100" [style.overlay__bg]="db.ismobile && home"
+    [class.mb-60]="db.ismobile && (db.path == '/' || db.path == '/home') && db.path != '/home'">
+    <div *ngFor="let item of viewContent">
+      <!-- Mobile category-->
+      <div class="d__flex gap-10 mobile__unique__category"
+        *ngIf="db.ismobile && item.section_type == 'Custom Section' && item.section_name =='Mobile Category List'">
+        <div *ngFor="let item of db.category" class="mouse category__item" routerLink="/c/{{item.route}}"
+          routerDirection="forward">
+          <div class="category__img" *ngIf="item.mobile_image"> <img [src]="db.product_img(item.mobile_image)"></div>
+          <p class="m-0 category__name">{{item.category_name}}</p>
+        </div>
+      </div>
+      <!-- Dynamic forms -->
+      <div class="main-width" *ngIf="item.section_type == 'Static Section' && item.section_name == 'Dynamic forms'">
+        <div *ngIf="item.content && item.content.split(':')[0] = 'Form'" class="position-relative">
+          <app-webform1 [forms_route]="item.content.split(':')[1]"></app-webform1>
+        </div>
+      </div>
+      <div
+        *ngIf="(item.section_type == 'Slider' && (item.section_name == 'Slider' || item.section_name == 'Slider(Image & Video)')) || (item.section_name == 'Content Slider' && item.section_type == 'Static Section')">
+        <app-sliders [item]="item" (redirect_next_page)="redirect_next_page($event)"></app-sliders>
+      </div>
+      <div class=" contact-us {{item.class_name}}"
+        *ngIf="item.section_type == 'Static Section' && item.section_name == 'Contact Info'">
+        <!-- <h2 *ngIf="item.title" class="h2 heading txt-c m-0">{{item.title}}</h2>
+   <h4 *ngIf="item.sub_title" class="h4 heading txt-c m-0">{{item.sub_title}}</h4> -->
+        <!-- [ngStyle]="item.bt1_bg ? img_style(item.bt1_bg,'full-bg-img') : ''" -->
+        <div class="main-width  d__flex mobile-dis">
+          <div class="con__ d__flex" [style.background-image]="'url('+db.product_img(item.bt1_bg)+')'">
+            <div *ngIf="!db.ismobile" class="box_1">
+              <div class="absolute">
+                <h2 *ngIf="item.title" class="h2 heading txt-l m-0">{{item.title}}</h2>
+                <div class="location d__flex">
+                  <!-- <ion-icon *ngIf="item.address_icon" [src]="db.product_img(item.address_icon)"class="contact-icon"></ion-icon> -->
+                  <img *ngIf="item.icon" [src]="db.product_img(item.icon)" class="contact-icon">
+                  <div>
+                    <p *ngIf="item.address_content" class="m-0 font heading" [innerHtml]="item.address_content"></p>
+                  </div>
+                </div>
+                <div class="phone d__flex">
+                  <!-- <ion-icon *ngIf="item.phone_icon" [src]="db.product_img(item.phone_icon)"class="contact-icon"></ion-icon> -->
+                  <img *ngIf="item.phone_icon" [src]="db.product_img(item.phone_icon)" class="contact-icon">
+                  <a *ngIf="item.phone_no" class="m-0 font heading" href="tel:{{item.phone_no}}"
+                    class="action-link">{{item.phone_no}}</a>
+                </div>
+                <div class="email d__flex">
+                  <!-- <ion-icon *ngIf="item.email_icon" [src]="db.product_img(item.email_icon)"class="contact-icon"></ion-icon> -->
+                  <img *ngIf="item.email_icon" [src]="db.product_img(item.email_icon)" class="contact-icon">
+                  <a *ngIf="item.email_id" class="m-0 font heading" href="mailto:{{item.email_id}}"
+                    class="action-link">{{item.email_id}}</a>
+                </div>
+                <ul *ngIf="item.social_links && item.social_links.length != 0" class="icons__sections d__flex">
+                  <li class="link_box__" *ngFor="let data of item.social_links" [routerLink]="data.redirect_link">
+                    <div class="icon">
+                      <img *ngIf="data.icon" [src]="db.product_img(data.icon)" class="icon_img">
+                      <!-- <ion-icon *ngIf="data.icon" [src]="db.product_img(data.icon)"class="contact-icon"></ion-icon> -->
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div *ngIf="item.content && item.content.split(':')[0] = 'Form'" class="box_2">
+              <app-webform1 [cancle_btn_hide]="true" button_positions="end" [forms_route]="item.content.split(':')[1]">
+              </app-webform1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Right Content Left Image with list-->
+      <div class=" Right_Content_Left_Image bg_image"
+        [style.background-image]="'url('+db.product_img(item.bg_image)+')'" [class.about_us]="about_us && db.ismobile"
+        *ngIf="item.section_type == 'Static Section' && item.section_name == 'Right Content Left Image with List'">
+        <!-- [style.background]="item.bg_color"S -->
+        <div class="d-flex main-width" *ngIf="!db.ismobile">
+          <div *ngIf="item.left_image" class="left_div">
+            <div class="info-content">
+              <div class="content" [innerHtml]="item.detail"></div>
+              <div><a class="mail_content" href="mailto:{{item.email_id}}">{{item.email_id}}</a></div>
+              <a class="phone number" href="tel:{{item.phone}}">{{item.phone}}</a>
+            </div>
+            <div class="image" [class.mr__top]="internship">
+              <img src="{{db.product_img(item.left_image)}}" alt="">
+            </div>
+          </div>
+          <div class="right_div">
+            <div class="section">
+              <!-- <p class="title-with m-0">{{item.title}}</p> -->
+              <h2 class="title-with title__tag m-0">{{item.title}} <span>{{item.title1}}</span></h2>
+              <p class="sub_title m-0">{{item.subtitle}}</p>
+              <p class="content" [class.m-0]="db.ismobile" [innerHtml]="item.content"></p>
+              <ion-list>
+                <ion-item class="item-text-wrap" lines="none">
+                  <ion-label text-wrap>
+                    <h3 class="title-c">{{item.listtitle1}}</h3>
+                    <p>{{item.content1}}</p>
+                    <ion-button *ngIf="item.btn_text1" class="button" fill="clear"
+                      (click)="db.open_site(item.btn_link1)" target="blank" [style.color]="item.btn_text_color"
+                      [style.background]="item.btn_bg_color">{{item.btn_text1}}</ion-button>
+                  </ion-label>
+                </ion-item>
+                <ion-item class="item-text-wrap" lines="none">
+                  <ion-label text-wrap>
+                    <h3 class="title-c">{{item.listtitle2}}</h3>
+                    <p>{{item.content2}}</p>
+                    <ion-button *ngIf="item.btn_text2" class="button" fill="clear"
+                      (click)="db.open_site(item.btn_link2)" target="blank" [style.color]="item.btn_text_color"
+                      [style.background]="item.btn_bg_color">{{item.btn_text2}}</ion-button>
+                  </ion-label>
+                </ion-item>
+                <ion-item class="item-text-wrap" lines="none">
+                  <ion-label text-wrap>
+                    <h3 class="title-c">{{item.listtitle3}}</h3>
+                    <p>{{item.content3}}</p>
+                    <ion-button *ngIf="item.btn_text3" class="button" fill="clear"
+                      (click)="db.open_site(item.btn_link3)" target="blank" [style.color]="item.btn_text_color"
+                      [style.background]="item.btn_bg_color">{{item.btn_text3}}</ion-button>
+                  </ion-label>
+                </ion-item>
+              </ion-list>
+            </div>
+          </div>
+        </div>
+        <div class="main-width" *ngIf="db.ismobile">
+          <div class="info-content">
+            <div class="content" [innerHtml]="item.detail"></div>
+            <div><a class="mail_content" href="mailto:{{item.email_id}}">{{item.email_id}}</a></div>
+            <a class="phone number" href="tel:{{item.phone_no}}">{{item.phone_no}}</a>
+          </div>
+          <div class="section">
+            <h2 class="title-with title__tag m-0">{{item.title}} <span>{{item.title1}}</span></h2>
+          </div>
+          <div *ngIf="item.left_image" class="left_div">
+            <div class="image">
+              <img src="{{db.product_img(item.left_image)}}" alt="">
+            </div>
+          </div>
+          <div class="right_div">
+            <div class="section">
+              <!-- <p class="title-with m-0">{{item.title}}</p> -->
+              <p class="sub_title m-0">{{item.subtitle}}</p>
+              <p class="content" [class.m-0]="db.ismobile" [innerHtml]="item.content"></p>
+              <ion-list>
+                <ion-item class="item-text-wrap" lines="none">
+                  <ion-label text-wrap>
+                    <h3 class="title-c">{{item.listtitle1}}</h3>
+                    <p>{{item.content1}}</p>
+                    <ion-button *ngIf="item.btn_text1" class="button" fill="clear"
+                      (click)="db.open_site(item.btn_link1)" target="blank" [style.color]="item.btn_text_color"
+                      [style.background]="item.btn_bg_color">{{item.btn_text1}}</ion-button>
+                  </ion-label>
+                </ion-item>
+                <ion-item class="item-text-wrap" lines="none">
+                  <ion-label text-wrap>
+                    <h3 class="title-c">{{item.listtitle2}}</h3>
+                    <p>{{item.content2}}</p>
+                    <ion-button *ngIf="item.btn_text2" class="button" fill="clear"
+                      (click)="db.open_site(item.btn_link2)" target="blank" [style.color]="item.btn_text_color"
+                      [style.background]="item.btn_bg_color">{{item.btn_text2}}</ion-button>
+                  </ion-label>
+                </ion-item>
+                <ion-item class="item-text-wrap" lines="none">
+                  <ion-label text-wrap>
+                    <h3 class="title-c">{{item.listtitle3}}</h3>
+                    <p>{{item.content3}}</p>
+                    <ion-button *ngIf="item.btn_text3" class="button" fill="clear"
+                      (click)="db.open_site(item.btn_link3)" target="blank" [style.color]="item.btn_text_color"
+                      [style.background]="item.btn_bg_color">{{item.btn_text3}}</ion-button>
+                  </ion-label>
+                </ion-item>
+              </ion-list>
+              <!-- <ion-button *ngIf="item.btn_text" class="button" fill="clear" [routerLink]="item.btn_link" [style.color]="item.btn_text_color" [style.background]="item.btn_bg_color" >{{item.btn_text}}</ion-button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Banner 1 , 2 and 3 ,4 Column -->
+      <div class="main-width"
+        *ngIf="(item.section_name == 'Banner 1 Column' || item.section_name == 'Banner 2 Column' || item.section_name == 'Banner 3 Column' || item.section_name == 'Banner 4 column') && item.section_type == 'Static Section'">
+        <div class="banners d__flex">
+          <div class="mouse ion-text-center" *ngIf="item.banner1 || item.image1"
+            [class]="{'banner_1':(item.section_name == 'Banner 1 Column'),'banner_2':(item.section_name == 'Banner 2 Column'),'banner_3':(item.section_name == 'Banner 3 Column'),'banner_4':(item.section_name == 'Banner 4 column')}"
+            (click)="redirect_next_page(item.banner1_route)">
+            <img src="{{db.product_img(item.banner1 || item.image1)}}" alt="">
+          </div>
+          <div class="mouse ion-text-center" *ngIf="item.banner2 || item.image2"
+            [class]="{'banner_1':(item.section_name == 'Banner 1 Column'),'banner_2':(item.section_name == 'Banner 2 Column'),'banner_3':(item.section_name == 'Banner 3 Column'),'banner_4':(item.section_name == 'Banner 4 column')}"
+            (click)="redirect_next_page(item.banner2_route)">
+            <img src="{{db.product_img(item.banner2 || item.image2)}}" alt="">
+          </div>
+          <div class="mouse ion-text-center" *ngIf="item.banner3 || item.image3"
+            [class]="{'banner_1':(item.section_name == 'Banner 1 Column'),'banner_2':(item.section_name == 'Banner 2 Column'),'banner_3':(item.section_name == 'Banner 3 Column'),'banner_4':(item.section_name == 'Banner 4 column')}"
+            (click)="redirect_next_page(item.banner3_route)">
+            <img src="{{db.product_img(item.banner3 || item.image3)}}" alt="">
+          </div>
+          <div class="mouse ion-text-center" *ngIf="item.banner4 || item.image4"
+            [class]="{'banner_1':(item.section_name == 'Banner 1 Column'),'banner_2':(item.section_name == 'Banner 2 Column'),'banner_3':(item.section_name == 'Banner 3 Column'),'banner_4':(item.section_name == 'Banner 4 column')}"
+            (click)="redirect_next_page(item.banner4_route)">
+            <img src="{{db.product_img(item.banner4 || item.image4)}}" alt="">
+          </div>
+        </div>
+      </div>
+      <!-- Banner 5 -->
+      <div class=" main-width banners d__flex"
+        *ngIf="item.section_name == 'Banner 5 Column' && item.section_type == 'Static Section'">
+        <!-- routerLink="{{item.banner1_route}}" -->
+        <div *ngIf="item.banner1 || item.image1" class="banner_5" (click)="redirect_next_page(item.banner1_route)">
+          <img src="{{db.product_img(item.banner1 || item.image1)}}" alt="">
+        </div>
+        <div *ngIf="item.banner2 || item.image2" class="banner_5" (click)="redirect_next_page(item.banner2_route)">
+          <img src="{{db.product_img(item.banner2 || item.image2)}}" alt="">
+        </div>
+        <div *ngIf="item.banner3 || item.image3" class="banner_5" (click)="redirect_next_page(item.banner3_route)">
+          <img src="{{db.product_img(item.banner3 || item.image3)}}" alt="">
+        </div>
+        <div *ngIf="item.banner4 || item.image4" class="banner_5" (click)="redirect_next_page(item.banner4_route)">
+          <img src="{{db.product_img(item.banner4 || item.image4)}}" alt="">
+        </div>
+        <div *ngIf="item.banner5 || item.image5" class="banner_5" (click)="redirect_next_page(item.banner5_route)">
+          <img src="{{db.product_img(item.banner5 || item.image5)}}" alt="">
+        </div>
+      </div>
+      <!-- List items scrollable grid  -->
+      <!-- <div class="bg-gray">
+   <div class="grid__view main-width row-pad  pad-40" [style.background]="item.background_color?item.background_color:null" [class.featured_Product]="item.section_name == 'Featured Product'" *ngIf=" (item.section_type == 'Predefined Section' || item.section_type == 'Lists' || item.section_type == 'Custom Section') && item.data && item.data.length != '0' && (item.section_name != 'Shop By Category' && item.section_name != 'Category Listing Mobile' && item.section_name != 'Category List Mobile' && item.section_name != 'Blog List' && item.section_name != 'Testimonials' && item.section_name != 'Shop By Cateogry' &&  item.section_name != 'Mobile Category List' && item.section_name != 'Categories List' && item.section_name != 'Category List' && item.section_name != 'Brands' && item.section_name != 'FAQ'&& item.section_name != 'Event Schedule' && item.section_name != 'Category Products With Horizontal Background' )">
+   <div class="d__flex" [class.header_wth_bg]="item.view_all_route || item.route || db.ismobile" [ngClass]="db.ismobile?'just-s':'just-c'">
+   <div class="title_with_back_g mar-b-30">
+      border grid_view_title-line
+       <span class="left"></span>
+        <h6 class="title-card title" [style.color]="item.heading_text_color ? item.heading_text_color: null" [innerHtml]="item.title"></h6>
+      <h6 class="title-card title">Our <span>Products</span></h6>
+      <span class="linecenter"></span>
+                  <span class="right"></span>
+   </div>
+   <div *ngIf="(item.view_all_route || item.route )" class="mouse view_all mr-5" [style.background]="item.view_all_bg_color?item.view_all_bg_color:null" button (click)="item.route ? go_via_route(item.route):redirect_next_page(item.view_all_route)">
+   <p class="m-0 " [style.color]="item.view_all_text_color?item.view_all_text_color:null">View more</p>
+   <ion-icon name="arrow-forward-outline"></ion-icon>
+</div>
+</div>
+<app-product-box [scrollable]="db.ismobile?'grid-1-50':'grid-5'" [data]="item.data" (addto_cart)="addtocart($event)" (removeto_cart)="removetocart($event)" (add_wish)="addtowish($event)" (remove_wish)="addtowish($event)"> </app-product-box>
+<app-grid-view [scrollable]="true" [arrow]="!db.ismobile"  [bg_horizontal_image]="item.background_image" [img]="item.horizontal_image" [position]="item.position" (add_wish)="db.addtowish($event)" (remove_wish)="db.removewish($event)" (addto_cart)="addtocart($event)" (removeto_cart)="removetocart($event)" [data]="item.data" [type]="item.section_name"></app-grid-view>
+</div>
+</div> -->
+      <!-- horizontal -->
+      <div class="bg-gray">
+        <div class="grid__view main-width row-pad pad-40"
+          [class.featured_Product]="item.section_name == 'Featured Product'"
+          *ngIf=" (item.section_type == 'Predefined Section' || item.section_type == 'Lists' || item.section_type == 'Custom Section') && item.data && item.data.length != '0' && (item.section_name == 'Category Products With Horizontal Background')">
+          <div class="d__flex" [class.header_wth_bg]="item.view_all_route || item.route"
+            [ngClass]="db.ismobile?'just-s':'just-s'">
+            <div *ngIf="!db.ismobile"></div>
+            <div class="title_with_back_g d__flex">
+              <!--  <span class="left"></span> -->
+              <h6 class="title-card title" [style.color]="item.heading_text_color ? item.heading_text_color: null"
+                [innerHtml]="item.title"></h6>
+              <h6 class="title-card title"></h6>
+              <span class="linecenter"></span>
+              <!--  <span class="right"></span> -->
+            </div>
+            <div *ngIf="(item.view_all_route || item.route )" class="mouse d__flex view_all mr-5"
+              [style.background]="item.view_all_bg_color?item.view_all_bg_color:null" button
+              (click)="item.route ? go_via_route(item.route):redirect_next_page(item.view_all_route)">
+              <p class="m-0 " [style.color]="item.view_all_text_color?item.view_all_text_color:null">View more</p>
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </div>
+          </div>
+          <!-- [class.d__flex]="!db.ismobile" -->
+          <div class="h_image_container" [class.d__flex]="!db.ismobile"
+            [style.background]="item.bg_color?item.bg_color:null"
+            [style.border-color]="item.border_color?item.border_color:null">
+            <div class="h_image"><img *ngIf="!db.ismobile" src="{{db.product_img(item.horizontal_image)}}"
+                defaultImage="" alt=""></div>
+            <!-- <div  class="product_box" > <app-product-box [scroll_img]="item.horizontal_image" [scrollable]="db.ismobile?'grid-1-50':'grid-4'" [data]="item.data" [border_color]="item.border_color" (addto_cart)="addtocart($event)" (removeto_cart)="removetocart($event)" (add_wish)="addtowish($event)" (remove_wish)="addtowish($event)"> </app-product-box></div> -->
+          </div>
+          <!-- <app-grid-view [scrollable]="true" [arrow]="!db.ismobile"  [bg_horizontal_image]="item.background_image" [img]="item.horizontal_image" [position]="item.position" (add_wish)="db.addtowish($event)" (remove_wish)="db.removewish($event)" (addto_cart)="addtocart($event)" (removeto_cart)="removetocart($event)" [data]="item.data" [type]="item.section_name"></app-grid-view> -->
+        </div>
+      </div>
+      <div *ngIf="item.section_name == 'About Section' && item.section_type == 'Static Section'" class="about__section">
+        <div>
+          <img [src]="db.product_img(item.icon1)" alt="">
+          <p class="m-0">{{item.title1}}</p>
+        </div>
+        <div>
+          <img [src]="db.product_img(item.icon2)" alt="">
+          <p class="m-0">{{item.title2}}</p>
+        </div>
+        <div>
+          <img [src]="db.product_img(item.icon3)" alt="">
+          <p class="m-0">{{item.title3}}</p>
+        </div>
+      </div>
+      <!-- about Chops daily -->
+      <div class="about_Chops_daily d__flex"
+        *ngIf="item.section_type == 'Static Section' && item.section_name == 'About Chops Daily'">
+        <div class="box1 d__column">
+          <div class="image"><img src="{{db.product_img(item.icon1)}}"></div>
+          <h2 class="title_about_c_d">{{item.title1}}</h2>
+        </div>
+        <div class="box1 d__column">
+          <div class="image"> <img src="{{db.product_img(item.icon2)}}"></div>
+          <h2 class="title_about_c_d">{{item.title2}}</h2>
+        </div>
+        <div class="box1 d__column">
+          <div class="image"><img src="{{db.product_img(item.icon3)}}"> </div>
+          <h2 class="title_about_c_d">{{item.title3}}</h2>
+        </div>
+      </div>
+      <!-- Banner 1 Colum With Title -->
+      <div class="p-5"
+        *ngIf="db.ismobile && item.section_type == 'Static Section' && item.section_name == 'Banner 1 Column With Title'">
+        <div class="p-5">
+          <h6 class="m-0 fnt-16">{{item.title}}</h6>
+          <p class="m-0 fnt-12">{{item.subtitle}}</p>
+        </div>
+        <div class="image">
+          <img src="{{db.product_img(item.banner1)}}" alt="">
+        </div>
+      </div>
+      <!-- News letter -->
+      <div class="news-letter"
+        *ngIf="!db.ismobile && item.section_type == 'Static Section'  && item.section_name == 'Newsletterr'"
+        [ngStyle]="db.img_style(item.background_image,'bg-image')">
+        <div>
+          <h2 *ngIf="item.title">{{item.title}}</h2>
+          <span *ngIf="item.subtitle">{{item.subtitle}}</span>
+          <div class="sus-button d__flex">
+            <ion-input placeholder="Enter Your Email Address"></ion-input>
+            <ion-button expand="full">SUBSCRIBE NOW</ion-button>
+          </div>
+        </div>
+      </div>
+      <!-- Categories -->
+      <div class="category-listing"
+        *ngIf="item.section_type == 'Lists' && item.section_name == 'Category List Mobile' ">
+        <h6 class="title-card" [innerHtml]="item.title"><strong></strong></h6>
+        <div class="d__flex flex-w">
+          <div class="category-item" *ngFor="let data of item.data">
+            <div class="image" [routerLink]="true?'/c/'+data.item:null">
+              <img *ngIf="data.product_image || data.image" src="{{db.product_img(data.product_image || data.image)}}"
+                defaultImage="" alt="">
+            </div>
+            <div class="ion-text-center">
+              <p class="m-0 cat-title">{{data.item_title | titlecase}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile categories -->
+      <div class="d__flex"
+        *ngIf="false && item.section_type == 'Custom Section' && item.section_name == 'Mobile Category List' ">
+        <div *ngFor="let data of item.data">
+          <img [src]="db.product_img(data.category_image)">
+          <div>{{data.category_name}}</div>
+        </div>
+      </div>
+      <!-- Four Column-->
+      <div class="four-column-section"
+        *ngIf="db.ismobile && item.section_type == 'Lists' && item.section_name == 'Category Listing Mobile'">
+        <div class="d__flex just-s p-10" [ngStyle]="db.img_style(item.background_image,'bg-image')">
+          <div>
+            <h6 class="m-0" [style.color]="item.heading_text_color">{{item.title}}</h6>
+            <p class="sub-title m-0" [style.color]="item.heading_text_color">{{item.subtitle}}</p>
+          </div>
+          <div class="view-all">
+            <ion-button class="m-0 fnt-12" fill="clear" [style.background]="item.view_all_bg_color"
+              [style.color]="item.view_all_text_color">{{item.view_all_text}}</ion-button>
+            <ion-icon *ngIf="!item.view_all_text" name="chevron-forward-outline"></ion-icon>
+          </div>
+        </div>
+        <div class="d__flex four-column p-10"
+          [style.background-color]="item.background_color? item.background_color: ''">
+          <div class="product" *ngFor="let data of item.data">
+            <div class="image">
+              <!-- [lazyLoad]="db.product_img(data.image)" -->
+              <img>
+            </div>
+            <div class="fnt-12 ion-text-center">{{data.item_title}}</div>
+          </div>
+        </div>
+      </div>
+      <!-- Three column section -->
+      <div class="column-3"
+        *ngIf="db.ismobile && ( item.section_type == 'Lists') && item.data && item.data.length != '0' && item.section_name != 'Shop By Category' && item.section_name == 'Category Products 1 - 3 List'">
+        <div class="d__flex just-s header-row">
+          <div class="d__flex">
+            <div class="image"><img src="{{db.product_img(item.title_image)}}"></div>
+            <div>
+              <h6 class="m-0">{{item.title}}</h6>
+              <p class="m-0 fnt-14">{{item.subtitle}}</p>
+            </div>
+          </div>
+          <div class="view-all">
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </div>
+        </div>
+        <ion-row>
+          <ion-col class="col-1" size="6" [routerLink]="true?'/pr/'+item.data[0].route:null">
+            <div class="image"><img src="{{db.product_img(item.data[0].product_image)}}"></div>
+            <div class="description">
+              <p class="m-0 product-name">{{item.data[0].item | titlecase}}</p>
+              <p class="m-0 product-price" *ngIf="item.data[0].price != '0.00'">{{item.data[0].price |
+                currency:db.website_settings.currency}}</p>
+            </div>
+          </ion-col>
+          <ion-col class="col-2" size="6">
+            <div class="">
+              <div class="grid-1" [routerLink]="true?'/pr/'+item.data[1].route:null">
+                <div class="image"><img src="{{db.product_img(item.data[1].product_image)}}"></div>
+                <div class="description">
+                  <p class="m-0 product-name">{{item.data[1].item | titlecase}}</p>
+                  <p class="m-0 product-price" *ngIf="item.data[1].price != '0.00'">{{item.data[1].price |
+                    currency:db.website_settings.currency}}</p>
+                </div>
+              </div>
+              <div class="grid-2" [routerLink]="true?'/pr/'+item.data[2].route:null">
+                <div class="image"><img src="{{db.product_img(item.data[2].product_image)}}"></div>
+                <div class="description">
+                  <p class="m-0 product-name">{{item.data[2].item | titlecase}}</p>
+                  <p class="m-0 product-price" *ngIf="item.data[2].price != '0.00'">{{item.data[2].price |
+                    currency:db.website_settings.currency}}</p>
+                </div>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+      <!-- [ngStyle]="db.img_style(item.bg,'full-bg-img')" -->
+      <!-- <ion-grid class="birthday_club" *ngIf="item.section_type == 'Static Section' && item.section_name == 'BirthDay Club Registration'" >
+   <ion-icon class="lft-img" src="/assets/imgs/lft-bdy.svg"></ion-icon>
+   <ion-row class="text-center main-width1">
+   <div class="ion-text-center w-100">
+     <div class="ion-text-center headings">
+       <h6 class="fnt-20 m-0 ion-text-center">Birthday club</h6>
+       <p class="m-0 fnt-12">Register to get offers</p>
+     </div>
+     <div >
+   
+   
+       <form [formGroup]="emailform">
+         <ion-item lines='none'>
+           <ion-input type="number" [class.focused]="focus.birth_date" (ionFocus)="focus.birth_date = true" (ionBlur)="focus.birth_date = false" name="birth_date" formControlName="birth_date" required="true" placeholder="Enter your Birth Date"></ion-input>
+         </ion-item>
+         <div *ngIf="submitted && !birth_date?.valid"> 
+           <p class="error m-0" *ngIf="birth_date.errors.required">Birthday date is required</p>  
+         </div>
+         <ion-item lines="none">
+           <ion-select name="month" [class.focused]="focus.month" (ionFocus)="focus.month = true" (ionBlur)="focus.month = false" required="true" formControlName="month" class="form-input form-select" interface="popover" value="{{birthday_info.month}}">
+             <ion-select-option  *ngFor="let m of month_list" value="{{m.name}}">{{m.name}}</ion-select-option>
+           </ion-select>
+         </ion-item>
+         <div *ngIf="submitted && !month?.valid"> 
+           <p class="error m-0" *ngIf="month.errors.required">Birthday date is required</p>  
+         </div>
+         <ion-item lines='none'>
+             <ion-input type="email" [class.focused]="focus.email" (keyup.enter)="birthday_club()" (ionFocus)="focus.email = true" (ionBlur)="focus.email = false"  required="true" name="email" formControlName="email" placeholder="Enter your email address"></ion-input>
+         </ion-item>
+         <div *ngIf="submitted && !email.valid">
+           <p class="m-0 error" *ngIf="email.errors.required" > Email-Id is required </p>
+           <p class="m-0 error" *ngIf="email.errors.email" > Not a valid Email </p>
+         </div>
+       </form>
+       <div class="ion-text-center"><ion-button fill="clear" (click)="birthday_club()">Register</ion-button></div>
+   
+       
+     </div>
+   </div>
+   </ion-row>
+   <ion-icon class="rht-img" src="/assets/imgs/rht-bdy.svg"></ion-icon>
+   </ion-grid> -->
+      <div class="d__flex"
+        *ngIf="item.section_type == 'Predefined Section' && item.section_name == 'My Orders And Wishlist'">
+        <img *ngIf="!db.ismobile" class="w-100" [src]="db.product_img(item.orders_bg)"
+          routerLink="/my-profile/my-orders">
+        <img *ngIf="db.ismobile" class="w-50" [src]="db.product_img(item.orders_mobile_bg)" routerLink="/my-orders">
+        <img *ngIf="!db.ismobile" class="w-100" [src]="db.product_img(item.wishlist_bg)"
+          routerLink="/my-profile/wishlist">
+        <img *ngIf="db.ismobile" class="w-50" [src]="db.product_img(item.mobile_wishlist_bg)"
+          routerLink="/tabs/wishlist">
+      </div>
+      <div *ngIf="item.section_type == 'Static Section' && item.section_name == 'Categories List'">
+        <h6 class="title-card pl-10"><strong>{{item.title}}</strong></h6>
+        <!-- <app-sliders *ngIf="db.ismobile" class="mobile-category" [category_slide]="item"></app-sliders> -->
+        <div class="desktop-category">
+          <!-- <div class="image"><img lazyLoad="{{db.product_img(item['image1'])}}" defaultImage="" alt=""></div> -->
+          <!-- <div class="image"><img lazyLoad="{{db.product_img(item['image2'])}}" defaultImage="" alt=""></div> -->
+          <!-- <div class="image"><img lazyLoad="{{db.product_img(item['image3'])}}" defaultImage="" alt=""></div> -->
+          <!-- <div class="image"><img lazyLoad="{{db.product_img(item['image4'])}}" defaultImage="" alt=""></div> -->
+          <!-- <div class="image"><img lazyLoad="{{db.product_img(item['image5'])}}" defaultImage="" alt=""></div> -->
+          <!-- <div class="image"><img lazyLoad="{{db.product_img(item['image6'])}}" defaultImage="" alt=""></div> -->
+        </div>
+      </div>
+      <!-- Static Section With Four Items -->
+      <div *ngIf="item.section_name == 'Static Section With 4 Items' && db.ismobile">
+        <div class="banner mb-10" [ngStyle]="db.img_style(item.background_color,'color')">
+          <div class="head" [ngStyle]="db.img_style(item.background_color,'color')">
+            <h2 class="list-header" class="title-card m-0"
+              [ngStyle]="db.img_style(item.heading_text_color,'colorcode')">{{item.title}}</h2>
+            <p *ngIf="item.subtitle" class="sub-title m-0"
+              [ngStyle]="db.img_style(item.heading_text_color,'colorcode')">{{item.subtitle}}</p>
+          </div>
+          <div class="description">
+            <div class="card_4">
+              <!-- <div class="image"><img lazyLoad="{{db.product_img(item.item1_image)}}" defaultImage="" /></div> -->
+              <p *ngIf="item.item1_title">{{item.item1_title}}</p>
+              <p *ngIf="item.item1_subtitle">{{item.item1_subtitle}}</p>
+            </div>
+            <div class="card_4">
+              <!-- <div class="image"><img lazyLoad="{{db.product_img(item.item2_image)}}" defaultImage="" /></div> -->
+              <p *ngIf="item.item2_title">{{item.item2_title}}</p>
+              <p *ngIf="item.item2_subtitle">{{item.item2_subtitle}}</p>
+            </div>
+            <div class="card_4">
+              <!-- <div class="image"><img lazyLoad="{{db.product_img(item.item3_image)}}" defaultImage="" /></div> -->
+              <p *ngIf="item.item3_title">{{item.item3_title}}</p>
+              <p *ngIf="item.item3_subtitle">{{item.item3_subtitle}}</p>
+            </div>
+            <div class="card_4">
+              <!-- <div class="image"><img lazyLoad="{{db.product_img(item.item4_image)}}" defaultImage="" /></div> -->
+              <p *ngIf="item.item4_title">{{item.item4_title}}</p>
+              <p *ngIf="item.item4_subtitle">{{item.item4_subtitle}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- FAQs -->
+      <div class="d__flex main-width text-center bg-size img__height CTA FAQs_data bg_image testimonials"
+        [class.about_us]="about_us && db.ismobile"
+        *ngIf="item.section_type == 'Predefined Section' && item.section_name == 'FAQ'"
+        [style.background-image]="'url('+db.product_img(item.bg_image)+')'">
+        <div class="" [ngClass]="db.ismobile?'mob_mainwidth_':'mainwidth_'">
+          <h2 class="title-with title__tag m-0">{{item.title}}</h2>
+          <!-- <p class="m-0 title__ txt-c">{{item.title}}</p> -->
+          <div class="">
+            <div class="flex-50 pad FQ_border mouse" *ngFor="let Q of item.data;let i=index" (click)="Q.FAQ = !Q.FAQ">
+              <h4 class="questions">
+                <ion-icon [name]="Q.FAQ ? 'remove-outline' :'add-outline'"></ion-icon>
+                {{Q.question}}
+              </h4>
+              <!-- <ion-icon *ngIf="" name="remove-outline"></ion-icon> -->
+              <p *ngIf="Q.FAQ" class="ans">{{Q.answer}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Event Table -->
+      <div class="table__data testimonials"
+        *ngIf="!db.ismobile && item.section_type == 'Predefined Section' && item.section_name =='Event Schedule'">
+        <h2 class="title-with title__tag m-0 txt-c">{{item.title}}</h2>
+        <div class="table__container d__flex align__c table__header">
+          <div class="width__50">Schedule Events/Title</div>
+          <div class="width__25 sub_title-center">From Date</div>
+          <div class="width__25 sub_title-center">To Date</div>
+        </div>
+        <div class="main-item mouse" *ngFor="let item of item.data;let i =index">
+          <div class="table__container  d__flex align__c table__items">
+            <div class="mouse width__50" (click)="navigate_details_page(item)"><span
+                class="item__title">{{item.title}}</span></div>
+            <div class="width__25 sub_title-center">{{item.from_date | date:'mediumDate'}} </div>
+            <div class="width__25 sub_title-center">{{item.to_date | date:'mediumDate'}}</div>
+          </div>
+        </div>
+      </div>
+      <!--Shop by Category section for mobile-->
+      <div class="row-pad "
+        *ngIf="item.section_type == 'Predefined Section'&& item.data && item.data.length != '0' && item.section_name == 'Shop By Category' && false ">
+        <div class="title_with_back_g d__flex">
+          <span class="left"></span>
+          <h2 class="title-card shop_title">{{item.section_name}}</h2>
+          <span class="right"></span>
+          <!-- <div class="image"><img src="/assets/chops_daily/title-line.svg" defaultImage="" alt="" /></div> -->
+        </div>
+        <div class="mobile-category-section d__flex just-c d__grid">
+          <a class="card-category category-product ion-text-center" *ngFor="let list of item.data;let index= index"
+            [routerLink]="!db.ismobile?'/c/'+list.route:'/c/'+list.route">
+            <div class="image"><img *ngIf="list.mobile_image" src="{{db.product_img(list.mobile_image)}}"
+                defaultImage="" alt="" /></div>
+            <p class="cat-p">{{list.category_name}} </p>
+          </a>
+        </div>
+      </div>
+      <!--Shop by Category section for web -->
+      <div class="shop_by_cat main-width"
+        *ngIf="item.section_type == 'Predefined Section' && item.data && item.data.length != '0' && (item.section_name == 'Shop By Category' || item.section_name == 'Shop By Cateogry') ">
+        <h2 class="title-card shop_title">{{item.section_name}}</h2>
+        <div class="d__grid1">
+          <a class="category-product_shop ion-text-center card3 mouse " *ngFor="let list of item.data;let index= index"
+            [routerLink]="!db.ismobile?'/c/'+list.route:'/c/'+list.route">
+            <div class="image img-wrapper"><img *ngIf="list.mobile_image" src="{{db.product_img(list.mobile_image)}}"
+                defaultImage="" alt="" /></div>
+            <p class="cat-p-shop webkit-text" [style.--line]="1">{{list.category_name}} </p>
+          </a>
+        </div>
+      </div>
+      <!--Categories List -->
+      <div class="row-pad main-width shopbycategory"
+        *ngIf="item.section_type == 'Lists' && item.data && item.data.length != '0' && item.section_name == 'Categories List'">
+        <div class="header_wth_bg">
+          <h2 class="title-card ">{{item.title}}</h2>
+          <span></span>
+          <!-- <div class="image"><img src="/assets/chops_daily/title-line.svg" defaultImage="" alt="" /></div> -->
+        </div>
+        <div class="cat_list_card3_g">
+          <a class="category-product  ion-text-center cat_list_card3 mouse "
+            *ngFor="let list of item.data;let index= index"
+            [routerLink]="!db.ismobile?'/c/'+list.route:'/c/'+list.route">
+            <div class="image img-wrapper"><img *ngIf="list.image" src="{{db.product_img(list.image)}}" defaultImage=""
+                alt="" /></div>
+            <p *ngIf="list.item_name || list.item_title" class="cat-p">{{list.item_name || list.item_title}} </p>
+          </a>
+        </div>
+      </div>
+      <!--category list -->
+      <div class="row-pad main-width"
+        *ngIf="item.section_type == 'Lists' && item.data && item.data.length != '0' && item.section_name == 'Category List'">
+        <div class="d__flex just-c">
+          <div class="title_with_back_g d__flex">
+            <span class="left"></span>
+            <h6 class="title-card title" [innerHtml]="item.title"></h6>
+            <span class="right"></span>
+          </div>
+        </div>
+        <div class="cat_list_card3_g">
+          <a class="category-product  c_list ion-text-center cat_list_card3 mouse "
+            *ngFor="let list of item.data;let index= index"
+            [routerLink]="!db.ismobile?'/c/'+list.route:'/c/'+list.route">
+            <div class="image img-wrapper"><img *ngIf="list.image" src="{{db.product_img(list.image)}}" defaultImage=""
+                alt="" /></div>
+            <p *ngIf="list.item_name || list.item_title" class="cat-p">{{list.item_name || list.item_title}} </p>
+          </a>
+        </div>
+      </div>
+      <!-- Brands -->
+      <div class="Brands main-width" *ngIf="item.section_type == 'Custom Section' && item.section_name == 'Brands'">
+        <div class="d__flex" [class.just-c]="!db.ismobile" [class.just-s]="db.ismobile"
+          [ngStyle]="db.img_style(item.background_image,'img')">
+          <!-- <div *ngIf="!db.ismobile"></div> -->
+          <div class="title_with_back_g  d__flex" [class.margin-none]="item.section_name == 'Brands'"
+            [class.just-c]="!db.ismobile">
+            <span class="left"></span>
+            <h2 class="title-card">{{item.section_name}}</h2>
+            <span class="right"></span>
+            <!-- <div class="image"><img src="/assets/chops_daily/title-line.svg" defaultImage="" alt="" /></div> -->
+          </div>
+          <!-- <div  class="mouse view_all mr-5" button [style.background]="item.view_all_bg_color?item.view_all_bg_color:null"  routerLink="/blog-list">
+   <p class="m-0 "  [style.color]="item.view_all_text_color?item.view_all_text_color:null">View more</p>
+   <ion-icon name="arrow-forward-outline"></ion-icon>
+   </div> -->
+          <!-- <a *ngIf="db.ismobile" class="view-all-link" >
+   <ion-icon name="caret-forward-outline" class="forward-icon"></ion-icon>View All
+   </a> -->
+        </div>
+        <div class="relative">
+          <div #scrollContent class="container d__flex">
+            <div *ngIf="left_arrow && !db.ismobile" class="back-s" (click)="emitScroll('scroll','left')">
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </div>
+            <div class="grid__item mouse" *ngFor="let list of item.data">
+              <div class="image" routerLink="/brands/{{list.route}}">
+                <img *ngIf="list.brand_logo" src="{{db.product_img(list.brand_logo)}}" defaultImage="" alt="">
+              </div>
+            </div>
+            <!-- <div class="grid__item">
+      <div class="image">
+        <img *ngIf="item.brand2" src="{{db.product_img(item.brand2)}}" defaultImage="" alt="">
+      </div> 
+      </div>  -->
+            <!-- <div class="grid__item">
+      <div class="image">
+        <img *ngIf="item.brand3" src="{{db.product_img(item.brand6)}}" defaultImage="" alt="">
+      </div>
+      </div>  -->
+            <!-- 
+      <div class="grid__item">
+        <div class="image">
+          <img *ngIf="item.brand4" src="{{db.product_img(item.brand4)}}" defaultImage="" alt="">
+        </div>
+      </div>  -->
+            <!-- <div class="grid__item">
+      <div class="image">
+        <img *ngIf="item.brand5" src="{{db.product_img(item.brand3)}}" defaultImage="" alt="">
+      </div>
+      </div>  -->
+            <!-- <div class="grid__item">
+      <div class="image">
+        <img *ngIf="item.brand6" src="{{db.product_img(item.brand5)}}" defaultImage="" alt="">
+      </div>
+      </div> -->
+            <div *ngIf="!db.ismobile" class='next-s' (click)="emitScroll('scroll','right')">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </div>
+          </div>
+        </div>
+        <!-- Banner 2 Column -->
+        <!-- <div class="main-width" *ngIf="item.section_name == 'Banner 2 Column'  && item.section_type == 'Static Section' ">
+   <div *ngIf="item.banner1" class="image">
+   <img src="{{db.product_img(item.banner1)}}" alt="">
+   </div>
+   <div *ngIf="item.banner2" class="image">
+   <img src="{{db.product_img(item.banner2)}}" alt="">
+   </div>
+   </div> -->
+        <!-- Banner 4 column -->
+        <div class="d__flex"
+          *ngIf="item.section_name == 'Banner 4 Column' || item.section_name == '4 Column Banner Mobile' && false">
+          <div *ngIf="item.banner1 || item.image1"><img lazyLoad="{{db.product_img(item.banner1 || item.image1)}}"
+              alt="" defaultImage=""></div>
+          <div *ngIf="item.banner2 || item.image2"><img lazyLoad="{{db.product_img(item.banner2 || item.image2)}}"
+              alt="" defaultImage=""></div>
+          <div *ngIf="item.banner3 || item.image3"><img lazyLoad="{{db.product_img(item.banner3 || item.image3)}}"
+              alt="" defaultImage=""></div>
+          <div *ngIf="item.banner4 || item.image4"><img lazyLoad="{{db.product_img(item.banner4 || item.image4)}}"
+              alt="" defaultImage=""></div>
+        </div>
+        <!-- Banner 3 column -->
+        <!-- <div class="d__flex banner__3 main-width" *ngIf=" item.section_type == 'Static Section' &&  item.section_name == 'Banner 3 Column'">
+   <div *ngIf="item.banner1"><img lazyLoad="{{db.product_img(item.banner1)}}" alt=""></div>
+   <div *ngIf="item.banner2"><img lazyLoad="{{db.product_img(item.banner2)}}" alt=""></div>
+   <div *ngIf="item.banner3"><img lazyLoad="{{db.product_img(item.banner3)}}" alt=""></div>
+   </div> -->
+        <!-- 4 Column Product Images -->
+        <div *ngIf="item.section_name == '4 Column Product Images'"
+          [ngStyle]="db.img_style(item.background_color,'color')">
+          <ion-item [ngStyle]="db.img_style(item.background_image,'img')">
+            <h2 [ngStyle]="db.img_style(item.color,'colorcode')">{{item.headertext}}</h2>
+          </ion-item>
+          <div><img lazyLoad="{{db.product_img(item.product1)}}" alt="" /></div>
+          <div><img lazyLoad="{{db.product_img(item.product2)}}" alt="" /></div>
+          <div><img lazyLoad="{{db.product_img(item.product3)}}" alt="" /></div>
+          <div><img lazyLoad="{{db.product_img(item.product4)}}" alt="" /></div>
+        </div>
+        <!-- 2 column video section -->
+        <div class="" *ngIf="item.section_type == 'Static Section' && item.section_type == '2 Column Video Section'">
+        </div>
+        <!-- 3 column video section -->
+        <div class="" *ngIf="item.section_type == 'Static Section' && item.section_type == '3 Column Video Section'">>
+        </div>
+        <!-- 4 column video section -->
+        <div class="" *ngIf="item.section_type == 'Static Section' && item.section_type == '3 Column Video Section'">
+        </div>
+      </div>
+      <!-- MEATTON\'S SPECIALS -->
+      <ion-grid *ngIf="item.section_type == 'Static Section' && item.section_name =='MEATTON\'S SPECIALS'"
+        class="bg-gray">
+        <ion-row class="main-width1 text-center">
+          <ion-col>
+            <h4 class="sub-title">{{item.sub_title}}</h4>
+            <h2 class="title-card">{{item.title}}</h2>
+            <ul class="home-card card-p">
+              <li class="mouse">
+                <div>
+                  <!-- {{item.section1_image}} -->
+                  <img src="{{db.product_img(item.section1_image)}}" class="icon-w-100">
+                  <h6 class="sec-t mar-t-10">{{item.section1_title}}</h6>
+                  <p>{{item.section1_description}}</p>
+                </div>
+              </li>
+              <li class="mouse">
+                <div>
+                  <!-- {{item.section1_image}} -->
+                  <img src="{{db.product_img(item.section2_image)}}" class="icon-w-100">
+                  <h6 class="sec-t mar-t-10">{{item.section2_title}}</h6>
+                  <p>{{item.section2_description}}</p>
+                </div>
+              </li>
+              <li class="mouse">
+                <div>
+                  <!-- {{item.section1_image}} -->
+                  <img src="{{db.product_img(item.section3_image)}}" class="icon-w-100">
+                  <h6 class="sec-t mar-t-10">{{item.section3_title}}</h6>
+                  <p>{{item.section3_description}}</p>
+                </div>
+              </li>
+            </ul>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <!-- Why Meatton -->
+      <ion-grid *ngIf="item.section_type == 'Static Section' && item.section_name =='Why Meatton'"
+        class="null-padding  pos-r">
+        <img src="{{db.product_img(item.bg_image)}}" class="fill1">
+        <ion-row class="text-center main-width1">
+          <ion-col class="text-center">
+            <img src="{{db.product_img(item.left_image)}}">
+          </ion-col>
+          <ion-col class="table-c">
+            <div class="table-c1">
+              <h4 class="sub-title">{{item.sub_title}}</h4>
+              <h2 class="title-card">{{item.title}}</h2>
+              <ul class="home-card0">
+                <li class="">
+                  <div class="card-b1">
+                    <img src="{{db.product_img(item.item1_image)}}" class="width-100">
+                    <h6 class="font-400">{{item.item1_title}}</h6>
+                  </div>
+                </li>
+                <li class="">
+                  <div class="card-b1">
+                    <img src="{{db.product_img(item.item2_image)}}" class="width-100">
+                    <h6 class="font-400">{{item.item2_title}}</h6>
+                  </div>
+                </li>
+                <li class="">
+                  <div class="card-b1">
+                    <img src="{{db.product_img(item.item3_image)}}" class="width-100">
+                    <h6 class="font-400">{{item.item3_title}}</h6>
+                  </div>
+                </li>
+                <li>
+                  <div class="card-b1">
+                    <!-- <img src="{{db.product_img(item.item4_image)}}" class="width-100"> -->
+                    <h6 class="font-400">{{item.item4_title}}</h6>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <!-- Home Counters -->
+      <ion-grid *ngIf="item.section_type == 'Static Section' && item.section_name == 'Home Counters'"
+        class="null-padding black-bg">
+        <ion-row class="text-center">
+          <ion-col class="main-width">
+            <ul class="home-card1">
+              <li class="">
+                <div class="card-b">
+                  <h2 class="font-700 count white-text">{{item.counter1}}</h2>
+                  <h6 class="font-400 white-text">{{item.title1}}</h6>
+                </div>
+              </li>
+              <li class="">
+                <div class="card-b">
+                  <h2 class="font-700 count white-text">{{item.counter2}}</h2>
+                  <h6 class="font-400 white-text">{{item.title2}}</h6>
+                </div>
+              </li>
+              <li class="">
+                <div class="card-b">
+                  <h2 class="font-700 count white-text">{{item.counter3}}</h2>
+                  <h6 class="font-400 white-text">{{item.title3}}</h6>
+                </div>
+              </li>
+              <li>
+                <div class="card-b">
+                  <h2 class="font-700 count white-text">{{item.counter4}}</h2>
+                  <h6 class="font-400 white-text">{{item.title4}}</h6>
+                </div>
+              </li>
+            </ul>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <!--Testimonials sliders  -->
+      <ion-grid *ngIf="item.section_type == 'Predefined Section' && item.section_name == 'Testimonials'"
+        [ngStyle]="db.img_style(item.bg_image,'img')" class="bg-gray text-center img-bg2 testimonials">
+        <ion-row class="main-width1 text-center p0">
+          <ion-col>
+            <h2 class="title-with txt-c title__tag m-0 title-padding">{{item.section_name}}</h2>
+            <div class="position-relative">
+              <!-- <div *ngIf="!db.ismobile && item.data" class="back" (click)="slidePrev()">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+            </div> -->
+              <ion-slides class="web-slider" [options]="!db.ismobile ? testimonial_slide : testimonial_slide_mobile">
+                <ion-slide *ngFor="let data of item.data" (mouseenter)="data.view = true"
+                  (mouseleave)="data.view = false"
+                  [ngClass]="db.ismobile?'testimonials-slide-mobile':'testimonials-slide'" class="mouse">
+                  <div class="test_card2">
+                    <!-- <img *ngIf="data.image" src="{{db.product_img(data.image)}}" class="person"> -->
+                    <!-- <img src="https://cdn.gokommerce.com/meatton/ZJXXA8G2_icon1.png" class="icon"> -->
+                    <!-- <p>{{data.view}}</p> -->
+                    <p class="test-font webkit-text" [style.--line]="10">"{{data.content}}"</p>
+                    <hr class="line">
+                    <h6 class="name-t">{{data.posted_by}}</h6>
+                    <ion-button fill="clear" *ngIf="data.view" class="view__ mouse" (click)="view_data(data)">View
+                    </ion-button>
+                    <!-- <ion-button fill="clear" class="view__ mouse" (click)="view_data(data)">Read More</ion-button> -->
+                  </div>
+                </ion-slide>
+              </ion-slides>
+              <!-- <div *ngIf="!db.ismobile && item.data" class="next" (click)="slideNext()">
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+            </div> -->
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <!-- App Download -->
+      <div>
+        <ion-grid *ngIf="item.section_type == 'Static Section' && item.section_name == 'App Download'"
+          [ngStyle]="img_style(item.section_bg,'full-bg-img')" class="img-bg1 bg-gray pad-40">
+          <ion-row class="main-width">
+            <ion-col class="table-c">
+              <div class="table-c1 left">
+                <h2 *ngIf="item.title" class="title-card mar-b-0 txt-l">{{item.title}}<br><span>{{item.title1}}</span>
+                  {{item.title2}}</h2>
+                <span class="line"></span>
+                <p *ngIf="item.description">{{item.description}}</p>
+                <div class="mar-t-30 appicon">
+                  <a href="{{item.btn1_link}}"><img src="{{db.product_img(item.btn1_bg)}}"></a>
+                  <a href="{{item.btn2_link}}"><img src="{{db.product_img(item.btn2_bg)}}" class="pad-l-5"></a>
+                </div>
+              </div>
+            </ion-col>
+            <ion-col class="img text-center">
+              <img src="{{db.product_img(item.right_image)}}">
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <!-- about-us -->
+      <ion-grid *ngIf="item.section_type == 'Static Section' && item.section_name =='About Us Header Section'"
+        class="aboutus {{item.class_name}}" [ngStyle]="img_style(item.bt1_bg,'full-bg-img')">
+        <ion-row>
+          <ion-col>
+            <div class="header-title">
+              <h1 class="white-text title">{{item.title}}</h1>
+              <div class="Breadcrumb mb-15 robot-font">
+                <div class="mr-5 mouse white-text font-14 home" (click)="Animation()">{{item.home}}</div>
+                <ion-icon class="top-v  white-text" name="chevron-forward"></ion-icon>
+                <span class="mouse mr-5 primary primary-name white-text font-14">{{item.breadcrumb_title}}</span>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <!-- Sub Header -->
+      <div *ngIf="item.section_type == 'Static Section' && item.section_name =='Sub Header'"
+        class="aboutus bt1_bg {{item.class_name}}" [ngStyle]="img_style(item.bt1_bg,'full-bg-img__')">
+        <!-- <ion-row>
+      <ion-col> -->
+        <div class="header-title">
+          <!--&& !db.scroll_event.absolute_sticky-->
+          <h1 class="white-text_ title">{{item.title}}</h1>
+          <div class="Breadcrumb mb-15 robot-font">
+            <span class="mr-5 mouse white-text font-14 home" routerLink="/p/home-page"
+              routerDirection="root">{{item.home}}</span>
+            <img class="top-v white-text icon" src="{{db.product_img(item.icon)}}" alt="">
+            <!-- <ion-icon class="top-v white-text icon" src="{{db.product_img(item.icon)}}"></ion-icon> -->
+            <span
+              class="mouse mr-5 primary primary-name white-text font-14 breadcrumb_title">{{item.breadcrumb_title}}</span>
+          </div>
+        </div>
+        <!-- </ion-col>
+   </ion-row> -->
+      </div>
+      <ion-grid *ngIf="item.section_type == 'Static Section' && item.section_name =='Icon Boxes'">
+        <ion-row class="main-width1">
+          <ion-col>
+            <ion-icon name="eye-outline" class="about-icon"></ion-icon>
+            <h2 class="title-card">{{item.title1}}</h2>
+            <p class="description">{{item.description1}}</p>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="rocket-outline" class="about-icon"></ion-icon>
+            <h2 class="title-card">{{item.title2}}</h2>
+            <p class="description">{{item.description2}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid *ngIf="item.section_type == 'Static Section' && item.section_name =='About Us Content section'"
+        [ngStyle]="img_style(item.bgimage,'About-bg-image')" class="bg-gray">
+        <ion-row class="main-width1 About_Us_Content_section text-center">
+          <ion-col>
+            <h2 class="title-card title">{{item.title}}</h2>
+            <div class="description" [innerHtml]="item.description"></div>
+            <img [src]="item.image">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <!-- Video Blogs -->
+      <ion-grid *ngIf="item.section_type == 'Static Section' && item.section_name =='Video Blogs'"
+        [style.background-image]="'url('+db.product_img(item.bg_image)+')'">
+        <ion-row class="Video_Blogs main-width dis-block">
+          <div class="width-50">
+            <h2 class="title-with left" [class.mt-10]="db.ismobile" [class.txt-l]="db.ismobile"
+              [class.p__10]="db.ismobile">{{item.title}} <span>{{item.title0}}</span></h2>
+            <span class="line"></span>
+            <p class="subtitle-with" [class.txt-l]="db.ismobile" [class.p__10]="db.ismobile">{{item.subtitle}}</p>
+            <ion-card class="card-s mar-40 mar-20">
+              <img [src]="db.product_img(item.image1)"> <!-- <img src="assets/imgs/video2.jpg"> -->
+              <!--   <div class="video-btn">
+            <a id="play-video" class="video-play-button" href="#">
+              <span></span>
+            </a>
+            </div> -->
+              <a id="play-video" class="video-play-button" href="#">
+                <span></span>
+              </a>
+              <ion-card-header class="card-t lefta" [class.video__titles]="db.ismobile">
+                <ion-card-title class="program-title mobile-title-size">{{item.title1}}</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+            <ion-card class="card-s mar-20">
+              <img [src]="db.product_img(item.image2)">
+              <a id="play-video" class="video-play-button" href="#">
+                <span></span>
+              </a>
+              <ion-card-header class="card-t lefta" [class.video__titles]="db.ismobile">
+                <ion-card-title class="program-title mobile-title-size">{{item.title2}}</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </div>
+          <div class="width-50">
+            <ion-card class="card-s mar-40 mar-20">
+              <img [src]="db.product_img(item.image3)">
+              <a id="play-video" class="video-play-button" href="#">
+                <span></span>
+              </a>
+              <ion-card-header class="card-t lefta" [class.video__titles]="db.ismobile">
+                <ion-card-title class="program-title mobile-title-size">{{item.title3}}</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+            <ion-card class="card-s mar-40 mar-20">
+              <img [src]="db.product_img(item.image4)">
+              <a id="play-video" class="video-play-button" href="#">
+                <span></span>
+              </a>
+              <ion-card-header class="card-t lefta" [class.video__titles]="db.ismobile">
+                <ion-card-title class="program-title mobile-title-size">{{item.title4}}</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+            <div [class.txt-c]="!db.ismobile">
+              <ion-button class="button view-b mb_10" fill="clear" routerLink="/">
+                View all programs
+                <ion-icon name="chevron-forward-outline" class="icon-c"></ion-icon>
+              </ion-button>
+            </div>
+          </div>
+        </ion-row>
+      </ion-grid>
+      <!-- Product Categories -->
+      <ion-grid [class.of-hidden]="db.ismobile" [class.p-10]="db.ismobile"
+        *ngIf="item.section_type == 'Static Section' && item.section_name =='Product Categories'">
+        <ion-row class="Video_Blogs text-center main-width dis-block" *ngIf="!db.ismobile">
+          <div class="width-50">
+            <!--<h2 class="title-with left">Product <span>Categories</span></h2>
+         <span class="line"></span>
+         <p class="subtitle-with">{{item.subtitle}}</p> -->
+            <ion-card class="card-s card-g">
+              <img [src]="db.product_img(item.image1)">
+              <!-- <img src="assets/imgs/1.jpg"> -->
+              <ion-card-header class="card-t">
+                <ion-card-title class="program-title mobile-title-size">{{item.title1}}</ion-card-title>
+                <ion-button fill="clear" class="buttonstyle1">
+                  Shop Now
+                  <ion-icon name="arrow-forward-outline" class="right-a"></ion-icon>
+                </ion-button>
+              </ion-card-header>
+            </ion-card>
+            <ion-card class="card-s card-g mr-25">
+              <img [src]="db.product_img(item.image2)">
+              <!-- <img src="assets/imgs/2.jpg"> -->
+              <ion-card-header class="card-t">
+                <ion-card-title class="program-title mobile-title-size">{{item.title2}}</ion-card-title>
+                <ion-button fill="clear" class="buttonstyle1">
+                  Shop Now
+                  <ion-icon name="arrow-forward-outline" class="right-a"></ion-icon>
+                </ion-button>
+              </ion-card-header>
+            </ion-card>
+          </div>
+          <div class="width-50">
+            <ion-card class="card-s card-g">
+              <img [src]="db.product_img(item.image3)">
+              <!-- <img src="assets/imgs/3.jpg"> -->
+              <ion-card-header class="card-t">
+                <ion-card-title class="program-title mobile-title-size">{{item.title3}}</ion-card-title>
+                <ion-button fill="clear" class="buttonstyle1">
+                  Shop Now
+                  <ion-icon name="arrow-forward-outline" class="right-a"></ion-icon>
+                </ion-button>
+              </ion-card-header>
+            </ion-card>
+          </div>
+        </ion-row>
+        <ion-row class="Video_Blogs text-center main-width of-hidden" *ngIf="db.ismobile">
+          <div class="width-50">
+            <h2 class="title-with txt-l left">{{item.title}}<span>{{item.title0}}</span></h2>
+            <span class="line"></span>
+            <p class="subtitle-with">{{item.subtitle}}</p>
+            <div class="mobile-s d__flex">
+              <div class="card-s">
+                <img class="image_card" [src]="db.product_img(item.mobile_image1)">
+                <!-- <img src="assets/imgs/1.jpg"> -->
+                <ion-card-header class="card-t">
+                  <ion-card-title class="program-title mobile-title-size cate__title">{{item.title1}}</ion-card-title>
+                  <ion-button fill="clear" class="buttonstyle1 cate__button">
+                    Shop Now
+                    <ion-icon name="arrow-forward-outline" class="right-a"></ion-icon>
+                  </ion-button>
+                </ion-card-header>
+              </div>
+              <div class="card-s card-g">
+                <img class="image_card" [src]="db.product_img(item.mobile_image2)">
+                <!-- <img src="assets/imgs/2.jpg"> -->
+                <ion-card-header class="card-t">
+                  <ion-card-title class="program-title mobile-title-size cate__title">{{item.title2}}</ion-card-title>
+                  <ion-button fill="clear" class="buttonstyle1 cate__button">
+                    Shop Now
+                    <ion-icon name="arrow-forward-outline" class="right-a"></ion-icon>
+                  </ion-button>
+                </ion-card-header>
+              </div>
+              <div class="card-s card-g">
+                <img class="image_card" [src]="db.product_img(item.mobile_image3)">
+                <!-- <img src="assets/imgs/3.jpg"> -->
+                <ion-card-header class="card-t">
+                  <ion-card-title class="program-title mobile-title-size cate__title">{{item.title3}}</ion-card-title>
+                  <ion-button fill="clear" class="buttonstyle1 cate__button">
+                    Shop Now
+                    <ion-icon name="arrow-forward-outline" class="right-a"></ion-icon>
+                  </ion-button>
+                </ion-card-header>
+              </div>
+            </div>
+          </div>
+        </ion-row>
+      </ion-grid>
+      <!-- Right_Content_Left_Image -->
+      <div class="d__flex  Left_Content_Right_Image bg_image" [class.about_us]="about_us && db.ismobile"
+        *ngIf="item.section_type == 'Static Section' && item.section_name == 'Left Content Right Image1'"
+        [style.background]="item.bg_color" [style.background-image]="'url('+db.product_img(item.bg_image)+')'">
+        <div class="left_div main-width">
+          <div class="section">
+            <h2 class="title-with m-0">{{item.title}} <span>{{item.title1}}</span></h2>
+            <span class="line"></span>
+            <p class="sub_title m-0">{{item.subtitle}}</p>
+            <p class="content" [innerHtml]="item.content"></p>
+            <ion-button *ngIf="item.btn_text && !db.ismobile" class="button" fill="clear" [routerLink]="item.btn_link"
+              [style.color]="item.btn_text_color" [style.background]="item.btn_bg_color">{{item.btn_text}}
+              <ion-icon name="chevron-forward-outline" class="icon-c"></ion-icon>
+            </ion-button>
+          </div>
+        </div>
+        <div *ngIf="item.right_image" class="right_div main-width">
+          <img src="{{db.product_img(item.image1)}}" class="left-filler">
+          <!-- <img src="assets/shapes/endangerd-skills-top-left.svg" class="left-filler"> -->
+          <div class="image" [class.mar_10]="db.ismobile">
+            <img [class.img-redius]="db.ismobile" src="{{db.product_img(item.right_image)}}" alt="">
+          </div>
+          <img src="{{db.product_img(item.image2)}}" class="right-filler">
+          <!-- <img src="assets/shapes/endangerd-skills-bottom-right.svg" class="right-filler"> -->
+        </div>
+        <div class="section main-width" *ngIf="db.ismobile">
+          <ion-button *ngIf="item.btn_text" class="button m-0" fill="clear" [routerLink]="item.btn_link"
+            [style.color]="item.btn_text_color" [style.background]="item.btn_bg_color">{{item.btn_text}}
+            <ion-icon name="chevron-forward-outline" class="icon-c"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+      <!-- Right_Content_Left_Image -->
+      <div class="d__flex main-width Right_Content_Left_Image bg_image" [class.about_us]="about_us && db.ismobile"
+        *ngIf="item.section_type == 'Static Section' && item.section_name == 'Right Content Left Image1'"
+        [style.background]="item.bg_color" [style.background-image]="'url('+db.product_img(item.bg_image)+')'">
+        <div *ngIf="item.left_image" class="left_div">
+          <img src="{{db.product_img(item.image1)}}" class="left-filler">
+          <div class="image">
+            <img src="{{db.product_img(item.left_image)}}" alt="">
+            <a id="play-video" class="video-play-button" href="#">
+              <span></span>
+            </a>
+          </div>
+          <img src="{{db.product_img(item.image2)}}" class="right-filler">
+        </div>
+        <div class="right_div">
+          <div class="section">
+            <h2 class="title-with m-0">{{item.title}} <span>{{item.title1}}</span></h2>
+            <span class="lineright"></span>
+            <p class="sub_title m-0">{{item.subtitle}}</p>
+            <p class="content" [class.m-0]="db.ismobile" [innerHtml]="item.content"></p>
+            <ion-button *ngIf="item.btn_text" class="button" fill="clear" [routerLink]="item.btn_link"
+              [style.color]="item.btn_text_color" [style.background]="item.btn_bg_color">{{item.btn_text}}
+              <ion-icon name="chevron-forward-outline" class="icon-c"></ion-icon>
+            </ion-button>
+          </div>
+        </div>
+      </div>
+      <!-- Seller Slider -->
+      <ion-grid class="d__flex bg-gray Left_Content_Right_Image bg_image" [class.about_us]="about_us && db.ismobile"
+        *ngIf="item.section_type == 'Static Section' && item.section_name == 'Seller Slider'"
+        [style.background-image]="'url('+db.product_img(item.bg_image)+')'">
+        <ion-row class="main-width d__flex">
+          <ion-col sizeLg="4" sizeMd="4" sizeXs="12" size="12">
+            <div class="left_div">
+              <div class="section">
+                <h2 class="title-with m-0">{{item.title}} <span>{{item.title1}}</span></h2>
+                <span class="line"></span>
+                <p class="sub_title m-0">{{item.subtitle}}</p>
+                <p class="content" [class.m-0]="db.ismobile" [innerHtml]="item.content"></p>
+                <ion-button *ngIf="item.btn_text && !db.ismobile" class="button" fill="clear"
+                  [routerLink]="item.btn_link" [style.color]="item.btn_text_color"
+                  [style.background]="item.btn_bg_color">{{item.btn_text}}
+                  <ion-icon name="chevron-forward-outline" class="icon-c"></ion-icon>
+                </ion-button>
+              </div>
+            </div>
+          </ion-col>
+          <ion-col sizeLg="8" sizeMd="8" sizeXs="12" size="12">
+            <img src="{{db.product_img(item.cimage1)}}" class="shop-filler1">
+            <div class="web-slider">
+              <div></div>
+            </div>
+            <div class="web-slider d__flex" [class.overf-scroll]="db.ismobile">
+              <ion-slide class="seller-slide">
+                <div class="card2">
+                  <img [src]="db.product_img(item.image1)" alt="" class="person">
+                  <h6 class="name-t">{{item.title2}}</h6>
+                </div>
+              </ion-slide>
+              <ion-slide class="seller-slide">
+                <div class="card2">
+                  <img [src]="db.product_img(item.image2)" alt="" class="person">
+                  <h6 class="name-t">{{item.title3}}</h6>
+                </div>
+              </ion-slide>
+              <ion-slide class="seller-slide">
+                <div class="card2">
+                  <img [src]="db.product_img(item.image3)" alt="" class="person">
+                  <h6 class="name-t">{{item.title4}}</h6>
+                </div>
+              </ion-slide>
+            </div>
+            <img src="{{db.product_img(item.cimage2)}}" class="shop-filler2">
+          </ion-col>
+          <div class="section" *ngIf="db.ismobile">
+            <ion-button *ngIf="item.btn_text" class="button" fill="clear" [routerLink]="item.btn_link"
+              [style.color]="item.btn_text_color" [style.background]="item.btn_bg_color">{{item.btn_text}}
+              <ion-icon name="chevron-forward-outline" class="icon-c"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-row>
+      </ion-grid>
+      <!-- Top  Categories -->
+      <ion-grid [class.p-10]="db.ismobile"
+        *ngIf="item.section_type == 'Static Section' && item.section_name =='Top Categories'" class="bg-gray top-c">
+        <ion-row class="text-center main-width dis-block">
+          <ion-col sizeXs="12" size="12">
+            <h2 class="title-with" [class.txt-l]="db.ismobile">{{item.title}} <span>{{item.title1}}</span></h2>
+            <span class="linecenter"></span>
+            <p class="subtitle-with null-margin" [class.txt-l]="db.ismobile">{{item.subtitle}}</p>
+          </ion-col>
+        </ion-row>
+        <div class="text-center main-width mobile-s d__flex just-a" [class.just-st]="db.ismobile">
+          <ion-buttons class="tab__buttons m-b-10" *ngFor="let product of db.category">
+            <ion-button fill="clear" class="tab-button" [class.tab__button]="product.name == childCategory">
+              <img *ngIf="product.mobile_image && product.name != childCategory && !db.ismobile"
+                [src]="db.product_img(product.mobile_image)">
+              <img *ngIf="product.mobile_image && product.name == childCategory && !db.ismobile"
+                [src]="db.product_img(product.category_image)">
+              {{product.category_name}}
+            </ion-button>
+          </ion-buttons>
+        </div>
+        <div *ngIf="child.length !=0 && child" class="text-center main-width flex-w d__flex">
+          <div *ngFor="let sub of child" class="d" [class.card__s]="!db.ismobile" routerLink="/c/{{sub.route}}">
+            <ion-card class="card_width card-s transition_ bor-10 mar-0" *ngIf="sub.category_image">
+              <img [src]="db.product_img(sub.category_image)">
+              <ion-card-header class="card-t1" [class.card__title]="db.ismobile" *ngIf="sub.category_image">
+                <ion-card-title [class.card__titles_top]="db.ismobile"
+                  class="program-title mobile-title-size webkit-text" [style.--line]="db.ismobile ? 1 : null">
+                  {{sub.category_name}}</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </div>
+        </div>
+      </ion-grid>
+      <!-- New Section Created by Nixson -->
+      <!--4 Column Card Image with link-->
+      <div class="d__flex center_title bg_image center-bg list-btn card-image-section {{item.class_name}}"
+        [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0"
+        [class.just-c]="item.section_name == 'Center title with content and List'"
+        [class.about_us]="about_us && db.ismobile"
+        *ngIf="item.section_type == 'Static Section' && item.section_name == '4 Column Card Image with link'"
+        [style.background-image]="'url('+db.product_img(item.bg_image)+')'">
+        <!-- <div class="main-width"> -->
+        <div class="right_div">
+          <div class="section">
+            <h2 class=" m-0 title">{{item.title}} <span class="title1">{{item.title1}}</span></h2>
+            <p class="subtitle">{{item.content}}</p>
+            <div class="d__grid13">
+              <ion-card class="ion-text-center cardbox" *ngFor="let data of item.cardimage">
+                <div *ngIf="data.image1" class="card-head img-wrapper">
+                  <img src="{{db.product_img(data.image1)}}" class="card-img four-column-banners image1">
+                </div>
+                <ion-card-content>
+                  <ion-button *ngIf="data.btn_text1" class="button homebutton btn_text1" fill="clear"
+                    (click)="redirect_next_page(data.btn_link1)">{{data.btn_text1}}
+                    <!-- <img src="assets/icon/right-arrow.svg" class="arrow"> -->
+                  </ion-button>
+                </ion-card-content>
+              </ion-card>
+            </div>
+          </div>
+        </div>
+        <!-- </div> -->
+      </div>
+      <!-- Card Image with link-->
+      <div
+        class="d__flex main-width-full center_title bg_image center-bg list-btn card-image-section {{item.class_name}}"
+        [class.just-c]="item.section_name == 'Center title with content and List'"
+        [class.about_us]="about_us && db.ismobile"
+        *ngIf="item.section_type == 'Static Section' && item.section_name == 'Card Image with link'"
+        [style.background-image]="'url('+db.product_img(item.bg_image)+')'"
+        [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+        <!-- <div class=""> -->
+        <div class="right_div">
+          <div class="section">
+            <h2 class="m-0 title">{{item.title}} <span class="title1">{{item.title1}}</span></h2>
+            <p class="subtitle">{{item.content}}</p>
+            <div class="d__grid12">
+              <ion-card class="ion-text-center cardbox" *ngFor="let data of item.cardimage1">
+                <div *ngIf="data.image1" class="card-head img-wrapper">
+                  <img src="{{db.product_img(data.image1)}}" class="card-img three-column-banners image1">
+                </div>
+                <ion-card-content>
+                  <ion-button *ngIf="data.btn_text1" href="{{data.btn_link1}}" class="button homebutton btn_text1"
+                    fill="clear">{{data.btn_text1}}</ion-button> <!-- (click)="redirect_next_page(item.btn_link1)" -->
+                </ion-card-content>
+              </ion-card>
+            </div>
+          </div>
+        </div>
+        <!-- </div> -->
+      </div>
+      <!-- 10 Boxes icon with content -->
+      <div class="cardsection-main {{item.class_name}}" [class.main-width-full]="item.is_full_width == 1"
+        [class.main-width]="item.is_full_width == 0"
+        *ngIf="item.section_name == 'Card List with icon and title' && item.section_type == 'Static Section'">
+        <div class="">
+          <h2 class=" title-center m-0 title">{{item.title}} <span>{{item.title0}}</span></h2>
+          <p class="sub_title-center m-0 subtitle">{{item.subtitle}}</p>
+          <div class="cardsection d__flex">
+            <div *ngFor="let data of item.cardsectionmain" class="card-box">
+              <img src="{{db.product_img(data.icon1)}}" alt="" class="icon1">
+              <h5 class="m-0 title1">{{data.title1}}</h5>
+              <p class="txt-l subtitle">{{data.content}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 10 Boxes icon with content -->
+      <div class="cardsection-main6 {{item.class_name}}" [class.main-width]="item.is_full_width == 0"
+        [class.main-width-full]="item.is_full_width == 1"
+        *ngIf="item.section_name == '4x2 grid on brand' && item.section_type == 'Static Section'">
+        <div class="">
+          <h2 class=" title-center m-0 pad-left-30 title">{{item.title}} <span class="title0">{{item.title0}}</span>
+          </h2>
+          <p class="m-0 pad-left-30 white-text content">{{item.content}}</p>
+          <div class="cardsection d__flex">
+            <div class="card-box" *ngFor="let data of item.cardsection6">
+              <img src="{{db.product_img(data.icon1)}}" alt="" class="icon1">
+              <h4 class="m-0 title1">{{data.title1}}</h4>
+              <p class="content">{{data.content1}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d__flex center_title bg_image center-bg {{item.class_name}} animate"
+        [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0"
+        [class.just-c]="item.section_name == 'Center title with content'" [class.about_us]="about_us && db.ismobile"
+        *ngIf="item.section_type == 'Static Section' && item.section_name == 'Center title with content'"
+        [style.background-image]="'url('+db.product_img(item.bg_image)+')'">
+        <div class="main-width">
+          <div class="right_div">
+            <div class="section">
+              <h2 class=" m-0 title">{{item.title}} <span class="title1">{{item.title1}}</span></h2>
+              <h5 class="txt-c m-0 subtitle">{{item.subtitle}}</h5>
+              <p class="content" [class.m-0]="db.ismobile" [innerHtml]="item.content"></p>
+              <div class="txt-c">
+                <ion-button *ngIf="item.btn_text" class="button homebutton btn_text" fill="clear"
+                  (click)="redirect_next_page(item.btn_link)" [style.color]="item.btn_text_color"
+                  [style.background]="item.btn_bg_color">{{item.btn_text}}</ion-button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Content Video -->
+      <div *ngIf="item.section_type == 'Static Section' && item.section_name == 'Content Video'"
+        class="{{item.class_name}} main-width animate" [class.main-width-full]="item.is_full_width == 1"
+        [class.main-width]="item.is_full_width == 0">
+        <div [class.min__height]="!db.ismobile">
+          <iframe *ngIf="item.vimeo_id" [src]="sanitize_url(item.vimeo_id)" allow="autoplay; fullscreen" frameborder="0"
+            showinfo="1" autoplay="1" rel="1" width="100%" height="100%" uk-cover="" class="uk-cover" width="100%"
+            [class.frame_video]="db.ismobile" [class.frame_with]="!db.ismobile"
+            [class.iframe_video]="!db.ismobile"></iframe>
+          <!-- <iframe *ngIf="item.youtube_id" [src]="sanitize_youtube_url(item.youtube_id)" frameborder="0" allowfullscreen width="100%" [height]="db.ismobile?'195':'600'" frameborder="0"  webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> -->
+          <div class="mobile-containner" *ngIf="">
+            <div *ngIf="item.youtube_id" [class.youtube_overlay]="db.path == '/' || db.path == '/home'">
+            </div>
+            <div class="video-position">
+              <div class="video-section" *ngIf="item.youtube_id" id="ytplayer" width="100%"></div>
+              <!-- {{enable_video()}} -->
+            </div>
+          </div>
+          <!-- <iframe [src]="sanitize_url(item.vimeo_id)" allow="autoplay; fullscreen" frameborder="0" allowfullscreen="" webkitallowfullscreen mozallowfullscreen allowfullscreen uk-cover="" class="uk-cover" width="100%" [class.frame_video]="db.ismobile" [class.frame_with]="!db.ismobile" [class.iframe_video]="!db.ismobile" id="vid"></iframe> -->
+          <!-- <iframe  src="https://player.vimeo.com/video/718193790?h=b4da11ef59&autoplay=1&loop=1&title=0&byline=0&portrait=0&api=1&player_id=1&autopause=0" allow="autoplay; fullscreen" frameborder="0" allowfullscreen="" uk-cover="" class="uk-cover" width="100%" [class.frame_video]="db.ismobile" [class.iframe_video]="!db.ismobile"></iframe> -->
+          <video *ngIf="item.uploaded_video" [height]="db.ismobile?'180':'550'" width="100%" autoplay loop>
+            <source src="{{item.uploaded_video}}" type="video/mp4" class="uploaded_video">
+            <source src="{{item.uploaded_video}}" type="video/ogg" class="uploaded_video">
+          </video>
+        </div>
+      </div>
+      <!-- FAQs -->
+      <div class="d__flex main-width text-center bg-size img__height CTA FAQs_data bg_image {{item.class_name}} animate"
+        [class.about_us]="about_us && db.ismobile"
+        *ngIf="item.section_type == 'Predefined Section' && item.section_name == 'FAQs'"
+        [style.background-image]="'url('+db.product_img(item.bg_image)+')'">
+        <div class="mainwidth_">
+          <p class="m-0 title__ title">{{item.title}}</p>
+          <div class="">
+            <div class="flex-50 pad FQ_border mouse" *ngFor="let Q of item.data;let i=index" (click)="Q.FAQ = !Q.FAQ">
+              <h4 class="questions question">
+                <ion-icon [name]="Q.FAQ ? 'remove-outline' :'add-outline'"></ion-icon>
+                {{Q.question}}
+              </h4>
+              <p *ngIf="Q.FAQ" class="ans answer">{{Q.answer}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Grid with offset icons -->
+      <div class="cardsection-main2 {{item.class_name}} animate"
+        *ngIf="item.section_name == 'Grid with offset icons' && item.section_type == 'Static Section'"
+        [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+        <div class="">
+          <h2 class=" title-center m-0 title">{{item.title}} <span class="title0">{{item.title0}}</span></h2>
+          <h5 class="sub_title-center subtitle">{{item.subtitle}}</h5>
+          <div class="cardsection d__flex">
+            <div *ngFor="let data of item.cardsectionmain2" class="card-box">
+              <img src="{{db.product_img(data.icon1)}}" alt="" class="icon1">
+              <div class="card-b">
+                <h4 class="m-0 title1">{{data.title1}}</h4>
+                <p class="m-0 content1">{{data.content1}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Header -->
+      <div class="d__flex bg-size Left_Content_Right_Image bg_image p-80 Header_Section {{item.class_name}}"
+        [class.about_us]="about_us && db.ismobile"
+        *ngIf="item.section_type == 'Static Section' && item.section_name == 'Header Section'"
+        [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0"
+        [style.background-image]="'url('+db.product_img(item.bg_image)+')'">
+        <!-- d__flex grid-layout -->
+        <div class="main-width d__flex just-c">
+          <div class="left_div">
+            <div class="section">
+              <h2 class=" m-b-15 m-0 title">{{item.title}}</h2>
+              <h5 class="m-0 subtitle">{{item.subtitle}}</h5>
+              <p class="content m-0" [innerHtml]="item.content"></p>
+              <ul class="header-list m-b-15">
+                <li class="list1 listpoint" *ngFor="let data of item.list1">{{data.listpoint}}</li>
+              </ul>
+              <ion-button *ngIf="item.btn_text1" class="button button1 header-btn bg__clr btn_text1" fill="clear"
+                (click)="redirect_next_page(item.btn_link1)" [style.color]="item.btn_text_color1"
+                [style.background]="item.btn_bg_color1">{{item.btn_text1}}</ion-button> -->
+              <ion-button *ngIf="item.btn" (click)="redirect_next_page(item.btn_text.btn_redirect_url)"
+                class="button header-btn btn" fill="clear">{{item.btn_text.btn_text}}</ion-button>
+            </div>
+          </div>
+          <div *ngIf="item.right_image">
+            <div class="image">
+              <img class="right_div" src="{{db.product_img(item.right_image)}}" alt="" class="header_img right_image">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Offset 2x2 grid -->
+      <div class="cardsection-main5 {{item.class_name}} animate"
+        *ngIf="item.section_name == 'Offset 2x2 grid' && item.section_type == 'Static Section'"
+        [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+        <ion-row class="mobile-dis">
+          <ion-col>
+            <div class="pad-15">
+              <h2 class=" title-center m-0 title">{{item.title}} <span class="title0">{{item.title0}}</span></h2>
+              <h5 class="sub_title-center subtitle">{{item.subtitle}}</h5>
+              <p class="sub_title-center subtitle">{{item.content}}</p>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="cardsection d__flex">
+              <div *ngFor="let data of item.cardsectionmain5" class="card-box">
+                <img src="{{db.product_img(data.icon1)}}" alt="" class="icon1">
+                <div class="card-b">
+                  <h4 class="m-0 title1">{{data.title1}}</h4>
+                  <p class="content1">{{data.content1}}</p>
+                </div>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+      <div class="Left_Content_Right_Image bg_image {{item.class_name}} animate"
+        [class.about_us]="about_us && db.ismobile"
+        *ngIf="false && item.section_type == 'Static Section' && item.section_name == 'Left Content Right Image'"
+        [style.background-image]="'url('+db.product_img(item.bg_image)+')'"
+        [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+        <div class="d__flex wrap">
+          <div class="left_div">
+            <div class="section">
+              <h2 class="m-0 title">{{item.title}} <span class="title1">{{item.title1}}</span></h2>
+              <h4 class="m-0 subtitle">{{item.subtitle}}</h4>
+              <p class="content" [innerHtml]="item.content"></p>
+            </div>
+          </div>
+          <div *ngIf="item.right_image" class="right_div">
+            <div class="image">
+              <img src="{{db.product_img(item.right_image)}}" alt="" class="right_image1 right_image">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- CTA1 -->
+      <div class="d__flex bg-size img__height CTA Left_Content_Right_Image bg_image {{item.class_name}} animate"
+        [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0"
+        [class.about_us]="about_us && db.ismobile"
+        *ngIf="item.section_type == 'Static Section' && item.section_name == 'CTA1'"
+        [style.background-image]="'url('+db.product_img(item.bg_image)+')'">
+        <div class="main-width grid-layout">
+          <div class="left_div">
+            <div class="section">
+              <h2 class="m-0 title white-text">{{item.title}}</h2>
+              <h5 class="m-0 subtitle white-text">{{item.subtitle}}</h5>
+              <p class="content" [innerHtml]="item.content"></p>
+            </div>
+          </div>
+          <div class="right_div">
+            <div class="image">
+              <ion-button *ngIf="item.btn_text" (click)="redirect_next_page(item.btn_text.btn_redirect_url)"
+                class="button header-btn btn cta_button" fill="clear">{{item.btn_text.btn_text}}</ion-button>
+              <!-- (click)="redirect_next_page(item.btn_redirect_url)" -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Centered 2x2 grid -->
+      <div class="cardsection-main1 {{item.class_name}}" [class.main-width-full]="item.is_full_width == 1"
+        [class.main-width]="item.is_full_width == 0"
+        *ngIf="item.section_name == 'Centered 2x2 grid' && item.section_type == 'Static Section'">
+        <div class="">
+          <!-- <p class="title-center m-0">{{item.title}}</p> -->
+          <div class="pad-15">
+            <h2 class="txt-c m-0 title">{{item.title}} <span class="title0">{{item.title0}}</span></h2>
+            <h5 class="sub_title-center subtitle">{{item.subtitle}}</h5>
+            <p class="txt-c">{{item.content}}</p>
+          </div>
+          <div class="cardsection d__flex">
+            <div *ngFor="let data of item.cardsectionmain1" class="card-box">
+              <img src="{{db.product_img(data.icon1)}}" alt="" class="icon1">
+              <div class="card-b">
+                <h4 class="m-0 title1">{{data.title1}}</h4>
+                <p class="content1">{{data.content1}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="Right_Content_Left_Image bg_image {{item.class_name}} animate"
+        [class.about_us]="about_us && db.ismobile"
+        *ngIf="item.section_type == 'Static Section' && item.section_name == 'Right Content Left Image'"
+        [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+        <div class="d__flex wrap">
+          <div *ngIf="item.left_image" class="left_div">
+            <div class="image">
+              <img src="{{db.product_img(item.left_image)}}" alt="" class="left_image1 left_image">
+            </div>
+          </div>
+          <div class="right_div">
+            <div class="section">
+              <!-- <p class=" m-0">{{item.title}}</p> -->
+              <h2 class=" m-0 title">{{item.title}}</h2>
+              <h5 class="m-0 subtitle">{{item.subtitle}}</h5>
+              <p class="content" [class.m-0]="db.ismobile" [innerHtml]="item.content"></p>
+              <!-- <ion-button *ngIf="item.btn" routerLink="/{{item.btn_text.btn_redirect_url}}" class="button header-btn btn" fill="clear">{{item.btn_text.btn_text}}</ion-button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Section with  -->
+      <div class="d__flex Section_With_Content_and_Image bg_image {{item.class_name}} animate"
+        [class.about_us]="about_us && db.ismobile"
+        *ngIf="item.section_type == 'Static Section' && item.section_name == 'Section With Content and Image'"
+        [style.background-image]="'url('+db.product_img(item.bg_image)+')'"
+        [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+        <div class="main-width">
+          <div class="left_div mar-10">
+            <div class="section">
+              <h2 class="m-0 title">{{item.title}}</h2>
+              <h5 class="m-0 subtitle">{{item.subtitle}}</h5>
+              <p class="content m-0" [innerHtml]="item.content"></p>
+              <ion-button *ngIf="item.btn" (click)="redirect_next_page(item.btn_text.btn_redirect_url)"
+                class="button header-btn btn" fill="clear">{{item.btn_text.btn_text}}</ion-button>
+            </div>
+          </div>
+          <div *ngIf="item.right_image" class="right_div">
+            <div class="image">
+              <img src="{{db.product_img(item.right_image)}}" alt="" class="content_img right_image">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Simple three column -->
+      <div class="cardsection-main {{item.class_name}} animate"
+        *ngIf="item.section_name == 'Simple three column' && item.section_type == 'Static Section'"
+        [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+        <div class="">
+          <div class="cardsection d__flex">
+            <div *ngFor="let data of item.cardsection1" class="card-box">
+              <img src="{{db.product_img(data.icon1)}}" alt="" class="icon1">
+              <h4 class="m-0 title1">{{data.title1}}</h4>
+              <p class="m-0 content1">{{data.content1}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- With feature grid list -->
+      <div class="cardsection-main4 {{item.class_name}} animate"
+        *ngIf="item.section_name == 'With feature grid list' && item.section_type == 'Static Section'"
+        [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+        <div class="">
+          <!-- <p class="title-center m-0">{{item.title}}</p> -->
+          <h2 class="txt-c title">{{item.title}} <span class="title0">{{item.title0}}</span></h2>
+          <h5 class="sub_title-center m-0 subtitle">{{item.subtitle}}</h5>
+          <div class="cardsection d__flex">
+            <div *ngFor="let data of item.cardsection4" class="card-box">
+              <img src="{{db.product_img(data.icon1)}}" alt="" class="icon1">
+              <div class="card-b">
+                <h4 class="m-0 title1">{{data.title1}}</h4>
+                <p class="content1">{{data.content1}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf="item.section_type == 'Static Section' && item.section_name =='Left Side List Style Two and Right Image'"
+        class="container_reverce Left_List_Right_Image d__flex d__flex {{item.class_name}} animate"
+        [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+        <div class="content_container">
+          <div class="content_element">
+            <div class="lr_title_ mb-20 ">
+              <h2 class="title">{{item.title}}</h2>
+              <p class="m-0 content">{{item.content}}</p>
+            </div>
+            <div *ngIf="item.subtitle" class="description_ mb-20">
+              <h5 class="description_text desc_class subtitle mobile_center_text">{{item.subtitle}}</h5>
+            </div>
+            <ul class="list_element">
+              <li class="list_content mb-20" *ngFor="let data of item.listpoints">
+                <div class="list_data ">
+                  <h4 *ngIf="data.list_title" class="list1 m-0">{{data.list_title}}</h4>
+                  <p *ngIf="data.listconent" class="description_text listconent mt-5">{{data.listconent}}</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="image_container">
+          <div class="txt-c">
+            <img class="right_image" *ngIf="item.right_image" [src]="db.product_img(item.right_image)" alt="banner_img">
+          </div>
+        </div>
+      </div>
+      <!-- (left_right_content_section_3) -->
+      <!-- SECTION THREE & VIDEO -->
+      <div *ngIf="item.section_type == 'Static Section' && item.section_name =='Left Video Right Side List Style Three'"
+        class="container_reverce d__flex d__flex animate" [class.main-width-full]="item.is_full_width == 1"
+        [class.main-width]="item.is_full_width == 0">
+        <div class="image_container">
+          <div class="video_con">
+            <iframe *ngIf="item.youtube_id" [src]="sanitize_url(item.youtube_id)" allow="autoplay; fullscreen"
+              frameborder="0" showinfo="1" autoplay="1" rel="1" width="100%" height="100%" uk-cover="" class="uk-cover"
+              width="100%" [class.frame_video]="db.ismobile" [class.frame_with]="!db.ismobile"
+              [class.iframe_video]="!db.ismobile"></iframe>
+            <video *ngIf="item.video" [height]="db.ismobile?'180':'550'" width="100%" controls autoplay loop>
+              <source src="{{item.video}}" type="video/mp4">
+              <source src="{{item.video}}" type="video/ogg">
+            </video>
+          </div>
+        </div>
+        <div class="content_container">
+          <div class="content_con">
+            <div class="title_ mb-20">
+              <h2 class="title">{{item.title}}</h2>
+            </div>
+            <div class="description_ mb-20">
+              <h5 class="subtitle" *ngIf="item.subtitle">{{item.subtitle}}</h5>
+            </div>
+            <div class="list_element">
+              <ul>
+                <li *ngFor="let data of item.listpoints" class="button_list mb-20" id="video_button">
+                  <div class="btn_back mouse active" (mouseenter)="data.show = true" (mouseleave)="data.show = false">
+                    <a class="button_btn d__flex fnt-18 fnt_500" [class.active_button_btn]="data.show">
+                      <div *ngIf="data.list_icon"><img [src]="db.product_img(data.list_icon)" style="width:22px;"></div>
+                      <h4 *ngIf="data.list_point1" class="text">{{data.list_point1}}</h4>
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- section absolute overlay -->
+      <div *ngIf="item.section_type == 'Static Section' && item.section_name =='Left Image Right Card List Style Four'"
+        class="container container_column main-width {{item.class_name}} animate">
+        <div class="main-width">
+          <div class="header__">
+            <h5 class="m-0 subtitle">{{item.subtitle}}</h5>
+            <h2 class="m-0 title">{{item.title}}</h2>
+          </div>
+          <div *ngFor="let data of item.cardlist"
+            [class.left_content]="(data.img_position != 'right' && data.img_position != 'Right' && data.img_position != 'Left' && data.img_position != 'left') || !data.img_position"
+            [class.right_content]="(data.img_position =='right' || data.img_position =='Right')"
+            [class.left_content]="(data.img_position == 'left' || data.img_position == 'Left')" class="box__1  d__flex">
+            <div *ngIf="(data.img_position == 'left' || data.img_position == 'Left')" class="image">
+              <img [src]="db.product_img(data.list_img)" alt="">
+            </div>
+            <div class="empty_div">
+              <div class="content">
+                <div class="content__box d__flex">
+                  <div class="d__flex content_value">
+                    <img class="icon__ list_icon" [src]="db.product_img(data.list_icon)" alt="">
+                    <h5 class="m-0 list_title">{{data.list_title}}</h5>
+                  </div>
+                  <p class="listconent">{{data.listconent}}</p>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="(data.img_position == 'right' || data.img_position == 'Right')" class="image">
+              <img class="list_img" [src]="db.product_img(data.list_img)" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- About - us content -->
+      <div class="main-width About_contact-us"
+        *ngIf="item.section_type == 'Static Section' && item.section_name == 'About Contact'">
+        <h2 *ngIf="item.title" class=" txt-c m-0">{{item.title}}</h2>
+        <h5 *ngIf="item.sub_title" class=" txt-c m-0">{{item.sub_title}}</h5>
+      </div>
+      <!-- Center title with content and center Image -->
+      <!-- [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0" -->
+      <!--  -->
+      <div class="d__flex center_title bg_image just-c {{item.class_name}}" [class.about_us]="about_us && db.ismobile"
+        *ngIf="item.section_type == 'Static Section' && item.section_name == 'Center title with content and center Image'"
+        style="background-image:url('{{db.product_img(item.right_image)}}')">
+        <div class="main-width">
+          <div class="right_div">
+            <div class="section">
+              <h2 class=" m-0 title txt-c">{{item.title}} <span class="title1">{{item.title1}}</span></h2>
+              <h5 class="txt-c m-0 subtitle">{{item.subtitle}}</h5>
+              <p class="content" [class.m-0]="db.ismobile" [innerHtml]="item.content"></p>
+              <div *ngIf="item.center_image">
+                <div class="image">
+                  <img src="{{db.product_img(item.center_image)}}" alt=""
+                    class="fullwidth Center_title fullwidth_image center_image">
+                </div>
+              </div>
+              <div class="txt-c">
+                <ion-button *ngIf="item.btn_text" class="button homebutton btn_text" fill="clear"
+                  (click)="redirect_next_page(item.btn_link)" [style.color]="item.btn_text_color"
+                  [style.background]="item.btn_bg_color">{{item.btn_text}}</ion-button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Full Bg with overlay Text -->
+      <div class="d__flex center_title Fullbg {{item.class_name}} uk has-background animate"
+        [class.just-c]="item.section_name == 'Full Bg with overlay Text'" [class.about_us]="about_us && db.ismobile"
+        *ngIf="item.section_type == 'Static Section' && item.section_name == 'Full Bg with overlay Text'"
+        [style.background-image]="'url('+db.product_img(item.bg_image)+')'"
+        [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+        <div class="main-width">
+          <div class="right_div">
+            <div class="section uk-overlay uk-position-center pad-l-r">
+              <h2 class=" m-0 title white-text">{{item.title}} <span class="title1">{{item.title1}}</span></h2>
+              <h5 class="txt-c m-0 subtitle white-text">{{item.subtitle}}</h5>
+              <p class="content overlay-t white-text" [class.m-0]="db.ismobile" [innerHtml]="item.content"></p>
+              <div class="txt-c">
+                <ion-button *ngIf="item.btn" (click)="redirect_next_page(item.btn_text.btn_redirect_url)"
+                  [style.color]="item.btn_text_color" [style.background]="item.btn_bg_color"
+                  class="button header-btn btn" fill="clear">{{item.btn_text.btn_text}}</ion-button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Full Bg with overlay Text and Right Image -->
+      <!-- -->
+      <div class="d__flex center_title overlay-right-img back_no_repeat {{item.class_name}} animate"
+        [style.background-image]="'url('+db.product_img(item.bg_image)+')'"
+        [class.just-c]="item.section_name == 'Full Bg with overlay Text Right Image'"
+        [class.about_us]="about_us && db.ismobile"
+        *ngIf="item.section_type == 'Static Section' && item.section_name == 'Full Bg with overlay Text Right Image'"
+        [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+        <div class="main-width d__flex mobileblock">
+          <div class="left_div">
+            <div class="section uk-overlay uk-position-center">
+              <h2 class=" m-0 title">{{item.title}} </h2>
+              <h5 class="txt-c m-0 white-text txt-l subtitle">{{item.subtitle}}</h5>
+              <p class="content" [class.m-0]="db.ismobile" [innerHtml]="item.content"></p>
+            </div>
+          </div>
+          <div *ngIf="item.right_image" class="right_div">
+            <div class="image">
+              <img src="{{db.product_img(item.right_image)}}" alt="" class="full_bg_right_img right_image">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="item.section_type == 'Static Section' && item.section_name =='Left Content Right Image with Subtitle'"
+        class="container_reverce d__flex main-width {{item.class_name}} animate">
+        <div class="content_container">
+          <h5 class="top_title subtitle mobile_center heading">{{item.subtitle}}</h5>
+          <h2 class="title">{{item.title}}</h2>
+          <p class="description_text description mobile_center">
+            {{item.description}}
+          </p>
+          <div *ngIf="item.btn_text" class="knowmore_button txt-c"
+            (click)="redirect_next_page(item.btn_text.btn_redirect_url)">
+            {{item.btn_text.btn_text}}
+          </div>
+        </div>
+        <div class="image_container">
+          <div class="image">
+            <img [src]="db.product_img(item.right_img)" alt="banner_img">
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf="item.section_type == 'Static Section' && (item.section_name =='Our Team 1' || item.section_name =='Our Team 2' || item.section_name =='Our Team 3' || item.section_name =='Our Team 4' || item.section_name =='Our Team 5' || item.section_name =='Our Team 6' || item.section_name =='Our Team 7' || item.section_name =='Our Team 8')">
+        <app-our-team [item]="item"></app-our-team>
+      </div>
+      <div
+        *ngIf="item.section_type == 'Custom Section' && (item.section_name =='Testimonials Style 1' || item.section_name =='Testimonials Style 2'|| item.section_name =='Testimonials Style 3'|| item.section_name =='Testimonials Style 4' || item.section_name =='Testimonials Style 5' || item.section_name =='Testimonials Style 6')">
+        <app-testimonials [item]="item"></app-testimonials>
+      </div>
+      <div
+        *ngIf="item.section_type == 'Custom Section' && (item.section_name =='FAQ Style 1' || item.section_name =='FAQ Style 2' || item.section_name =='FAQ Style 3' || item.section_name =='FAQ Style 4' || item.section_name =='FAQ Style 5')">
+        <app-faq [item]="item"></app-faq>
+      </div>
+      <div
+        *ngIf="item.section_type == 'Static Section' && (item.section_name =='Clients Style 1' || item.section_name =='Clients Style 2')">
+        <app-clients [item]="item"></app-clients>
+      </div>
+      <div
+        *ngIf="item.section_type == 'Static Section' && (item.section_name == 'Counters 1' || item.section_name == 'Counters 2' || item.section_name == 'Counters 3' || item.section_name == 'Counters 4' || item.section_name == 'Counters 5' || item.section_name == 'Counters 6')">
+        <app-counters [item]="item"></app-counters>
+      </div>
+      <div
+        *ngIf="item.section_type == 'Static Section' && (item.section_name =='Feature section 1' || item.section_name =='Features Style 1' || item.section_name =='Features Style 2' || item.section_name =='Features Style 3' || item.section_name =='Features Style 4' || item.section_name =='Features Style 5' || item.section_name =='Features Style 6' || item.section_name =='Left Image Right Side List Style One' || item.section_name == 'Left Content Right Image')">
+        <app-features [item]="item"></app-features>
+      </div>
+      <div *ngIf="item.section_type == 'Static Section' && item.section_name =='CTA'">
+        <app-cta [item]="item"></app-cta>
+      </div>
+      <div
+        *ngIf="item.section_type == 'Custom Section' && (item.section_name == 'Blog List' ||  item.section_name =='Blog List 1')">
+        <app-blogs [item]="item"></app-blogs>
+      </div>
+      <div *ngIf="item.section_type == 'Static Section' && item.section_name =='Portfolio'">
+        <app-portfolio [item]="item"></app-portfolio>
+      </div>
+      <div
+        *ngIf="item.section_type == 'Static Section' && (item.section_name == 'Content with slider 1' || item.section_name == 'Content with slider 2' || item.section_name == 'Content with slider 3' || item.section_name == 'Content with slider 4')">
+        <app-sliders [item]="item"></app-sliders>
+      </div>
+      <div
+        *ngIf="item.section_type == 'Static Section' && (item.section_name == 'List Style 1' || item.section_name == 'List Style 2' || item.section_name == 'List Style 3' || item.section_name == 'List Style 4' || item.section_name == 'List Style 5' || item.section_name == 'List Style 6')">
+        <app-list-section [item]="item"></app-list-section>
+      </div>
+      <div
+        *ngIf="item.section_type == 'Static Section' && (item.section_name == '3 Column Card Section' || item.section_name == 'landing page content slider' || item.section_name == 'CMS Elements Section' || item.section_name == 'UI Blocks Section' || item.section_name == '3 Column Image Section' || item.section_name == 'Customize Section' || item.section_name == 'Left Content Button with Right Image')">
+        <app-landing-page [item]="item"></app-landing-page>
+      </div>
+    </div>
+    <div>
+      <!-- Page Content Section -->
+      <div *ngFor="let item of viewContent">
+        <div
+          *ngIf="item.name == 'Terms Condition' || item.name == 'Privacy Policy' || item.name == 'Return Policy';else page;">
+          <ion-grid class="header-bg">
+            <ion-row>
+              <ion-col>
+                <div class="header-title">
+                  <h2 class="white-text txt__capital name">{{item.name}}</h2>
+                  <div class="Breadcrumb mb-15 robot-font">
+                    <span class="mr-5 mouse white-text" routerLink="/" routerDirection="root">Home</span>
+                    <ion-icon class="top-v  white-text" name="chevron-forward"></ion-icon>
+                    <span class="mouse mr-5 primary primary-name white-text txt__capital name">{{item.name}}</span>
+                  </div>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <p class="main-width" [class.p-10]="db.ismobile" [innerHtml]="item.content"></p>
+        </div>
+        <ng-template #page>
+          <div *ngIf="item.use_page_builder == 0">
+            <h2 class="txt-c name">{{item.name}}</h2>
+            <p class="main-width" [class.p-10]="db.ismobile" [innerHtml]="item.content"></p>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

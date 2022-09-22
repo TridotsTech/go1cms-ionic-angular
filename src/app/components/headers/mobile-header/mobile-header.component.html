@@ -1,0 +1,55 @@
+<ion-header class="mobile-header" [ngClass]="!no_home?'no-shadow':''" >
+
+  <ion-toolbar  *ngIf="!no_home">
+
+    <ion-buttons slot="start">
+      <ion-button  (click)="openMenu()">
+        <ion-icon class="icon menu"   src="/assets/icon/menu.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <div *ngIf="db.website_settings && db.website_settings.theme_settings && db.website_settings.theme_settings.website_logo && title == 'home'" slot="start" class="mobile-logo d__flex" routerLink="/">
+      <img class="home__logo mouse" [src]="db.product_img(db.website_settings.theme_settings.website_logo)" alt="">
+    </div>
+
+    <ion-title *ngIf="title != 'home'" class="ml-10 mt-5">{{title}}</ion-title>
+
+    <ion-button fill="clear" slot="end" *ngIf="no_search_icon" routerLink="/search" >
+      <ion-icon    class="icon px-15" slot="end" src="/assets/icon/search-white.svg"></ion-icon>
+    </ion-button>
+
+    <!-- <div class="mobile__location" *ngIf="home && false">
+      <div class="d__flex mobile-location" >
+        <ion-icon class="loc-icon" name="location"></ion-icon>
+        <div>
+          <p class="m-0 fnt-12 city_txt">Delivery Location</p>
+          <p class="m-0 fnt-11 location_txt">Choose current location <ion-icon name="chevron-down-outline"></ion-icon> </p>
+
+          <span class="loc fnt-16" *ngIf="db.location">{{db.city}} <ion-icon name="chevron-down-outline"></ion-icon></span>
+        </div>
+      </div>
+    </div> -->
+    <!-- db.product_img(db.website_settings.app_settings.cart_icon) -->
+
+    <!-- <ion-button fill="clear" class="cart-icon" slot="end" routerLink="/yourcart" >
+      <img class=" icon" button *ngIf="db.website_settings && db.website_settings.app_settings" [src]="'/assets/icon/cart.svg'" alt=""> 
+      <ion-badge *ngIf="db.cart_count && db.cart_count != 0" class="cart-badge">{{db.cart_count}}</ion-badge>
+    </ion-button> -->
+
+  </ion-toolbar>
+
+
+  <ion-toolbar class="no__home"  *ngIf="no_home">
+    <ion-back-button  slot="start" (click)="backbtn()" [defaultHref]="back_route?back_route:null"  (click)="!back_route?db.back():''" ></ion-back-button>
+    <ion-title> {{title}}</ion-title>
+    <!-- <ion-button slot="end" fill="clear" (click)="db.share()" *ngIf="title == 'Product Detail'">  <ion-icon   class=" icons" slot="end" name="share-social-outline"></ion-icon></ion-button> -->
+    <!-- <ion-button fill="clear" *ngIf="!no_cart" class="cart-icon" slot="end" routerLink="/yourcart" [replaceUrl]="true" > -->
+      
+      <!-- db.product_img(db.website_settings.app_settings.cart_icon) -->
+
+      <!-- <img class=" icon" button *ngIf="db.website_settings && db.website_settings.app_settings" [src]="'/assets/icon/cart.svg'" alt="">  -->
+      <!-- <ion-badge *ngIf="db.cart_count && db.cart_count != 0" class="cart-badge">{{db.cart_count}}</ion-badge> -->
+    <!-- </ion-button> -->
+  </ion-toolbar>
+
+</ion-header>

@@ -1,0 +1,6 @@
+
+
+<div class="w-100" *ngIf="url" >
+  <ion-icon class="close__icon" name="close-outline"  (click)="modalCtrl.dismiss('success')"></ion-icon>
+  <iframe [src]="url" frameborder="0"></iframe>
+</div>

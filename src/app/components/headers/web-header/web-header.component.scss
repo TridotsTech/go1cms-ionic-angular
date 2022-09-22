@@ -1,0 +1,385 @@
+
+
+.header_logo{
+  display:flex;
+  align-items: center;
+  // justify-content: center;
+}
+
+// .desktop__header{
+//   .header__{
+//     // padding: 25px 0;
+//   }
+// }
+
+// .searchbar{
+//   width: 45%;
+// }
+
+// .menu__buttons{
+//   gap: 10px;
+//   .box_2{
+//     background: var(--heading-text-color);
+//     border-radius: 5px;
+//     .title{
+//       color: #fff;
+//     }
+//   }
+// }
+
+
+// a {
+//     text-decoration: none;
+//     color: var(--white);
+//   }
+  
+  
+  // .menu__buttons{
+  //     margin-left: auto;
+  // }
+  
+
+  a:hover {
+      text-decoration: none;
+      color: var(--heading-text-color);
+  }
+  
+  
+  // .no-shadow {
+  //   box-shadow: none !important;
+  //   // background: var(--heading-text-color);
+  //   // padding-bottom: 15px;
+  // }
+  
+
+  
+  
+  
+  @media only screen and (min-width: 768px) {
+    .border{
+        // border-color: var(--heading-text-color);
+      background: var(--white);
+    }
+  
+  // .without_location{
+  //   .logos{
+  //     flex: 0 0 35% !important;
+  //     }
+    
+  //     .menu__buttons{
+  //       flex : 0 0 30% !important;
+  //     }
+    
+  //     .searchbar{
+  //       flex: 1 !important;
+  //     }
+  // }  
+
+  // .desktop__header{
+       // .logos{
+      //     flex: 0 0 30%;
+      // }
+    
+      // .menu__buttons{
+      //   flex : 0 0 25%;
+      // }
+    
+      // .searchbar,.default_header{
+      //   flex: 1;
+      // }
+  // }
+
+    // .desktop__header {
+      // .logos{
+      //     flex: 0 0 30%;
+      // }
+    
+      // .menu__buttons{
+      //   flex : 0 0 25%;
+      // }
+    
+      // .searchbar,.default_header{
+      //   flex: 1;
+      // }
+    
+    
+      .home__logo {
+        height: 45px;
+        // padding: 5px 0;
+      }
+    
+
+    
+      .custom-button {
+        // --color: #222428 !important;
+        justify-content: end;
+        // ion-button{
+        //   text-transform: none;
+        //   color: #fff;
+        //   font-size: 14px;
+        //   font-weight: 500;
+        //   background: var(--primary-color);
+        //   border-radius: 3px;
+        //   height: 40px;
+        //   // margin: 0 auto;
+        //   ion-icon {
+        //     color: var(--white);
+        //     margin-right: 5px;
+        //     font-size: 29px !important;
+        //   }
+        // }
+     
+      }
+    
+  
+      .dropdown-box {
+        box-shadow: 0 1px 15px rgb(0 0 0 / 25%);
+        background-color: #fff;
+        min-width: 140px;
+        position: absolute;
+        z-index: 9;
+        border-radius: 3px;
+        overflow: hidden;
+        left: -20px;
+        top: 45px;
+      }
+    
+    
+      .search {
+        position: relative;
+      }
+  
+      .search-down {
+        top: 38px;
+        right: unset;
+        ion-item {
+          --background: transparent;
+        }
+      }
+    
+      .focused {
+        border-color: var(--border) !important;
+        background-color: #fff !important;
+        .search {
+          background-color: #f9f9f9 !important;
+          border-radius: 0 !important;
+          --placeholder-color: var(--primary-text) !important;
+          --placeholder-opacity: 1 !important;
+        }
+      }
+    
+  
+
+    
+      .cart__badge, .wish__cart__badge {
+        position: relative;
+        ion-badge {
+          position: absolute;
+          left: 22px;
+          height: 22px;
+          width: 22px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          font-size: 12px;
+          font-weight: 600;
+          top: -4px;
+        }
+      }
+    
+      .wish__cart__badge {
+        ion-badge {
+          left: 36px !important;
+       }
+      }
+    }
+    
+    .wallet{
+      ion-icon{
+        color: #fff !important;
+      }
+    
+    }
+    
+      .location__container {
+          border-radius: 3px;
+          margin: 0 15px;
+          width: 200px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          // justify-content: center;
+          padding: 10px;
+        .location__title {
+          // color:var(--dark);
+          color: rgb(110, 106, 106);
+          font-size: 12px;
+          font-weight: 400;
+          ion-icon{
+            color:  var(--dark);
+          }
+        }
+        .location-subtitle{
+          color: #222;
+          font-size: 13px;
+          font-weight: 600;
+          width: 110px;
+        }
+        .location-icon {
+          font-size: 32px;
+          flex: 0 0 20%;
+          height: 18px;
+        }
+      }
+    
+  
+  
+  .download-icon img{
+    position:relative;
+    top:3px;
+  }
+  
+  
+
+  ::-webkit-scrollbar {
+      width: 0 !important;
+      display: none !important;
+      scrollbar-width: none;
+  }
+  
+  @keyframes nav_link--open {
+      0% {
+        opacity: 0;
+        transform: rotateX(45deg);
+      }
+  
+      100% {
+        opacity: 1;
+        transform: rotateX(0deg);
+      }
+  }
+  
+  @keyframes sub_menu--open {
+    0% {
+      opacity: 0;
+      transform: rotateY(45deg);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: rotateY(0deg);
+    }
+  }
+  
+  
+  .home-search{
+    color: var(--dark) !important;
+  }
+  
+  
+  ion-avatar {
+    margin-right: 20px;
+    --border-radius :7px !important;
+  }
+  
+  
+  
+  
+  .active_area{
+  background-color: var(--heading-text-color);
+  color: #ffff;
+  }
+  
+  
+  
+  
+  @media screen and (min-width:768px) {
+    .icon{
+      height: 20px;
+    }  
+  }
+  
+  
+  .pr-17{
+    padding-right: 0px;
+  }
+
+  .white{
+    color: #fff !important;
+  }
+  .black{
+    color: #000;
+  }
+  
+  .scroll_true{
+    position: absolute;
+    top: 10px;
+    right: 30px;
+  }
+
+
+  // .default_header{
+  //   gap: 35px;
+  // }
+  // bala
+// .header_control{
+//   display: flex;
+//   justify-content: space-between; 
+//   width: 79%; 
+//   align-items:center;
+// }
+// .center_header{
+// flex-direction: row-reverse!important;
+// width: 57%!important;
+// }
+
+  
+    
+    // .wishlist_cart_t{
+    //   span {
+    //     // color: #fff;
+    //     display: -webkit-box;
+    //     -webkit-box-orient: vertical;
+    //     -webkit-line-clamp: 1;
+    //     overflow: hidden;
+    //     text-align: center;
+    //     font-weight: 400;
+    //     font-size: 14px;
+    //   }
+    // }
+    
+    // .user {
+    //   position: relative;
+    //   width: 85px;
+    //   // margin-right: 15px;
+    //   span {
+    //     // color: #fff;
+    //     display: -webkit-box;
+    //     -webkit-box-orient: vertical;
+    //     -webkit-line-clamp: 1;
+    //     overflow: hidden;
+    //     text-align: center;
+    //     font-weight: 400;
+    //     font-size: 14px;
+    //   }
+    // }
+    
+    
+        // .custom-button {
+        //   user-select: none;
+        //   -webkit-user-select: none;
+        //   // padding: 6px;
+        //   background: unset;
+        //   ion-icon {
+        //     margin-right: 9px !important;
+        //   }
+        // }
+    
+      // .custom-button:hover {
+      //   background-color: #fff4f4;
+      //   border-radius: 5px;
+      // }
+    
+    
+    

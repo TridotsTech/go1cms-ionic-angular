@@ -1,0 +1,41 @@
+
+.list_box{
+    .image-card-h{
+      flex: 1;
+      height: 100%;
+       img{
+        height: 100%;
+        border-radius: 5px;
+       }
+    }
+    
+    .descriptions{
+      flex: 2.5;
+      padding: 0 0 0 15px;
+      margin: 0;
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+    .image-card-h{
+        min-height: 155px;
+        max-height: 150px;
+    }
+ }
+
+ .side_list{
+   .list_box{
+     .image-card-h{
+      min-height: 100px;
+      max-height: 100px;
+     }
+   }
+
+   .descriptions{
+     .sub__des{
+      min-height: 10px !important;
+     }
+   }
+  
+ }

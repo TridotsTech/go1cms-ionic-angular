@@ -1,0 +1,60 @@
+
+ <!-- 1 Text -->
+ <!-- <div *ngIf="row"> -->
+   <div
+    *ngIf="row.component_type=='Heading' || row.component_type=='Text' || row.component_type=='Title2' || row.component_type=='Title3' || row.component_type=='Subtitle' || row.component_type=='Subtitle Style2' || row.component_type=='Description Style1'">
+    <app-text [row]="row"></app-text>
+   </div>
+  <!-- 2. Image and 4. Video -->
+  <div
+    *ngIf="row.component_type== 'Image' ||row.component_type== 'Image Style1' || row.component_type=='Image Style2' || row.component_type=='Image Style3' || row.component_type=='Video Style4'">
+    <app-image [row]="row"></app-image>
+  </div>
+  <!-- 5 Button -->
+  <div *ngIf="row.component_type== 'Button Style1' || row.component_type=='Button Style2' || row.component_type=='Button Style3'">
+    <app-button [row]="row"></app-button>
+  </div>
+  <!--7 Accordion -->
+  <div
+    *ngIf="row.component_type == 'Accordion Style1' || row.component_type=='Accordion Style2' || row.component_type=='Accordion Style3' || row.component_type=='Accordion Style4' || row.component_type=='Accordion Style5'">
+    <app-accordion [row]="row"></app-accordion>
+  </div>
+  <!-- 8 Gallary -->
+  <!-- <div *ngIf="row.component_type=='Gallary Style1' || row.component_type=='Gallary Style2'">
+    <app-gallary [row]="row"></app-gallary>
+  </div> -->
+  <!-- 10 Slider -->
+  <div *ngIf="row.component_type=='Slider With Image' || row.component_type=='Slider Without Image'">
+    <app-builder-slider [row]="row"></app-builder-slider>
+  </div>
+  <!-- 11 Pricing -->
+  <div
+    *ngIf="row.component_type== 'Pricing Style1' || row.component_type=='Pricing Style2' || row.component_type=='Pricing Style3'">
+    <app-builder-pricing [row]="row"></app-builder-pricing>
+  </div>
+  <!-- 12 Counter -->
+  <div
+    *ngIf="row.component_type== 'Counter Style1' || row.component_type=='Counter Style2' || row.component_type=='Counter Style3' || row.component_type=='Counter Style4' || row.component_type=='Counter Style5' || row.component_type=='Counter Style6'">
+    <app-counter [row]="row"></app-counter>
+  </div>
+  <!-- 14 Testimonial -->
+  <div
+    *ngIf="row.component_type== 'Testimonial Style1' || row.component_type=='Testimonial Style2' || row.component_type=='Testimonial Style3' || row.component_type=='Testimonial Style4' || row.component_type=='Testimonial Style5' || row.component_type=='Testimonial Style6'">
+    <app-testimonial [row]="row"></app-testimonial>
+  </div>
+  <!-- 15 List -->
+  <div
+    *ngIf="row.component_type== 'List Style1' || row.component_type=='List Style2' || row.component_type=='List Style3' || row.component_type=='List Style4' || row.component_type=='List Style5'">
+    <app-builder-list [row]="row"></app-builder-list>
+  </div>
+  <!-- 18 Blurb -->
+  <div
+    *ngIf="row.component_type== 'Card Style1' || row.component_type=='Card Style2' || row.component_type=='Card Style3' || row.component_type=='Card Style4' || row.component_type=='Card Style5'">
+    <app-blurb [row]="row"></app-blurb>
+  </div>
+  <!-- Extras -->
+  <div *ngIf="row.component_type== 'contact_form' || row.component_type=='break' || row.component_type=='divider' || row.component_type=='CTA Style1' || row.component_type=='Menu Style1' || row.component_type=='SubHeader Style1'">
+    <app-extras [row]="row"></app-extras>
+  </div>
+  <!-- </div>    -->
+  <!-- components end here -->

@@ -1,0 +1,69 @@
+<div class="menu__content">
+  <div class="inner__menu__content">
+    <!-- <div class="d__flex user">
+      <div><ion-icon class="menu-user" slot="start" name="person-circle-outline"></ion-icon></div>
+      <div class="user-title">
+        <p *ngIf="!db.cust_email">Hi,</p>
+        <p *ngIf="db.cust_name || db.guest_cust_name" class="m-0">{{db.cust_name || db.guest_cust_name}}</p>
+      </div>
+    </div> -->
+    <div *ngIf="db.website_settings && db.website_settings.theme_settings && db.website_settings.theme_settings.website_logo" slot="start" class="home__logo" routerLink="/">
+      <img  [src]="db.product_img(db.website_settings.theme_settings.website_logo)" alt="">
+    </div>
+    <div *ngIf="db.header_info && db.header_info.items">
+        <div *ngFor="let data of db.header_info.items">
+          <ion-menu-toggle  *ngIf="data.section_name == 'Header Menu' && section_type == Menu" >  
+            <ion-item lines="none" [routerLink]="item.redirect_url" routerDirection="forward" *ngFor="let item of data.menus"  routerLinkActive="active-item" [routerLinkActiveOptions]="{exact :true}">
+              <ion-icon name='chevron-forward-outline'></ion-icon>
+              <ion-label>{{item.menu_label}}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        
+          <!-- <ion-item *ngIf="item.title =='Policies'" lines="none" (click)="showmore1 = !showmore1;" routerDirection="forward" routerLinkActive="active-item" [routerLinkActiveOptions]="{exact :true}">
+            <ion-icon class="menu-icon" [src]="item.icon?item.icon:''"></ion-icon> 
+            <ion-label>{{item.title}}</ion-label>
+            <ion-icon *ngIf="db.ismobile && item.title =='Policies'" [name]="showmore1 ? 'chevron-down-outline' : 'chevron-forward-outline'"></ion-icon>
+          </ion-item> -->
+        </div>
+
+        <!-- <div *ngIf="showmore1" class="policy">
+          <ion-menu-toggle *ngFor="let item of policy" >  
+            <ion-item *ngIf="item.enable == 1" lines="none" [routerLink]="item.route" routerDirection="forward" routerLinkActive="active-item" [routerLinkActiveOptions]="{exact :true}">
+              <ion-icon class="menu-icon" [src]="item.icon?item.icon:''"></ion-icon> 
+              <ion-label>{{item.title}}</ion-label>
+             
+            </ion-item>
+          </ion-menu-toggle>
+        </div> -->
+      
+
+        <!--  -->
+        <!-- <ion-menu-toggle>
+          <ion-item *ngIf="db.cust_name || db.guest_cust_name" lines="none" (click)="db.logout()">
+            <ion-icon class="menu-icon" src="/assets/icon/logout.svg"></ion-icon> 
+            <ion-label>Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        
+        <ion-menu-toggle>
+          <ion-item *ngIf="!db.cust_name && !db.guest_cust_name" lines="none" (click)="db.registerform = false" routerLink="/register"  routerDirection="forward">
+            <ion-icon class="menu-icon" src="/assets/icon/login.svg"></ion-icon> 
+            <ion-label>Login</ion-label>
+          </ion-item>
+        </ion-menu-toggle> -->
+    </div>  
+    <!-- <div class="d__flex just-end social__icons bottom-abs" *ngIf="false" >
+      <div class="ion-text-center">
+        <p class="m-0 fnt-13">Connect with us</p>
+        <div class="d__flex just-end gap-10 p-10">
+          <a *ngIf="db.website_settings.app_settings.facebook_link" href="{{db.website_settings.app_settings.facebook_link}}" target="blank"><ion-icon src="/assets/Footer-icons/facebook.svg" class="contact-icon d__flex"></ion-icon></a>
+          <a *ngIf="db.website_settings.app_settings.instagram_link" href="{{db.website_settings.app_settings.instagram_link}}" target="blank"><ion-icon src="/assets/Footer-icons/Instagram.svg" class="contact-icon d__flex"></ion-icon></a>
+          <a *ngIf="db.website_settings.app_settings.youtube_link" href="{{db.website_settings.app_settings.youtube_link}}" target="blank"><ion-icon src="/assets/Footer-icons/youtube.svg" class="contact-icon d__flex"></ion-icon></a>
+          <a *ngIf="db.website_settings.app_settings.linked_in" href="{{db.website_settings.app_settings.linked_in}}" target="blank"><ion-icon src="/assets/Footer-icons/link.svg" class="contact-icon d__flex"></ion-icon></a>
+          <a *ngIf="db.website_settings.app_settings.twitter_link" href="{{db.website_settings.app_settings.twitter_link}}" target="blank"><ion-icon src="/assets/Footer-icons/twitter.svg" class="contact-icon d__flex"></ion-icon></a>
+          <a *ngIf="db.website_settings.app_settings.pinterest_link" href="{{db.website_settings.app_settings.pinterest_link}}" target="blank"><ion-icon src="/assets/Footer-icons/pinterest.svg" class="contact-icon d__flex"></ion-icon></a>
+        </div>
+      </div>
+    </div> -->
+  </div>            
+</div>

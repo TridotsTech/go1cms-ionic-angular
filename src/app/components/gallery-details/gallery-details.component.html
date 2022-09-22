@@ -1,0 +1,20 @@
+<div>
+  <div class="position-relative" *ngIf="item">
+
+    <div #left_arrow *ngIf="!db.ismobile && scrollable" (click)="scroll('prev')" class="back-s hiding"><ion-icon name="chevron-back-outline"></ion-icon></div>
+
+    <lightgallery class="d__flex grid gap-15" [ngClass]="scrollable?'scroll':'not-scroll'" #scrollable_cnt (scroll)="scrolled($event)"  [settings]="settings" [onBeforeSlide]="onBeforeSlide">
+      <!-- [class.flex-33]="item.box_size == '3'" [class.flex-25]="item.box_size == '4'"
+        [class.flex-20]="item.box_size == '5'" -->
+        <a class="" [ngClass]="!scrollable ?(db.ismobile?'grid-1':'grid-'+db.product_box.row_count) :scrollable" *ngFor="let img of item" [href]="db.product_img(img.image__video)">
+          <div class="image position-relative img-hover-zoom--brightness">
+            <img [class.min-height-400]="item.display_type == 'vertical'" *ngIf="img.image__video" class="" src="{{db.product_img(img.image__video)}}" src="">
+              <ion-icon  class="mouse Icon" name="add-outline"></ion-icon>
+          </div>
+        </a>
+    </lightgallery>
+
+    <div #right_arrow *ngIf="!db.ismobile && scrollable" (click)="scroll('next')" class="next-s"><ion-icon name="chevron-forward-outline"></ion-icon></div>
+
+</div>
+</div>

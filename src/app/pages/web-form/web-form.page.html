@@ -1,0 +1,21 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>web-form</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<app-header title="" [home]="true"></app-header>
+
+<ion-content>
+  <app-header class="desktop-header"  [desktop]="true"></app-header>
+
+  <div class="main-width"  *ngIf="form_values">
+    <app-webform1 [web_form]="form_values" ></app-webform1>
+  </div>
+
+  <div class="color" *ngIf="!db.ismobile">
+    <div class="main-width m-h">
+        <app-footer  class="footer"></app-footer>
+    </div>
+</div>
+</ion-content>

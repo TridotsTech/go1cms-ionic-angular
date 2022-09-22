@@ -1,0 +1,61 @@
+<!-- clients1 -->
+<div class="Brands py-30 animate {{item.class_name}} main-width"
+  *ngIf="item.section_type == 'Static Section' && item.section_name =='Clients Style 1'"
+  [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+  <div class="main-width">
+  <div class="d__flex" [class.just-c]="!db.ismobile" [class.just-s]="db.ismobile"
+    [ngStyle]="db.img_style(item.background_image,'img')">
+    <div class="box__1" [class.margin-none]="item.section_name == 'Brands'" [class.just-c]="!db.ismobile">
+      <h2 *ngIf="item.title" class="title" [ngClass]="db.ismobile?'txt-l':'txt-c'">{{item.title}}<span
+          class="span spantitle">{{item.spantitle}}</span></h2>
+      <p *ngIf="item.subtitle" class="subtitle" [ngClass]="db.ismobile?'txt-l':'txt-c'">{{item.subtitle}}</p>
+    </div>
+  </div>
+  <div class="relative">
+    <div *ngIf="item.logos && item.logos.length != 0 " #scrollContent class="container d__flex">
+      <div *ngIf="!db.ismobile && item.logos.length > 5" class="back-s" (click)="emitScroll('scroll','left')">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </div>
+      <div class="grid__item mouse" *ngFor="let list of item.logos">
+        <div class="image">
+          <img *ngIf="list.logo" src="{{db.product_img(list.logo)}}" defaultImage="" alt="">
+        </div>
+      </div>
+      <div *ngIf="!db.ismobile && item.logos.length > 5" class='next-s' (click)="emitScroll('scroll','right')">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+<!-- clients2 -->
+<div class="Brands py-30 client2 animate main-width {{item.class_name}}"
+  [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0"
+  *ngIf="item.section_type == 'Static Section' && item.section_name =='Clients Style 2'">
+  <div class="main-width">
+    <div class="d__flex" [class.just-c]="!db.ismobile" [class.just-s]="db.ismobile"
+      [ngStyle]="db.img_style(item.background_image,'img')">
+      <div class="box__1" [class.margin-none]="item.section_name == 'Brands'" [class.just-c]="!db.ismobile">
+        <h2 *ngIf="item.title" class="txt-c title">{{item.title}} <span class="span spantitle">{{item.spantitle}}</span>
+        </h2>
+        <p *ngIf="item.subtitle" class="m-0 txt-c">{{item.subtitle}}</p>
+      </div>
+    </div>
+    <div class="relative">
+      <div *ngIf="item.logos && item.logos.length != 0 " #scrollContent class="scroll_item d__flex">
+        <div class="grid__item mouse" *ngFor="let list of db.ismobile ? item.logos : item.logos.slice(0,5)">
+          <div class="">
+            <img *ngIf="list.logo" src="{{db.product_img(list.logo)}}" defaultImage="" alt="">
+          </div>
+        </div>
+      </div>
+      <div *ngIf="item.logos && item.logos.length > 5 && !db.ismobile " #scrollContent class="d__flex">
+        <div class="grid__item mouse" *ngFor="let list of item.logos.slice(5)">
+          <div class="">
+            <img *ngIf="list.logo" src="{{db.product_img(list.logo)}}" defaultImage="" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

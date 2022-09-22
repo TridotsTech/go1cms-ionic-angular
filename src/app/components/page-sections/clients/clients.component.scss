@@ -1,0 +1,26 @@
+@media screen and (max-width:768px) {
+  .main-width {
+    width: 100%;
+  }
+
+  .scroll_item {
+    overflow: scroll;
+  }
+
+  .box__1 {
+    padding: 10px;
+  }
+
+  .spantitle {
+    white-space: normal;
+  }
+
+  .grid__item {
+    flex: 0 0 calc(60% - 10px) !important;
+
+    img {
+      padding: 10px !important;
+      min-height: 150px !important;
+    }
+  }
+}

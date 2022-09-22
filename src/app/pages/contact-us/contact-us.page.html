@@ -1,0 +1,232 @@
+<app-header title="Contact Us" [no_home]="true" [back_route]="db.ismobile?'/home':'/'" [no_cart]="true"></app-header>
+<ion-content>
+   <app-header class="desktop-header" [desktop]="true"></app-header>
+   <ion-grid class="header-bg" *ngIf="!db.ismobile">
+      <ion-row>
+         <ion-col>
+            <div class="header-title">
+               <h1 class="white-text">Contact Us</h1>
+               <div class="Breadcrumb mb-15 robot-font" >
+                  <span class="mr-5 mouse white-text font-14" routerLink="/" routerDirection="root" >Home</span>
+                  <ion-icon class="top-v  white-text" name="chevron-forward"></ion-icon>
+                  <span class="mouse mr-5 primary primary-name white-text font-14">Contact Us</span>
+               </div>
+            </div>
+         </ion-col>
+      </ion-row>
+   </ion-grid> 
+
+   <ion-grid *ngIf="db.business_info" >
+      <ion-row *ngIf="!mobile_page" class="main-width1">
+         <ion-col>
+            <div class="main-container">
+               <div class="side-one">
+                     <p *ngIf="db.business_info && db.business_info.business_address" class="m-0"><strong class="contact-position">  <ion-icon name="location-outline" class="contact-icon"></ion-icon> Our Address </strong>  </p>
+                     <p *ngIf="db.business_info && db.business_info.business_address"  class="m-0 font" [innerHtml]="db.business_info.business_address"></p>
+                     <!-- <p *ngIf="db.website_settings.enable_multi_vendor != 1" class="m-0 font"> {{db.business_info.city}} - {{db.business_info.zip_code}}</p>
+                     <p *ngIf="db.website_settings.enable_multi_vendor != 1" class="m-0 font"> {{db.business_info.state}},{{db.business_info.country}}</p> -->
+                  <p class="mt-10">
+                     <strong class="contact-position">
+                        <ion-icon name="call-outline" class="contact-icon"></ion-icon>
+                        Contact
+                     </strong>
+                     <br>
+                     <!-- <a href="tel:{{db.business_info.contact_number}}" class="action-link" >{{db.business_info.contact_number}}</a><br> -->
+                     
+                     <!-- [innerHtml]="" -->
+                     <!-- [innerHtml]="db.business_info.business_address" -->
+                  </p>
+                  <p class="contact_detail fnt-14" [innerHtml]="db.business_info.about_restaurant"></p>
+                  <p class="mt-10">
+                     <strong class="contact-position">
+                        <ion-icon name="mail-outline" class="contact-icon"></ion-icon>
+                        Email
+                     </strong>
+                     <br>
+                     <a href="mailto:{{db.business_info.contact_email}}" class="action-link fnt-14">{{db.business_info.contact_email}}</a>
+                  </p>
+                  <p class="mt-10">
+                     <strong class="contact-position">
+                        <ion-icon src="/assets/icon/register.svg" class="contact-icon"></ion-icon>Registration
+                     </strong>
+                     <br>
+                     <a routerLink="/register-form/student-volunteer" class="action-link fnt-14">Student Volunteer</a>
+                     <br>
+                     <a routerLink="/register-form/teacher" class="action-link fnt-14">Staff Volunteer</a>
+                  </p>
+                  <img src="https://cdn.gokommerce.com/meatton/K0X29NZE_filler3.png" class="fill1">
+               </div>
+
+
+               <div class="form-container side-two">
+
+                  <form [formGroup]="contactus_form" validate>
+                     <h4 class="_heading">Leave us Message  (Feedback / Comments / Inquires) </h4>
+
+                     <div class="d__flex separator mt-25">
+
+                        <div class="input-item" >
+                           <ion-label color="grey" class="input__title" position="stacked">
+                            <ng-container *ngIf="vendor">Vendor</ng-container>  Name
+                            </ion-label>
+                           <div lines="none" class="custom-input" [class.focused]="focus.username">
+                             <ion-input (ionFocus)="focus.username = true" placeholder="Enter your name" (ionBlur)="focus.username = false" name="username" class="form-input" autofocus="true" autocomplete="false" required="true" formControlName="username"></ion-input>
+                           </div>
+                           <div *ngIf="submitted && !username?.valid"> 
+                             <p class="error m-0" *ngIf="username.errors.required">First Name is required</p>  
+                           </div>
+                         </div>
+
+                        <!-- <div class="items contact-i">
+                           <ion-label>Your Name</ion-label>
+                           <ion-item lines="none" class="mt-5">
+                              <ion-input placeholder="Enter your Name" required type="text" formControlName="username"  name="username"></ion-input>
+                           </ion-item>
+                           <div class="error" *ngIf="submitted && !username?.valid && ( username?.dirty|| username?.touched) ">
+                              <p *ngIf="username.errors.required">Name is required</p>
+                              <p *ngIf="username.errors.maxlength">Name is not valid</p>
+                           </div>
+                        </div> -->
+
+                        <div class="input-item" >
+                           <label  class="input__title" > <ng-container *ngIf="vendor">Vendor</ng-container> Email</label>
+                           <div class="custom-input" [ngClass]="focus.mailid?'focused':''">
+                             <ion-input (ionFocus)="focus.mailid = true" (ionBlur)="focus.mailid = false" type="text" placeholder="Enter your email" name="mailid" formControlName="mailid"></ion-input>
+                           </div>
+                           <p class="m-0 error" *ngIf="submitted && !mailid.valid && mailid.errors.required" > Email-Id is required </p>
+                           <p class="m-0 error" *ngIf="submitted && !mailid.valid && mailid.errors.email" > Not a valid Email </p>
+                       </div>
+
+                        <!-- <div class="items contact-i">
+                           <ion-label>Email</ion-label>
+                           <ion-item lines="none" class="mt-5">
+                              <ion-input placeholder="Enter your Email" required type="email" formControlName="mailid"  name="mailid"></ion-input>
+                           </ion-item>
+                           <div class="error" *ngIf=" submitted && !mailid?.valid && ( mailid?.dirty || mailid?.touched) ">
+                              <p color="danger" *ngIf=" mailid.errors.required">Email is required </p>
+                              <p color="danger" *ngIf=" mailid.errors.email"> Invalid email id  </p>
+                           </div>
+                        </div> -->
+                     </div>
+
+                     <div class="d__flex separator">
+                        <!-- <div class="items contact-i">
+                           <ion-label>Phone Number</ion-label>
+                           <ion-item lines="none" class="mt-5">
+                              <ion-input placeholder="Enter your Phone Number" required type="number" formControlName="phonenumber" name="phonenumber"></ion-input>
+                           </ion-item>
+                           <div class="error" *ngIf="submitted && !phonenumber?.valid && ( phonenumber?.dirty|| phonenumber?.touched) ">
+                              <p *ngIf="phonenumber.errors.required">Phone Number is required </p>
+                              <p *ngIf="phonenumber.errors.pattern"> Not a Valid Mobile number </p>
+                           </div>
+                        </div> -->
+
+                        <div class="input-item">
+                           <ion-label color="grey" class="input__title" position="stacked"> <ng-container *ngIf="vendor">Vendor</ng-container> Phone </ion-label>
+                           <div lines="none" class="custom-input" [class.focused]="focus.phonenumber">
+                             <ion-input name="phonenumber" placeholder="Enter your phonenumber" class="form-input" type="tele" formControlName="phonenumber" (ionFocus)="focus.phonenumber = true" (ionBlur)="focus.phonenumber = false" autocomplete="false" required="true"></ion-input>
+                           </div>
+                           <div class="error-container">
+                             <p class="m-0 error" *ngIf="submitted && !phonenumber.valid && phonenumber.errors.required">Enter Your Mobile Number</p>
+                             <p class="m-0 error" *ngIf="submitted && !phonenumber.valid && phonenumber.errors.pattern">Enter a valid Mobile Number</p>
+                           </div>
+                        </div>
+
+                        <div class="input-item" >
+                           <ion-label color="grey" class="input__title" position="stacked"> <ng-container *ngIf="vendor">Vendor</ng-container> Subject </ion-label>
+                           <div lines="none" class="custom-input" [class.focused]="focus.subject">
+                             <ion-input placeholder="Enter your Subject"  (ionFocus)="focus.subject = true" (ionBlur)="focus.subject = false" name="subject" class="form-input" autofocus="true" autocomplete="false" required="true" formControlName="subject"></ion-input>
+                           </div>
+                           <div *ngIf="submitted && !subject?.valid"> 
+                              <p class="m-0 error" *ngIf="subject.errors.required">Subject is required</p>
+                              <p class="m-0 error" *ngIf="subject.errors.maxlength">Subject is not valid</p>
+                           </div>
+                         </div>
+                         
+                        <!-- <div class="items contact-i">
+                           <ion-label>Subject</ion-label>
+                           <ion-item lines="none" class="mt-5">
+                              <ion-input placeholder="Enter your Subject" required type="text" formControlName="subject" name="subject"></ion-input>
+                           </ion-item>
+                           <div class="error" *ngIf="submitted && !subject?.valid && ( subject?.dirty|| subject?.touched)" >
+                              <p *ngIf="subject.errors.required">Subject is required</p>
+                              <p *ngIf="subject.errors.maxlength">Subject is not valid</p>
+                           </div>
+                        </div> -->
+
+                     </div>
+
+                     <div class="input-item" >
+                        <ion-label color="grey" class="input__title" position="stacked"> <ng-container *ngIf="vendor">Vendor</ng-container> Message </ion-label>
+                        <div lines="none" class="custom-input" [class.focused]="focus.message">
+                          <!-- <ion-input placeholder="Enter your Message..,"   name="subject"  autofocus="true" autocomplete="false" required="true" formControlName="subject"></ion-input> -->
+                          <ion-textarea placeholder="Enter your Message..," class="form-input" (ionFocus)="focus.message = true" (ionBlur)="focus.message = false"  required formControlName="message" name="message"></ion-textarea>
+                        </div>
+                      </div>
+
+                     <!-- <div class="items contact-i w-100">
+                        <ion-label>Message</ion-label>
+                        <ion-item class="text-area mt-5" lines="none">
+                          
+                        </ion-item>
+                     </div> -->
+
+
+                     <div class="items input-item">
+                        <re-captcha required [siteKey]="captcha_key" (resolved)="resolved($event)" (error)="onError($event)"></re-captcha>
+                        <p  class="m-0 error" *ngIf="!captcha && submitted">captcha is required</p>
+                        </div>
+                     <!-- <div class="items">
+                        <form #captchaProtectedForm="ngForm">
+                          <re-captcha name="captcha"   required #captchaControl="ngModel"></re-captcha>
+                          <div [hidden]="captchaControl.valid || captchaControl.pristine" class="error">Captcha must be solved</div>
+                          <div [hidden]="!captchaControl.valid" class="success">Captcha is valid</div>
+                          <div [hidden]="captchaProtectedForm.form.valid" class="error">The form must be filled out</div>
+                          <div [hidden]="!captchaProtectedForm.form.valid" class="success">The form is valid</div>
+                          <button (click)="captcha = '' ">Reset Captcha</button>
+                        </form>
+                        </div> -->
+                     <div [class.ion-text-center]="db.ismobile">
+                        <ion-button fill="clear" expand="full" (click)="submit_form()" >Submit</ion-button>
+                     </div>
+                  </form>
+               </div>
+
+            </div>
+         </ion-col>
+      </ion-row>
+   </ion-grid>
+
+<div *ngIf=" this.mobile_page == true" class="customer__">
+   <div class="customer_service d__flex">
+      <div class="image">
+         <img class="home__logo mouse"  [src]="db.product_img(db.website_settings.website_logo)" >
+      </div>
+
+      <p class="title_c m-0">We would like to hear from you</p>
+
+      <div class="call d__flex">
+         <ion-icon name="call"></ion-icon>
+         <p class="sub_title m-0">Call</p> 
+         <a href="tel:{{db.business_info.contact_number}}" class="action-link_c" >{{db.business_info.contact_number}}</a>
+         <p class="title_c m-0">We are open every day from 9am - 10pm</p>
+      </div>
+   </div>
+
+   <div class="customer_service border_null d__flex">
+      
+      <p class="title_c m-0">Once what's app me for any quiries</p>
+
+      <div class="call d__flex">
+         <ion-icon src="/assets/icon/whatsapp.svg"></ion-icon>
+         <p class="sub_title m-0">What's App</p> 
+         <a href="https://api.whatsapp.com/send/?phone={{db.business_info.contact_number}}&text&app_absent=0" target="_blank" class="action-link_c" >{{db.business_info.contact_number}}</a>
+      </div>
+   </div>
+
+   <ion-button (click)=" this.mobile_page = false" fill="clear">Leave us a message</ion-button>
+</div>  
+   <!-- <app-footer class="footer"></app-footer> -->
+     <app-template-builder></app-template-builder>
+
+</ion-content>

@@ -1,0 +1,25 @@
+<div class="position-relative" >
+
+  <div #left_arrow *ngIf="!db.ismobile && arrow && scrollable && checkOverflow(scrollable_cnt)" (click)="scroll('prev')" class="back-s hiding"><ion-icon name="chevron-back-outline"></ion-icon></div>
+
+  <ul class="product__box grid" [class.side_list]="side_list" [class.list]="db.product_box.view == 'List View' && !scrollable" [ngClass]="scrollable?'scroll':'not-scroll'"  #scrollable_cnt (scroll)="scrolled($event)" >
+ 
+    <li  *ngFor="let item of list_value" [routerLink]="'/detail/'+ (item.redirect_url || item.route)"   class="d__flex list_box" [ngClass]="(db.product_box.view == 'Grid View' && !scrollable) ?(db.ismobile?'grid-1':'grid-'+db.product_box.row_count) :scrollable" [style.border-color]="border_color ? border_color:null">
+
+      <div class="d__flex image-card-h mouse zoom" [class.height_null]="db.product_box.row_count == 1" >
+        <img  *ngIf="item.profile_image || item.thumbnail_image || item.image  || item.list_image" src="{{db.product_img(item.profile_image || item.thumbnail_image || item.image  || item.list_image)}}" defaultImage="" alt="">
+      </div>
+
+      <div class="descriptions">
+        <a *ngIf="item.title" [href]="'/detail/'+ (item.redirect_url || item.route)"  ><span class="mouse span_title m-0 webkit-text hover-underline-animation" [style.--line]="2">{{item.title}}</span></a>
+        <!-- <h4 *ngIf="item.title" class="mouse m-0 webkit-text hover-underline-animation" [style.--line]="2">{{item.title}}</h4> -->
+        <span *ngIf="item.short_desc || item.blog_intro"  class="sub__des m-0 webkit-text" [style.--line]="1">{{item.short_desc || item.blog_intro }}</span>
+      </div>
+
+    </li>
+
+  </ul> 
+  
+  <div #right_arrow *ngIf="!db.ismobile && arrow && scrollable  && checkOverflow(scrollable_cnt)" (click)="scroll('next')" class="next-s"><ion-icon name="chevron-forward-outline"></ion-icon></div>
+  
+</div>

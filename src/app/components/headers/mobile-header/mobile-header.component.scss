@@ -1,0 +1,103 @@
+@media screen and (min-width:768px) {
+    .mobile-header {
+        display: none;
+      }
+}
+
+@media screen and (max-width:768px) {
+    .mobile-header{
+        .home__logo{
+            margin-left: 10px;
+            height: 30px;
+            // margin-top: 12px;
+        }
+      }
+
+      .mobile-header{
+        // background: #fff;
+        ion-button{
+            margin: 0;
+          --overflow: none;
+          --ripple-color: transparent;
+          --padding-start: 0;
+          --padding-end: 0;
+            background: unset !important;
+            padding: 0 5px;
+          // margin-left: 10px;
+          ion-badge{
+            top: -3px !important;
+          }
+        }
+      }
+
+      .icon{
+        height: 20px;
+      }
+
+
+      .home-search{
+        color: var(--dark) !important;
+      }
+      
+      
+      .mobile__location {
+        margin: 0px 20px;
+        padding-top: 10px;
+        .location-_txt{
+            font-size: 11px;
+        }
+        .city_txt,.location_txt{
+            color: var(--white);
+        }
+      }
+      
+      ion-toolbar {
+        // --background: var(--body-text-color);
+        .menu {
+          padding-left: 10px;
+          margin-top: 5px;
+          font-size: 20px;
+        }
+        .cart-icon {
+          position: relative;
+          margin:5px 10px;
+          margin-bottom: 0;
+          ion-icon {
+            font-size: 24px;
+          }
+          .cart-badge {
+            position: absolute;
+            top: -9px;
+            right: -7px;
+            border-radius: 50px;
+            font-size: 11px;
+            height: 20px;
+            width: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+
+      ion-title {
+        font-size: 17px !important;
+        text-transform: capitalize;
+        padding-left: 0;
+        // padding-top: 5px;
+      }
+
+      .mobile-location {
+        .loc-icon {
+          font-size: 29px;
+          margin-right: 5px;
+          margin-bottom: 3px;
+          color: grey;
+        }
+      }
+      
+}
+
+.ml-10{
+  margin-left: 10px;
+}

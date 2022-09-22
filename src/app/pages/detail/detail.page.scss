@@ -1,0 +1,51 @@
+// section 
+.section_container{
+    display: grid;
+    max-width: 100%;
+}
+
+@media only screen and (max-width: 768px){
+    .section_container{
+        display: flex !important;
+       flex-direction: column;
+    }
+} 
+
+
+// <div *ngFor="let row of detail_values"  [ngClass]="row.fullwidth? '':'container'">
+// <!-- <div  *ngIf="row.columns && row.columns.length != 0"> -->
+ 
+//    <div *ngFor="let out_row of row.rows" class="section_container" [ngStyle]="out_row['columns'] ?  assign(out_row) : '' ">
+//       <app-detail-style *ngIf="out_row['data']" [data]="out_row['data']" [detail]="content_datas"></app-detail-style>
+
+//       <div *ngFor="let col of out_row.columns" class="section_container">
+//            {{col.data}}
+//      </div>
+
+//    </div>
+
+//  <!-- <app-detail-style *ngIf="row['data']" [data]="row['data']" [detail]="content_datas"></app-detail-style> -->
+
+//  <div class="section_container"  [ngStyle]="row['columns'] ? assign(row) : ''">
+   
+//    <div *ngFor="let row_ of row.columns" class="section_container" [ngStyle]="row_['columns'] ?  assign(row_) : '' " >
+   
+//      <app-detail-style *ngIf="row_['data']" [data]="row_['data']" [detail]="content_datas"></app-detail-style>
+
+//       <div *ngFor="let row__ of row_.rows" class="section_container" [ngStyle]="row__['columns'] ?  assign(row__) : '' ">
+//          <app-detail-style *ngIf="row__['data']" [data]="row__['data']" [detail]="content_datas"></app-detail-style>
+
+//          <div *ngFor="let col of row__.columns" class="section_container">
+//            <app-detail-style class="d__flex" *ngIf="col['data']" [data]="col['data']" [detail]="content_datas"></app-detail-style>
+//         </div>
+
+//       </div>
+      
+//      </div>
+
+//  </div>
+
+//  <app-detail-style *ngIf="row['data']" [data]="row['data']" [detail]="content_datas"></app-detail-style>
+
+// <!-- </div> -->
+// </div>

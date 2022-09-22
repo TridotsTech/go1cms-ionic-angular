@@ -1,0 +1,94 @@
+<form [formGroup]="myform" *ngIf="form_data.length != 0" class="myform">
+  <div *ngFor="let options of form_data" >
+    <ng-container *ngIf="options.mapped_by == current_value">
+      <h6 class="group-title">{{options.group_title}}</h6>
+      <ng-container  *ngIf="options.group_fileds.length != 0" >
+        <div [class.d__flex]="options.group_title != 'DESCRIPTION'"  class="flex-w gap-10">
+          <!-- ion-align-items-center  -->
+          <div *ngFor="let item of options.group_fileds"   [ngClass]="item.input_type =='checkbox'?'':''" [class.input-box]="!item.hidden" [class.ion-hide]="item.hidden && !item.empty"  [class.flex-100]="item.input_type =='textarea'">
+            <ng-container *ngIf="!item.hidden">
+              <!-- [title]="item.name" -->
+              <div class="m-0 label position-relative d__flex ion-align-items-center" (mouseenter)="item.show_info = true" (mouseleave)="item.show_info = false">
+                 <!-- (click)="item.input_type == 'checkbox' ?item.value?item.value = false:item.value = true:null" -->
+                <span class="op-7"> {{item.label}} <span class="required_" *ngIf="item.required"> *</span></span>
+                <div *ngIf="item.tooltip || item.type == 'zipcode'" class="tooltips mouse">  
+                  <img  src="/assets/icon/help.svg" (mouseenter)="item.show_tooltip = true" (mouseleave)="item.show_tooltip = false" alt="">
+                  <span *ngIf="item.show_tooltip && item.type != 'password'" class="tooltiptext">{{item.tooltip}}</span>
+                  <span class="tooltiptext" *ngIf="item.type == 'zipcode' && item.show_tooltip">{{item.tooltip}}</span>
+                 
+                  <!-- && this.db.website_settings && this.db.website_settings.password_validation -->
+                  <!-- {{"Minimum of "+ this.db.website_settings.password_validation.min_password_length +" character and must contain atleast " + this.db.website_settings.password_validation.password_policy}} -->
+                </div>
+                
+                <!--<span class="error_txt" *ngIf="submitted && myform.get(item.name).errors">
+                  <span *ngIf="myform.get(item.name).errors.required">* required</span>  
+                  <span *ngIf="myform.get(item.name).errors.email">* email</span>  
+                  <span *ngIf="myform.get(item.name).errors.pattern">* mobile</span>  
+                </span>-->
+
+               </div>
+
+              <ion-input *ngIf="item.input_type == 'input' && item.type !='zipcode'" [readonly]="db.submitted_data" [name]="item.name" [type]="item.type" (change)="item.type == 'file'? onSelectFile($event,item) : null" [formControlName]="item.name" [placeholder]="item.placeholder" [max]="item.is_today?today_date:null" [required]="item.required" [email]="item.validator == 'email'" [pattern]="item.pattern" [value]="item.value" [(ngModel)]="item.value" (ionFocus)="item.focus = true" (ionBlur)="item.focus = false" [class.focus]="item.focus"></ion-input>
+              <!-- (ionChange)="item.pattern? phone_format($event,item):''" -->
+             <ion-input *ngIf="item.input_type == 'input' && item.type =='zipcode'" [readonly]="db.submitted_data" [name]="item.name" [type]="item.type" (change)="item.type == 'file'? onSelectFile($event,item) : null" [formControlName]="item.name" [placeholder]="item.placeholder" [max]="item.is_today?today_date:null" [required]="item.required" [email]="item.validator == 'email'" [pattern]="item.pattern" [value]="item.value" [(ngModel)]="item.value" (ionFocus)="item.focus = true" (ionBlur)="item.focus = false" [class.focus]="item.focus" minLength="5" maxLength="6"></ion-input>
+
+              <!-- [min]="item.zip?'min_length':null" -->
+              
+              <span class="error_txt" *ngIf="submitted && myform.get(item.name).errors">
+                <span *ngIf="myform.get(item.name).errors.required || myform.get(item.name).value == null" ><span>{{!item.long_text?item.label:null}}</span> required</span>  
+                <!-- <span *ngIf="item.name == 'phone_number_1' && myform.get(item.name).status != 'VALID' && myform.get(item.name).errors"><span>{{item.label}}</span> required</span> -->
+                <!-- <span *ngIf="item.name == 'contact_phone' && myform.get(item.name).status != 'VALID' && myform.get(item.name).errors"><span>{{item.label}}</span> required</span>   -->
+                <span *ngIf="item.type == 'zipcode' && myform.get(item.name).status != 'VALID' && myform.get(item.name).errors.minlength"><span>{{item.label}}</span> minimum 5 digits</span>
+                <!-- <span *ngIf="item.type == 'zipcode' && myform.get(item.name).status != 'VALID' && myform.get(item.name).errors.maxlength"><span>{{item.label}}</span> maximum 6 digits</span>     -->
+
+                <span *ngIf="myform.get(item.name).errors.email"><span>{{item.label}}</span> required</span>  
+                <span *ngIf="myform.get(item.name).errors.pattern">phone number must be of 10 digits</span>  
+              </span>
+              <!-- <span class="error_txt" *ngIf="submitted && item.name == 'contact_phone' && item.name == 'phone_number_1'">
+                <span *ngIf="myform.get(item.name).errors"><span>{{item.label}}</span> required</span>  
+                <span *ngIf="myform.get(item.name).errors.email"><span>{{item.label}}</span> required</span>  
+                <span *ngIf="myform.get(item.name).errors.pattern"><span>{{item.label}}</span> required</span>  
+              </span> -->
+              <!-- && item.name != 'contact_phone' && item.name != 'phone_number_1' -->
+              <!-- item.name != 'contact_phone' && item.name != 'phone_number_1' && -->
+              <ion-textarea *ngIf="item.input_type =='textarea'" [name]="item.name"  [formControlName]="item.name" [placeholder]="item.placeholder" [required]="item.required" (ionFocus)="item.focus = true" (ionBlur)="item.focus = false" [class.focus]="item.focus"></ion-textarea>
+              <quill-editor class="text-editor flex-100" *ngIf="item.input_type == 'textEditor'" [formControlName]="item.name"></quill-editor>
+              <ng-container *ngIf="item.input_type == 'dropdown'">
+                <ion-select  class="form-input form-select" interface="popover" [value]="item.value ? item.value  : item.options[0].name" (ionChange)="Options($event,item)">
+                  <ion-select-option *ngFor="let c of item.options ? item.options : [] " value="{{c.name}}">{{c.name}}</ion-select-option>
+                </ion-select>
+
+                <!--<ion-select   *ngIf="item.type != 'normal'" (ionFocus)="!item.dropdown_options?get_dropdown(item):null"  interface="popover" [multiple]="item.multiple" [formControlName]="item.name" [placeholder]="item.placeholder" [required]="item.required" (ionFocus)="item.focus = true" (ionBlur)="item.focus = false" [class.focus]="item.focus" (ionChange)="item.dropdown_options?select_value_change($event,item):null">
+                    <ion-select-option [value]=""></ion-select-option>
+                    <ng-container *ngIf="item.dropdown_options; else no_options;">
+                      <ion-select-option *ngFor="let v of item.dropdown_options" [value]="v.text">{{v.text}}</ion-select-option>
+                    </ng-container>
+                    <ng-template #no_options>
+                      <ion-select-option *ngFor="let v of item.options?item.options:[]" >{{v.name}}</ion-select-option>
+                    </ng-template>
+                </ion-select>-->
+
+              </ng-container>
+
+              <ion-radio-group class="d__flex ion-radio-group" *ngIf="item.input_type == 'Radio_Button'" (ionChange)="Options($event,item)" [value]="item.value ? item.value  : item.options[0].name"  >
+                <ion-item lines="none" *ngFor="let data of item.options ? item.options : []" class="no-bg fnt-13">
+                    <ion-radio slot="start" [value]="data.name"></ion-radio>
+                    <ion-label>{{data.name}}</ion-label>
+                </ion-item>
+              </ion-radio-group>
+  
+              <div class="w-100" *ngIf="item.input_type == 'checkbox'">
+                <ion-checkbox  [name]="item.name"  [value]="item.value" [checked]="item.value" (ionChange)="checkbox_value(item.name)"></ion-checkbox >
+                <!-- <div class="d__flex mouse"  *ngFor="let c of item.options ? item.options : []" (ionChange)="checkbox_value(c)">
+                 <ion-checkbox [checked]="c.check == true "></ion-checkbox>
+                 <p class="m-0 fnt-12">{{c.name}}</p>
+                </div> -->
+              </div>
+
+            </ng-container>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</form>

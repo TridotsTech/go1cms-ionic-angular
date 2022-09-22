@@ -1,0 +1,44 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>events</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+<app-header title="Event Detail" [home]="true" [back_route]="db.ismobile?'/home':'/'"></app-header>
+<ion-content>
+  <app-header class="desktop-header" [desktop]="true"></app-header>
+  <ion-grid class="header-bg" *ngIf="!db.ismobile">
+    <ion-row>
+      <ion-col>
+        <div class="header-title">
+          <h1 class="white-text">Event Detail</h1>
+          <div class="Breadcrumb mb-15 robot-font">
+            <span class="mr-5 mouse white-text font-14" routerLink="/" routerDirection="root">Home</span>
+            <ion-icon class="top-v  white-text" name="chevron-forward"></ion-icon>
+            <span class="mouse mr-5 primary primary-name white-text font-14">Event Detail</span>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div [class.remove__bor]="!db.ismobile && item" class="container" style="">
+    <h6 *ngIf="item">{{item.title}}</h6>
+    <div class="address__container">
+      <div class="items__grouping">
+        <div class="info-item d__flex align__c gap__5" *ngIf="item">
+          <ion-icon name="time-outline"></ion-icon>
+          <span class="fnt__600">Date</span> : {{item.from_date}} to {{item.to_date}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content__description" *ngIf="item && item.banner_image">
+    <div class="desc__container p-1">
+      <!-- <div> -->
+        <img class="image__path">
+        <img [src]="check_img(item.banner_image)">
+      </div>
+      <!-- <h2 *ngIf="info.brief_title && info.child_path == '/directory' " class="business__ttl">
+        {{info.brief_title}}</h2>      
+    </div> -->
+  </div>
+</ion-content>

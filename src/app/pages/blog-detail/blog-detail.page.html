@@ -1,0 +1,171 @@
+
+<app-header *ngIf="blog_details_array" [no_home]="true" [no_cart]="true"  back_route="/" [title]="'Blog Detail'"></app-header>
+
+
+<ion-content [scrollEvents]="true"  class="blog__detail__cnt blog-details">
+  <!-- (ionScroll)="db.scrolled($event)" -->
+  <div  class="main-width blog__container_dtl">
+    <!-- Desktop Breadcrumb -->
+    <ul *ngIf="!db.ismobile && blog_details_array" class="Bread-crumb mt-15 mb-15">
+      <li class="d__flex"><a class="mr-5 mouse" routerLink="/p/ecomerce-builder" routerDirection="forward">Home</a><ion-icon class="mr-5" name="chevron-forward"></ion-icon> </li>
+      <li class="d__flex"><a class="mr-5 mouse" (click)="breadcrumb('blog')" routerLink="/blog-list" routerDirection="forward">Blog</a><ion-icon class="mr-5" name="chevron-forward"></ion-icon></li>
+      <li class="d__flex"><a class="mr-5 mouse" [routerLink]="'/blog-list/'+blog_details_array.blog_details.blog_category" routerDirection="root" routerLinkActive="active-bread">{{blog_details_array.blog_details.blog_category}}</a><ion-icon class="mr-5" name="chevron-forward"></ion-icon></li>
+      <li class="d__flex"> <a class="mr-5 mouse active-bread"  [routerLink]="'/blog-list/'+blog_details_array.blog_details.blog_category+'/'+blog_details_array.blog_details.title" routerDirection="root" routerLinkActive="active-bread">{{blog_details_array.blog_details.title | titlecase}}</a></li>
+    </ul>
+    <div class="list-container-section" *ngIf="blog_details_array">
+
+    <div class="list-container">
+      <div class="image">
+        <img [src]="db.product_img(blog_details_array.blog_details.thumbnail_image)" alt="">
+      </div>
+
+      <h2  class="blog__title mb-10">{{blog_details_array.blog_details.title}}</h2>
+      <!--   <img src="{{db.product_img(blog_details_array.blog_details.thumbnail_image)}}"> -->
+      <div class="card">
+        <div class="a_i_c">
+          <img src="/assets/icon/time.svg" />
+           <p class="date">  {{blog_details_array.blog_details.published_on | date:'dd MMM yyyy' }} </p>
+        </div>
+        <div class="a_i_c mouse">
+          <img src="/assets/icon/chats.svg" />
+          <p class="comment">  {{blog_details_array.comments.length==0? 'No Comments' : blog_details_array.comments.length+'Comments'}}  </p>
+        </div>
+      </div>
+      <!-- Description -->
+      <div [innerHtml]="blog_details_array.blog_details.content" class="blog-d m-0"></div>
+      <!-- social media -->
+      <div class="social">
+        <ul>
+          <li>
+            <a class="gap-10" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=someone@gmail.com&body={{share_url}}" target="_blank">
+              <img class="share" src="/assets/icon/share/mail-02.svg" /></a>
+          </li>
+          <li>
+            <a class="gap-10" href="https://www.facebook.com/sharer/sharer.php?u={{share_url}}" target="_blank">
+              <img class="share" src="/assets/icon/share/fb-02.svg" /></a>
+          </li>
+          <li>
+            <a class="gap-10" href="https://twitter.com/share?url={{share_url}}" target="_blank">
+              <img class="share" src="/assets/icon/share/twitter-02.svg" /></a>
+          </li>
+          <li>
+            <a class="gap-10"  href="http://pinterest.com/pin/create/link/?url={{share_url}}" target="_blank">
+              <img class="share" src="/assets/icon/share/pin-02.svg" /></a>
+          </li>
+        </ul>
+      </div>
+
+<!--Related Blog  -->
+      <div class="side-two">
+        <ion-grid *ngIf="blog_details_array.related_bloglist.length!=0">
+          <ion-row class="text-center">
+            <ion-col>
+              <!-- <h4 class="sub-title">{{item.}}</h4> -->
+              <h2 class="blog__title ion-text-capitalize">Related Blog</h2>
+
+
+                <div class="relative">
+                    <ul #scrollContent (scroll)="scrolled($event)" class="home-card3">
+                      <div *ngIf="!db.ismobile" class="back-s" (click)="emitScroll('scroll','left')">
+                        <ion-icon name="chevron-back-outline"></ion-icon>
+                      </div>
+                    <li *ngFor="let item of blog_details_array.related_bloglist">
+                      <div class="card1 blog-s">
+                        <a  class="pos-r mouse">
+                          <div class="img-wrapper blog-img" [routerLink]="['/blog-detail',item.route]">
+                            <img src="{{db.product_img(item.thumbnail_image)}}" />
+                            <!-- <span class="ltx-date-big"><span class="ltx-date-day"
+                                [innerHTML]="changeDate(item.published_on)"></span><span
+                                class="ltx-date-my">{{item.published_on | date:'MMM yyyy' }}</span></span> -->
+                          </div>
+                        </a>
+                        <a >
+                          <h6 class="font-700 mouse" [routerLink]="['/blog-detail',item.route]">{{item.title}}</h6>
+                          <p>{{item.blog_intro}}</p>
+                        </a>
+                        <a >
+                          <div class="d__flex date_w_button just-s">
+                            <span class="date"><span class="post_on">Posted on :</span> <span class="date-day" [innerHTML]="changeDate(item.published_on)"></span><span class="date-my">{{item.published_on | date:'MMM yyyy' }}</span></span>
+                            <ion-button class="blog-btn" fill="clear" [routerLink]="['/blog-detail/',item.route]">View More</ion-button>
+                           </div>
+                        </a>
+                      </div>
+                    </li>
+                    <div *ngIf="!db.ismobile" class="next-s" (click)="emitScroll('scroll','right')">
+                      <ion-icon name="chevron-forward-outline"></ion-icon>
+                    </div>
+                  </ul>
+
+                </div>
+
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <!--null comment section -->
+      <div class="comments_b_b">
+        <div class="comments">
+          <h3 class="title1">Leave your comment</h3>
+          <ion-button class="blog-btn ion-text-capitalize m-0 fnt-12" fill="clear" (click)="comment_section()">Add Comments</ion-button>
+        </div>
+      </div>
+
+      
+      <!--null comment section -->
+      <div *ngIf="blog_details_array.comments.length==0" class="comments_b_b">
+        <div class="alert">
+          <div class="image">
+            <img src="/assets/icon/smiley.svg" />
+          </div>
+          <div class="customer_alert_body">
+            <h6>No comments yet</h6>
+            <h5>Post your first comment</h5>
+          </div>
+        </div>
+      </div>
+
+      <!--comment section -->
+      <div *ngIf="blog_details_array.comments.length!=0">
+        <ul>
+          <li *ngFor="let comment of blog_details_array.comments" class="cmt_s_li">
+            <div class='cmt_s_li1'>
+              <img src="/assets/icon/user.svg" />
+            </div>
+            <div class="cmt_s_li2">
+            <div class="cmt_s">
+              <p class="no_bold m-0">By</p>
+              <p class="bold m-0">{{comment.name1}}</p>
+            </div>
+            <div class="cmt_s cmt-date">
+              <p class="no_bold m-0">on</p>
+              <p class="bold m-0">{{comment.creation | date:'dd MMM yyyy' }}</p>
+              <p class="no_bold m-0">at</p>
+              <p class="bold m-0">{{comment.creation | date:'hh.mm a' }}</p>
+            </div>
+            <p class="cmt m-0">{{comment.comments}}</p>
+          </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- <div class="list-container2">
+           <div class="side-one" *ngIf="!db.ismobile">
+        <ul>
+          <p class="m-0 head">Blog Category</p>
+          <li class="main-category" *ngFor="let item of blog_category_list">
+            <div>
+              <a [class]="blog_details_array.blog_details.blog_category==item.name?'d__flex mouse child__1select gap-10': 'd__flex mouse child__1 gap-10'" [routerLink]="'/blog-list/'+item.name" >
+                <p class="m-0 category__name" >{{item.title}}</p>
+              </a>
+           </div>
+         </li>
+       </ul>
+      </div>
+    </div> -->
+    </div>
+
+  </div>
+  <!-- <app-footer *ngIf="!db.ismobile" class="footer"></app-footer> -->
+  <app-footer2 class="footer" *ngIf="!db.ismobile"></app-footer2>
+</ion-content>

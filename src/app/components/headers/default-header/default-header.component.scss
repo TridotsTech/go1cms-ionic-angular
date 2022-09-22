@@ -1,0 +1,72 @@
+// .absolute_color{
+//   color: var(--white)!important;
+// }
+.center_header_size{
+  // font-size: 14px!important;
+}
+
+.text_color{
+    // color: #000;
+    // padding: 0 !important;
+    // font-size: 16px;
+    // border-bottom: 3px solid transparent;
+    // width: max-content;
+    // font-family: Poppins,sans-serif !important;
+  }
+  .text_color:hover{
+    // color: var(--primary-color) !important;
+    // font-weight: 600;
+  }
+
+
+  .default_header{
+    height: 45px;
+    // overflow: auto;
+  }
+
+
+  .sub-categoryy{
+    // position: absolute;
+    // transition: all 0.25s ease 0s;
+    // z-index: 999;
+    // box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
+    .sub__category{
+      // width: 270px;
+      // padding: 15px 10px;
+    }
+    .sub__children{
+      // position: absolute;
+      // transition: all 0.25s ease 0s;
+      // z-index: 999;
+      // right: -270px;
+      // width: 270px;
+      // min-width: 200px;
+      // top: 0;
+      // box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
+    }
+  
+  }
+
+  .more__{
+    p{
+      // color: #fff;
+      // padding: 10px 0;
+      font-size: 15px;
+      border-bottom: 3px solid transparent;
+      width: max-content;
+      padding: 3px 15px 0 0;
+      margin: -10px;
+    }
+    ion-icon{
+      // color: #fff ;
+      font-size: 18px;
+      padding: 2px 0 0 0;
+    }
+  }
+  .header_menu{
+    // color: var(--primary-color) !important;
+    // font-weight: 600;
+  }
+  .drop__down{
+    // position: absolute;
+  }

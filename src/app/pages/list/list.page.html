@@ -1,0 +1,31 @@
+<app-header *ngIf="db.ismobile" title="{{internship}}" [no_home]="true" [back_route]="db.ismobile?'/home':'/'" [no_cart]="true"></app-header>
+
+<ion-content [scrollEvents]="true" (ionScroll)="db.scrolled($event)" class="{{route_}}">
+
+
+   <!-- <app-header *ngIf="content_data && (content_data.sub_header && (content_data.sub_header.enabled == 1 || content_data.sub_header.enabled == 0))" [class.sticky__header]="db.scroll_event.header_sticky" class="desktop-header" [class.sticky_header]="db.scroll_event.sticky_header" [sub_header_value]="content_data.sub_header" [desktop]="true"></app-header>  -->
+
+   <div class="" [class.absolute_class]="db.scroll_event.header_sticky && db.header_info.is_transparent_header == 1"  [class.sticky__header]="db.scroll_event.header_sticky && db.header_info && db.header_info.sticky_header && db.header_info.sticky_header == 1 && db.header_info.is_transparent_header == 0" >
+      <app-header class="desktop-header"  
+      [class.sticky_header]="db.scroll_event.sticky_header"
+      [class.transparent_sticky]="db.header_info  && db.header_info.is_transparent_header && db.header_info.is_transparent_header == 1 && db.header_info.sticky_header == 1"
+      [class.transparent_scroll]="db.header_info  && db.header_info.is_transparent_header && db.header_info.is_transparent_header == 1 && db.header_info.sticky_header == 0"
+      [desktop]="true"
+      [sub_header_value]="content_data && content_data.sub_header ? content_data.sub_header : ''" >
+     </app-header>
+   </div>
+
+   <div *ngIf="content_data && content_data.sub_header && (content_data.sub_header.enabled == 1 && content_data.sub_header.is_transparent == 0)">
+      <app-sub-list-header [sub_header_value]="content_data.sub_header" ></app-sub-list-header>
+   </div>
+
+   <div [class.min-vh]="!db.ismobile">
+      <app-list-style *ngIf="content_data" [page_route]="route_" (scroll_to_Top)="scroll_to_Top()" [item]="content_data"></app-list-style>
+   </div>
+   
+   <div class="color">
+      <div class="">
+        <app-footer  class="footer"></app-footer>
+      </div>
+  </div>
+</ion-content>

@@ -1,0 +1,75 @@
+
+<!-- <app-header [no_home]="true" [no_cart]="true" back_route="/p/ecomerce-builder" title="Blog"></app-header> -->
+<app-mobile-header3 *ngIf="db.ismobile" ></app-mobile-header3>
+
+
+<ion-content  [scrollEvents]="true" class="blog-list">
+  <!-- (ionScroll)="db.scrolled($event)" -->
+  <div class="main-width blog__list__container">
+
+         <!-- Desktop Breadcrumb -->
+        <ul class="Bread-crumb mt-15 mb-10" *ngIf="!db.ismobile">
+          <li class="d__flex"> <a class="mr-5 mouse" routerLink="/p/ecomerce-builder">Home</a>  <ion-icon class="mr-5" name="chevron-forward"></ion-icon>  </li>
+          <li class="d__flex" ><a class="mr-5 mouse" (click)="breadcrumb('blog')"  >Blog</a>  <ion-icon class="mr-5" name="chevron-forward"></ion-icon>  </li>
+          <li class="d__flex" *ngIf="id && id != '' "> <a class="mr-5 mouse"  [routerLink]="'/blog-list/'+id" routerDirection="root" routerLinkActive="active-bread" [routerLinkActiveOptions]="{exact: true}">{{id}}</a>  <ion-icon class="mr-5" name="chevron-forward"></ion-icon>  </li>
+        </ul>
+
+       <ul class="d__flex gap-10 category__hdr" *ngIf="db.ismobile">
+         <li class="mouse category__item"  (click)="breadcrumb('blog')"> <div [class.active-category-name]="!id" class="category__name">All</div></li>
+        <li *ngFor="let item of blog_category_list"  class="mouse category__item" (click)="blogby_category(item.name)">
+            <div class="category__img" *ngIf="item.mobile_image"> <img  [src]="db.product_img(item.mobile_image)"></div>
+            <p class="m-0 category__name" [class.active-category-name]="id == item.name">{{item.title}}</p>
+        </li>
+      </ul>
+
+
+   <div class="list-container">
+
+      <div class="side-one" *ngIf="!db.ismobile">
+        <ul class="blog__category">
+          <p class="m-0 blog__header">Blog Category</p>
+          <li class="category__name mouse" [class.current_category]="id == item.name" *ngFor="let item of blog_category_list" (click)="blogby_category(item.name)">
+            {{item.title}}  
+          </li>
+        </ul>
+      </div>
+
+
+      <div class="side-two">
+        <ul class="blog__box">
+          <li *ngFor="let item of blog_data" class="blog__info ">
+            <div >
+                <a class="position-relative blog__image mouse" [routerLink]="['/blog-detail/',item.route]">
+                  <img src="{{db.product_img(item.thumbnail_image)}}">
+                </a>
+                <a [routerLink]="['/blog-detail/',item.route]">
+                  <h6 class="blog__title mouse webkit-text" [style.--line]="1" >{{item.title}}</h6>
+                </a>
+                <p class="m-0 webkit-text" [style.--line]="3">{{item.blog_intro}}</p>
+                <div class="d__flex date_w_button just-s">
+                  <span class="date"><span class="post_on"> Posted on :</span> <span class="date-day" [innerHTML]="changeDate(item.published_on)"> </span><span class="date-my">{{item.published_on | date:'MMM yyyy' }}</span></span>
+                  <ion-button class="blog-btn ion-text-capitalize" fill="clear" [routerLink]="['/blog-detail/',item.route]">View More</ion-button>
+                </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+   
+   </div>
+   <ion-infinite-scroll *ngIf="!no_products" threshold="300px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText=""></ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
+  </div>
+
+  <div [class]="db.ismobile ? 'oops-icon1': 'oops-icon1 oops-icon1_c_l'" *ngIf="blog_data.length == 0 && no_products">
+    <!-- <ion-icon src="/assets/icon/empty_stack_icons/no-product.svg"></ion-icon> -->
+    <img *ngIf="db.website_settings && db.website_settings.app_settings" class="icon" button  [src]="db.product_img(db.website_settings.app_settings.nofound_img)">
+    <h6 class="m-0 fnt-12 oops-text">No Post  Found!</h6>
+    <!-- <p>Sorry, there’re no products for this search!</p> -->
+  </div>
+
+  <!-- <app-footer *ngIf="!db.ismobile" class="footer"></app-footer> -->
+  <app-footer2 *ngIf="!db.ismobile"></app-footer2>
+</ion-content>

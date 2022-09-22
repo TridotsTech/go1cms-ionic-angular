@@ -1,0 +1,120 @@
+.blog_dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.664);
+}
+
+//blog section 1
+.blog_icon_prev,
+.blog_icon_next {
+  ion-icon {
+    background: hsl(270deg 67% 96%);
+    border-radius: 50%;
+    font-size: 20px;
+    padding: 7px;
+    position: absolute;
+    z-index: 2;
+  }
+
+  .blog1_next {
+    left: -7px;
+    bottom: 245px;
+  }
+
+  .blog1_prev {
+    right: -11px;
+    bottom: 245px;
+  }
+}
+
+.blog_1_shadow {
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.blog1_sec {
+  position: relative;
+}
+
+.blog_1_element {
+  overflow: auto;
+  // gap: 10px;
+  padding: 20px 10px;
+
+  .blog_1_card {
+    flex-direction: column;
+    // flex: 0 0 calc(25% - 8px);
+    border-radius: 7px;
+    overflow: hidden;
+
+    .blog_1_img {
+      max-height: 200px;
+
+      img {
+        display: block;
+        object-fit: cover;
+        height: 200px;
+        max-width: 100%;
+      }
+    }
+
+    // in this blog_2_img class used in Blog section 2
+    .blog_2_img {
+      max-height: 200px;
+
+      img {
+        display: block;
+        object-fit: cover;
+        height: 200px;
+        max-width: 100%;
+        border-radius: 10px !important;
+      }
+    }
+
+    // End Blog section 2
+    .b1_content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+          padding: 20px;
+    min-height: 420px;
+    max-height: 420px;
+
+      .tag_with_date {
+        // text-transform: uppercase;
+        gap: 5px;
+
+        .b1_fnt_size {
+          // font-size: 12px;
+          // font-weight: 600;
+        }
+      }
+
+      .b1_card_subtitle {
+        // font-size: 14px;
+        // min-height: 60px;
+        text-align: start;
+      }
+
+      .b1_see_more {
+        font-size: 12px;
+      }
+    }
+  }
+
+}
+
+
+@media screen and (max-width:768px) {
+    .blog_1_card{
+        width: 100% !important;
+    }
+
+    .b1_content{
+        min-height: 320px !important;
+        max-height: 320px !important;
+    }
+}
+
+// blog section 2

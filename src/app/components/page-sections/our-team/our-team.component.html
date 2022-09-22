@@ -1,0 +1,174 @@
+<div>
+  <!-- Our Team -->
+  <div class="main_container align_center {{item.class_name}}" *ngIf="item.section_type == 'Static Section' && item.section_name =='Our Team 1'" [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+    <div class="main-width">
+    <div class="">
+      <!-- creative_header -->
+      <h2 class="title txt-c">{{item.title}}</h2>
+      <p class="ourteam_content subtitle txt-c"> {{item.subtitle}}</p>
+    </div>
+    <div class="flex_box ourteam_images">
+      <div *ngFor="let data of item.cardimage" class="ourteam_card">
+        <div class="ourteam_image">
+          <img [src]="db.product_img(data.card_image)" alt="">
+          <div class="ourteam_details">
+            <div class="ourteam_info">
+              <h4 class="ourteam_name txt-c">{{data.card_title}}</h4>
+              <h6 class="ourteam_role txt-c">{{data.designation}}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="main_container main-width align_center {{item.class_name}}" *ngIf="item.section_type == 'Static Section' && item.section_name =='Our Team 2'" [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+    <div class="">
+      <!-- creative_header -->
+      <h2 class="title txt-c">{{item.title}}</h2>
+      <p class="ourteam_content subtitle txt-c">{{item.subtitle}}</p>
+    </div>
+    <div class="flex_box ourteam_two_images">
+      <div *ngFor="let data of item.cardimage" class="ourteam_second_card">
+        <div class="creative_image team_img_height">
+          <img [src]="db.product_img(data.card_image)" alt="">
+          <div class="creative_details">
+            <h4 class="ourteam_name  txt-c card_title">{{data.card_title}}</h4>
+            <h6 class="ourteam_role designation txt-c">{{data.designation}}</h6>
+            <div class="flex_box creative_icons">
+              <img class="mouse " src="{{db.product_img(data.linkedin)}}">
+              <img class="mouse " src="{{db.product_img(data.mail)}}">
+              <img class="mouse " src="{{db.product_img(data.skype)}}">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main_container mt-15 align_center  {{item.class_name}}" *ngIf="item.section_type == 'Static Section' && item.section_name =='Our Team 3'" [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+    <div class="ourteam_col">
+      <!-- ourteam_two_images -->
+      <div class="ourteam_two_card">
+        <h2 class="title txt-c">{{item.title}}</h2>
+        <p class="ourteam_content subtitle txt-c">{{item.subtitle}}</p>
+      </div>
+      <div *ngFor="let data of item.cardimage" class="ourteam_card">
+        <div class="ourteam_two_image">
+          <img class="card_image" [src]="db.product_img(data.card_image)" alt="">
+          <div class="ourteam_two_details">
+            <h4 class="ourteam_two_name card_title txt-c">{{data.card_title}}</h4>
+            <h6 class="ourteam_role designation txt-c">{{data.designation}}</h6>
+            <div class="flex_box creative_icons">
+              <img class="mouse social_i linkedin" src="{{db.product_img(data.linkedin)}}">
+              <img class="mouse social_i mail" src="{{db.product_img(data.mail)}}">
+              <img class="mouse social_i skype" src="{{db.product_img(data.skype)}}">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main_container align_center  {{item.class_name}}" *ngIf="item.section_type == 'Static Section' && item.section_name =='Our Team 4'" [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+    <div class="creative_header">
+      <h2 class="ourteam_header_title title txt-c">{{item.title}}</h2>
+      <div class="underline"></div>
+    </div>
+    <div class="ourteam_images">
+      <div *ngFor="let data of item.cardimage" class="ourteam_three_card">
+        <div class="ourteam_three_image">
+          <img class="card_image" [src]="db.product_img(data.card_image)" alt="">
+        </div>
+        <div>
+          <h4 class="card_title txt-c">{{data.card_title}}</h4>
+          <h6 class="m-0 opacity_05 designation txt-c">{{data.designation}}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- new section by bala -->
+  <div class="{{item.class_name}} " *ngIf="item.section_type == 'Static Section' && item.section_name =='Our Team 5'" [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+    <div class="mb-40">
+      <div class="section_title txt-c">
+        <h2 class="title">{{item.title}} <span class="title color_sample heading">{{item.span_title}}</span></h2>
+        <h5 class="">{{item.sub_title}}</h5>
+      </div>
+      <ul class="image-circle d__flex flex-w">
+        <li class="content__elements childclass mb-20 d__flex" *ngFor="let data of item.data">
+          <div class="round_img"><img class="image" src="{{db.product_img(data.image)}}" alt="Team Image"></div>
+          <h4 class="image-name name">{{data.name}}</h4>
+          <h6 class="image_tag m-0 role">{{data.role}}</h6>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- Section team2- Our Experts (section-6) -->
+  <div class="{{item.class_name}}" *ngIf="item.section_type == 'Static Section' && item.section_name == 'Our Team 6'" [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+    <div class="mb-40">
+      <div class="section_title txt-c" *ngIf="item.title">
+        <h2 class="title">{{item.title}}<span class="span_title"> {{item.span_title}}</span></h2>
+        <div class="title-border"></div>
+      </div>
+      <ul class="image-circle juscenter_ d__flex ">
+        <li class="content__elements teamsix_fx mb-20 d__flex" *ngFor="let data of item.data">
+          <div class="round_img round_img_">
+            <img class="image" src="{{db.product_img(data.image)}}" alt="Team Image">
+          </div>
+          <h4 class="image-name name">{{data.name}}</h4>
+          <h6 class="image_tag m-0 role">{{data.role}}</h6>
+          <p class="team_txt_width content">{{data.content}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- Section team2- Key people (section-7) -->
+  <div class="{{item.class_name}}" *ngIf="item.section_type == 'Static Section' && item.section_name == 'Our Team 7'" [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+    <div class="mb-40">
+      <div class="section_title" *ngIf="item.title1">
+        <h2 class="side-line title1">{{item.title1}}</h2>
+        <h4 class="title title2">{{item.title2}}</h4>
+      </div>
+      <ul class="card_image_block d__flex flex-w">
+        <li class="t-profile_image" *ngFor="let data of item.data">
+          <div class="t-profile__img">
+            <img class="image" src={{db.product_img(data.image)}} alt="Profile Image">
+          </div>
+          <div class="t-profile__content d__flex text-center">
+            <h4 class="white-text name">{{data.name}}</h4>
+            <h6 class="white-text m-0 role">{{data.role}}</h6>
+            <div class="d__flex t-profile__icons">
+              <img class="mouse social_icon icon_1" src="{{db.product_img(data.icon_1)}}">
+              <img class="mouse social_icon icon_2" src="{{db.product_img(data.icon_2)}}">
+              <img class="mouse social_icon icon_3" src="{{db.product_img(data.icon_3)}}">
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- Section team2- creative people behind (section-8) -->
+  <div class="{{item.class_name}}" *ngIf="item.section_type == 'Static Section' && item.section_name == 'Our Team 8'" [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+    <div class="sec_gap d__flex mb-40">
+      <div class="card_title_sections">
+        <p class="">{{item.sub_title}}</p>
+        <h2 class="title mb-20">{{item.title}}</h2>
+        <div class="card-vision" *ngFor="let data of item.content_data">
+          <h4 class="">{{data.title}}</h4>
+          <p class="content">{{data.content}}</p>
+        </div>
+      </div>
+      <ul class="card_image_sections d__flex flex-w">
+        <li class="card_image__elements mb-20" *ngFor="let data of item.image_data">
+          <div class="d__flex img_div mb-20">
+            <div class="card_image_img">
+              <img class="image" src="{{db.product_img(data.image)}}" alt="Team Image">
+            </div>
+          </div>
+          <div class="name_tag">
+            <h4 class="name">{{data.name}}</h4>
+            <h6 class="m-0 role">{{data.role}}</h6>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

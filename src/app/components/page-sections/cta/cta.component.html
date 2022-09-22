@@ -1,0 +1,10 @@
+<!-- <div>  container_order about_container [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0"-->
+  <!-- CTA  -->
+  <div class="txt-c my-15 {{item.class_name}} animate py-30" *ngIf="item.section_type == 'Static Section' && item.section_name =='CTA'">
+    <h2 class="title">{{item.title}}</h2>
+    <p class="subtitle">{{item.subtitle}}</p>
+    <ion-button *ngIf="item.btn_text" class="primary-btn btn" fill="clear" (click)="db.route_url(item.btn_text.btn_redirect_url)">{{item.btn_text.btn_text}}</ion-button>
+  </div>
+<!-- </div> -->
+
+<!-- mt-30 mb-20 -->

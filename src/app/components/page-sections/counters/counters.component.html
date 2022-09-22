@@ -1,0 +1,126 @@
+<!-- counter section 1 (counter_section_1) -->
+<div class="container__div  {{item.class_name}} py-30 animate" *ngIf="item.section_type == 'Static Section' && item.section_name =='Counters 1'">
+  <div class="d__flex counters_1" [ngClass]="!db.ismobile?'main-width':''">
+    <div class="content_container">
+      <div class="content_element">
+        <h5 class="top__title txt-l subtitle">{{item.subtitle}}</h5>
+        <div class="title_ mb-20">
+          <h2 class="txt-l title">{{item.title}}</h2>
+        </div>
+        <div class="mb-20">
+          <p class="description_text">{{item.description}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="image_container">
+      <div class="counter__div">
+        <ul class="boxs_container d__flex flex-w txt-c">
+          <li class="counter_elem" *ngFor="let data of item.counterbox">
+            <h1 class="">{{data.count_value}}</h1>
+            <div class="value_desc">
+              <p class="count_title txt-c  webkit-text" [style.--line]="1">{{data.count_title}}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- (counter_section_2) -->
+<div id="counters2_test" class="container__div py-30 {{item.class_name}} animate" [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0" *ngIf="item.section_type == 'Static Section' && item.section_name =='Counters 2'">
+  <div class="title_container txt-c title_width_center ">
+    <h2 class="top__title title">{{item.title}}</h2>
+    <div class="tittle_ mb-20">
+      <h5 class="subtitle"> {{item.subtitle}}</h5>
+    </div>
+  </div>
+  <div class="color_card_list">
+    <ul class="cards__container d__flex flex-w">
+      <li class="card___container txt-c d__flex" *ngFor="let data of item.counterbox">
+        <h1 class="c-section m-5 count_color_change ">{{data.count_value}} </h1>
+        <div class="title_">
+          <h4 class="m-0">{{data.count_title}}</h4>
+        </div>
+        <p class="description_text count_description webkit-text" [style.--line]="1">{{data.count_description}}</p>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- (counter_section_4) -->
+<div class="container__div {{item.class_name}} py-30 animate" [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0" *ngIf="item.section_type == 'Static Section' && item.section_name =='Counters 4'">
+  <div class="d__flex wrap">
+    <div class="content_container">
+      <div class="content_element">
+        <h5 class="txt-l subtitle">{{item.subtitle}}</h5>
+        <!-- <div> -->
+          <h2 class="txt-l title">{{item.title}}</h2>
+        <!-- </div> -->
+        <ul class="loop_count_icon d__flex flex-w">
+          <li class="icon_count" *ngFor="let data of item.counterbox;let i = index">
+            <div class="icon_back icon color_primary">
+              <img src="{{db.product_img(data.icon)}}">
+            </div>
+            <div class="bordered_icon">
+              <h2 class="mtb15 txt-l">{{data.count_value}}</h2>
+              <p class="description_text">{{data.count_title}}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="image_container">
+      <div class="image">
+        <img class="right_image" src="{{db.product_img(item.right_image)}}" alt="Right Banner Image">
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Nixson Sections -->
+<!-- Section Counter- Table Counter (Section-3) -->
+<div class="{{item.class_name}} mb-40 py-30" [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0" *ngIf="item.section_type == 'Static Section' && item.section_name == 'Counters 3'">
+  <div class="container__div">
+    <div class="_counter_title_cotent mb-20">
+      <h2 class="txt-c title_ title">{{item.title}}</h2>
+      <h5 class="webkit-text txt-c sub_title" [style.--line]="3"> {{item.sub_title}}</h5>
+    </div>
+    <div class="counter_content d__flex flex-w">
+      <div class="counter_boxs txt-c" *ngFor="let data of item.counterbox">
+        <h4 class="count_value" name="counter_value" [attr.data-target]='data.count_value'>{{data.count_value}}</h4>
+        <p class="txt-c webkit-text count_title" [style.--line]="1">{{data.count_title}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Section counter- Right Image with left counter (Section-5) -->
+<div class="{{item.class_name}} mb-40 py-30" [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0" *ngIf="item.section_type == 'Static Section' && item.section_name == 'Counters 5'">
+  <div class="container__div counter_sec_ d__flex">
+    <div class="content_container_">
+      <h2 class="title">{{item.title}}</h2>
+      <p class="webkit-text" [style.--line]="5">{{item.sub_title}}</p>
+      <ul class="counter_section d__flex flex-w">
+        <li class="box--list" *ngFor="let data of item.counter_data">
+          <h4 class="counter_value  count_value">{{data.count_value}}</h4>
+          <p class="description_text set_width m-0 webkit-text count_title" [style.--line]="1"> {{data.count_title}}</p>
+        </li>
+      </ul>
+    </div>
+    <div class="image_container_ count_sec_five_img">
+      <div class="img_dev_counter images" *ngFor="let data of item.images">
+        <img [src]="db.product_img(data.image)" alt="banner_img">
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Section counter- Banner with counter  (Section-6)-->
+<div class="{{item.class_name}} py-30 relative counters_6" *ngIf="item.section_type == 'Static Section' && item.section_name == 'Counters 6'">
+  <div class="">
+    <!-- [style.background-image]="'url('+db.product_img(item.bg_image)+')'" -->
+    <ul class="container_bg d__flex bg_image">
+      <li class="counter--list" [ngClass]="db.ismobile?'':'d__flex'" *ngFor="let data of item.counter_data">
+        <h4 class="count_value">{{data.count_value}}</h4>
+        <ion-icon name="add-outline"></ion-icon>
+        <p class="set--width m-0 webkit-text count_title" [style.--line]="2">{{data.count_title}}</p>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,429 @@
+// .footer_con{
+//     .title{
+
+//     }
+// }
+
+.text-right{
+    text-align: right;
+}
+
+.text-left{
+    text-align: left;
+}
+
+    .p__rl{
+        a{
+            padding: 5px 7px;
+        }
+    }
+
+    .socil_share{
+      justify-content: end;
+    }
+
+    .links{
+      gap: 10px;
+      padding: 0 0 0 10px;
+      ion-icon{
+        font-size: 18px;
+      }
+    }
+
+    .flot-r{
+      float:right;
+}
+.appicon{
+  width: 160px;
+}
+.footer__container{
+  border-top :1px solid rgb(0 0 0 / 5%);
+  margin-top: 0px;
+  //background-image: url('/assets/chops_daily/footer-bg.svg');
+  .font{
+      font-size: 14px;
+      font-weight: 400;
+  }
+
+  
+  .f2{
+      border-top:1px solid var(--border);
+      margin-top: 25px;
+      
+  }
+  
+  // .copy_rights_div{
+  //   width: 100% !important;
+  // }
+
+// .social_link{
+//     .ul__{
+//         display: flex;
+//         align-items: center;
+//     }
+// }
+
+  .footer{
+   display: flex;
+  
+//    padding: 25px 0 0 0;
+//    min-height: unset;
+//    flex-wrap: wrap;
+    //   .icon_short_address,.icon_app_download{
+    //       flex: 0 0 30%;
+    //   }
+  
+    //   .links_w_title{
+    //       flex: 0 0 20%;
+    //   }
+      .Copyrights{
+          width: 100% !important;
+      }
+  }
+  .home__logo{
+    // width: 200px;
+    height: 38px;
+    margin-top: -5px;
+}
+.title__{
+    font-size:  22px;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+.border_line{
+    // border: 1px solid var(--primary-color);
+    // width: 20%;
+    // margin: 10px 0;
+  }
+  .icon_short_address{
+    .about{
+        padding:5px 0;
+      .p{
+        //   font-size: 16px;
+          margin: 0;
+          padding: 10px 12px;
+      }
+  }
+      .phone,.email{
+          padding: 5px 10px 10px 0px;
+          ion-icon{
+              font-size: 22px;
+              padding-right: 10px;
+          }
+        //   a{
+        //     //   color: #616060;
+        //     //   font-size: 14px;
+        //   }
+      }
+      .location{
+          padding: 5px 10px 10px 0px;
+          ion-icon{
+              font-size: 22px;
+              padding-right: 7px;
+              flex: 0 0 10%;
+            //   flex: 0.1;;
+          }
+        //   p{
+        //       color: #616060;
+        //       font-size: 14px;
+        //   } 
+      }
+      .follow{
+          padding: 0px 10px 10px 0px;
+        //   h5{
+        //       font-size: 15px;
+        //       font-weight: 400;
+        //   }
+          ion-icon{
+              font-size: 20px;
+              padding: 8px;
+          }
+      }
+  }
+
+  .title__{
+    font-size:  22px;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+// .border_line{
+//   border: 1px solid var(--go1-body-theme-color);
+//   width: 20%;
+//   margin-bottom: 10px;
+// }
+  
+  .links_w_title{
+      .container_f{
+          display: flex;
+          .p_title{
+            padding: 8px 0px;
+            transition: all 0.3s ease 0s;
+            ion-icon{
+                font-size: 13px;
+            }
+          }
+          // ion-icon:hover{
+          //     color: var(--body-text-color);
+          //     padding-left: 5px;
+          // }
+          .p_title:hover{
+              // color: var(--body-text-color);
+              padding-left: 5px;
+          }
+      }
+
+      .vendor{
+          .p_title{
+              padding: 8px 0px;
+              transition: all 0.3s ease 0s;
+            }
+          .p_title:hover{
+              // color: var(--body-text-color);
+              padding-left: 5px;
+          } 
+      }
+      .p_title_s{
+          padding: 10px 0px;
+          transition: all 0.3s ease 0s;
+      }
+      .p_title_s:hover{
+          padding-left: 5px;
+      }
+  
+  }
+  
+  .icon_app_download{
+      .title__{
+          font-size: 22px;
+          font-weight: 600;
+          padding-bottom: 10px;
+      }
+      .p_title{
+          padding: 10px 0px;
+      }
+      .app_download{
+          padding: 10px 0 25px 0;
+          .app_store,.google_play{
+              flex: 0 0 calc(50% - 10px);
+              margin-right: 10px;
+              img{
+                  height: 40px;
+                  border-radius: 5px;
+              }
+          }
+      }
+  }
+}
+
+.mb-10{
+  margin-bottom: 10px;
+}
+
+.column{
+  flex-direction: column;
+}
+
+
+.common{
+  flex-direction: column;
+}
+.about_content{
+    // padding: 15px 60px;
+    // padding-left: 0;
+}
+
+.border-top{
+    border-top: 1px solid #ddd;
+}
+
+.sus-button {
+    background: #f3f4f6;
+    border-radius: 25px;
+    ion-input {
+        height: 40px;
+        --padding-start: 15px;
+        // background: #f3f4f6;
+        // border-top-left-radius: 6px;
+        // border-bottom-left-radius: 6px;
+    }
+
+    ion-button {
+        // margin: 0;
+        // height: 38px;
+        // box-shadow: none;
+        // background: var(--body-text-color);
+        // border-radius: 25px;
+        // font-size: 11px;
+        // text-transform: capitalize;
+    }
+}
+
+.social__icons_{
+    img{
+        height: 35px;
+        margin: 0 5px;
+    }
+}
+
+.p-r-10{
+    padding-right: 15px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .footer__container{
+        .footer{
+            flex-direction: column;
+        }
+    }
+}
+
+.footer_p_b{
+    padding: 0 0 15px 0;
+}
+// .footer__container{
+//     border-top :1px solid rgb(0 0 0 / 5%);
+//     margin-top: 10px;
+//     background-image: url('/assets/chops_daily/footer-bg.svg');
+//     .font{
+//         font-size: 14px;
+//         font-weight: 400px;
+//     }
+    
+//     .f2{
+//         border-top:1px solid var(--border);
+//         margin-top: 25px;
+        
+//     }
+    
+//     .footer{
+//      display: flex;
+//      padding: 25px 0;
+//      min-height: unset;
+//         .icon_short_address,.icon_app_download{
+//             flex: 0 0 25%;
+//         }
+    
+//         .links_w_title{
+//             flex: 0 0 16.66666%;
+//         }
+//     }
+    
+//     .icon_short_address{
+//         .home__logo{
+//             width: 200px;
+//             margin-top: -5px;
+//         }
+//       .about{
+//           padding:5px 0;
+//         .p{
+//             font-size: 16px;
+//             margin: 0;
+//             padding: 10px 12px;
+//         }
+//     }
+//         .phone,.email{
+//             padding: 5px 10px 10px 0px;
+//             ion-icon{
+//                 font-size: 14px;
+//                 padding-right: 10px;
+//             }
+//             a{
+//                 color: #616060;
+//                 font-size: 14px;
+//             }
+//         }
+//         .location{
+//             padding: 5px 10px 10px 0px;
+//             ion-icon{
+//                 font-size: 16px;
+//                 padding-right: 7px;
+//                 flex: 0 0 5%;
+//             }
+//             p{
+//                 color: #616060;
+//                 font-size: 14px;
+//             } 
+//         }
+//         .follow{
+//             padding: 0px 10px 10px 0px;
+//             h5{
+//                 font-size: 15px;
+//                 font-weight: 400;
+//             }
+//             ion-icon{
+//                 font-size: 20px;
+//                 padding: 8px;
+//             }
+//         }
+//     }
+    
+    
+//     .links_w_title{
+//         .title{
+//             font-size: 18px;
+//             font-weight: 600;
+//             padding-bottom: 10px;
+//         }
+//         .container_f{
+//             display: flex;
+//             .p_title{
+//               padding: 8px 0px;
+//               transition: all 0.3s ease 0s;
+//             }
+//             // ion-icon:hover{
+//             //     color: var(--body-text-color);
+//             //     padding-left: 5px;
+//             // }
+//             .p_title:hover{
+//                 // color: var(--body-text-color);
+//                 padding-left: 5px;
+//             }
+//         }
+
+//         .vendor{
+//             .p_title{
+//                 padding: 8px 0px;
+//                 transition: all 0.3s ease 0s;
+//               }
+//             .p_title:hover{
+//                 // color: var(--body-text-color);
+//                 padding-left: 5px;
+//             } 
+//         }
+//         .p_title_s{
+//             padding: 10px 0px;
+//             transition: all 0.3s ease 0s;
+//         }
+//         .p_title_s:hover{
+//             padding-left: 5px;
+//         }
+    
+//     }
+    
+//     .icon_app_download{
+//         .title{
+//             font-size: 18px;
+//             font-weight: 600;
+//             padding-bottom: 10px;
+//         }
+//         .p_title{
+//             padding: 10px 0px;
+//         }
+//         .app_download{
+//             padding: 10px 0 25px 0;
+//             .app_store,.google_play{
+//                 flex: 0 0 calc(50% - 10px);
+//                 margin-right: 10px;
+//                 img{
+//                     height: 40px;
+//                     border-radius: 5px;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+
+
+

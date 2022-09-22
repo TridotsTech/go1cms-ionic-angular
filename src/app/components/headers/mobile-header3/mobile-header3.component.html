@@ -1,0 +1,26 @@
+<ion-header class="mobile-header" *ngIf="db.ismobile">
+
+  <div class="d__flex gap-5 p-x-5">
+    <!-- <ion-icon name="chevron-back-outline"></ion-icon> -->
+    <div slot="start" class="d__flex">
+      <ion-icon *ngIf="back_route" class="fnt-22" name="chevron-back-outline"  (click)="backbtn()" routerLink="/{{back_route}}"></ion-icon>
+      <ion-icon *ngIf="!back_route" class="fnt-22" name="chevron-back-outline" (click)="!back_route?db.back():''" (click)="backbtn()"></ion-icon>
+      <!-- <ion-back-button  slot="start" (click)="backbtn()" [defaultHref]="back_route?back_route:null"  (click)="!back_route?db.back():''" ></ion-back-button> -->
+    </div>
+
+    <!--  -->
+
+    <ion-buttons slot="start">
+      <ion-button  (click)="openMenu()">
+        <ion-icon class="icon menu"   src="/assets/icon/menu.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <!--  -->
+    <div slot="start" class="mobile-logo d__flex" routerLink="/">
+      <img class="h-45 home__logo mouse"  [src]="db.product_img(db.website_settings.website_logo)" >
+    </div>
+
+  </div>
+
+</ion-header>

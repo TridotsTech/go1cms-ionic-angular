@@ -1,0 +1,49 @@
+.relative {
+  position: relative !important;
+}
+
+.mtb15 {
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+.counters_6 {
+  width: 80%;
+  margin: 15px auto;
+  border-radius: 10px;
+  ion-icon{
+  	 align-self: flex-start;
+    color: var(--white);
+  }
+}
+
+@media screen and (max-width:768px) {
+  .counters_6 {
+    width: 90%;
+  }
+  .box--list{
+    flex:0 0 50% !important;
+  }
+
+  .container_bg{
+    padding: 0;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    flex-direction:initial;
+    .counter--list{
+      width: auto;
+      flex: 0 0 50%;
+      padding: 10px;
+      position: relative;
+      .count_value{
+        font-size: 40px !important; 
+      }
+      ion-icon{
+        float: right;
+    top: 5px;
+    position: absolute;
+    right: 15px;
+      }
+    }
+  }
+}

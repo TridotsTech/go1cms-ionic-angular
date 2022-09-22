@@ -1,0 +1,148 @@
+ <!-- 14 Testimonials -->
+          <!-- Testimonial_1 -->
+          <div *ngIf="row.component_type=='Testimonial Style1'" class="testimonial_component1 component_container d__flex">
+            <div *ngFor="let data of row.data.data;let i=index" class="testimonial_card">
+                 <div class="testimonial_card_image txt-l">
+                     <img [src]="db.product_img(data.image)" alt="">
+                 </div>
+                 <div class="testimonial_details">
+                     <h4 class="title m-0">{{data.title}}</h4>
+                     <h6 class="ourteam_three_role m-0">{{data.subtitle}}</h6>
+                     <p class="webkit-text" [style.--line]="5">{{data.content}}</p>
+                     <div class="d__flex star_count">
+                      <div *ngFor="let count of [0,1,2,3,4]">
+                        <ion-icon *ngIf="count<data.star_count" color="warning" name="star"></ion-icon>
+                      </div>
+                    </div>
+                 </div>
+         </div>
+          </div>
+          <!-- Testimonial 2 -->
+          <div *ngIf="row.component_type=='Testimonial Style2'" class="testimonial_component2 component_container d__flex">
+            <div class="testimonialtwo_card" *ngFor="let data of row.data.data;let i=index">
+              <div class="testimonial_details">
+                <div class="d__flex star_count">
+                  <div *ngFor="let count of [0,1,2,3,4]">
+                    <ion-icon *ngIf="count<data.star_count" color="warning" name="star"></ion-icon>
+                  </div>
+                </div>
+                <p class="content webkit-text" [style.--line]="5">{{data.content}}</p>
+              </div>
+              <div class="d__flex testimonialtwo_profile">
+                <div class="testimonialtwo_card_image">
+                  <img class="image"
+                    [src]="db.product_img(data.image)"
+                    alt="">
+                </div>
+                <div>
+                  <h4 class="m-0 title">{{data.title}}</h4>
+                  <h6 class="subtitle">{{data.subtitle}}</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 3 -->
+          <div *ngIf="row.component_type=='Testimonial Style3'" class="testimonial_component3 component_container d__flex">       
+                <div *ngFor="let data of row.data.data" class="testimonialThree_card">
+                    <div class="image_position testimonialThree_image image">
+                      <img [src]="db.product_img(data.image)" alt="">
+                  </div>
+                      <div class="testimonial_details">
+                          <h4 class="mg_10 name title heading cent-text">{{data.title}}</h4>
+                          <h6 class=" heading cent-text">{{data.subtitle}}</h6>
+                          <p class="content webkit-text" [style.--line]="5">{{data.content}}</p>
+                          <div class="d__flex star_count ">
+                            <div *ngFor="let count of [0,1,2,3,4]">
+                              <ion-icon *ngIf="count<data.star_count" color="warning" name="star"></ion-icon>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+          </div>
+          <!-- Testimonial 4 -->
+          <div *ngIf="row.component_type=='Testimonial Style6'" class="testimonial_component4 component_container">
+            <div *ngFor="let data of row.data.data">
+              <div class="testimonialThree_image">
+                <img
+                  [src]='db.product_img(data.image)'
+                  alt="">
+              </div>
+              <div class="testimonial_col2">
+                <div class="col2_content">
+                  <h3 class="heading">
+                    {{data.heading }}
+                  </h3>
+                  <p class="content webkit-text" [style.--line]="5">
+                    {{data.content}} 
+                  </p>
+                  <div class="testi_five">
+                    <div class="testi_logo_img">
+                      <img class="profile_image"
+                        [src]="db.product_img(data.profile_image)">
+                    </div>
+                    <div>
+                      <h4 class="m-0 title">
+                        {{data.title }} 
+                      </h4>
+                      <h6 class="m-0 subtitle">
+                        {{data.subtitle}}
+                      </h6> 
+                    </div>                     
+                  </div>
+                </div>
+              </div>
+            </div> 
+          </div>
+          <!-- Testimonial 5 -->
+          <div *ngIf="row.component_type=='Testimonial Style5'" class="testimonial_component5 component_container">
+            <div class="testimonialThree_card" *ngFor="let data of row.data.data">
+              <div class="testimonialThree_image">
+                <img
+                  [src]="db.product_img(data.image)"
+                  alt="">
+              </div>
+              <div class="testimonial_col2">
+                <h2 class="heading">
+                  {{data.heading}}
+                </h2>
+                <p class="content webkit-text" [style.--line]="5">
+                  {{data.content}} 
+                </p>
+                <div class="info_">
+                  <h4 class="m-0 title">
+                    {{data.title}}
+                  </h4>
+                  <h6 class="subtitle">
+                    {{data.subtitle}}
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 6 -->
+          <div *ngIf="row.component_type=='Testimonial Style4'" class="testimonial_component6 component_container d__flex">
+            <div class="testimonialThree_card" *ngFor="let data of row.data.data">
+              <div class="testimonialThree_image">
+                <img
+                  [src]="db.product_img(data.image)"
+                  alt="">
+              </div>
+              <h3 class=" heading">
+                {{data.heading}}
+              </h3>
+              <div class="d__flex star_count">
+                <div *ngFor="let count of [0,1,2,3,4]">
+                  <ion-icon *ngIf="count<data.star_count" color="warning" name="star"></ion-icon>
+                </div>
+              </div>
+              <p class="content webkit-text" [style.--line]="5">
+                {{data.content}}
+              </p>
+              <h4 class="m-0 title">
+                {{data.title}}
+              </h4>
+              <h6 class="subtitle">
+                {{data.subtitle}}
+              </h6>
+            </div>
+          </div>

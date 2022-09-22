@@ -1,0 +1,49 @@
+<app-header *ngIf="db.ismobile" title="" [no_home]="true" [back_route]="db.ismobile?'/home':'/'" [no_cart]="true"></app-header>
+
+<ion-content class="detail" [scrollEvents]="true" (ionScroll)="db.scrolled($event)">
+
+
+   <app-header *ngIf="detail_values" [class.sticky__header]="db.scroll_event.header_sticky" class="desktop-header" [sub_header_value]="" [desktop]="true"></app-header> 
+
+
+   <div>
+      <!-- <app-sub-list-header [sub_header_value]=""></app-sub-list-header> -->
+   </div>
+
+   <div class="main-width" *ngIf="detail_values && detail_values.length != 0" [class.min-vh]="!db.ismobile">
+      <div *ngFor="let row of detail_values"  [ngClass]="row.fullwidth? '':'container'">
+         <!-- <div  *ngIf="row.columns && row.columns.length != 0"> -->
+          
+            <div *ngFor="let out_row of row.rows" class="section_container" [ngStyle]="out_row['columns'] ?  assign(out_row) : '' " [style.margin]="out_row['margin'] ? out_row['margin'] : ''">
+              <!-- {{out_row.columns | json}} -->
+               <app-detail-style *ngIf="out_row['data']" [value]="out_row" [detail]="content_datas"></app-detail-style>
+              
+                  <div *ngFor="let row_col of out_row.columns" class="section_container" [ngStyle]="row_col['columns'] ?  assign(row_col) : '' "  [style.margin]="row_col['margin'] ? row_col['margin'] : ''">
+               
+                     <app-detail-style *ngIf="row_col['data']" [value]="row_col" [detail]="content_datas"></app-detail-style>
+         
+                      <div *ngFor="let row__ of row_col.rows" class="section_container" [ngStyle]="row__['columns'] ?  assign(row__) : '' " [style.margin]="row__['margin'] ? row__['margin'] : ''">
+                         <app-detail-style *ngIf="row__['data']" [value]="row__" [detail]="content_datas"></app-detail-style>
+         
+                         <div *ngFor="let col of row__.columns" class="section_container">
+                           <app-detail-style class="d__flex" *ngIf="col['data']" [value]="col" [detail]="content_datas"></app-detail-style>
+                        </div>
+         
+                      </div>
+                      
+                  </div>
+         
+               
+
+            </div>
+            
+      </div>
+   </div>
+   
+   <div class="color" *ngIf="!db.ismobile">
+      <div class="main-width m-h">
+        <!-- <app-footer  class="footer"></app-footer> -->
+      </div>
+  </div>
+  <!-- <app-template-builder></app-template-builder> -->
+</ion-content>

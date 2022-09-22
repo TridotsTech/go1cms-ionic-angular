@@ -1,0 +1,77 @@
+  
+          <!--10 slider -->
+          <div *ngIf="row.component_type=='Slider Without Image'" class="slider_component1 position-relative">
+            <div *ngIf="row.data.data" class="back" (click)="slidePrev()">
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </div>
+            <ion-slides class="web-slider mouse" loop="true" pager='true' [options]="web_slider">
+              <ion-slide *ngFor="let data of row.data.data" class="slider_component1_slide"
+                style=' background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("{{db.image(data.image)}}");'>
+                <div class="slider_content">
+                  <div>
+                    <h1>{{data.title}}</h1>
+                    <p>{{data.content}}</p>
+                    <div class="slider_button ">
+                      <ion-button>
+                        {{data.button_name}}
+                      </ion-button>
+                    </div>
+                  </div>
+                </div>
+              </ion-slide>
+            </ion-slides>
+            <div *ngIf="row.data" class="next" (click)="slideNext()">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </div>
+        </div>
+        <!-- slider 2 -->
+        <div *ngIf="row.component_type=='Slider With Image'" class="slider_component1 position-relative">
+            <div *ngIf="row.data.data" class="back" (click)="slidePrev()">
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </div>
+            <ion-slides class="web-slider mouse" loop="true" pager='true' [options]="web_slider">
+              <ion-slide *ngFor="let data of parse(row.data.data)" class="slider_component1_slide">
+                <!-- style=' background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("{{db.image(data.image)}}");'
+                > -->
+                <div class="d__flex">
+                  <div class="slider2_image">
+                    <img
+                      [src]="db.product_img(data.image)" alt="">
+                  </div>
+                  <div class="slider_content">
+                    <div>
+                      <h1>{{data.title}}</h1>
+                      <p>{{data.content}}</p>
+                      <div class="slider_button">
+                        <ion-button class="slider_button">
+                          {{data.button_name}}
+                        </ion-button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ion-slide>
+            </ion-slides>
+            <div *ngIf="row.data" class="next" (click)="slideNext()">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+          </div>
+        </div>
+        <!-- slider 3 -->
+        <!-- <div *ngIf="row.type=='Slider_3'" class="slider_component3">
+          <div class="position-relative">
+            <div *ngIf="row.data" class="back" (click)="slidePrev()">
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </div>
+            <ion-slides class="web-slider mouse" loop="true" pager='true' [options]="web_slider">
+              <ion-slide *ngFor="let data of row.data" class="slider_component1_slide"
+                style=' background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("{{data.image}}");'>
+                <div class="slider_content">
+                </div>
+              </ion-slide>
+            </ion-slides>
+            <div *ngIf="row.data" class="next" (click)="slideNext()">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </div>
+          </div>
+        </div> -->
+

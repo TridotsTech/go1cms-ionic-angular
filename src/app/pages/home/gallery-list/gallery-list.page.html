@@ -1,0 +1,19 @@
+<app-header title="" [no_home]="true" [back_route]="db.ismobile?'/home':'/'" [no_cart]="true"></app-header>
+
+<ion-content>
+  <div class="sticky__header">
+    <app-header class="desktop-header"  [desktop]="true"></app-header>
+  </div>
+  <div class="main-width">
+
+    <h5>Gallery Elements</h5>
+    <ul class="d__flex p-10 flex-w gap-15">
+      <li class="flex-20 gallery_box" *ngFor="let item of gallery" routerLink="/gallery-detail/{{item.name}}">
+        <!-- <div class="cover_image"> -->
+          <img src="{{db.product_img(item.cover_image)}}" alt="">
+        <!-- </div> -->
+        <h6 class="txt-c mouse txt-capital">{{item.title}}</h6>
+      </li>
+    </ul>
+  </div>
+</ion-content>

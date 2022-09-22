@@ -1,0 +1,25 @@
+
+ <div class="container" [style.column-count]="column_count">
+  
+
+  <div class="masonry">
+ 
+    <a  [href]="'/detail/'+ (item.redirect_url || item.route)" class="mouse grid-item" *ngFor="let item of list_value;let i = index" [id]="i + 's'" >
+      <div class="img-hover-zoom--brightness mouse"  >
+        <!-- zoom -->
+        <img [src]="db.product_img(item.image || item.thumbnail_image  )" />
+      </div>
+
+      
+      <div class="descriptions">
+        <h4 *ngIf="item.title" class="mouse m-0 webkit-text hover-underline-animation" [style.--line]="2">{{item.title}}</h4>
+        <p *ngIf="item.short_desc  || item.blog_intro"  class="sub__des m-0 webkit-text" [style.--line]="3">{{item.short_desc  || item.blog_intro}}</p>
+      </div>
+
+    </a>
+
+    
+ 
+  </div>
+
+</div>

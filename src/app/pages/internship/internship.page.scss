@@ -1,0 +1,337 @@
+// ul {
+//     list-style-type: unset !important;
+//     margin: 0;
+//     padding: 0;
+// }
+// .sticky__{
+//     position: sticky!important;
+//     top:0!important;
+
+// }
+// .absolute__header{
+//     position: absolute;
+//     width: 100%;
+//     z-index: 9;
+// }
+
+// .transparent_sticky{
+//     position: fixed!important;
+//     width: 100%!important;
+//     left: 0;
+//     z-index: 99;
+// }
+// .transparent_scroll{
+//     position: absolute;
+//     z-index: 99;
+//     width: 100%;
+// }
+
+.m-h {
+    min-height: 0% !important;
+
+    // background: #cccc;
+}
+
+.top-v {
+    top: 2px;
+    position: relative;
+}
+
+.header-bg {
+    background-image: url('/assets/image/about-us.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.action-link {
+    color: var(--heading-text-color);
+}
+
+.action-link:hover {
+    color: var(--body-text-color);
+}
+
+.header-title h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.Breadcrumb {
+    text-align: center;
+}
+
+.font-14 {
+    font-size: 14px;
+}
+
+.title {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--title-color);
+}
+
+.contact-icon {
+    background: var(--body-text-color);
+    color: #fff;
+    padding: 8px;
+    border-radius: 5px;
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+.contact-position {
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+:root {
+    /* header variables */
+    --go1-header-bg-color: #611414;
+    --go1-menu-text-color: #121010;
+    --go1-submenu-text-color: #0942eb;
+    --go1-menu-hover-color: #761ACB;
+    --go1-submenu-hover-color: #761ACB;
+    --go1-topbar-bg-color: #761ACB;
+    --go1-menu-hover-bg-color: #ffffff;
+    --go1-submenu-hover-bg-color: #39E4A5;
+    --go1-topbar-text-color: #ffffff;
+    /* header end */
+    /* body variables */
+    --go1-body-bg-color: #1c0c0c;
+    --go1-body-bg-url: '/files/Junaid_Toabh0102_ 17.jpg';
+    --go1-body-font-f: 'Poppins', sans-serif;
+    --go1-body-link-color: #4a0f0f;
+    --go1-body-theme-color: #692c2c;
+    --go1-body-link-hover-color: #422f2f;
+    /* body end */
+    /* footer variables */
+    --go1-footer-text-color: #ffffff;
+    --go1-footer-background-color: #030202;
+    --go1-footer-link-color: #050303;
+    --go1-footer-link-hover-color: #803939;
+    /* footer end */
+    /* variable declarated css */
+    --go1-typography-h1-f: 'Archivo', sans-serif;
+    --go1-typography-h1-c: #fff;
+    --go1-typography-h1-h: 2;
+    --go1-typography-h1-s: 12px;
+    --go1-typography-h1-ta: Left;
+    --go1-typography-h1-ls: 3;
+    --go1-typography-h1-w: 400;
+    --go1-typography-h1-t: Uppercase;
+    --go1-typography-h1-ts: rgb(149 157 165 / 60%) 0px 8px 24px;
+    --go1-typography-h2-f: Noto Sans', sans-serif;--go1-typography-h2-h:2;--go1-typography-h2-s:2px;--go1-typography-h2-ta:Center;--go1-typography-h2-ls:1px;--go1-typography-h2-w:400;--go1-typography-h2-t:Lowercase;--go1-typography-h2-ts:rgb(149 157 165 / 60%) 0px 8px 24px;--go1-typography-h3-f:' Heebo', sans-serif;--go1-typography-h3-c:#fff;--go1-typography-h3-h:1;--go1-typography-h3-s:12px;--go1-typography-h3-ta:Center;--go1-typography-h3-ls:2;--go1-typography-h3-w:100;--go1-typography-h3-t:Lowercase;--go1-typography-h3-ts:rgb(149 157 165 / 60%) 0px 8px 24px;--go1-typography-h4-f:' Rubik', sans-serif;--go1-typography-h4-c:#fff;--go1-typography-h4-h:21;--go1-typography-h4-s:20px;--go1-typography-h4-ta:Left;--go1-typography-h4-ls:2;--go1-typography-h4-w:600;--go1-typography-h4-t:Capitalize;--go1-typography-h4-ts:rgb(0 0 0 / 60%) 0px 10px 50px;--go1-typography-h5-f:Nunito;--go1-typography-h5-c:#fff;--go1-typography-h5-h:2;--go1-typography-h5-s:12px;--go1-typography-h5-ta:Center;--go1-typography-h5-ls:1;--go1-typography-h5-w:200;--go1-typography-h5-t:Lowercase;--go1-typography-h5-ts:rgb(149 157 165 / 60%) 0px 8px 24px;--go1-typography-h6-f:Antonio', sans-serif;
+    --go1-typography-h6-c: #fff;
+    --go1-typography-h6-h: 123;
+    --go1-typography-h6-s: 324px;
+    --go1-typography-h6-ta: Right;
+    --go1-typography-h6-ls: 23;
+    --go1-typography-h6-w: bold;
+    --go1-typography-h6-t: Capitalize;
+    --go1-typography-h6-ts: rgb(149 157 165 / 60%) 0px 8px 24px;
+    --go1-typography-p-f: 'Archivo', sans-serif;
+    --go1-typography-p-c: #fff;
+    --go1-typography-p-h: 1;
+    --go1-typography-p-s: 1px;
+    --go1-typography-p-ta: Left;
+    --go1-typography-p-ls: 2;
+    --go1-typography-p-w: 500;
+    --go1-typography-p-ts: rgb(149 157 165 / 60%) 0px 8px 24px;
+    --go1-typography-a-f: 'Archivo', sans-serif;
+    --go1-typography-a-c: #fff;
+    --go1-typography-a-h: 2;
+    --go1-typography-a-s: 21312px;
+    --go1-typography-a-ta: Center;
+    --go1-typography-a-ls: 1;
+    --go1-typography-a-w: 400;
+    --go1-typography-a-t: Inherit;
+    --go1-typography-a-ts: rgb(149 157 165 / 60%) 0px 8px 24px;
+    --go1-typography-blockquote-f: Nunito;
+    --go1-typography-blockquote-c: #fff;
+    --go1-typography-blockquote-h: 22;
+    --go1-typography-blockquote-ta: Center;
+    --go1-typography-blockquote-ls: 2222;
+    --go1-typography-blockquote-w: 400;
+    --go1-typography-blockquote-t: Inherit;
+    --go1-typography-blockquote-ts: rgb(149 157 165 / 60%) 0px 8px 24px;
+    --go1-typography-pre-f: 'Mukta', sans-serif;
+    --go1-typography-pre-c: #fff;
+    --go1-typography-pre-h: 12;
+    --go1-typography-pre-s: 123123px;
+    --go1-typography-pre-ta: Justify;
+    --go1-typography-pre-ls: 21;
+    --go1-typography-pre-w: 400;
+    --go1-typography-pre-t: Capitalize;
+    --go1-typography-pre-ts: rgb(149 157 165 / 60%) 0px 8px 24px;
+    --go1-typography-primary-btn-f: Noto Sans', sans-serif;--go1-typography-primary-btn-c:#fff;--go1-typography-primary-btn-h:2;--go1-typography-primary-btn-s:213px;--go1-typography-primary-btn-ta:Center;--go1-typography-primary-btn-ls:1;--go1-typography-primary-btn-w:300;--go1-typography-primary-btn-t:Capitalize;--go1-typography-primary-btn-ts:rgb(149 157 165 / 60%) 0px 8px 24px;--go1-primary-btn-spacing-mt:1px;--go1-primary-btn-spacing-pt:1px;--go1-primary-btn-spacing-mr:2px;--go1-primary-btn-spacing-pr:2px;--go1-primary-btn-spacing-mb:3px;--go1-primary-btn-spacing-pb:3px;--go1-primary-btn-spacing-ml:4px;--go1-primary-btn-spacing-pl:4px;--go1-primary-btn-border-s:Solid;--go1-primary-btn-border-c:#291212;--go1-primary-btn-top-lr:4px;--go1-primary-btn-bottom-lr:5px;--go1-primary-btn-top-rr:6px;--go1-primary-btn-bottom-rr:7px;--go1-typography-secondary-btn-f:PT Sans', sans-serif;
+    --go1-typography-secondary-btn-c: #a34e4e;
+    --go1-typography-secondary-btn-h: 213;
+    --go1-typography-secondary-btn-s: 12px;
+    --go1-typography-secondary-btn-ta: Center;
+    --go1-typography-secondary-btn-ls: 123;
+    --go1-typography-secondary-btn-w: 400;
+    --go1-typography-secondary-btn-t: Inherit;
+    --go1-typography-secondary-btn-ts: rgb(149 157 165 / 60%) 0px 8px 24px;
+    --go1-secondary-btn-spacing-mt: 9px;
+    --go1-secondary-btn-spacing-pt: 5px;
+    --go1-secondary-btn-spacing-mr: 8px;
+    --go1-secondary-btn-spacing-pr: 4px;
+    --go1-secondary-btn-spacing-mb: 7px;
+    --go1-secondary-btn-spacing-pb: 3px;
+    --go1-secondary-btn-spacing-ml: 6px;
+    --go1-secondary-btn-spacing-pl: 1px;
+    --go1-secondary-btn-border-w: 213px;
+    --go1-secondary-btn-border-s: Solid;
+    --go1-secondary-btn-border-c: #452828;
+    --go1-secondary-btn-top-lr: 33px;
+    --go1-secondary-btn-bottom-lr: 44px;
+    --go1-secondary-btn-top-rr: 44px;
+    --go1-secondary-btn-bottom-rr: 55px;
+    --go1-typography-tertiary-btn-f: 'Rubik', sans-serif;
+    --go1-typography-tertiary-btn-c: #fff;
+    --go1-typography-tertiary-btn-h: 21;
+    --go1-typography-tertiary-btn-s: 122px;
+    --go1-typography-tertiary-btn-ta: Justify;
+    --go1-typography-tertiary-btn-ls: 21;
+    --go1-typography-tertiary-btn-w: 400;
+    --go1-typography-tertiary-btn-t: Inherit;
+    --go1-typography-tertiary-btn-ts: rgb(0 0 0 / 60%) 0px 10px 50px;
+    --go1-tertiary-btn-border-w: 12px;
+    --go1-tertiary-btn-border-s: Solid;
+    --go1-tertiary-btn-border-c: #332121;
+    --go1-tertiary-btn-top-lr: 32132px;
+    --go1-tertiary-btn-bottom-lr: 23px;
+    --go1-tertiary-btn-top-rr: 123px;
+    --go1-tertiary-btn-bottom-rr: 321px;
+    /* variable declarated end */
+    /* palatte colors */
+    --go1-primary-color: #2b0707;
+    --go1-secondary-color: #300e0e;
+    --go1-accent-color: #693737;
+    --go1-light-color: #db1616;
+    --go1-dark-color: #2b0606;
+    --go1-body-text-color: #c29d9d;
+    --go1-heading-text-color: #d94141;
+    /* palatte colors end */
+}
+
+/* font family url import and css file url import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* font family url import and css file url import end */
+/* header */
+.navbar-expand-md {
+    background-color: var(--go1-header-bg-color);
+}
+
+.nav-link {
+    color: var(--go1-menu-text-color);
+}
+
+.nav-link:hover {
+    background-color: var(--go1-menu-hover-bg-color);
+}
+
+.nav-link:hover:hover {
+    color: var(--go1-menu-hover-color);
+}
+
+.dropdown-menu li a {
+    color: var(--go1-submenu-text-color);
+}
+
+.dropdown-menu li a:hover {
+    color: var(--go1-submenu-hover-color);
+}
+
+.top-menu-bar {
+    background-color: var(--go1-topbar-bg-color);
+}
+
+.top-menu-bar a {
+    color: var(--go1-topbar-text-color);
+}
+
+/* header end*/
+/* body */
+body a {
+    color: var(--go1-body-link-color);
+}
+
+body a:hover {
+    color: #422f2f;
+}
+
+body {
+    background: #1c0c0c;
+    /* background-image: url(var(--go1-body-bg-url)); */
+    background-image: url('/files/Junaid_Toabh0102_ 17.jpg');
+    font-family: var(--go1-body-font-f);
+}
+
+/* body end */
+/* footer */
+.footer {
+    color: var(--go1-footer-text-color);
+}
+
+.footer {
+    background-color: var(--go1-footer-background-color);
+}
+
+.footer a {
+    color: var(--go1-footer-link-color);
+}
+
+.footer a:hover {
+    color: var(--go1-footer-link-hover-color);
+}
+
+/* footer end*/
+/*attached files css data  */
+/*attached files css data  end*/
+/* field wriiten css data */
+.dropdown-menu li a {
+    color: var(--submenu-text-color);
+    font-size: 17px;
+    padding: 5px 50px 5px 15px;
+}
+
+.animate {
+    opacity: 1 !important;
+    transition: 0.5s all ease-in-out;
+    transform: translateY(100px);
+}
+
+.scolltoTop{
+    position: fixed;
+    right: 40px;
+    z-index: 9999999;
+    bottom: 30px;
+    padding: 15px 10px;
+    background: var(--primary-color);
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    ion-icon{
+      color: #fff;
+      font-size: 15px;
+    }
+  }
+
+/* field wriiten css data end*/

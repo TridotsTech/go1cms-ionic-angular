@@ -1,0 +1,259 @@
+<!-- New Membership plan -->
+<!-- Choose your subscription plan -->
+<!-- <div class="main-width container">
+   <div class="section__border p-y-50">
+      <p class="top_title txt-c heading">Choose your <span>subscription plan</span></p>
+      <ul  class="d__flex gap-15 card_header" [class.flex-w]="!db.ismobile" [class.just-c]="!db.ismobile">
+      <li class="cards card_sub" *ngFor="let item of plan_details;let i = index;">
+         <div class="d__flex">
+            <div class="side_1">
+               <p class="m-0 r_name">{{item.name}}</p>
+               <p class="m-0 r_price heading">{{item.price | currency:'&#8377;'}}<span *ngIf="item.billing_interval"> /{{item.billing_interval}}</span> </p>
+            </div>
+            <div class="side_2">
+               <img src="{{db.product_img(item.icon)}}" alt="">
+            </div>
+         </div>
+         <div class="ion-text-center features">
+            <p class="m-0 plan_title">Plan Features</p>
+            <div *ngFor="let features of item.features" class="d__flex features_list">
+               <img src="/assets/shapes/Bullet.svg" alt="">
+               <ion-icon name="checkmark-outline"></ion-icon>
+               <p class="m-0 f_list">{{features.features}}</p>
+            </div>
+         </div>
+         <div class="ion-text-center">
+            (click)="!db.cust_name && !db.guest_cust_name?db.openLogin():subscriptions.emit(item)
+            <ion-button class="blog-btn" fill="clear">
+               <span>Subscribe Now</span>
+            </ion-button>
+         </div>
+      </li>
+      </ul>
+   </div>
+</div> -->
+
+<!-- <div class="main-width container">
+   <div class="section__border p-y-50">
+      <h2 class="top_title txt-c heading">Choose your <span>subscription plan</span></h2>
+      <p class="main-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+      <ul  class="d__flex gap-15 card_header" [class.flex-w]="!db.ismobile" [class.just-c]="!db.ismobile">
+      <li class="cards1 price_card" *ngFor="let item of pricing_plan">
+         <div class="d__flex just-s border-b1 pb-15">
+            <div>
+               <h6 class="m-0 name">{{item.name}}</h6>
+               <p class="m-0 r_name">{{item.sub_title}}</p>
+            </div>
+            <p class="m-0 r_price heading">{{item.price | currency:'&#8377;'}}<span class="month" *ngIf="item.billing_interval">{{item.billing_interval}}</span> </p>
+         </div>
+         <div class="ion-text-center features">
+            <div *ngFor="let features of item.features" class="d__flex features_list">
+               <ion-icon name="checkmark-outline"></ion-icon>
+               <p class="m-0 f_list">{{features.features}}</p>
+            </div>
+            <div *ngFor="let features of item.features" class="d__flex features_list">
+               <ion-icon class="cancel" name="close-outline"></ion-icon>
+               <p class="m-0 f_list">{{features.features}}</p>
+            </div>
+         </div>
+         <div class="ion-text-center">
+            (click)="!db.cust_name && !db.guest_cust_name?db.openLogin():subscriptions.emit(item)
+            <ion-button class="card1_btn" fill="clear">
+               <span>Get Started</span>
+            </ion-button>
+         </div>
+      </li>
+      </ul>
+   </div>
+</div> -->
+<!-- Choose a plan for you -->
+<!-- <div class="main-width font container">
+   <div class="section__border p-y-50">
+      <h2 class="title_ txt-c">Choose a plan for you</h2>
+      <div class="border_plan"></div>
+      <ul  class="d__flex gap-15 pt-15 card_header" [class.flex-w]="!db.ismobile" [class.just-c]="!db.ismobile">
+      <li class="cards2 price_card" *ngFor="let item of plan_for">
+         <div class="just-s">
+            <h6 class="m-0 name">{{item.name}}</h6>
+            <p class="m-0 r_price">{{item.price | currency:'&#8377;'}}<span class="month" *ngIf="item.billing_interval"> /{{item.billing_interval}}</span> </p>
+         </div>
+         <div class="ion-text-center features">
+            <p class="m-0 plan_title">Succulents chia adaptogen cred yr ramps</p>
+            <div *ngFor="let features of item.features" class="d__flex features_list">
+               <ion-icon name="checkmark-circle-outline"></ion-icon>
+               <p class="m-0 f_list">{{features.features}}</p>
+            </div>
+         </div>
+         <div class="ion-text-center">
+            (click)="!db.cust_name && !db.guest_cust_name?db.openLogin():subscriptions.emit(item)
+            <ion-button class="card1_btn" fill="clear">
+               <span>Choose Plan</span>
+            </ion-button>
+         </div>
+      </li>
+      </ul>
+   </div>
+</div> -->
+<!-- Our Flexible Pricing & Plan -->
+<!-- <div class="main-width font container">
+   <div class="section__border p-y-50">
+      <h2 class="top_title txt-c heading">Our Flexible Pricing & Plan</h2>
+      <p class="main-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+      <ul  class="gap-15 pt-15 card_header" [class.flex-w]="!db.ismobile" [class.just-c]="!db.ismobile">
+      <li class="cards3 d__flex price_card" *ngFor="let item of flexible_plan">
+         <div class="flex-20 txt-c border-r">
+            <h6 class="m-0 name ">{{item.name}}</h6>
+            <p class="m-0 r_price heading">{{item.price | currency:'&#8377;'}}<span class="month" *ngIf="item.billing_interval">{{item.billing_interval}}</span> </p>
+         </div>
+         <div class="flex-5"></div>
+         <div class="ion-text-center flex-25 features">
+            <div *ngFor="let features of item.features" class="d__flex features_list">
+               <ion-icon name="checkmark-circle-outline"></ion-icon>
+               <p class="m-0 f_list">{{features.features}}</p>
+            </div>
+         </div>
+         <div class="ion-text-center flex-25 features">
+            <div *ngFor="let features of item.features" class="d__flex features_list">
+               <ion-icon name="checkmark-circle-outline"></ion-icon>
+               <p class="m-0 f_list">{{features.features}}</p>
+            </div>
+         </div>
+         <div class="ion-text-center flex-25">
+            (click)="!db.cust_name && !db.guest_cust_name?db.openLogin():subscriptions.emit(item)
+            <ion-button class="card1_btn" fill="clear">
+               <span>Choose Plan</span>
+            </ion-button>
+         </div>
+      </li>
+      </ul>
+   </div>
+</div> -->
+
+<!-- Section  three card and See more button-->
+<!-- <div  class="container main-width {{item.class_name}} animate">
+   <div class="title_container text-center title_width_center">
+      <div class="tittle_ mb-20">
+         <h2 class="fnt-40 fnt_600 title">
+            <span>{{item.title}}</span>
+         </h2>
+      </div>
+      <div class="main_title_description">
+         <div class="description_text text-center desc_class fnt-18 fnt_400 mb-40 subtitle">
+            {{item.subtitle}}
+         </div>
+      </div>
+   </div>
+   <div class="card_list__container">
+      <div class="cards_list d__flex">
+         <div class="card_container_with_icon d__flex">
+            If need loop,use here
+            <div class="top_icon bg_icon">
+               <span><i class="fi fi-rr-calendar" style="color: hsl(270deg 50% 40%)"></i></span>
+            </div>
+            <div class="title_">
+               <h2 class="font-24 fnt_600">
+                  <span>Euismod Diam</span>
+               </h2>
+            </div>
+            <div class="description_text text-center desc_class fnt-18 fnt_400">
+               Lorem ipsum dolor sit amet, consectetur adipiscing.
+            </div>
+            <div class="learn_more fnt-18 fnt_400 d__flex mouse">
+               <h5 class="learn_text_icon fnt_400 ">
+                  <span>Learn more</span>
+               </h5>
+               <span class="righticon"><i class="fi fi-rr-angle-small-right"></i></span>  
+            </div>
+         </div>
+         <div class="card_container_with_icon d__flex">
+            <div class="top_icon bg_icon">
+               <span><i class="fi fi-rr-calendar" style="color: hsl(270deg 50% 40%)"></i></span>
+            </div>
+            <div class="title_">
+               <h2 class="font-24 fnt_600">
+                  <span>Magna Aliquam Amet</span>
+               </h2>
+            </div>
+            <div class="description_text text-center desc_class fnt-18 fnt_400">
+               Lorem ipsum dolor sit amet, consectetur adipiscing.
+            </div>
+            <div class="learn_more fnt-18 fnt_400 d__flex mouse">
+               <h5 class="learn_text_icon fnt_400 ">
+                  <span>Learn more</span>
+               </h5>
+               <span class="righticon"><i class="fi fi-rr-angle-small-right"></i></span>  
+            </div>
+         </div>
+         <div class="card_container_with_icon d__flex">
+            <div class="top_icon bg_icon">
+               <span><i class="fi fi-rr-calendar" style="color: hsl(270deg 50% 40%)"></i></span>
+            </div>
+            <div class="title_">
+               <h2 class="font-24 fnt_600">
+                  <span>Consectetur Diam</span>
+               </h2>
+            </div>
+            <div class="description_text text-center desc_class fnt-18 fnt_400">
+               Lorem ipsum dolor sit amet, consectetur adipiscing.
+            </div>
+            <div class="learn_more fnt-18 fnt_400 d__flex mouse">
+               <h5 class="learn_text_icon fnt_400 ">
+                  <span>Learn more</span>
+               </h5>
+               <span class="righticon"><i class="fi fi-rr-angle-small-right"></i></span>  
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="seemore_button_container">
+      <div class="button_element text-center">
+         <div class="button_list mb-20">
+            <div class="knowmore_back see_more__ mouse">
+               <div class="knowmore_text  text-center fnt-18 fnt_400">
+                  See All Features
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div> -->
+<!-- Section with four card Hover effects -->
+ <!-- <div class="animate"  class="container">
+   <div class="title_container text-center title_width_center">
+      <div class="tittle_ mb-20">
+         <h2 class="fnt-40 fnt_600">
+            <span>Suspendisse aliquam amet consectectur erat nulla sed
+            justo.Eu vestibulum
+            </span>
+         </h2>
+      </div>
+      <div class="main_title_description">
+         <div class="description_text text-center desc_class fnt-18 fnt_400 mb-20">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.In accumsan metus a mollis maximus.
+         </div>
+      </div>
+   </div>
+   <div class="hover_card_list__container d__flex">
+      <div class="cards_list d__flex flex-w">
+         <div class="top_icon_card_container d__flex"  *ngFor="let item of [1,2,3,4]" >
+            <div class="top_icon">
+               <span><i class="fi fi-rr-calendar" style="color: hsl(270deg 50% 40%)"></i></span>
+            </div>
+            <div class="hover_title_">
+               <h2 class="font-24 fnt_600">
+                  <span>Euismod Diam</span>
+               </h2>
+            </div>
+            <div class="description_text des_border text-center desc_class fnt-18 fnt_400">
+               Lorem ipsum dolor sit amet, consectetur adipiscing.
+            </div>
+            <div class="learn_more fnt-18 fnt_400 d__flex mouse">
+               <h5 class="learn_text_icon fnt_400 ">
+                  <span>Learn more</span>
+               </h5>
+               <span class="righticon"><i class="fi fi-rr-angle-small-right"></i></span>  
+            </div>
+         </div>
+      </div> 
+   </div>
+</div> -->

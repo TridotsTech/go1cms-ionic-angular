@@ -1,0 +1,105 @@
+.scrollable {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 2px 0px;
+  margin: 0;
+
+  .event__container {
+    // background: #fff;
+    cursor: pointer;
+    // margin-left: 2px;        
+    border-radius: 3px;
+    border-radius: 5px !important;
+    // background-color: #fff;
+    // box-shadow: 0 0 5px 0 #bbb;
+    // padding: 8px !important;
+    // .event__title{
+    //     padding-top: 10px;
+    // }
+  }
+
+}
+
+.normal {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  .event__container {
+    cursor: pointer;
+    position: relative;
+  }
+}
+
+.header-bg {
+  background-image: url('/assets/image/about-us.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header-title h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.Breadcrumb {
+  text-align: center;
+}
+
+.container {
+  width: 80%;
+  margin: 10px auto;
+  border: 1px solid #ddd;
+  padding: 0 10px;
+
+  h6 {
+    border: unset !important;
+    font-size: 20px;
+    padding: 10px 10px 0;
+    color: var(--heading-text-color);
+    line-height: 25px;
+    margin: 0px;
+        text-transform: capitalize;
+  }
+
+  .address__container {
+    padding: 10px;
+    height: 100%;
+    display: flex;
+
+    .info-item {
+      padding: 5px 0;
+
+      .info-address {
+        display: flex;
+        align-items: flex-start;
+        text-align: left;
+      }
+
+      .fnt__600{
+        font-weight: 600;
+      }
+
+      ion-icon {
+        padding-right: 5px;
+        // flex: 0 0 7%;
+      }
+    }
+  }
+
+}
+
+
+.content__description{
+      border: 1px solid #ddd;
+    padding: 10px;
+    margin: 0 auto;
+    width: 80%;
+}

@@ -1,0 +1,146 @@
+<div *ngIf="db.footer_info && db.footer_info.layout_json && db.footer_info.layout_json.length != 0" class="f2 footer__container go1-cms-footer">
+  <!-- <div> -->
+    <div class="footer main-width" *ngFor="let col of db.footer_info.layout_json">
+      <div class="footer_sec" *ngFor="let col_item of col.columns" [ngStyle]="db.img_style(db.ismobile ? '100%' :col_item.width,'width')">
+        <div  *ngFor="let item of col_item.layout_data" class="" [class.icon_short_address]="item.section_name == 'Footer Contact' || item.section_name == 'Footer About' || item.section_name == 'Newsletter Subscription'" [class.links_w_title]="item.section_name == 'Menu'" [class.icon_app_download]="item.section_name == 'Footer Payment Gateways'" [class.Copyrights]="item.section_name == 'Footer Copyrights'">
+         
+          <div  class="{{item.class_name}} footer_p_b" *ngIf="item.section_name == 'Footer Contact' && item.section_type == 'Static Section'">
+            <h2 class="go1-cms-footer-title m-0">{{item.title}}</h2>
+            <div class="border_line"></div>
+               <a *ngIf="item.logo" routerLink="/" routerDirection="forward"><img class="home__logo mouse"  [src]="db.product_img(item.logo)" ></a>
+               <div class="location d__flex"> 
+                  <ion-icon name="location-outline"></ion-icon>
+                   <ion-icon *ngIf="item.address_icon" [src]="db.product_img(item.address_icon)"class="contact-icon"></ion-icon>
+                 <div>
+                   <a *ngIf="item.address_content" class="m-0 p-r-10" [innerHtml]="item.address_content"></a>
+                </div>   
+               </div>
+           
+              <div  class="phone d__flex">
+                <ion-icon name="call-outline"></ion-icon>
+                  <ion-icon *ngIf="item.phone_icon" [src]="db.product_img(item.phone_icon)"class="contact-icon"></ion-icon>
+                  <a *ngIf="item.phone_no" class="m-0 " href="tel:{{item.phone_no}}" class="action-link">{{item.phone_no}}</a>
+              </div>
+           
+             <div  class="email d__flex">
+              <ion-icon name="mail-outline"></ion-icon> 
+               <ion-icon *ngIf="item.email_icon" [src]="db.product_img(item.email_icon)"class="contact-icon"></ion-icon>
+               <a *ngIf="item.email_id" class="m-0 " href="mailto:{{item.email_id}}" class="action-link">{{item.email_id}}</a>
+            </div>
+           
+          </div>
+      
+          <div class="social_link {{item.class_name}} footer_p_b" *ngIf="item.section_name == 'Social Links' && item.section_type == 'Static Section'">
+            <ul class="ul__" *ngIf="item.social_links && item.social_links.length != 0">
+              <li class="d__flex social__icons_" *ngFor="let data of item.social_links">
+                <a  [href]="data.link_url" target="blank"><img [src]="db.product_img(data.icon)" class="contact-icon d__flex"/></a>
+              </li>
+            </ul>
+          </div>
+
+         <div  class="{{item.class_name}} footer_p_b" *ngIf="item.section_name == 'Footer About' && item.section_type == 'Static Section'">
+          <a routerLink="/" routerDirection="forward"><img class="home__logo mouse"  [src]="db.product_img(item.logo)" ></a>
+           <div class="location"> 
+             <div>
+               <p *ngIf="item.content" class="m-0  about_content" [innerHtml]="item.content"></p>
+            </div>   
+           </div>
+         </div>
+       
+         <div  class="{{item.class_name}} footer_p_b" *ngIf="item.section_name == 'Menu' && item.section_type == 'Menu'">
+          <h2 class="go1-cms-footer-title m-0">{{item.title}}</h2>
+          <div class="border_line"></div>
+          <div class="container_f" *ngFor="let data of item.menus">
+              <a class=" mouse d__flex go1-cms-footer-text m-0" [routerLink]="data.redirect_url">
+                <!-- <ion-icon name="chevron-forward-outline"></ion-icon>  -->
+                <span>{{data.menu_label}}</span>
+              </a>
+          </div>
+         </div>
+
+         <div  class="{{item.class_name}} footer_p_b" *ngIf="item.section_name == 'Newsletter Subscription' && item.section_type == 'Static Section'"  >
+           <h6 class="go1-cms-footer-title m-0 heading">{{item.title}}</h6>
+           <div class="border_line"></div>
+             <p *ngIf="item.sub_title">{{item.sub_title}}</p>
+             <div class="sus-button d__flex">
+                <ion-input placeholder=""></ion-input>
+                <ion-button class="primary-btn" fill="clear">Subscribe</ion-button>
+             </div>
+         </div>
+
+         <div  class="{{item.class_name}} footer_p_b" *ngIf="item.section_name == 'Footer Payment Gateways' && item.section_type == 'Static Section'"  >
+          <div>
+            <h6  class="go1-cms-footer-title m-0 heading">{{item.title}}</h6>
+            <div class="image mb-10"> 
+                <p class=" p_title m-0">{{item.sub_title}}</p>
+                <img *ngIf="item.gateways_image" [src]="db.product_img(item.gateways_image)" >
+            </div>
+          </div> 
+          
+           <div *ngIf="item.Footer_Download_App && item.Footer_Download_App.section_name == 'Footer Download App' && item.Footer_Download_App.section_type == 'Static Section'">
+                <h6  class="go1-cms-footer-title m-0">{{item.Footer_Download_App.title}}</h6>
+                <a *ngIf="item.Footer_Download_App.playstore_icon" [href]="item.Footer_Download_App.playstore_url" target="_blank"><img  [src]="db.product_img(item.Footer_Download_App.playstore_icon)" class="appicon"></a>
+                <a *ngIf="item.Footer_Download_App.ios_icon" [href]="item.Footer_Download_App.ios_url" target="_blank"><img  [src]="db.product_img(item.Footer_Download_App.ios_icon)"  class="appicon"></a>
+           </div>
+         </div>
+     
+       </div> 
+      </div>
+  </div>
+</div>
+
+<div *ngIf="db.footer_info && db.footer_info.enable_copyright == 1" class="go1-cms-copyright-content">
+  <ion-row class="foot-d md hydrated d__flex just-s main-width">
+  
+    <ion-col class="go1-cms-copyright-fc-content">
+      <a *ngIf="db.footer_info.fc_ct_type  == 'Custom'" [innerHtml]="db.footer_info.cp_fc_content"></a>
+
+      <ul *ngIf="db.footer_info.fc_ct_type  == 'Social Links' && (db.website_settings && db.website_settings.theme_settings && db.website_settings.theme_settings.social_links && db.website_settings.theme_settings.social_links.length != 0)">
+        <li class="d__flex social__icons_" *ngFor="let item of db.website_settings.theme_settings.social_links">
+          <a  [href]="item.link_url" target="blank"><img [src]="db.product_img(item.icon)" class="contact-icon d__flex"/></a>
+          <!-- <a *ngIf="item.facebook_icon" href="" target="blank"><img [src]="db.product_img(item.facebook_icon)" class="contact-icon d__flex"/></a>
+          <a *ngIf="item.insta_icon" href="" target="blank"><img [src]="db.product_img(item.insta_icon)" class="contact-icon d__flex"/></a>
+          <a *ngIf="item.youtube_icon" href="" target="blank"><img [src]="db.product_img(item.youtube_icon)" class="contact-icon d__flex"/></a> -->
+        </li>
+      </ul>
+    </ion-col>
+
+    <ion-col *ngIf="db.footer_info.copyright_layout == 'Two Column'" class="go1-cms-copyright-sc-content">
+      <a *ngIf="db.footer_info.sc_ct_type  == 'Custom'" [innerHtml]="db.footer_info.sc_ct_type"></a>
+
+      <ul *ngIf="db.footer_info.sc_ct_type  == 'Social Links' && (db.website_settings && db.website_settings.theme_settings && db.website_settings.theme_settings.social_links && db.website_settings.theme_settings.social_links.length != 0)">
+        <li class="d__flex social__icons_" *ngFor="let item of db.website_settings.theme_settings.social_links">
+          <a  [href]="item.link_url" target="blank"><img [src]="db.product_img(item.icon)" class="contact-icon d__flex"/></a>
+          <!-- <a *ngIf="item.facebook_icon" href="" target="blank"><img [src]="db.product_img(item.facebook_icon)" class="contact-icon d__flex"/></a>
+          <a *ngIf="item.insta_icon" href="" target="blank"><img [src]="db.product_img(item.insta_icon)" class="contact-icon d__flex"/></a>
+          <a *ngIf="item.youtube_icon" href="" target="blank"><img [src]="db.product_img(item.youtube_icon)" class="contact-icon d__flex"/></a> -->
+        </li>
+        <!-- <li class="d__flex social__icons_" *ngFor="let item of db.footer_layout.social_links">
+          <a *ngIf="item.twitter_icon" href="" target="blank"><img [src]="db.product_img(item.twitter_icon)" class="contact-icon d__flex"/></a>
+          <a *ngIf="item.facebook_icon" href="" target="blank"><img [src]="db.product_img(item.facebook_icon)" class="contact-icon d__flex"/></a>
+          <a *ngIf="item.insta_icon" href="" target="blank"><img [src]="db.product_img(item.insta_icon)" class="contact-icon d__flex"/></a>
+          <a *ngIf="item.youtube_icon" href="" target="blank"><img [src]="db.product_img(item.youtube_icon)" class="contact-icon d__flex"/></a>
+        </li> -->
+      </ul>
+
+    </ion-col>
+
+  </ion-row>
+</div>
+
+
+<!-- <div class="footer_con d__flex just-s">
+  <div class="con_2 d__flex p__rl">
+      <p class="follow_us m-0">Follow Us : </p>
+      <div *ngIf="db.website_settings && item.Footer_Social_Links" class="links d__flex">
+       <a *ngIf="item.Footer_Social_Links.facebook_link" href="{{item.Footer_Social_Links.facebook_link}}" target="blank"><ion-icon src="/assets/Footer-icons/facebook.svg" class="contact-icon d__flex"></ion-icon></a>
+       <a *ngIf="item.Footer_Social_Links.instagram_link" href="{{item.Footer_Social_Links.instagram_link}}" target="blank"><ion-icon src="/assets/Footer-icons/Instagram.svg" class="contact-icon d__flex"></ion-icon></a>
+       <a *ngIf="item.Footer_Social_Links.youtube_link" href="{{item.Footer_Social_Links.youtube_link}}" target="blank"><ion-icon src="/assets/Footer-icons/youtube.svg" class="contact-icon d__flex"></ion-icon></a>
+       <a *ngIf="item.Footer_Social_Links.linked_in" href="{{item.Footer_Social_Links.linked_in}}" target="blank"><ion-icon src="/assets/Footer-icons/link.svg" class="contact-icon d__flex"></ion-icon></a>
+       <a *ngIf="item.Footer_Social_Links.twitter_link" href="{{item.Footer_Social_Links.twitter_link}}" target="blank"><ion-icon src="/assets/Footer-icons/twitter.svg" class="contact-icon d__flex"></ion-icon></a>
+       <a *ngIf="item.Footer_Social_Links.pinterest_link" href="{{item.Footer_Social_Links.pinterest_link}}" target="blank"><ion-icon src="/assets/Footer-icons/pinterest.svg" class="contact-icon d__flex"></ion-icon></a>
+      </div>
+  </div>
+</div> -->
+
+

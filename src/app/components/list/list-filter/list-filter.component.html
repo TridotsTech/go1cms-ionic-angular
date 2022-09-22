@@ -1,0 +1,21 @@
+<div class="box______  main-width  mobile-opts">
+   
+
+  <div #left_arrow *ngIf="!db.ismobile" (click)="scroll('prev')" class="back-s hiding"><ion-icon name="chevron-back-outline"></ion-icon></div>
+
+
+  <ul #scrollable_cnt (scroll)="scrolled($event)" class="mobile__ d__flex">
+
+      <li *ngFor="let menu of item.side_menu.data" class="box_category mouse">
+        <div class="d__flex category__box"  #scrollable_cnt>
+          <div class="sub_c_box" [id]="menu.route" (click)="get_category_values.emit({menu,item})" [class.active-subcategory]="" >
+              <p class="m-0 sub_c" >{{menu[item.side_menu.display_field]}}</p>
+          </div>  
+        </div>
+      </li>
+      
+  </ul>
+
+  <div #right_arrow *ngIf="!db.ismobile" (click)="scroll('next')" class="next-s"><ion-icon name="chevron-forward-outline"></ion-icon></div>
+
+</div>

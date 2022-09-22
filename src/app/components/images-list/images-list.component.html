@@ -1,0 +1,16 @@
+
+<!-- <div class="position-relative" >
+
+  <div #left_arrow *ngIf="!db.ismobile && arrow && scrollable && checkOverflow(scrollable_cnt)" (click)="scroll('prev')" class="back-s hiding"><ion-icon name="chevron-back-outline"></ion-icon></div>
+
+  <ul class="product__box grid" [class.list]="db.product_box.view == 'List View'" [ngClass]="scrollable?'scroll':'not-scroll'"  #scrollable_cnt (scroll)="scrolled($event)" >
+    <img *ngIf="scroll_img && db.ismobile" class="scroll__img" src="{{db.product_img(scroll_img)}}" defaultImage="" alt="">
+    <li *ngFor="let item of data" class="product"   [ngClass]="(db.product_box.view == 'Grid View' && !scrollable) ?(db.ismobile?'grid-2':'grid-'+db.product_box.row_count) :scrollable" [style.border-color]="border_color ? border_color:null">
+      <div class="image">
+        <img *ngIf="item.image || item.product_image" src="{{db.product_img(item.product_image || item.image)}}" defaultImage="" alt="">
+      </div>
+    </li>
+  </ul> 
+  <div #right_arrow *ngIf="!db.ismobile && arrow && scrollable  && checkOverflow(scrollable_cnt)" (click)="scroll('next')" class="next-s"><ion-icon name="chevron-forward-outline"></ion-icon></div>
+  
+</div> -->

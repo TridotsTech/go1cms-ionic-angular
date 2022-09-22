@@ -1,0 +1,51 @@
+<ion-app > 
+
+   <!-- <app-header class="desktop-header"  [desktop]="true"></app-header> -->
+  
+    <ion-menu contentId="main" menuId="main"  [side]="db.ismobile?'start':'end'" >
+      
+      <ion-content  class="menu__content">
+        <app-mobile-menu [menu]="db.category_list" *ngIf="db.ismobile"></app-mobile-menu>
+      </ion-content>
+      
+      <ion-footer *ngIf="!db.android && false" class="footer_play_ios">
+        <ion-menu-toggle >
+         <ion-button fill="clear" class="box box_1 mouse d__flex" routerLink="/register-form/student-volunteer">
+          <ion-icon src="/assets/icon/event.svg"></ion-icon>
+            <p class="m-0 title">Be a Volunteer</p>
+         </ion-button>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+        <ion-button fill="clear" class="box box_2 mouse d__flex" routerLink="/register-form/student">
+         <ion-icon src="/assets/icon/register.svg"></ion-icon>
+         <p class="m-0 title">Student Registration</p>
+       </ion-button>
+      </ion-menu-toggle>
+      </ion-footer>
+
+    </ion-menu>
+    
+   <ion-content >
+  
+    <div *ngIf="!db.ismobile" >
+  
+    </div>
+  
+       <ion-router-outlet  main [animated]="!db.ismobile?false:true" id="main"></ion-router-outlet>
+  
+  
+       <!-- <div *ngIf="tabs" class="tab">
+         <ion-tab-bar>
+            <ion-tab-button *ngFor="let item of db.tabs_items" tab="home" [routerLink]="item.route" routerDirection="root" routerLinkActive="active-item" [routerLinkActiveOptions]="{exact:true}">
+              <ion-icon class="icon" [src]="item.icon"></ion-icon> 
+              <ion-label>{{item.title}}</ion-label>
+            </ion-tab-button>
+          </ion-tab-bar>
+       </div> -->
+     
+    </ion-content>  
+  </ion-app>
+  
+  <!-- <div class="loader">
+    <ion-spinner name="lines"></ion-spinner>
+  </div> -->

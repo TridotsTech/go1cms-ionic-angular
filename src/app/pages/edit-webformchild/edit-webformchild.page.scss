@@ -1,0 +1,279 @@
+.form-full-container {
+  position: relative;
+  max-width: 95%;
+  margin: 10px auto;
+  background-color: white;
+  .close-icon-div {
+    position: absolute;
+    right: 0;
+    .close-icon {
+      cursor: pointer;
+      font-size: 30px;
+    }
+  }
+  .form-container {
+    .form-data {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      .data-manl-div-check {
+        overflow: hidden;
+        margin-bottom: 15px;
+        text-align: center;
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .data-manl-div {
+        overflow: hidden;
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .label-1 {
+        padding-bottom: 5px;
+        .impt-star {
+          color: red;
+        }
+      }
+      .custom-input-check {
+        margin-top: 3px;
+      }
+      .custom-input {
+        max-width: 100%;
+        // display: flex;
+        // flex-direction: column;
+        display: inline-block;
+        .form-input {
+          // max-width: 70%;
+          // max-width: 350px;
+          border: 1px solid rgb(209, 207, 207);
+          height: 40px;
+          border-radius: 7px;
+          // width: 200px;
+          // border: 1px solid black;
+          --background: #f4f5f6;
+          padding-right: 10px !important;
+        }
+
+        .child-table-btn {
+          color: white;
+        }
+
+        .select-1 {
+          width: 100%;
+          border: 1px solid rgb(209, 207, 207);
+          height: 40px;
+          border-radius: 7px;
+          // max-width: 70%;
+          // max-width: 350px;
+          background-color: #f4f5f6;
+          padding-right: 10px;
+        }
+        .text-area {
+          border: 1px solid black;
+        }
+      }
+      .image-thumb {
+        display: flex;
+        margin-top: 7px;
+        align-items: center;
+        gap: 10px;
+        .img-edit-div {
+          overflow: hidden;
+          // width: 70px;
+          max-width: 30%;
+          height: 70px;
+          border-radius: 5%;
+          .edit-img {
+            height: 70px;
+            background-size: cover;
+          }
+        }
+        .img-url {
+          max-width: 50%;
+        }
+        .close-btn-img {
+          max-width: 20%;
+          --min-height: 40px;
+          --padding-start: 0;
+          --padding-end: 0;
+          --inner-padding-end: 0;
+          .edit-close-btn {
+            padding-left: 5px;
+            padding-right: 5px;
+            background-color: #f4f5f6;
+          }
+        }
+      }
+
+      .signature-input {
+        border: 1px solid gainsboro;
+      }
+
+      // For section breake css
+      .enable-border {
+        border: 1.2px solid #f4f5f6;
+        padding: 15px;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+
+      .rows-container {
+        // text-align: center;
+        // justify-content: center;
+        // margin-bottom: -15px;
+        // width: 100%;
+
+        min-width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+
+        .sec-title {
+          flex: 0 0 100%;
+          .title-label {
+            margin: 0;
+            padding: 0 0 15px 0;
+            font-size: 16px;
+            font-weight: 700;
+          }
+        }
+      }
+
+      // For column breake and without column breake css
+
+      .data-manl-div-text-2 {
+        margin-left: 20px;
+        // text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+        flex: 0 0 calc(50% - 20px);
+        // min-width: calc(50% - 20px);
+      }
+
+      .data-manl-div-check-2 {
+        margin-left: 20px;
+        text-align: center;
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+        flex: 0 0 calc(25% - 20px);
+        // min-width: calc(25% - 20px);
+      }
+
+      .data-manl-div-2 {
+        overflow: hidden;
+        margin-left: 20px;
+        display: flex;
+        flex: 0 0 calc(25% - 20px);
+        // min-width: calc(25% - 20px);
+        flex-direction: column;
+      }
+
+      .select-2 {
+        border: 1px solid rgb(209, 207, 207);
+        height: 40px;
+        border-radius: 7px;
+        // max-width: 70%;
+        background-color: #f4f5f6;
+      }
+
+      .form-input-2 {
+        // max-width: 70%;
+        border: 1px solid rgb(209, 207, 207);
+        height: 40px;
+        border-radius: 7px;
+        // width: 200px;
+        // border: 1px solid black;
+        --background: #f4f5f6;
+      }
+    }
+    .error-msg {
+      .error-msg-alert {
+        color: red;
+        padding: 0;
+        margin-top: 5px;
+        margin-bottom: 0;
+      }
+    }
+    .submit-btn {
+      margin-left: 15px;
+      margin-top: 10px;
+      .sub-button {
+        color: white;
+      }
+    }
+  }
+}
+
+// Mobile view Form container
+
+.mbl-form-full-container {
+  max-width: 90%;
+  margin: 10px auto;
+  background-color: white;
+
+  .mbl-rows-container {
+    min-width: 100%;
+    max-width: 100%;
+    // display: flex;
+    // flex-wrap: wrap;
+
+    .sec-title {
+      // flex: 0 0 100%;
+      .title-label {
+        margin: 0;
+        padding: 0 0 15px 0;
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .mbl-data-manl-div-check {
+    overflow: hidden;
+    margin-bottom: 15px;
+    text-align: center;
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .mbl-data-manl-div {
+    overflow: hidden;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mbl-image-thumb {
+    display: flex;
+    margin-top: 7px;
+    align-items: center;
+    gap: 10px;
+    .mbl-img-edit-div {
+      overflow: hidden;
+      // width: 70px;
+      max-width: 30%;
+      height: 70px;
+      border-radius: 5%;
+      .mbl-edit-img {
+        height: 70px;
+        background-size: cover;
+      }
+    }
+    .mbl-img-url {
+      max-width: 70%;
+    }
+  }
+
+  // End
+}

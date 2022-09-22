@@ -1,0 +1,61 @@
+@import url('https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lightgallery.css');
+@import url('https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lg-zoom.css');
+body {
+  margin: 0;
+}
+.gallery-item {
+  margin: 5px;
+}
+
+
+body {
+    background-color: #000;
+    font: 1.1em Arial, Helvetica, sans-serif;
+  }
+  
+  img {
+    max-width: 100%;
+    display: block;
+    border-radius: 5px;
+  }
+  
+  a {
+    margin: 0;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    margin-bottom: 10px;
+    break-inside: avoid;
+  }
+  
+  a > img {
+    grid-row: 1 / -1;
+    grid-column: 1;
+  }
+  
+  a a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  figcaption {
+    grid-row: 2;
+    grid-column: 1;
+    background-color: rgba(255,255,255,.5);
+    padding: .2em .5em;
+    justify-self: start;
+  }
+  
+  .container {
+    column-gap: 25px;
+  }
+
+  .grid-item{
+    position: relative;
+    .icon__{
+      position: absolute;
+      color: #fff;
+      right: 0;
+      top: 0;
+    }
+  }
+  

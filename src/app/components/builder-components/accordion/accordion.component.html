@@ -1,0 +1,61 @@
+ <!--7 Accordion 1-->
+ <div *ngIf="row && row.component_type=='Accordion Style1'" class="component_container accordion_row  ">
+  <div *ngFor="let data of row.data.data;let i=index" [class.active-accordion_block]="data.show"
+    class="accordion_block">
+    <label for="accordion_{{i}}" (click)="checking(row.data.data,i)" class="accordion_label">
+      <div class="d__flex" class="accordion_item">
+        <img *ngIf="data.image" [src]="db.product_img(data.image)" alt="" class="list_icon image">
+          <h5 class="m-0 title">{{data.title}}</h5>
+        <div class="arrow_icon">
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </div>
+      </div>
+    </label>
+    <p *ngIf="data.show" class="content">{{data.content}}</p>
+  </div>
+</div>
+<!-- Acccordion 2-->
+<ul class="accordion component_container " *ngIf="row.component_type=='Accordion Style2'">
+<li class="accordion_box" *ngFor="let data of row.data.data;let i=index;" [class.active_box]="data.show">
+  <div (click)="open_close(i,row.data.data)" class="header__ mouse d__flex just-s">
+    <h5 class="title">{{data.title}}</h5>
+    <ion-icon class="mouse" [name]="data.show ? 'chevron-up-outline':'chevron-down-outline'"></ion-icon>
+  </div>
+  <p *ngIf="data.show" class="content">{{data.content}}</p>
+</li>
+</ul>
+<!--Acccordion 3  -->
+<ul class="accordion2 component_container " *ngIf="row.component_type=='Accordion Style3'">
+  <li class="accordion_box" *ngFor="let data of row.data.data;let i=index;" [class.active_box__]="data.show">
+    <div (click)="open_close(i,row.data.data)" class="d__flex just-s mouse">
+      <h5 class="title">{{data.title}}</h5>
+      <ion-icon [name]="data.show ? 'chevron-up-outline':'chevron-down-outline'"></ion-icon>
+    </div>
+    <p *ngIf="data.show" class="content">{{data.content}}</p>
+  </li>
+</ul>
+<!-- Acccordion 4 -->
+<ul class="accordion_faq component_container " *ngIf="row.component_type=='Accordion Style4'">
+<li class="accordion_faq_box" *ngFor="let data of row.data.data;let i=index;"
+  [class.active_faq_bgcolor]="data.show">
+  <div (click)="open_close(i,row.data.data)" [class.active_faq_color]="data.show"
+    class="accordion_faq_box_header d__flex mouse">
+    <h5 class="title">{{data.title}}</h5>
+    <ion-icon class="plus-icon" [name]="data.show ? 'remove-circle-outline':'add-circle-outline'">
+    </ion-icon>
+  </div>
+  <p *ngIf="data.show" class="content">{{data.content}}</p>
+</li>
+</ul>
+<!--Acccordion 5  -->
+<ul class="accordion component_container " *ngIf="row.component_type=='Accordion Style5'">
+<li class="accordion_box" *ngFor="let data of row.data.data;let i=index;">
+  <div (click)="open_close(i,row.data.data)" [class.active_box_sample_color]="data.show"
+    class=" d__flex just-s mouse">
+    <h5 class="title">{{data.title}}</h5>
+    <ion-icon class="plus_icon_faq" [name]="data.show ? 'remove-circle-outline':'add-circle-outline'">
+    </ion-icon>
+  </div>
+  <p *ngIf="data.show" class="content">{{data.content}}</p>
+</li>
+</ul>

@@ -1,0 +1,251 @@
+<!-- new 12-08-2022 -->
+<!-- (feature_section_2) -->
+<!-- section three card and border bottom -->
+<div *ngIf="item.section_type == 'Static Section' && item.section_name =='Features Style 2'"
+  class="container {{item.class_name}} animate py-30" [class.main-width-full]="item.is_full_width == 1"
+  [class.main-width]="item.is_full_width == 0">
+  <div class="main-width">
+  <div class="title_container txt-c title_width_center">
+    <div class="tittle_ mb-20">
+      <h2 *ngIf="item.title" class="webkit-text" [style.--line]="1">{{item.title}}</h2>
+    </div>
+    <div class="main_title_description">
+      <h5 *ngIf="item.sub_title" class="sub_title">{{item.sub_title}}</h5>
+    </div>
+  </div>
+  <div class="content__container">
+    <ul class="cards_list d__flex">
+      <li *ngFor="let data of item.list_points" class="sub_card_con">
+        <div class="top_number">
+          <h4 *ngIf="data.number_count">{{data.number_count}}</h4>
+        </div>
+        <div class="feature_title_">
+          <h4 *ngIf="data.list_title" class="my-5">{{data.list_title}}</h4>
+        </div>
+        <div *ngIf="data.listconent" class="description_text">
+          <p class="listconent webkit-text" [style.--line]="3">{{data.listconent}}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  </div>
+</div>
+<!-- (feature_section_3) -->
+<!-- Section know more and three column -->
+<div *ngIf="item.section_type == 'Static Section' && item.section_name =='Features Style 3'"
+  class="container  d__flex wrap align-start {{item.class_name}} animate py-30"
+  [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+  <div class="main-width">
+  <div class="content_container ">
+    <div class="content_element">
+      <div class="title_ mb-20">
+        <h2 *ngIf="item.title" class=""><span class="title ">{{item.title}}</span></h2>
+      </div>
+      <div class="description_ mb-20">
+        <h5 *ngIf="item.subtitle" class="subtitle description_text feat-width">{{item.subtitle}}</h5>
+      </div>
+      <div *ngIf="item.btn_text && item.btn_text.btn_text" class="button_element">
+        <div class="button_list mb-20">
+          <ion-button size="large" button class="primary-btn btn" fill="clear"
+            (click)="db.route_url(item.btn_text.btn_redirect_url)">{{item.btn_text.btn_text}}</ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="image_container">
+    <ul class="cards_con">
+      <li *ngFor="let data of item.liststyle" class="card_list d__flex align-center">
+        <div class="side_icon bg_icon">
+          <img *ngIf="data.list_icon" [src]="db.product_img(data.list_icon)">
+        </div>
+        <div class="title_ side_title">
+          <h4 *ngIf="data.list_title" class="mb-20 ">{{data.list_title}}</h4>
+          <p *ngIf="data.list_content" class="description_text desc_class">{{data.list_content}}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  </div>
+</div>
+<!-- feature_section_4 -->
+<div *ngIf="item.section_type == 'Static Section' && item.section_name =='Features Style 4'"
+  class="container {{item.class_name}} animate py-30" [class.main-width-full]="item.is_full_width == 1"
+  [class.main-width]="item.is_full_width == 0">
+  <div class="title_container txt-c title_width_center">
+    <div class="tittle_ mb-20">
+      <h2 class="title">{{item.title}}</h2>
+    </div>
+    <div class="main_title_description">
+      <h5 class="description_text sub_title" *ngIf="item.sub_title">{{item.sub_title}}</h5>
+    </div>
+  </div>
+  <div class="card_list__container">
+    <ul class="cards_list d__flex flex-w">
+      <li *ngFor="let data of item.list_points" class="card_container_with_icon d__flex">
+        <div class="top_icon bg_icon icon_width">
+          <img *ngIf="data.list_icon" [src]="db.product_img(data.list_icon)">
+        </div>
+        <div class="feature__title_">
+          <h4 *ngIf="data.list_title" class="">{{data.list_title}}</h4>
+        </div>
+        <p *ngIf="data.listconent" class="description_text">{{data.listconent}} </p>
+        <div class="learn_more d__flex mouse">
+          <h5 *ngIf="data.btn_text" class="m-0">{{data.btn_text}}</h5>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="item.btn_text && item.btn_text.btn_text" class="seemore_button_container">
+    <ion-button class="knowmore_button txt-c" fill="clear" (click)="db.route_url(item.btn_text.btn_redirect_url)">
+      {{item.btn_text.btn_text}}
+    </ion-button>
+  </div>
+</div>
+<!-- (feature_section_5) -->
+<div *ngIf="item.section_type == 'Static Section' && item.section_name =='Features Style 5'"
+  class="{{item.class_name}} animate py-30" [class.main-width-full]="item.is_full_width == 1"
+  [class.main-width]="item.is_full_width == 0">
+  <div class="main-width">
+    <div class="title_container txt-c title_width_center">
+      <div class="tittle_ mb-20">
+        <h2 *ngIf="item.title" class="title">{{item.title}}</h2>
+      </div>
+      <div class="main_title_description">
+        <p class="description_text subtitle" *ngIf="item.subtitle">{{item.subtitle}}</p>
+      </div>
+    </div>
+    <div class="hover_card_list__container d__flex">
+      <ul class="cards_list d__flex flex-w">
+        <li class="top_icon_card_container d__flex" *ngFor="let data of item.list_points">
+          <div class="top_icon">
+            <img *ngIf="data.list_icon" [src]="db.product_img(data.list_icon)">
+          </div>
+          <!-- <div class="hover_title_"> -->
+          <h4 *ngIf="data.list_title" class="hover_title_">{{data.list_title}}</h4>
+          <!-- </div> -->
+          <p *ngIf="data.listconent" class="line-h txt-c webkit-text" [style.--line]="3">{{data.listconent}}</p>
+          <div *ngIf="data.btn_text" class="learn_more d__flex mouse">
+            <h6 *ngIf="data.btn_text" class="m-0">{{data.btn_text}}</h6>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div *ngIf="item.section_type == 'Static Section' && item.section_name =='Features Style 6'"
+  class=" {{item.class_name}} py-30 container d__flex section_with_icons animate"
+  [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+  <div class="box__1">
+    <h2 *ngIf="item.title" class="title">{{item.title}}<span class="spantitle"
+        *ngIf="item.spantitle">{{item.spantitle}}</span></h2>
+    <h3 *ngIf="item.title2" class="title2">{{item.title2}}<span class="spantitle2"
+        *ngIf="item.spantitle2">{{item.spantitle2}}</span></h3>
+    <p *ngIf="item.subtitle" class="subtitle">{{item.subtitle}}</p>
+    <ion-button *ngIf="item.btn_text && item.btn_text.btn_text" (click)="db.route_url(item.btn_text.btn_redirect_url)"
+      class="know_more" fill="clear">{{item.btn_text.btn_text}}</ion-button>
+  </div>
+  <div class="box__2">
+    <ul class="container__ d__flex">
+      <li class="boxs__ d__flex" *ngFor="let data of item.liststyle;let i = index"
+        [class.empty_box]="(i == 0 || i== 3 || i == 4) && !db.ismobile" [class.just-end]="i == 0 || i == 4"
+        (mouseenter)="data.show = true" (mouseleave)="data.show = false">
+        <div [class.active-custom_box]="data.show " class="custom_box mouse">
+          <img *ngIf="data.list_icon" class="icon__" [src]="db.product_img(data.list_icon)">
+          <h5 *ngIf="data.list_title" class="m-0 ">{{data.list_title}}</h5>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- new sections Bala 24-08-2022 -->
+<!-- (feature_section_1) -->
+<div class="{{item.class_name}} py-30"
+  *ngIf="item.section_type == 'Static Section' && item.section_name == 'Features Style 1'"
+  [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+  <div class="d__flex main-width" [ngClass]="db.ismobile?'flex_direction':''">
+    <!-- <div class="container flex_gap d__flex main-width"> -->
+    <div class="feature_content_width">
+      <h2 class="title">{{item.title}}</h2>
+      <p class="description_text content">{{item.content}}</p>
+      <ion-button *ngIf="item.btn_text" size="large" button class="primary-btn btn" fill="clear"
+        (click)="db.route_url(item.btn_text.btn_redirect_url)">{{item.btn_text.btn_text}}</ion-button>
+    </div>
+    <ul class="feature_image_width d__flex flex-w">
+      <li class="sub_card_container" *ngFor="let data of item.cards_item;let i = index">
+        <div class="faq_icon">
+          <img src="{{db.product_img(data.icon)}}" alt="icon">
+        </div>
+        <div class="title_ txt-l">
+          <h4 class="webkit-text m-0" [style.--line]="1">{{data.title1}}</h4>
+          <p class="txt-l webkit-text subtitle" [style.--line]="5">{{data.subtitle}}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<div *ngIf="item.section_type == 'Static Section' && item.section_name =='Left Image Right Side List Style One'"
+  class="container_reverce d__flex py-30 {{item.class_name}} animate" [class.main-width-full]="item.is_full_width == 1"
+  [class.main-width]="item.is_full_width == 0">
+  <div class="d__flex mobile- main-width" [ngClass]="db.ismobile?'flex_direction':''">
+    <div class="image_container">
+      <div class="image txt-l">
+        <img *ngIf="item.left_image" [src]="db.product_img(item.left_image)" alt="banner_img">
+      </div>
+    </div>
+    <div class="content_container">
+      <div class="content_con">
+        <h2 class="fnt-38">
+          <span *ngIf="item.title" class="title ">{{item.title}}</span>
+          <span class="span_text">
+            <span *ngIf="item.spantitle" class="text_two spantitle"> {{item.spantitle}}</span>
+            <!-- <span class="underline_text"></span> -->
+          </span>
+        </h2>
+        <div class="description_ mb-20">
+          <h5 *ngIf="item.subtitle" class="subtitle">{{item.subtitle}}</h5>
+          <p>{{item.content}}</p>
+        </div>
+        <div class="list_element">
+          <div>
+            <ul class="">
+              <li class="list_items d__flex align-center" *ngFor="let data of item.listpoints">
+                <div *ngIf="data.list_icon" class="icon"><img [src]="db.product_img(data.list_icon)" style="width:22px;"
+                    alt="icon"></div>
+                <p *ngIf="data.list_title" class="m-0 icon_text txt-c">{{data.list_title}}</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="Left_Content_Right_Image bg_image {{item.class_name}} animate" [class.about_us]="about_us && db.ismobile" *ngIf="item.section_type == 'Static Section' && item.section_name == 'Left Content Right Image'" [style.background-image]="'url('+db.product_img(item.bg_image)+')'" [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+      <div class="main-width d__flex wrap">
+         <div class="left_div">
+            <div class="section" *ngIf="item.title || item.title1 || item.subtitle || item.content || item.description">
+                  <app-text [item]="item"></app-text>
+            </div>
+         </div>
+         <div *ngIf="item.right_image" class="right_div">
+            <div class="image txt-c">
+               <app-image [item]="item"></app-image>
+            </div>
+         </div>
+      </div>
+   </div> -->
+<!-- <div class="{{item.class_name}} py-30" *ngIf="item.section_type == 'Static Section' && item.section_name == 'Features Style 1'" [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+      <div  class="container flex_gap f main-width">
+          <div class="feature_content_width">
+             <h2 class="title">{{item.title}}</h2>
+             <p class="description_text content">{{item.content}}</p>
+             <ion-button *ngIf="item.btn_text" size="large" class="knowmore_feature_button " (click)="db.route_url(item.btn_text.btn_redirect_url)">{{item.btn_text.btn_text}}</ion-button>
+          </div>
+          <div *ngIf="item.cards_item">
+            <app-button [item]="item.cards_item"></app-button>
+          </div>
+       </div>
+   </div>  
+  -->

@@ -1,0 +1,611 @@
+// <!-- Dinesh Kumar pricing Section -->
+// <!-- *ngIf="item.section_type == 'Static Section' && item.section_name == 'Membership Plan'" -->
+//   <div class="main-width">
+//     <div class="section__border p-y-50">
+//       <h2 class="top_title txt-c heading">Choose your <span>subscription plan</span></h2>
+//       <p class="main-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+//       <ul  class="d__flex gap-15 card_header" [class.flex-w]="!db.ismobile" [class.just-c]="!db.ismobile">
+//         <li class="cards1 price_card" *ngFor="let item of pricing_plan">
+//             <div class="d__flex just-s border-b1 pb-15">
+//               <div>
+//                 <h6 class="m-0 name">{{item.name}}</h6>
+//                 <p class="m-0 r_name">{{item.sub_title}}</p>
+//               </div>
+//               <p class="m-0 r_price heading">{{item.price | currency:'&#8377;'}}<span class="month" *ngIf="item.billing_interval">{{item.billing_interval}}</span> </p>
+//             </div>    
+//             <div class="ion-text-center features">
+//               <div *ngFor="let features of item.features" class="d__flex features_list">
+//                 <ion-icon name="checkmark-outline"></ion-icon>
+//                 <p class="m-0 f_list">{{features.features}}</p>
+//               </div>
+//               <div *ngFor="let features of item.features" class="d__flex features_list">
+//                 <ion-icon class="cancel" name="close-outline"></ion-icon>
+//                 <p class="m-0 f_list">{{features.features}}</p>
+//               </div>
+//             </div>
+//             <div class="ion-text-center">
+//               <!-- (click)="!db.cust_name && !db.guest_cust_name?db.openLogin():subscriptions.emit(item) -->
+//               <ion-button class="card1_btn" fill="clear">
+//                 <span>Get Started</span>
+//               </ion-button>
+//             </div>
+//         </li>
+//       </ul>
+//     </div>
+//   </div>
+
+//   <!-- Choose a plan for you -->
+//   <div class="main-width font">
+//     <div class="section__border p-y-50">
+//         <h2 class="top_title txt-c">Choose a plan for you</h2>
+//         <div class="border_plan"></div>
+//       <ul  class="d__flex gap-15 pt-15 card_header" [class.flex-w]="!db.ismobile" [class.just-c]="!db.ismobile">
+//         <li class="cards2 price_card" *ngFor="let item of plan_for">
+//             <div class="just-s">
+//                 <h6 class="m-0 name">{{item.name}}</h6>
+//               <p class="m-0 r_price">{{item.price | currency:'&#8377;'}}<span class="month" *ngIf="item.billing_interval"> /{{item.billing_interval}}</span> </p>
+//             </div>    
+//             <div class="ion-text-center features">
+//               <p class="m-0 plan_title">Succulents chia adaptogen cred yr ramps</p>
+//               <div *ngFor="let features of item.features" class="d__flex features_list">
+//                 <ion-icon name="checkmark-circle-outline"></ion-icon>
+//                 <p class="m-0 f_list">{{features.features}}</p>
+//               </div>
+//             </div>
+//             <div class="ion-text-center">
+//               <!-- (click)="!db.cust_name && !db.guest_cust_name?db.openLogin():subscriptions.emit(item) -->
+//               <ion-button class="card1_btn" fill="clear">
+//                 <span>Choose Plan</span>
+//               </ion-button>
+//             </div>
+//         </li>
+//       </ul>
+//     </div>
+//   </div>
+
+//   <!-- Our Flexible Pricing & Plan -->
+//   <div class="main-width font">
+//     <div class="section__border p-y-50">
+//         <h2 class="top_title txt-c heading">Our Flexible Pricing & Plan</h2>
+//         <p class="main-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+//       <ul  class="gap-15 pt-15 card_header" [class.flex-w]="!db.ismobile" [class.just-c]="!db.ismobile">
+//         <li class="cards3 d__flex price_card" *ngFor="let item of flexible_plan">
+//             <div class="flex-20 txt-c border-r">
+//                 <h6 class="m-0 name ">{{item.name}}</h6>
+//               <p class="m-0 r_price heading">{{item.price | currency:'&#8377;'}}<span class="month" *ngIf="item.billing_interval">{{item.billing_interval}}</span> </p>
+//             </div> 
+//             <div class="flex-5"></div>   
+//             <div class="ion-text-center flex-25 features">
+//               <div *ngFor="let features of item.features" class="d__flex features_list">
+//                 <ion-icon name="checkmark-circle-outline"></ion-icon>
+//                 <p class="m-0 f_list">{{features.features}}</p>
+//               </div>
+//             </div>
+//             <div class="ion-text-center flex-25 features">
+//               <div *ngFor="let features of item.features" class="d__flex features_list">
+//                 <ion-icon name="checkmark-circle-outline"></ion-icon>
+//                 <p class="m-0 f_list">{{features.features}}</p>
+//               </div>
+//             </div>
+//             <div class="ion-text-center flex-25">
+//               <!-- (click)="!db.cust_name && !db.guest_cust_name?db.openLogin():subscriptions.emit(item) -->
+//               <ion-button class="card1_btn" fill="clear">
+//                 <span>Choose Plan</span>
+//               </ion-button>
+//             </div>
+//         </li>
+//       </ul>
+//     </div>
+//   </div>
+
+//     <!-- Choose the beat plan for your business -->
+//     <div class="main-width">
+//       <div class="section__border p-y-50 dis_f">
+//         <div>
+//           <h2 class="top_title txt-c heading">Choose the beat plan for your business</h2>
+//           <p class="main-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+//         </div>
+//         <ul  class="gap-15 pt-15 card_header" [class.flex-w]="!db.ismobile" [class.just-c]="!db.ismobile">
+//           <li class="cards4 d__flex price_card" *ngFor="let item of flexible_plan">
+//               <div class="flex-20 txt-c">
+//                   <h6 class="m-0 name ">{{item.name}}</h6>
+//               </div> 
+//               <div class="ion-text-center flex-25 features">
+//                 <div *ngFor="let features of item.features" class="d__flex features_list">
+//                   <ion-icon name="checkmark-circle-outline"></ion-icon>
+//                   <p class="m-0 f_list">{{features.features}}</p>
+//                 </div>
+//               </div>
+//               <div class="ion-text-center flex-25">
+//                 <p class="m-0 r_price">{{item.price | currency:'&#8377;'}}<span class="month" *ngIf="item.billing_interval">{{item.billing_interval}}</span> </p>
+//                 <ion-button class="card1_btn" fill="clear">
+//                   <span>Choose Plan</span>
+//                 </ion-button>
+//               </div>
+//           </li>
+//         </ul>
+//       </div>
+//     </div>
+
+//   <!-- Choose your subscription plan -->
+//   <div class="main-width">
+//     <div class="section__border p-y-50">
+//       <p class="top_title txt-c heading">Choose your <span>subscription plan</span></p>
+//       <ul  class="d__flex gap-15 card_header" [class.flex-w]="!db.ismobile" [class.just-c]="!db.ismobile">
+//         <li class="cards card_sub" *ngFor="let item of plan_details;let i = index;">
+//           <div class="d__flex">
+//             <div class="side_1">
+//               <p class="m-0 r_name">{{item.name}}</p>
+//               <p class="m-0 r_price heading">{{item.price | currency:'&#8377;'}}<span *ngIf="item.billing_interval"> /{{item.billing_interval}}</span> </p>
+//             </div>    
+//             <div class="side_2">
+//               <img src="{{db.product_img(item.icon)}}" alt="">
+//             </div>
+//           </div>
+//             <div class="ion-text-center features">
+//               <p class="m-0 plan_title">Plan Features</p>
+//               <div *ngFor="let features of item.features" class="d__flex features_list">
+//                 <!-- <img src="/assets/shapes/Bullet.svg" alt=""> -->
+//                 <ion-icon name="checkmark-outline"></ion-icon>
+//                 <p class="m-0 f_list">{{features.features}}</p>
+//               </div>
+//             </div>
+//             <div class="ion-text-center">
+//               <!-- (click)="!db.cust_name && !db.guest_cust_name?db.openLogin():subscriptions.emit(item) -->
+//               <ion-button class="blog-btn" fill="clear">
+//                 <span>Subscribe Now</span>
+//               </ion-button>
+//             </div>
+//         </li>
+//       </ul>
+//     </div>
+//   </div>
+
+
+
+// Dinesh pricing section css _______________________________________________________________________________
+
+// .image-sub{
+//     margin-top: 30px;
+//     text-align: center;
+//     img{
+//       width: 200px;
+//     }
+//   }
+//   .bg_gray{
+//     padding: 15px;
+//   }
+  
+//   .blog-btn{
+//     border: 1px solid var(--text-color);
+//     background: unset;
+//     border-radius: 5px;
+//     height: 45px;
+//     span{
+//       text-transform: capitalize;
+//       color: var(--text-color);
+//       font-weight: 600;
+//       padding: 0 15px;
+//     }
+//   }
+//   .card1_btn{
+//     border: 1px solid var(--text-color);
+//     background: var(--primary-color);
+//     border-radius: 5px;
+//     height: 45px;
+//     span{
+//       text-transform: capitalize;
+//       color: var(--white);
+//       font-weight: 600;
+//       padding: 0 40px;
+//     }
+//   }
+//   .main-content{
+//     width: 65%;
+//     margin: 0 auto;
+//     padding-bottom: 15px;
+//     text-align: center;
+//   }
+//   .comments{
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     margin-bottom: 10px;
+//   }
+//   .border-b1{
+//     border-bottom: 1px solid var(--border);
+//   }
+  
+//   .top_title{
+//     font-size: 30px;
+//     font-weight: 600;
+//     margin: 10px 0;
+//     span{
+//       color: var(--primary-color);
+//       font-weight: 600;
+//     }
+//   }
+//   .border_plan{
+//     width: 80px;
+//     margin: 0 auto;
+//     border: 2px solid var(--primary-color);
+//   }
+  
+//   @media only screen and (max-width: 768px){
+//     .main-width{
+//       padding: 10px;
+//     }
+//     .card_header{
+//       overflow-x: scroll;
+//     }
+//     .cards{
+//       min-height: 440px;
+//       padding: 20px;
+//       flex: 0 0 70%;
+//       overflow: auto;
+//     }
+//     .cards1,.cards2{
+//       min-height: 440px;
+//       padding: 20px;
+//       flex: 0 0 70%;
+//       overflow: auto;
+//     }
+//     .flex-25{
+//       flex: 0 0 70%;
+//      }
+//      .flex-20{
+//       flex: 0 0 40%;
+//      }
+//      .flex-5{
+//       flex: 0 0 5%;
+//      }
+  
+//     }
+//     .pb-15{
+//       padding-bottom: 15px;
+//     }
+//      .dis_f{
+//       display: flex;
+//      }
+//      .border-r{
+//       border-right: 1px solid var(--border);
+//      }
+//   @media only screen and (min-width: 768px){
+//     .cards{
+//       padding: 20px;
+//       flex: 0 0 28%;
+//       min-height: 300px;
+//     }
+//     .cards1{
+//       padding: 20px;
+//       flex: 0 0 28%;
+//       min-height: 400px;
+//     }
+//     .cards2{
+//       padding: 18px;
+//       flex: 0 0 22%;
+//       min-height: 400px;
+//     }
+//     .flex-25{
+//       flex: 0 0 25%;
+//      }
+//      .flex-20{
+//       flex: 0 0 20%;
+//      }
+//      .flex-5{
+//       flex: 0 0 5%;
+//      }
+//   }
+  
+//     .cards:hover, .cards4:hover{
+//       border: 1px solid var(--primary-color);
+//       .r_name{
+//         background: var(--primary-color);
+//         color: #fff;
+//       }
+//       .blog-btn{
+//         background: var(--primary-color) !important;
+//         border-radius: 5px;
+//         span{
+//           text-transform: capitalize;
+//           color: #fff;
+//         }
+//       }
+//     }
+//     .cards1:hover,.cards2:hover, .cards3:hover{
+//       background: var(--primary-color);
+//       // border: 1px solid var(--primary-color);
+//       .name,.r_name,.r_price,.month,.f_list,.plan_title{
+//         color: var(--white) !important;
+//       }
+//       ion-icon{
+//         color: var(--white);
+//       }
+//       .card1_btn{
+//         background: var(--white);
+//         border-radius: 5px;
+//         span{
+//           text-transform: capitalize;
+//           color: var(--primary-color);
+//           font-weight: 600;
+//           padding: 0 40px;
+//         }
+//       }
+//     }
+  
+//     .cards1{
+//       border: 1px solid var(--border);
+//       border-radius: 10px;
+//       padding: 20px;
+  
+//       .r_name{
+//         color: var(--text-color);
+//         padding: 5px 0;
+//         text-align: left;
+//         font-size: 14px;
+//        }
+//        .r_price{
+//         color: var(--text-color);
+//         font-weight: 700;
+//         font-size: 16px;
+//         padding: 0;
+//         width: 60px;
+//         text-align: right;
+//         .month{
+//           font-size: 14px;
+//         }
+//        }
+  
+  
+//        .features{
+//         padding-top: 7px;
+//         padding-bottom: 10px;
+//         min-height: 180px;
+//           .features_list{
+//             padding-top: 7px;
+//           }
+//           .cancel{
+//             color: #7b7b7b;
+//           }
+//           ion-icon{
+//             font-size: 20px;
+//           }
+//           img{
+//             margin-right: 15px;
+//             height: 25px;
+//             // font-size: 36px;
+//           }
+//           .f_list{
+//             padding-left: 15px;
+//             font-size: 14px;
+//             text-align: left;
+//           }
+//       }
+//   }
+//   .cards2{
+//     // border: 1px solid var(--border);
+//     border-radius: 15px;
+//     padding: 30px 14px;
+//     .name{
+//       color: var(--primary-color);
+//     }
+//     .r_name{
+//       color: var(--text-color);
+//       padding: 5px 0;
+//       text-align: left;
+//       font-size: 14px;
+//      }
+//      .r_price{
+//       color: var(--text-color);
+//       font-weight: 700;
+//       font-size: 16px;
+//       padding: 15px 0;
+//       .month{
+//         font-size: 14px;
+//       }
+//      }
+  
+  
+//      .features{
+//       padding-top: 10px;
+//       padding-bottom: 20px;
+//       min-height: 180px;
+//       .plan_title{
+//         width: 210px;
+//         text-align: left;
+//         padding-bottom: 10px;
+//         color: var(--text-color);
+//       }
+//         .features_list{
+//           padding-top: 16px;
+//         }
+//         .cancel{
+//           color: #7b7b7b;
+//         }
+//         ion-icon{
+//           font-size: 20px;
+//         }
+//         img{
+//           margin-right: 15px;
+//           height: 25px;
+//           // font-size: 36px;
+//         }
+//         .f_list{
+//           padding-left: 15px;
+//           font-size: 14px;
+//           text-align: left;
+//         }
+//     }
+//   }
+  
+//   .cards3{
+//     // border: 1px solid var(--border);
+//     border-radius: 15px;
+//     padding: 14px;
+//     min-height: 180px;
+//     .r_name{
+//       color: var(--text-color);
+//       padding: 5px 0;
+//       text-align: left;
+//       font-size: 14px;
+//      }
+  
+//      .r_price{
+//       color: var(--text-color);
+//       font-weight: 700;
+//       font-size: 24px;
+//       padding: 15px 0;
+//       .month{
+//         font-size: 14px;
+//       }
+//      }
+  
+//      .features{
+//       padding-top: 7px;
+//       padding-bottom: 10px;
+//       .plan_title{
+//         width: 210px;
+//         text-align: left;
+//         padding-bottom: 10px;
+//       }
+//         .features_list{
+//           padding-top: 10px;
+//         }
+//         .cancel{
+//           color: #7b7b7b;
+//         }
+//         ion-icon{
+//           font-size: 20px;
+//         }
+//         img{
+//           margin-right: 15px;
+//           height: 25px;
+//           // font-size: 36px;
+//         }
+//         .f_list{
+//           padding-left: 15px;
+//           font-size: 14px;
+//           text-align: left;
+//         }
+//     }
+//   }
+  
+//   .cards4{
+//     border: 1px solid var(--border);
+//     border-radius: 15px;
+//     padding: 14px;
+//     min-height: 180px;
+//     .r_name{
+//       color: var(--text-color);
+//       padding: 5px 0;
+//       text-align: left;
+//       font-size: 14px;
+//      }
+  
+//      .r_price{
+//       color: var(--text-color);
+//       font-weight: 500;
+//       font-size: 24px;
+//       padding: 15px 0;
+//       .month{
+//         font-size: 14px;
+//       }
+//      }
+  
+//      .features{
+//       padding-top: 7px;
+//       padding-bottom: 10px;
+//       .plan_title{
+//         width: 210px;
+//         text-align: left;
+//         padding-bottom: 10px;
+//       }
+//         .features_list{
+//           padding-top: 10px;
+//         }
+//         .cancel{
+//           color: #7b7b7b;
+//         }
+//         ion-icon{
+//           font-size: 20px;
+//         }
+//         img{
+//           margin-right: 15px;
+//           height: 25px;
+//           // font-size: 36px;
+//         }
+//         .f_list{
+//           padding-left: 15px;
+//           font-size: 14px;
+//           text-align: left;
+//         }
+//     }
+//   }
+  
+//     .cards{
+//         border: 1px solid var(--border);
+//         border-radius: 20px;
+//         padding: 20px;
+  
+//         .r_name{
+//           background: #f3f4f6;
+//           color: var(--text-color);
+//           border-radius: 16px;
+//           width: 125px;
+//           padding: 5px;
+//           text-align: center;
+//           font-size: 14px;
+//          }
+//          .r_price{
+//           color: var(--text-color);
+//           font-weight: 700;
+//           text-align: left;
+//           font-size: 30px;
+//           padding: 10px 0;
+//           span{
+//             font-size: 15px;
+//             color: var(--text-color);
+//             font-weight: 500;
+//           }
+//          }
+  
+  
+//          .features{
+//           min-height: 180px;
+//             .features_list{
+//               padding-top: 7px;
+//             }
+//             ion-icon{
+//               font-size: 20px;
+//             }
+//             img{
+//               margin-right: 15px;
+//               height: 25px;
+//               // font-size: 36px;
+//             }
+//             .plan_title{
+//               font-weight: 400;
+//               color: var(--text-color);
+//               padding: 4px;
+//               border-radius: 5px;
+//               text-align: left;
+//             }
+//             .f_list{
+//               padding: 10px 0;
+//               font-size: 16px;
+//               font-weight: 500;
+//               text-align: left;
+//               padding-left: 10px;
+//             }
+//         }
+//         .side_1{
+//           flex: 0 0 70%;
+//         }
+//         .side_2{
+//           flex: 0 0 30%;
+//           img{
+//             height: 90px;
+//           }
+//         }
+//     }
+  

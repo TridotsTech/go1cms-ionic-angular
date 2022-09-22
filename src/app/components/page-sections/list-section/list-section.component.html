@@ -1,0 +1,151 @@
+<div>
+    <div class="{{item.class_name}} py-30 list_1" *ngIf="item.section_type == 'Static Section' && item.section_name == 'List Style 1'">
+        <div [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0" class="dis_flex gap-10">
+            <div class="image m-r-100">
+                <img src="{{db.product_img(item.image)}}" alt="">
+            </div>
+            <div class="flex-50">
+                <div class="">
+                    <h2 class="title">{{item.title}}</h2>
+                    <p class="subtitle">{{item.subtitle}}</p>
+                </div>
+                <ul class="">
+                    <li class="accordion_box p-10" *ngFor="let data of item.list_data;let i = index" [class.active_box__]="data.show">
+                        <div (click)="open_close(i,item.list_data)" class="mouse p-15">
+                           <p class="m-0 title__ heading">{{data.title}}</p>
+                        </div>
+                        <p *ngIf="data.show" class="m-0 desc_class fnt-14">{{data.description}}</p>
+                    </li>
+                </ul> 
+            </div>
+        </div>
+    </div>
+    
+    <div class="{{item.class_name}} py-30 list_2" *ngIf="item.section_type == 'Static Section' && item.section_name == 'List Style 2'">
+        <div [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0" class="dis_flex gap-10">
+            <div class="flex-50">
+                <div class="">
+                    <h2 class="title">{{item.title}}</h2>
+                    <p class="subtitle">{{item.subtitle}}</p>
+                </div>
+                <div class="flex-50">
+                    <ul class="d__flex gap-10">
+                        <li class="list_data flex-50" *ngFor="let data of item.list_data;let i = index">
+                            <div class="icon">
+                                <img src="{{db.product_img(data.icon)}}" alt="">
+                            </div>
+                            <div class="mouse">
+                               <h4 class="title__ heading">{{data.title}}</h4>
+                               <p class="m-0">{{data.description}}</p>
+                            </div> 
+                        </li>
+                    </ul> 
+                </div>
+                <div *ngIf="item.btn_text" class="button">
+                    <ion-button fill="clear" (click)="db.route_url(item.btn_text.btn_redirect_url)">{{item.btn_text.btn_text}}</ion-button>
+                </div>
+            </div>
+            <div class="image m-l-100">
+                <img src="{{db.product_img(item.image)}}" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="{{item.class_name}} py-30 list_3" *ngIf="item.section_type == 'Static Section' && item.section_name == 'List Style 3'">
+        <div [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0" class="">
+                <div class="">
+                    <h2 class="title txt-c">{{item.title}}</h2>
+                    <p class="subtitle txt-c">{{item.subtitle}}</p>
+                </div>
+                <ul class="list_data3 d__flex flex-w">
+                    <li class="" *ngFor="let data of item.list_data">
+                        <div class="d__flex list_data">
+                            <div class="image txt-c">
+                                <img src="{{db.product_img(data.image)}}" alt="">
+                            </div>
+                            <div class="mouse">
+                                <h4 class="m-0 title__ heading">{{data.title}}</h4>
+                                <p class="m-0">{{data.description}}</p>
+                                <div class="my-10 btn" (click)="db.route_url(data.redirect_url)">{{data.button}}<ion-icon name="arrow-forward-outline"></ion-icon></div>
+                            </div> 
+                        </div>
+                    </li>
+                </ul> 
+        </div>
+    </div>
+
+    <div class="{{item.class_name}} py-30 list_4" *ngIf="item.section_type == 'Static Section' && item.section_name == 'List Style 4'">
+        <div [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0" class="dis_flex gap-10">
+            <div class="flex-50">
+                <div class="">
+                    <h2 class="title">{{item.title}}</h2>
+                </div>
+                <ul class="list_data5">
+                    <li class="accordion p-10" *ngFor="let data of item.list_data;let i = index">
+                        <div (click)="open_close(i,item.list_data)" class="mouse question p-15 d__flex just-s">
+                           <h5 class="m-0 ">{{data.title}}</h5>
+                           <ion-icon class="mouse" [name]="!data.show ? 'caret-forward-outline':'caret-down-outline'" ></ion-icon>
+                        </div>
+                        <p *ngIf="data.show" class="fnt-14">{{data.description}}</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="image m-l-100">
+                <img src="{{db.product_img(item.image)}}" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="{{item.class_name}} py-30 list_5" *ngIf="item.section_type == 'Static Section' && item.section_name == 'List Style 5'">
+        <div [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+            <div class="txt-c">
+                <h2 class="title">{{item.title}}</h2>
+                <p class="subtitle">{{item.subtitle}}</p>
+            </div>
+            <ul class="list_data5 d__flex gap-10 flex-w just-c">
+                <li class="list_data" *ngFor="let data of item.list_data">
+                    <div class="image">
+                        <div class="rounded">
+                            <img src="{{db.product_img(data.icon)}}" alt="">
+                        </div>
+                    </div>
+                    <div class="mouse">
+                        <h4 class="txt-c">{{data.title}}</h4>
+                        <p class="m-0">{{data.description}}</p>
+                        <div class="txt-c mt-15" (click)="db.route_url(data.redirect_url)">{{data.button}} <ion-icon name="arrow-forward-outline"></ion-icon></div>
+                    </div> 
+                </li>
+            </ul> 
+        </div>
+    </div>
+
+    <div class="{{item.class_name}} py-30 list_6" *ngIf="item.section_type == 'Static Section' && item.section_name == 'List Style 6'">
+        <div [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0" class="dis_flex gap-10">
+            <div class="flex-50">
+                <div class="">
+                    <h2 class="title">{{item.title}}</h2>
+                    <p class="subtitle">{{item.subtitle}}</p>
+                </div>
+                <div class="flex-50">
+                    <ul class="list_data6">
+                        <li class="" *ngFor="let data of item.list_data;let i = index">
+                            <div class="d__flex just-a">
+                                <div class="icon">
+                                    <img src="{{db.product_img(data.icon)}}" alt="">
+                                </div>
+                                <div class="mouse data">
+                                   <h4 class="m-0 title__ heading">{{data.title}}</h4>
+                                   <p class="m-0">{{data.description}}</p>
+                                </div> 
+                            </div>
+                        </li>
+                    </ul> 
+                </div>
+            </div>
+            <div class="image m-l-100">
+                <img src="{{db.product_img(item.image)}}" alt="">
+            </div>
+        </div>
+    </div>
+
+</div>

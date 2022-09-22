@@ -1,0 +1,334 @@
+<div class="category__container" [class.css_hide]="css_hide == 'css_hide'" [class.border_bottom]="!db.video_header">
+  <div class="category__bar d__flex main-width" >
+
+    <div *ngIf="db.video_header" class="mouse" [class.d__flex]="db.video_header" [class.gap-10]="db.video_header" (mouseleave)="all_category = false">
+
+      <div *ngIf="all_category" class="p-abs main-width" [class.top_drop_down]="db.video_header" (mouseleave)="all_category = false" >
+        <div class="dropdown-box" >
+          <div  class="cate_pro" *ngFor="let product of cat_products" routerLink="/shop/{{product.route}}" routerDirection="back" lines="none" (mouseenter)=" childs = product.child" (mouseenter)="goto(product,'child-1','hover')" (click)="all_category = false" (click)="goto(product,'child-1','click')">
+            <div class="d__flex gap-10">
+                <div class="category__img" *ngIf="product.mobile_image">
+                  <img  [src]="db.product_img(product.mobile_image)">
+                </div>
+                <div>{{product.category_name}}</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="sub-categoryy go1-cms-dropdown font">
+          <div #child_productdown class="childs"  (mouseleave)="hide_($event)" >
+            <!--  -->
+            <div class="p-5 children" *ngFor="let sub of childs" (mouseenter)="goto(sub,'child-2','hover')" (click)="goto(sub,'child-2','click')"  >
+              <!-- {{db.childs.child_1}}/ -->
+                <div class="" >
+                  <!-- (mouseenter)="child_drop_down = true && sub_childs = sub.child" -->
+                  <div  class="d__flex sub-cat mouse p-5 gap-10">
+                    <div class="category__img" *ngIf="sub.mobile_image"> <img  [src]="db.product_img(sub.mobile_image)"></div>
+                      <p class="m-0 fnt-14 fnt-500" routerLink="/shop/{{sub.route}}">{{sub.category_name}}</p>
+                      <!-- <ion-icon name="chevron-down-outline"></ion-icon> -->
+                  </div>
+                  <div class="sub-child" *ngIf="sub.child">
+                    <!-- (click)="product_drop_down && child_drop_down? (product_drop_down = false && child_drop_down = false):null"  (click)="goto(sub_child,'child-3','click')" -->
+                    <div class="sub__child" *ngFor="let sub_child of sub.child">
+                      <!-- routerLink="/shop/{{db.childs.child_1}}/{{db.childs.child_2}}/{{sub_child.route}}" -->
+                      <div class="d__flex gap-10 sub-hover">
+                        <div class="category__image" *ngIf="sub_child.mobile_image">
+                          <img src="{{sub_child.mobile_image}}">
+                        </div>
+                        <p class="m-0 mouse fnt-14" routerLink="/shop/{{sub_child.route}}">{{sub_child.category_name}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- *ngIf="child_drop_down" -->
+                <!-- (mouseleave)="product_drop_down && child_drop_down ? (product_drop_down = false && child_drop_down = false):null"  -->
+                <div class="sub-child"  *ngIf="sub.child && false">
+                  <div class="" *ngFor="let sub_child of sub_childs" (click)="product_drop_down && child_drop_down? (product_drop_down = false && child_drop_down = false):null"  (click)="goto(sub_child,'child-3','click')">
+                    <!-- routerLink="/shop/{{db.childs.child_1}}/{{db.childs.child_2}}/{{sub_child.route}}" -->
+                    <div class="d__flex gap-10">
+                      <div class="category__image" *ngIf="sub_child.mobile_image">
+                        <img src="{{sub_child.mobile_image}}">
+                      </div>
+                      <p class="m-0 mouse fnt-14" >{{sub_child.category_name}}</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div *ngIf="false">  <div class="mouse secondary__menu" *ngFor="let item of menu_categories"><a routerLink="/{{item.route}}">{{item.text}}</a></div>      </div>
+
+
+
+    <!-- CAtegory menu -->
+    <div  class="category__side__item"  [class.category_list]="db.path != '/p/ecomerce-builder' || db.path?.split('/')[1] != 'shop' || db.path?.split('/')[1] != 'pr' || db.path?.split('/')[1] != 'vendor-products' || db.path != '/whysellwithus'">
+      <!-- *ngIf="db.path != '/p/home-page-content'" -->
+      <div  class="category__container" >
+
+        <div  *ngIf="checkOverflow(category) && category_left_arrow" class="back" (click)="scroll('next')"><ion-icon name="chevron-back-outline"></ion-icon></div>
+
+
+        <div class="d__flex scrollable__category"  #category (scroll)="scrolled($event)">
+
+          <div  class="drop__down__header" *ngFor="let product of cat_products; let i=index"  lines="none" [class.active-category-item]="db.childs.child_1 == product.route && db.path.split('/')[1] == 'c'" (mouseenter)="childs = product.child" (mouseenter)="product.separate_drop_down =  true"  (mouseleave)="product.separate_drop_down = false " >
+          <!-- (mouseenter)="goto(product,'child-1','hover')" --> 
+          <!-- (click)="goto(product,'child-1','click')" -->
+            <a *ngIf="i <= 6" class="ion-text-center just-c d__flex main__category mouse"  routerLink="/shop/{{product.route}}" routerDirection="back" (click)="product.separate_drop_down = true" >
+              <!-- *ngIf="db.scroll_event.desktop_header" -->
+              <!-- <div class="category__img"><img *ngIf="product.mobile_image" [src]="db.product_img(product.mobile_image)"></div> -->
+              <div>
+                <p [ngClass]="db.video_header?'Text-color':'text__color'">{{product.category_name}}</p>
+              </div>
+            </a>
+
+            <!-- (mouseenter)="product.separate_drop_down =  true" (mouseleave)="product.separate_drop_down =  false" -->
+            <!-- (mouseleave)="hide_($event)" -->
+            <div  *ngIf="product.separate_drop_down && (childs &&childs.length != 0) && !all_category" class="sub-categoryy font" (mouseleave)="child_drop_down = false && sub_childs = []">
+              <div #child_productdown class="childs first-level" [class.not__child]="product.separate_drop_down" *ngFor="let sub of childs" >
+                <!-- (mouseenter)="goto(sub,'child-2','hover')" -->
+                <!-- (click)="goto(sub,'child-2','click')" -->
+                <!-- (mouseenter)="child_drop_down = true && sub_childs = sub.child" -->
+                <a class="d__flex sub__category mouse p-5 gap-10 just-s"  (mouseenter)="child_drop_down = true && sub_childs = sub.child" (click)="product.separate_drop_down = false" routerLink="/shop/{{sub.route}}">
+                    <!-- <div class="category__img" *ngIf="sub.mobile_image"> <img  [src]="db.product_img(sub.mobile_image)"></div> -->
+                    <p class="m-0 heading" >{{sub.category_name}}</p><ion-icon name="chevron-forward-outline"></ion-icon>
+                </a>
+
+                
+                <div  class="sub-child sub__children" *ngIf="child_drop_down && (sub_childs && sub_childs.length != 0)"  (mouseleave)="product_drop_down && child_drop_down ? (product_drop_down = false && child_drop_down = false):null" >
+                  <!--  -->
+                  <!-- {{db.childs.child_1}}/{{db.childs.child_2}}/ -->
+                  <div button *ngFor="let sub_child of sub_childs" (click)="goto(sub_child,'child-3','click')"  (click)="product_drop_down && child_drop_down? (product_drop_down = false && child_drop_down = false):null" (click)="product.separate_drop_down = false" (click)="child_drop_down = false"  >
+                    <a  class="d__flex sub__category mouse p-5 gap-10 just-s" routerLink="/shop/{{sub_child.route}}" (click)="sub_childs = [] && product.separate_drop_down = false ">
+                      <div class="category__image" *ngIf="sub_child.mobile_image"><img src="{{sub_child.mobile_image}}"></div>
+                      <p class="m-0 " > {{sub_child.category_name}}</p>
+                      <ion-icon name="chevron-forward-outline"></ion-icon>
+                    </a>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="view__button" [ngClass]="db.video_header?'Text-color':'text__color'">More <ion-icon  name="chevron-down-outline"></ion-icon>
+          <div class="drop__down mouse">
+            <div  *ngFor="let product of cat_products; let i=index" routerLink="/shop/{{product.route}}" class="drop__sub"> 
+              <div *ngIf="i > 6" class="d__flex just-s drop__categorys">
+                <p class="">{{product.category_name}}</p>
+                <ion-icon class="ion_Icon" name="chevron-forward-outline"></ion-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- -->
+        <div *ngIf="checkOverflow(category) && false && db.slider_button"  class="next" (click)="scroll('prev')"><ion-icon name="chevron-forward-outline">Next</ion-icon></div>
+        
+      </div>
+      <!-- <div *ngIf="db.category_list && db.category_list.length != 0"> -->
+        <!-- <div  class="drop__down__header" *ngFor="let product of db.header_info">
+          <a *ngIf="db.path != '/p/ecomerce-builder' && db.path?.split('/')[1] != 'shop' && db.path?.split('/')[1] != 'pr' && db.path !='my-profile/dashboard' && db.path?.split('/')[1] != 'vendor-products' && db.path?.split('/')[1] != 'search' && db.path != '/whysellwithus' && db.path?.split('/')[1] != 'blog-list' && db.path?.split('/')[1] != 'brands' && db.path?.split('/')[1] != 'blog-detail' && db.path?.split('/')[1] != 'shop-list'" class="ion-text-center just-c d__flex main__category mouse" [routerLink]="product.redirect_url"  routerDirection="back" >
+            <div *ngIf="product.menu_label" ><p [ngClass]="db.video_header?'Text-color':'text__color fnt-size'" [class.menu__text]="db.video_header">{{product.menu_text || product.menu_label}}</p></div>
+          </a>
+        </div> -->
+      <!-- </div> -->
+     
+      <!-- <div *ngIf="false" #dropdown2 class="custom-button mouse ion-text-right position-relative"  (mouseenter)="(db.cust_name || db.guest_cust_name)?drop_down2 = true:null" (click)="db.openLogin()" (mouseleave)="drop_down2 = false">
+
+        <div class="d__column" (click)="(db.cust_name || db.guest_cust_name) ? drop_down2 = !drop_down2:null">
+          <img class="icon" [class.mart-13]="db.video_header" *ngIf="db.website_settings && db.website_settings.app_settings && db.video_header" src="assets/imgs/user-white.svg" alt=""> 
+          <img class="icon" [class.mart-13]="db.video_header" *ngIf="db.website_settings && db.website_settings.app_settings && !db.video_header" [src]="db.product_img(db.website_settings.app_settings.user_icon)" alt=""> 
+          <span [ngClass]="db.video_header?'white':'black'" class="webkit-text" [style.--line]="1"></span>
+        </div>
+        <div *ngIf="drop_down2 && (db.cust_name || db.guest_cust_name)"  class="dropdown__box" >
+          <ion-item button   *ngFor="let item of _menu" (click)="drop_down2 = false" [routerLink]="'/'+item.route" lines="none"> {{item.title}}</ion-item>
+          <ion-item button  lines="none" (click)="drop_down2 = false" (click)="cart_pop.emit('wishcart')">  Wishlist</ion-item>
+          <ion-item button  lines="none" (click)="drop_down2 = false" (click)="db.logout()"> Logout  </ion-item>
+        </div>
+
+
+      </div> -->
+      
+    </div>
+  </div>
+
+  <div *ngIf="db.business_info && db.business_info.business_phone && false" class="cutomer_no d__flex" [class.cutomer_no_home]="db.path == '/' || db.path == '/home'">
+    <div class="image"><img src="/assets/chops_daily/support.svg" ></div>
+    <div class="grid">
+      <p class="m-0 p"><a href="tel:{{db.business_info.business_phone}}" class="no m-0 action-link" >{{db.business_info.business_phone}}</a></p>
+      <p class="support m-0" >Customer support</p>
+   </div>
+ </div>
+
+
+
+</div>
+
+
+
+   
+   
+   <!-- Mega Menu Attribute -->
+    <!-- <div class="category__container" [class.border_bottom]="!db.video_header">
+      <div class="category__bar d__flex main-width" [class.gap-280]="db.path == '/' || db.path == '/home' || db.path == '/p/about-us' || db.path == '/p/community' || db.path == '/contact-us' || db.path == '/p/terms-condition' || db.path == '/p/privacy-policy' || db.path == '/p/return-policy'">
+
+        <div  class="mouse" [class.d__flex]="db.video_header" [class.gap-10]="db.video_header" (mouseleave)="all_category = false">
+
+
+          <div *ngIf="all_category" class="p-abs main-width" [class.top_drop_down]="db.video_header" (mouseleave)="all_category = false" >
+            <div class="dropdown-box" >
+              <div  class="cate_pro" *ngFor="let product of cat_products" routerLink="/shop/{{product.route}}" routerDirection="back" lines="none" (mouseenter)=" childs = product.child" (mouseenter)="goto(product,'child-1','hover')" (click)="all_category = false" (click)="goto(product,'child-1','click')">
+                <div class="d__flex gap-10">
+                    <div class="category__img" *ngIf="product.mobile_image">
+                      <img  [src]="db.product_img(product.mobile_image)">
+                    </div>
+                    <div>{{product.category_name}}</div>
+                  </div>
+                </div>
+            </div>
+
+            <div class="sub-categoryy">
+              <div #child_productdown class="childs"  (mouseleave)="hide_($event)" >
+
+                <div class="p-5 children" *ngFor="let sub of childs" (mouseenter)="goto(sub,'child-2','hover')" (click)="goto(sub,'child-2','click')"  >
+              
+                    <div class="" >
+                   
+                      <div  class="d__flex sub-cat mouse p-5 gap-10">
+                        <div class="category__img" *ngIf="sub.mobile_image"> <img  [src]="db.product_img(sub.mobile_image)"></div>
+                          <p class="m-0 fnt-14 fnt-500" routerLink="/shop/{{sub.route}}">{{sub.category_name}}</p>
+                        
+                      </div>
+                      <div class="sub-child" *ngIf="sub.child">
+                     
+                        <div class="sub__child" *ngFor="let sub_child of sub.child">
+
+                          <div class="d__flex gap-10 sub-hover">
+                            <div class="category__image" *ngIf="sub_child.mobile_image">
+                              <img src="{{sub_child.mobile_image}}">
+                            </div>
+                            <p class="m-0 mouse fnt-14" routerLink="/shop/{{sub_child.route}}">{{sub_child.category_name}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                   
+                    <div class="sub-child"  *ngIf="sub.child && false">
+                      <div class="" *ngFor="let sub_child of sub_childs" (click)="product_drop_down && child_drop_down? (product_drop_down = false && child_drop_down = false):null"  (click)="goto(sub_child,'child-3','click')">
+                        
+                        <div class="d__flex gap-10">
+                          <div class="category__image" *ngIf="sub_child.mobile_image">
+                            <img src="{{sub_child.mobile_image}}">
+                          </div>
+                          <p class="m-0 mouse fnt-14" >{{sub_child.category_name}}</p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div *ngIf="false">  <div class="mouse secondary__menu" *ngFor="let item of menu_categories"><a routerLink="/{{item.route}}">{{item.text}}</a></div>      </div>
+
+
+
+        <div  class="category__side__item"  [class.category_list]="db.path != '/p/ecomerce-builder' || db.path?.split('/')[1] != 'shop' || db.path?.split('/')[1] != 'pr' || db.path?.split('/')[1] != 'vendor-products' || db.path != '/whysellwithus'">
+
+          <div  class="category__container" *ngIf="db.path == '/p/ecomerce-builder' || db.path?.split('/')[1] == 'shop' || db.path?.split('/')[1] == 'pr' || db.path?.split('/')[1] == 'vendor-products' || db.path?.split('/')[1] == 'search' || db.path == '/whysellwithus' || db.path?.split('/')[1] == 'blog-list' || db.path?.split('/')[1] == 'brands' || db.path?.split('/')[1] == 'blog-detail' || db.path?.split('/')[1] == 'shop-list'">
+  
+            <div  *ngIf="checkOverflow(category) && category_left_arrow" class="back" (click)="scroll('next')"><ion-icon name="chevron-back-outline"></ion-icon></div>
+
+
+            <div class="d__flex scrollable__category"  #category (scroll)="scrolled($event)">
+
+              <div  class="drop__down__header" *ngFor="let product of cat_products; let i=index"  lines="none" [class.active-category-item]="db.childs.child_1 == product.route && db.path.split('/')[1] == 'c'" (mouseenter)="childs = product.child" (mouseenter)="product.separate_drop_down =  true"  (mouseleave)="product.separate_drop_down = false " >
+             
+                <a *ngIf="i <= 6" class="ion-text-center just-c d__flex main__category mouse"  routerLink="/shop/{{product.route}}" routerDirection="back" (click)="product.separate_drop_down = true" >
+                
+                  <div>
+                    <p [ngClass]="db.video_header?'Text-color':'text__color'">{{product.category_name}}</p>
+                  </div>
+                </a>
+
+                
+                <div  *ngIf="product.separate_drop_down && childs.length != 0 && !all_category" class="sub-categoryy" (mouseleave)="child_drop_down = false && sub_childs = []">
+                  <div #child_productdown class="childs first-level" [class.not__child]="product.separate_drop_down" *ngFor="let sub of childs" >
+                 
+                    <a class="d__flex sub__category mouse p-5 gap-10 just-s"  (mouseenter)="child_drop_down = true && sub_childs = sub.child" (click)="product.separate_drop_down = false" routerLink="/shop/{{sub.route}}">
+                  
+                        <p class="m-0 " >{{sub.category_name}}</p><ion-icon name="chevron-forward-outline"></ion-icon>
+                    </a>
+
+                    
+                    <div  class="sub-child sub__children" *ngIf="child_drop_down && (sub_childs && sub_childs.length != 0)"  (mouseleave)="product_drop_down && child_drop_down ? (product_drop_down = false && child_drop_down = false):null" >
+                     
+                      <div button *ngFor="let sub_child of sub_childs" (click)="goto(sub_child,'child-3','click')"  (click)="product_drop_down && child_drop_down? (product_drop_down = false && child_drop_down = false):null" (click)="product.separate_drop_down = false" (click)="child_drop_down = false"  >
+                        <a  class="d__flex sub__category mouse p-5 gap-10 just-s" routerLink="/shop/{{sub_child.route}}" (click)="sub_childs = [] && product.separate_drop_down = false ">
+                          <div class="category__image" *ngIf="sub_child.mobile_image"><img src="{{sub_child.mobile_image}}"></div>
+                          <p class="m-0 " > {{sub_child.category_name}}</p>
+                          <ion-icon name="chevron-forward-outline"></ion-icon>
+                        </a>
+                      </div>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="view__button">More <ion-icon name="chevron-down-outline"></ion-icon>
+              <div class="drop__down mouse">
+                <div  *ngFor="let product of cat_products; let i=index" routerLink="/shop/{{product.route}}" class="drop__sub"> 
+                  <div *ngIf="i >= 6" class="d__flex just-s drop__categorys">
+                    <p class="">{{product.category_name}}</p>
+                    <ion-icon class="ion_Icon" name="chevron-forward-outline"></ion-icon>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="checkOverflow(category) && false && db.slider_button"  class="next" (click)="scroll('prev')"><ion-icon name="chevron-forward-outline">Next</ion-icon></div>
+            
+          </div>
+
+          <div #dropdown2 class="custom-button mouse ion-text-right position-relative" *ngIf="db.path == '/' || db.path == '/home' || db.path == '/p/about-us' || db.path == '/p/community' || db.path == '/contact-us' || db.path == '/p/terms-condition' || db.path == '/p/privacy-policy' || db.path == '/p/return-policy'"  (mouseenter)="(db.cust_name || db.guest_cust_name)?drop_down2 = true:null" (click)="db.openLogin()" (mouseleave)="drop_down2 = false">
+  
+            <div class="d__column" (click)="(db.cust_name || db.guest_cust_name) ? drop_down2 = !drop_down2:null">
+              <img class="icon" [class.mart-13]="db.video_header" *ngIf="db.website_settings && db.website_settings.app_settings && db.video_header" src="assets/imgs/user-white.svg" alt=""> 
+              <img class="icon" [class.mart-13]="db.video_header" *ngIf="db.website_settings && db.website_settings.app_settings && !db.video_header" [src]="db.product_img(db.website_settings.app_settings.user_icon)" alt=""> 
+              <span [ngClass]="db.video_header?'white':'black'" class="webkit-text" [style.--line]="1"></span>
+            
+            </div>
+
+            <div *ngIf="drop_down2 && (db.cust_name || db.guest_cust_name)"  class="dropdown__box" >
+              <ion-item button   *ngFor="let item of _menu" (click)="drop_down2 = false" [routerLink]="'/'+item.route" lines="none"> {{item.title}}</ion-item>
+              <ion-item button  lines="none" (click)="drop_down2 = false" (click)="cart_pop.emit('wishcart')">  Wishlist</ion-item>
+              <ion-item button  lines="none" (click)="drop_down2 = false" (click)="db.logout()"> Logout  </ion-item>
+            </div>
+    
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="db.business_info && db.business_info.business_phone && false" class="cutomer_no d__flex" [class.cutomer_no_home]="db.path == '/' || db.path == '/home'">
+        <div class="image"><img src="/assets/chops_daily/support.svg" ></div>
+        <div class="grid">
+          <p class="m-0 p"><a href="tel:{{db.business_info.business_phone}}" class="no m-0 action-link" >{{db.business_info.business_phone}}</a></p>
+          <p class="support m-0" >Customer support</p>
+       </div>
+     </div>
+
+
+
+    </div> -->

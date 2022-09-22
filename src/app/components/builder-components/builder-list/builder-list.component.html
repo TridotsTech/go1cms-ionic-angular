@@ -1,0 +1,76 @@
+ <!--15 lists -->
+          <!-- number list -->
+          <!-- <div *ngIf="row.component_type=='List_Style1'" class="list_style1 component_container">
+            <div class="list_row">
+              <div *ngFor="let data of row.data;let i=index">
+                <div class="d__flex" class="icon_list_item">
+                  <div class="d__flex number_bullet">
+                    <div>{{i+1}}</div>
+                  </div>
+                  <div>
+                    <div class="icon_list_title m-b-15">{{data.name}}</div>
+                    <div class="icon_list_content">{{data.content}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <!-- bullets -->
+          <div *ngIf="row.component_type=='List Style1'" class="list_style2 component_container">
+            <ul class="list_row">
+              <li *ngFor="let data of row.data.data " class="d__flex list-item title" >
+                  <img [src]="db.product_img(data.image)" alt="">
+                  {{data.title}}
+              </li>
+            </ul>
+          </div>
+          <!-- List 3 -->
+          <ul class="list_element component_container" *ngIf="row.component_type=='List Style2'">            
+                <li class="divst_items d__flex title" *ngFor="let data of row.data">
+                  <img [src]="db.product_img(data.image)" alt="icon">
+                  {{data.title}}
+                </li>  
+              </ul>
+          <!--List 4  -->
+          <ul class="list_element2 component_container" *ngIf="row.component_type=='List Style3'">
+            <li class="list_content mb-20" *ngFor="let data of row.data.data">
+              <div class="list_data">
+                <span class="title">{{data.title}} </span>
+                <p class="content">{{data.content}}</p>
+              </div>
+            </li>
+          </ul>
+          <!--  -->
+          <ul *ngIf="row.component_type=='List Style4'" class="List_Style4 component_container">
+            <li *ngFor="let data of row.data.data" class="card_list d__flex align-center">
+              <div class="side_icon bg_icon">
+                <img [src]="db.product_img(data.image)">
+              </div>
+              <div class="title_ side_title">
+                 <span  class="title">
+                  {{data.title}}
+                 </span>
+                 <p class="content">{{data.content}}</p>
+              </div>
+            </li>
+          </ul>
+          <!--  -->
+          <ul *ngIf="row.component_type=='List Style5'" class="list_style5 component_container">
+            <li   class="box__1  d__flex">
+              <div  class="image">
+                 <img [src]="row.image" alt="">
+              </div>
+              <div class="empty_div">
+                 <div class="content">
+                    <div class="content__box d__flex" >
+                       <div class="d__flex content_value">
+                          <img  class="icon__ list_icon" [src]="db.product_img(row.data.avatar_image)" alt="">
+                          <span class="title">{{row.title}}</span>
+                       </div>
+                       <p class="content">{{row.content}}</p>
+                    </div>
+                 </div>
+              </div>
+            </li>
+          </ul>
+

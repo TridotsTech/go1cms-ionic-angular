@@ -1,0 +1,26 @@
+<!--1 Text -->
+          <!-- Title -->
+          <h1 *ngIf="row.component_type=='Heading'" class="heading" >
+             {{row.data.heading}}
+          </h1>
+          <h2 *ngIf="row.component_type=='Text'" class="title component_container">
+            {{row.data.title}}
+          </h2>
+          <h3 *ngIf="row.component_type=='Title2'" class="title">
+            <span>{{row.data.title}}</span>
+          </h3>
+          <h4 *ngIf="row.component_type=='Title3'" class="title"> 
+            <span>{{row.data.title}}</span>
+          </h4>
+          <!-- subtitle -->
+          <h5 *ngIf="row.component_type=='Subtitle'" class="component_container subtitle">
+            {{row.data.subtitle}}
+          </h5>
+          <!-- subtitle_2 -->
+          <h6 *ngIf="row.component_type=='Subtitle Style2'" class="component_container subtitle">
+            {{row.data.subtitle}}
+          </h6>
+          <!-- description -->
+          <p *ngIf="row.component_type=='Description Style1'" class="content component_container">
+            {{row.data.description}}
+          </p>

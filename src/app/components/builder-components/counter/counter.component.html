@@ -1,0 +1,65 @@
+ <!-- 12 Counter -->
+          <!--  Counter 1 -->
+          <div class="component_container __wrap d__flex color_card_list" 
+          *ngIf="row.component_type=='Counter Style1'">
+          <div *ngFor="let data of row.data.data;let i=index" class="card_list">
+            <h2 class="c-section  count_color_change count_value">
+              {{data.count_value}} +
+            </h2>
+            <div class="title_">
+              <h4 class="m-0 count_title">
+                {{data.count_title}}
+              </h4>
+            </div>
+            <p class="count_description webkit-text"
+              [style.--line]="1">
+              {{data.count_description}}
+            </p>
+          </div>    
+          </div>
+          <!-- Counter 2 -->
+          <div *ngIf="row.component_type=='Counter Style2'" class="counter__div component_container d__flex">
+            <div *ngFor="let data of row.data.data;let i=index" class="card_list">
+              <h2 class="value_count color_primary">{{data.count_value}} +
+              </h2>
+              <h4 class="count_title  webkit-text" [style.--line]="1">
+               {{data.count_title}}
+              </h4>
+            </div>
+          </div>
+          <!-- Counter 3 -->
+          <div *ngIf="row.component_type=='Counter Style3'" class="loop_count_icon d__flex __wrap component_container d__flex">
+            <div class="icon_count d__flex" *ngFor="let data of row.data.data;let i=index">
+              <div class="icon_back icon color_primary">
+                <ion-icon name="mail" class="counter_icon"></ion-icon> 
+              </div>
+              <div class="bordered_icon">
+                <h2 class="count_value">{{data.count_value}} +
+                </h2>
+                <h4 class="description_text  desc_class count_title">
+                  {{data.count_title}}
+                </h4>
+              </div>
+            </div>
+          </div>
+          <!-- Counter 4 -->
+          <div *ngIf="row.component_type=='Counter Style4'" class="counter_content_main component_container d__flex">   
+            <div *ngFor="let data of row.data.data;let i=index" class="counter_content">
+              <h2 class="count_value" name="">{{data.count_value}} +</h2>
+              <h4 class="description_text desc_class  m-0 webkit-text count_title" [style.--line]="1">{{data.count_title}}</h4>
+            </div>   
+          </div>
+          <!-- Counter 5 -->
+          <div *ngIf="row.component_type=='Counter Style5'" class="counter_section_main component_container d__flex">
+            <div *ngFor="let data of row.data.data;let i=index" class="counter_section">
+              <h2 class="count_value">{{data.count_value}} +</h2>
+              <h4 class="description_text desc_class webkit-text count_title" [style.--line]="1">{{data.count_title}}</h4>
+            </div>
+          </div>
+          <!-- Counter 6 -->
+          <div *ngIf="row.component_type=='Counter Style6'" class="component_container container_bg_main d__flex"> 
+            <div *ngFor="let data of row.data.data;let i=index" class="container_bg card_list">
+              <h2 class="count_value">{{data.count_value}} +</h2>
+              <h4 class="count_title" [style.--line]="2">{{data.count_title}}</h4>
+            </div>
+          </div>
