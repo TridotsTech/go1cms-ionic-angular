@@ -20,6 +20,7 @@ import {
   ModalController,
   Platform,
   PopoverController,
+  AnimationController
 } from '@ionic/angular';
 
 import { DbService } from './services/db.service';
@@ -40,7 +41,29 @@ export class AppComponent {
  
   @ViewChild('location_popups') location_popups :ElementRef;
   @ViewChild('overlay') overlay :ElementRef;
-  constructor(public db:DbService,private router:Router,private platform:Platform,private modalCtrl:ModalController,private popupCtrl:PopoverController,private menuCtrl:MenuController,private zone: NgZone,@Inject(PLATFORM_ID) private platformId,private alertCtl:AlertController) {
+
+  myCustomPageTransition = ((baseEl: any, opts?: any) => { 
+    // console.log("opts.enteringEl:"  + opts.enteringEl); //Entering Element - New Page
+    // console.log("opts.leavingEl:"  + opts.leavingEl);   //Leaving Element - Current Page
+    var anim1 = this.animationCtrl.create()
+      .addElement(opts.leavingEl)
+      .duration(1000)
+      .iterations(1)
+      .easing('ease-out')
+      .fromTo('opacity', '1', '0.0')
+    var anim2 = this.animationCtrl.create()
+      .addElement(opts.enteringEl)
+      .duration(1000)
+      .iterations(1)
+      .easing('ease-out')
+      .fromTo('opacity', '0.0', '1')
+     var anim2 = this.animationCtrl.create()
+      .duration(1000)
+      .iterations(1)
+      .addAnimation([anim1, anim2]);
+    return anim2;
+  });
+  constructor(private animationCtrl:AnimationController,public db:DbService,private router:Router,private platform:Platform,private modalCtrl:ModalController,private popupCtrl:PopoverController,private menuCtrl:MenuController,private zone: NgZone,@Inject(PLATFORM_ID) private platformId,private alertCtl:AlertController) {
   }
 
  
