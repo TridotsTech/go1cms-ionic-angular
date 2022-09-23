@@ -1,7 +1,7 @@
 <ul *ngIf="menu && menu.menus && menu.menus.length != 0" class="default_header desktop__header  d__flex go1-cms-menu" >
       <!-- <div  class="drop__down__header" *ngFor="let product of db.header_info.menus.slice(0,8)" (mouseenter)="product.show = true" (mouseleave)="product.show = false"> -->
         <li  class="drop__down__header menu-item" *ngFor="let product of menu.menus.slice(0,6)" (mouseenter)="product.show = true" (mouseleave)="product.show = false">
-        <a  *ngIf="product.menu_label" [class.web_header]="web_header == true" class="m-0 ion-text-center font just-c d__flex main__category mouse" [routerLink]="product.redirect_url"  routerDirection="back" [style.color]="!db.scroll_event.header_sticky ? sub_list_color : null " [class.header_menu]="product.redirect_url == db.header_menu">
+        <a  *ngIf="product.menu_label" [class.web_header]="web_header == true" class="m-0 ion-text-center font just-c d__flex main__category mouse" (click)="db.route_url(product.redirect_url)"  routerDirection="back" [style.color]="!db.scroll_event.header_sticky ? sub_list_color : null " [class.header_menu]="product.redirect_url == db.header_menu">
           <!-- [class.absolute_color]="db.enable_absolute_header && db.enable_absolute_header==1 && db.enable_first_menu==0 && !db.scroll_event.absolute_sticky" -->
         {{product.menu_text || product.menu_label}} </a>
 
@@ -15,7 +15,7 @@
        <!-- <div *ngIf="product.show && product.child_menu.length != 0" class="sub-categoryy font"> -->
         <ul *ngIf="product.show && product.length != 0" class="sub-categoryy go1-cms-dropdown font">
           <li #child_productdown class="childs first-level" [class.not__child]="product.separate_drop_down"  *ngFor="let item of product.child_menu"  (mouseenter)="item.show = true" (mouseleave)="item.show = false">
-            <a class="d__flex sub__category mouse p-5 gap-10 just-s m-0" (click)="product.show = false"  routerLink="/{{item.redirect_url}}">
+            <a class="d__flex sub__category mouse p-5 gap-10 just-s m-0" (click)="product.show = false" routerLink="/{{item.redirect_url}}">
                 {{item.menu_label}}<ion-icon name="chevron-forward-outline"></ion-icon>
             </a>
             <ul  class="sub-child sub__children" *ngIf="item.show && item.child_menu.length != 0"  (mouseleave)="product.show = false && item.show = false" >

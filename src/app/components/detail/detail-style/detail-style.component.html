@@ -1,7 +1,7 @@
 <div >
 
   <div *ngIf="value.data == 'title'"  >
-    <h1 class="webkit-text" [style.--line]="2">{{detail[0][value.data]}}</h1>
+    <h2 class="webkit-text" [style.--line]="2">{{detail[0][value.data]}}</h2>
   </div>
 
   <div *ngIf="value.data == 'blog_intro'"  >
@@ -18,7 +18,7 @@
 
   
   <div class="free_text" *ngIf="value.data == 'Final_Results' || value.data == 'project_summary'" >
-    <h3>{{detail[0][value.data].title }}</h3>
+    <h2>{{detail[0][value.data].title }}</h2>
     <div *ngIf="detail[0][value.data].image" class="image d__flex just-c">
       <img src="{{db.product_img(detail[0][value.data].image)}}">
     </div>
@@ -30,7 +30,7 @@
   </div>
 
   <div class="gallery" *ngIf="value.data == 'gallery'"  >
-    <h3>{{detail[0][value.data].title}}</h3>
+    <h2>{{detail[0][value.data].title}}</h2>
     <app-gallery-details [item]="detail[0][value.data].gallery_values" data="" [scrollable]="db.ismobile?'grid-1-50':'grid-4'" ></app-gallery-details>
   </div>
 
@@ -38,7 +38,7 @@
 
   <table *ngIf="value.data == 'table'" id="customers" >
   
-    <h3>{{detail[0]['table'].title}}</h3>
+    <h2>{{detail[0]['table'].title}}</h2>
 
     <tr *ngFor="let data of detail[0]['table'].table_values">
        <td>

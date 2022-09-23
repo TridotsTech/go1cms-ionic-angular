@@ -333,7 +333,7 @@
           <p class="error" *ngIf="!captcha && submitted">captcha is required *</p>
         </div>
         <div [class.button_positions_end]="button_positions == 'end'" class="submit-btn">
-          <ion-button fill="clear" class="sub-button" (click)="save_details()">Submit</ion-button>
+          <ion-button fill="clear" class="btn primary-btn" (click)="save_details()">Submit</ion-button>
           <ion-button *ngIf="!cancle_btn_hide" fill="clear" class="sub-button m__left__10" color="danger" (click)="cancel_details()">Cancel</ion-button>
         </div>
       </form>
@@ -577,7 +577,7 @@
           <h6 class="alert__txt">* Never accept check payments from strangers. <span routerDirection="back" routerLink="/terms/scam-alert">Alert</span></h6>
         </div>
         <div class="submit-btn">
-          <ion-button class="sub-button" (click)="save_details()">Submit</ion-button>
+          <ion-button class="btn primary-btn" (click)="save_details()">Submit</ion-button>
         </div>
       </form>
     </div>
@@ -838,12 +838,12 @@
           <re-captcha required siteKey="{{db.recaptcha_key}}" (resolved)="resolved($event)" (error)="onError($event)"></re-captcha>
           <p class="error" *ngIf="!captcha && submitted">captcha is required *</p>
         </div>
-        <div class="mbl-alert__scam__message alert__scam__message d__flex">
-          <div class="terms-condition">
+        <div *ngIf="false" class="mbl-alert__scam__message alert__scam__message d__flex">
+          <!-- <div class="terms-condition">
             <ion-checkbox formControlName="terms_condt" checked='false' color="primary"></ion-checkbox>
-            <!-- <h6> I Agree with the <a class="terms-condti mouse" routerDirection="back" target="_blank" routerLink="/terms/terms-and-condition">terms and conditions</a></h6> -->
+            <h6> I Agree with the <a class="terms-condti mouse" routerDirection="back" target="_blank" routerLink="/terms/terms-and-condition">terms and conditions</a></h6>
             <h6> I Agree with the <a class="terms-condti mouse" routerDirection="back" target="_blank" href="/terms/terms-and-condition">terms and conditions</a></h6>
-          </div>
+          </div> -->
           <!-- error msg -->
           <div class="error-msg terms-con" *ngIf="submitted && form_data.get('terms_condt') &&  form_data.get('terms_condt').errors && form_data.get('terms_condt').errors.required">
             <p class="error-msg-alert">Please Accept the Terms & Conditions *</p>
@@ -858,7 +858,7 @@
           </div>
         </div>
         <div class="submit-btn">
-          <ion-button class="sub-button" (click)="save_details()">Submit</ion-button>
+          <ion-button class="btn primary-btn" (click)="save_details()">Submit</ion-button>
         </div>
       </form>
     </div>
@@ -1096,7 +1096,7 @@
           <h6 class="alert__txt">* Never accept check payments from strangers. <span routerDirection="back" routerLink="/terms/scam-alert">Alert</span></h6>
         </div>
         <div class="submit-btn">
-          <ion-button class="sub-button" (click)="save_details()">Submit</ion-button>
+          <ion-button class="btn primary-btn" (click)="save_details()">Submit</ion-button>
         </div>
       </form>
     </div>

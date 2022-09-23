@@ -90,6 +90,7 @@ export class PageBuilderComponent implements OnInit {
     //   res == 'getted' ? this.get_recommeded() : null 
     // })
 
+
     if(location.pathname == '/about-us'){
       this.url = location.pathname
     }
@@ -139,6 +140,8 @@ Animation(){
     // }
   // })
 }
+
+
 
 addObserver(el){ 
  if(!('IntersectionObserver' in window)){

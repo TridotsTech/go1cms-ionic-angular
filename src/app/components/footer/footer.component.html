@@ -52,7 +52,7 @@
           <div class="border_line"></div>
           <div class="container_f" *ngFor="let data of item.menus">
               <a class=" mouse d__flex go1-cms-footer-text m-0" [routerLink]="data.redirect_url">
-                <!-- <ion-icon name="chevron-forward-outline"></ion-icon>  -->
+                <ion-icon *ngIf="db.footer_info.enable_link_icon && db.footer_info.enable_link_icon == 1" name="chevron-forward-outline"></ion-icon> 
                 <span>{{data.menu_label}}</span>
               </a>
           </div>
@@ -93,7 +93,7 @@
   <ion-row class="foot-d md hydrated d__flex just-s main-width">
   
     <ion-col class="go1-cms-copyright-fc-content">
-      <a *ngIf="db.footer_info.fc_ct_type  == 'Custom'" [innerHtml]="db.footer_info.cp_fc_content"></a>
+      <div *ngIf="db.footer_info.fc_ct_type  == 'Custom'" [innerHtml]="db.footer_info.cp_fc_content"></div>
 
       <ul *ngIf="db.footer_info.fc_ct_type  == 'Social Links' && (db.website_settings && db.website_settings.theme_settings && db.website_settings.theme_settings.social_links && db.website_settings.theme_settings.social_links.length != 0)">
         <li class="d__flex social__icons_" *ngFor="let item of db.website_settings.theme_settings.social_links">
@@ -106,7 +106,7 @@
     </ion-col>
 
     <ion-col *ngIf="db.footer_info.copyright_layout == 'Two Column'" class="go1-cms-copyright-sc-content">
-      <a *ngIf="db.footer_info.sc_ct_type  == 'Custom'" [innerHtml]="db.footer_info.sc_ct_type"></a>
+      <div *ngIf="db.footer_info.sc_ct_type  == 'Custom'" [innerHtml]="db.footer_info.sc_ct_type"></div>
 
       <ul *ngIf="db.footer_info.sc_ct_type  == 'Social Links' && (db.website_settings && db.website_settings.theme_settings && db.website_settings.theme_settings.social_links && db.website_settings.theme_settings.social_links.length != 0)">
         <li class="d__flex social__icons_" *ngFor="let item of db.website_settings.theme_settings.social_links">

@@ -1343,14 +1343,14 @@
       <div class="cardsection-main6 {{item.class_name}}" [class.main-width]="item.is_full_width == 0"
         [class.main-width-full]="item.is_full_width == 1"
         *ngIf="item.section_name == '4x2 grid on brand' && item.section_type == 'Static Section'">
-        <div class="">
-          <h2 class=" title-center m-0 pad-left-30 title">{{item.title}} <span class="title0">{{item.title0}}</span>
+        <div class="main-width">
+          <h2 class="pt-15 title-center pad-left-30 title">{{item.title}} <span class="title0">{{item.title0}}</span>
           </h2>
-          <p class="m-0 pad-left-30 white-text content">{{item.content}}</p>
+          <p class="m-0 pad-left-30  content">{{item.content}}</p>
           <div class="cardsection d__flex">
             <div class="card-box" *ngFor="let data of item.cardsection6">
               <img src="{{db.product_img(data.icon1)}}" alt="" class="icon1">
-              <h4 class="m-0 title1">{{data.title1}}</h4>
+              <h4 class="m-0 title1 white-text">{{data.title1}}</h4>
               <p class="content">{{data.content1}}</p>
             </div>
           </div>
@@ -1639,28 +1639,31 @@
         *ngIf="item.section_type == 'Static Section' && item.section_name =='Left Side List Style Two and Right Image'"
         class="container_reverce Left_List_Right_Image d__flex d__flex {{item.class_name}} animate"
         [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
-        <div class="content_container">
-          <div class="content_element">
-            <div class="lr_title_ mb-20 ">
-              <h2 class="title">{{item.title}}</h2>
-              <p class="m-0 content">{{item.content}}</p>
+        <div class="main-width d__flex mobile_b">
+          <div class="content_container">
+            <div class="content_element">
+              <div class="lr_title_ mb-20 ">
+                <h2 class="title">{{item.title}}</h2>
+                <p class="m-0 content">{{item.content}}</p>
+              </div>
+              <div *ngIf="item.subtitle" class="description_ mb-20">
+                <h5 class="description_text desc_class subtitle mobile_center_text">{{item.subtitle}}</h5>
+              </div>
+              <ul class="list_element">
+                <li class="list_content mb-20" *ngFor="let data of item.listpoints">
+                  <div class="list_data ">
+                    <h4 *ngIf="data.list_title" class="list1 m-0">{{data.list_title}}</h4>
+                    <p *ngIf="data.listconent" class="description_text listconent mt-5">{{data.listconent}}</p>
+                  </div>
+                </li>
+              </ul>
             </div>
-            <div *ngIf="item.subtitle" class="description_ mb-20">
-              <h5 class="description_text desc_class subtitle mobile_center_text">{{item.subtitle}}</h5>
-            </div>
-            <ul class="list_element">
-              <li class="list_content mb-20" *ngFor="let data of item.listpoints">
-                <div class="list_data ">
-                  <h4 *ngIf="data.list_title" class="list1 m-0">{{data.list_title}}</h4>
-                  <p *ngIf="data.listconent" class="description_text listconent mt-5">{{data.listconent}}</p>
-                </div>
-              </li>
-            </ul>
           </div>
-        </div>
-        <div class="image_container">
-          <div class="txt-c">
-            <img class="right_image" *ngIf="item.right_image" [src]="db.product_img(item.right_image)" alt="banner_img">
+          <div class="image_container">
+            <div class="txt-r">
+              <img class="right_image" *ngIf="item.right_image" [src]="db.product_img(item.right_image)"
+                alt="banner_img">
+            </div>
           </div>
         </div>
       </div>

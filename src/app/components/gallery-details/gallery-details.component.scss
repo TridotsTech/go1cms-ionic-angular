@@ -118,8 +118,8 @@
 @media only screen and (max-width: 600px) {
   .image {
     height: 100%;
-    // min-height: 210px;
-    // max-height: 210px;
+    min-height: 210px;
+    max-height: 210px;
     overflow: hidden;
  }
 }
@@ -128,8 +128,8 @@
 @media only screen and (min-width: 600px) {
   .image {
     height: 100%;
-    // min-height: 210px;
-    // max-height: 210px;
+    min-height: 210px;
+    max-height: 210px;
     overflow: hidden;
  }
 }
@@ -137,24 +137,24 @@
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
    .image{
-    // min-height: 285px;
-    // max-height: 285px;
+    min-height: 285px;
+    max-height: 285px;
    }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   .image{
-    // min-height: 285px;
-    // max-height: 285px;
+    min-height: 285px;
+    max-height: 285px;
   }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
   .image{
-    // min-height: 285px;
-    // max-height: 285px;
+    min-height: 285px;
+    max-height: 285px;
   }
 }
   

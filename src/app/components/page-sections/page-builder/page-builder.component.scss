@@ -1797,7 +1797,9 @@
 
 @media screen and (max-width:768px) {
 
-
+  .mobile_b{
+    flex-direction: column;
+  }
   .contact-us {
     .con__ {
       flex-direction: column;
@@ -4487,7 +4489,7 @@ ion-slides {
   }
 
   .contact-us {
-    padding: 0px 0 !important;
+    padding: 20px 0 !important;
     border-radius: 0 !important;
 
     .con__ {
@@ -5351,6 +5353,9 @@ ion-slides {
       font-size: 13px;
       width: 50%;
     }
+     ion-button .button-native{
+      --background-color: var(--go1-button-primary-btn-bg);
+    }
 
     .headings {
       margin-bottom: 20px;
@@ -5392,6 +5397,7 @@ ion-slides {
       width: 20%;
       border-radius: 3px;
     }
+
 
     .headings {
       margin-bottom: 50px;
@@ -7049,6 +7055,16 @@ a:hover {
   }
 }
 
+// @media screen and (max-width:768px) {
+//   .container_column{
+//     .box__1{
+//       .content{
+//          top: 75%;
+//       }
+//     }
+//   }
+// }
+
 .left_content .content {
   right: 0;
   left: -37px;
@@ -7111,9 +7127,10 @@ a:hover {
 
   .right_content,
   .left_content {
+    height: 400px;
     .content {
       height: 200px !important;
-      top: 30% !important;
+      top: 50% !important;
       right: 10px !important;
       left: 10px !important;
       padding: 20px 10px !important;

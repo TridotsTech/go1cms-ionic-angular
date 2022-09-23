@@ -1,21 +1,36 @@
 <app-header *ngIf="db.ismobile"   title="home" [home]="true" ></app-header>
 
-<ion-content class="landing-page">
+<ion-content [scrollEvents]="true" (ionScroll)="db.scrolled($event)" class="landing-page">
+
+  <!-- <div class="" [class.absolute_class]="db.scroll_event.header_sticky && db.header_info.is_transparent_header == 1"  [class.sticky__header]="db.scroll_event.header_sticky && db.header_info && db.header_info.sticky_header && db.header_info.sticky_header == 1 && db.header_info.is_transparent_header == 0" >
+    <app-header class="desktop-header"  
+    [class.sticky_header]="db.scroll_event.sticky_header"
+    [class.transparent_sticky]="db.header_info  && db.header_info.is_transparent_header && db.header_info.is_transparent_header == 1 && db.header_info.sticky_header == 1"
+    [class.transparent_scroll]="db.header_info  && db.header_info.is_transparent_header && db.header_info.is_transparent_header == 1 && db.header_info.sticky_header == 0"
+    [desktop]="true"></app-header>
+ </div> -->
+  <!-- <app-header class="desktop-header"  [desktop]="true"></app-header> -->
 
   <div class="" [class.absolute_class]="db.scroll_event.header_sticky && db.header_info.is_transparent_header == 1"  [class.sticky__header]="db.scroll_event.header_sticky && db.header_info && db.header_info.sticky_header && db.header_info.sticky_header == 1 && db.header_info.is_transparent_header == 0" >
     <app-header class="desktop-header"  
     [class.sticky_header]="db.scroll_event.sticky_header"
     [class.transparent_sticky]="db.header_info  && db.header_info.is_transparent_header && db.header_info.is_transparent_header == 1 && db.header_info.sticky_header == 1"
     [class.transparent_scroll]="db.header_info  && db.header_info.is_transparent_header && db.header_info.is_transparent_header == 1 && db.header_info.sticky_header == 0"
-    [desktop]="true"></app-header>
+    [desktop]="true"
+    [sub_header_value]="db.sub_header_data" >
+   </app-header>
  </div>
-  <!-- <app-header class="desktop-header"  [desktop]="true"></app-header> -->
+ 
+ <div *ngIf="db.sub_header_data && (db.sub_header_data.enabled == 1 && db.sub_header_data.is_transparent == 0)">
+    <app-sub-list-header [sub_header_value]="db.sub_header_data" ></app-sub-list-header>
+ </div>
+
 
   <div  [class.min-vh]="!db.ismobile">
     <app-page-builder *ngIf="content_data && content_data.length != 0" [about_us]="true" [internship]="" [viewContent]="content_data"></app-page-builder>
   </div>
 
-  <div class="color" *ngIf="!db.ismobile">
+  <div class="color">
     <div class="m-h">
       <app-footer  class="footer"></app-footer>
     </div>

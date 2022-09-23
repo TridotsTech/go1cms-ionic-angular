@@ -7,18 +7,41 @@
         <p *ngIf="db.cust_name || db.guest_cust_name" class="m-0">{{db.cust_name || db.guest_cust_name}}</p>
       </div>
     </div> -->
-    <div *ngIf="db.website_settings && db.website_settings.theme_settings && db.website_settings.theme_settings.website_logo" slot="start" class="home__logo" routerLink="/">
-      <img  [src]="db.product_img(db.website_settings.theme_settings.website_logo)" alt="">
+    <div
+      *ngIf="db.website_settings && db.website_settings.theme_settings && db.website_settings.theme_settings.website_logo"
+      slot="start" class="home__logo" routerLink="/">
+      <img [src]="db.product_img(db.website_settings.theme_settings.website_logo)" alt="">
     </div>
-    <div *ngIf="db.header_info && db.header_info.items">
-        <div *ngFor="let data of db.header_info.items">
-          <ion-menu-toggle  *ngIf="data.section_name == 'Header Menu' && section_type == Menu" >  
-            <ion-item lines="none" [routerLink]="item.redirect_url" routerDirection="forward" *ngFor="let item of data.menus"  routerLinkActive="active-item" [routerLinkActiveOptions]="{exact :true}">
-              <ion-icon name='chevron-forward-outline'></ion-icon>
+
+    <div *ngFor="let data of this.menu">
+      <div *ngIf="data.section_name == 'Header Menu' && data.section_type == 'Menu'">
+        <div *ngFor="let item of data.menus;let i= index">
+          <!-- <ion-menu-toggle [auto-hide]="false">  -->
+            <!-- [routerLink]="item.redirect_url" routerDirection="forward" -->
+            <ion-item lines="none" (click)="click_menu(item,i)" 
+              routerLinkActive="active-item" [routerLinkActiveOptions]="{exact :true}">
+              <ion-icon slot="end" *ngIf="item.child_menu && item.child_menu.length != 0"
+                name='chevron-forward-outline'></ion-icon>
               <ion-label>{{item.menu_label}}</ion-label>
             </ion-item>
-          </ion-menu-toggle>
-        
+          <!-- </ion-menu-toggle> -->
+
+          <div *ngIf="item.child_menu && item.child_menu.length != 0 && item.show" (click)="open_close(i,data.menus)">
+            <!-- <ion-item lines="none" [routerLink]="item.redirect_url" routerDirection="forward"
+              routerLinkActive="active-item" [routerLinkActiveOptions]="{exact :true}">
+              <ion-icon slot="end" [name]="showmore1 ? 'chevron-down-outline' : 'chevron-forward-outline'"></ion-icon>
+              <ion-label>{{item.menu_label}}</ion-label>
+            </ion-item> -->
+            <ion-menu-toggle *ngIf="item.child_menu && item.child_menu.length !=0 ">
+              <ion-item class="pl15" lines="none" *ngFor="let menu of item.child_menu" [routerLink]="menu.redirect_url"
+                routerDirection="forward" routerLinkActive="active-item" [routerLinkActiveOptions]="{exact :true}">
+                <ion-icon slot="end" *ngIf="menu.child_menu && menu.child_menu.length != 0" [name]="menu.show ? 'chevron-down-outline' : 'chevron-forward-outline'"></ion-icon>
+                <ion-label>{{menu.menu_label}}</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </div>
+
+          <!-- </div> -->
           <!-- <ion-item *ngIf="item.title =='Policies'" lines="none" (click)="showmore1 = !showmore1;" routerDirection="forward" routerLinkActive="active-item" [routerLinkActiveOptions]="{exact :true}">
             <ion-icon class="menu-icon" [src]="item.icon?item.icon:''"></ion-icon> 
             <ion-label>{{item.title}}</ion-label>
@@ -35,7 +58,7 @@
             </ion-item>
           </ion-menu-toggle>
         </div> -->
-      
+
 
         <!--  -->
         <!-- <ion-menu-toggle>
@@ -51,9 +74,11 @@
             <ion-label>Login</ion-label>
           </ion-item>
         </ion-menu-toggle> -->
-    </div>  
-    <!-- <div class="d__flex just-end social__icons bottom-abs" *ngIf="false" >
-      <div class="ion-text-center">
+      </div>
+    </div>
+    <!-- <div class="d__flex just-end social__icons bottom-abs" *ngIf="db.footer_info.items" >
+      <div class="ion-text-center" *ngFor="let data.items of db.footer_info.items">
+        <div >
         <p class="m-0 fnt-13">Connect with us</p>
         <div class="d__flex just-end gap-10 p-10">
           <a *ngIf="db.website_settings.app_settings.facebook_link" href="{{db.website_settings.app_settings.facebook_link}}" target="blank"><ion-icon src="/assets/Footer-icons/facebook.svg" class="contact-icon d__flex"></ion-icon></a>
@@ -64,6 +89,6 @@
           <a *ngIf="db.website_settings.app_settings.pinterest_link" href="{{db.website_settings.app_settings.pinterest_link}}" target="blank"><ion-icon src="/assets/Footer-icons/pinterest.svg" class="contact-icon d__flex"></ion-icon></a>
         </div>
       </div>
-    </div> -->
-  </div>            
+    </div></div> -->
+  </div>
 </div>

@@ -1,6 +1,6 @@
 <ion-header class="mobile-header" [ngClass]="!no_home?'no-shadow':''" >
 
-  <ion-toolbar  *ngIf="!no_home">
+  <ion-toolbar *ngIf="!no_home">
 
     <ion-buttons slot="start">
       <ion-button  (click)="openMenu()">
@@ -17,6 +17,8 @@
     <ion-button fill="clear" slot="end" *ngIf="no_search_icon" routerLink="/search" >
       <ion-icon    class="icon px-15" slot="end" src="/assets/icon/search-white.svg"></ion-icon>
     </ion-button>
+
+
 
     <!-- <div class="mobile__location" *ngIf="home && false">
       <div class="d__flex mobile-location" >
@@ -42,6 +44,9 @@
   <ion-toolbar class="no__home"  *ngIf="no_home">
     <ion-back-button  slot="start" (click)="backbtn()" [defaultHref]="back_route?back_route:null"  (click)="!back_route?db.back():''" ></ion-back-button>
     <ion-title> {{title}}</ion-title>
+    <div *ngIf="db.website_settings && db.website_settings.theme_settings && db.website_settings.theme_settings.website_logo" slot="start" class="mobile-logo d__flex" routerLink="/">
+      <img class="home__logo mouse" [src]="db.product_img(db.website_settings.theme_settings.website_logo)" alt="">
+    </div>
     <!-- <ion-button slot="end" fill="clear" (click)="db.share()" *ngIf="title == 'Product Detail'">  <ion-icon   class=" icons" slot="end" name="share-social-outline"></ion-icon></ion-button> -->
     <!-- <ion-button fill="clear" *ngIf="!no_cart" class="cart-icon" slot="end" routerLink="/yourcart" [replaceUrl]="true" > -->
       

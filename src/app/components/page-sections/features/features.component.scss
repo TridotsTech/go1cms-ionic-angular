@@ -10,3 +10,9 @@
   margin-top: 15px;
   margin-bottom: 2px;
 }
+
+@media screen and (max-width:768px) {
+  .feature_content_width {
+    margin-bottom: 25px;
+  }
+}

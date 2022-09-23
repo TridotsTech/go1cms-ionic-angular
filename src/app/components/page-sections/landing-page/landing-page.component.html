@@ -83,7 +83,7 @@
     </div>
   </div>
 
-  <div class="{{item.class_name}} py-30 Landing-sec4 mb-40" *ngIf="item.section_type == 'Static Section' && item.section_name == 'UI Blocks Section'">
+  <div class="{{item.class_name}} py-30 Landing-sec4 mb-40" id="ui-blocks" *ngIf="item.section_type == 'Static Section' && item.section_name == 'UI Blocks Section'">
     <div [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0" >
         <div class="">
           <h5 class="subtitle txt-c">{{item.subtitle}}</h5>

@@ -18,12 +18,12 @@ export class LandingPagePage implements OnInit {
     this.get_about();
   }
 
-
   get_about(){
     var res={  application_type: this.db.ismobile?"mobile":"web", domain: this.db.domainurl,  route: "landing-page" }
     this.db.get_mobile_homepage(res).subscribe(data => 
       {
         this.content_data = (data.message.page_content) || (data.message.list_content);
+        this.db.sub_header_data = data.message.sub_header;
         this.db.check_header_footer(this.content_data,data);
       }, 
       error => {
@@ -48,5 +48,7 @@ export class LandingPagePage implements OnInit {
       this.scroll_top = false;
     }
   }
+
+
 
 }

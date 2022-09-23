@@ -73,7 +73,7 @@ export class InternshipPage implements OnInit {
     this.db.get_mobile_homepage(res).subscribe(data => 
       {
         this.content_data = (data.message.page_content);
-        this.db.sub_header_data = data.message.sub_header
+        this.db.sub_header_data = data.message.sub_header;
         this.db.check_header_footer(this.content_data,data);
         
         // this.content_data.map(res =>{

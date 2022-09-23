@@ -29,6 +29,7 @@ export class ListBoxComponent implements OnInit {
   @Input() description_null;
   @Input() blogger;
   @Input() border_color;
+  @Input() min_height;
 
   @ViewChild('scrollable_cnt') scrollable_cnt:ElementRef;
   @ViewChild('left_arrow') left_arrow:ElementRef;

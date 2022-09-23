@@ -3,6 +3,7 @@
 
 <app-header *ngIf="db.ismobile" title="{{internship}}" [no_home]="true" [back_route]="db.ismobile?'/home':'/'" [no_cart]="true"></app-header>
 
+
 <ion-content [scrollEvents]="true" (ionScroll)="db.scrolled($event)" class="{{route_value}}">
 
 <!-- [class.transparent_header]="db.transparent_header==1 && db.transparent_header"-->

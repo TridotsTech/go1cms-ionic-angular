@@ -69,9 +69,9 @@
               </div>
               <div class="testimonial_col2">
                 <div class="col2_content">
-                  <h3 class="heading">
+                  <blockquote class="heading">
                     {{data.heading }}
-                  </h3>
+                  </blockquote>
                   <p class="content webkit-text" [style.--line]="5">
                     {{data.content}} 
                   </p>
@@ -127,9 +127,9 @@
                   [src]="db.product_img(data.image)"
                   alt="">
               </div>
-              <h3 class=" heading">
+              <blockquote class=" heading">
                 {{data.heading}}
-              </h3>
+              </blockquote>
               <div class="d__flex star_count">
                 <div *ngFor="let count of [0,1,2,3,4]">
                   <ion-icon *ngIf="count<data.star_count" color="warning" name="star"></ion-icon>

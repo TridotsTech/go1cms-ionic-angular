@@ -3,30 +3,20 @@ ion-button{
     max-width: 100%;
     text-transform: none
 }
-
-// general
-.test_classs{
-    text-align: center;
-    color: red;
-    margin: auto;
-    padding: 10px;
-    background-color: aqua;
-    box-shadow: rgb(0 0 0 / 8%) 0px 4px 12px;
-    font-size: 41px;
-    font-weight: 600;
-    font-family: inherit;
-    border: 1px solid;
-    height: 108px;
-    border-radius: 15px;
-    width: 200px;
-}
+.section-main{
+    margin-bottom: 50px;
+ }
 .component_container{
     padding: 10px;
    margin: auto;
-   margin: 10px;
-   h6{
+   margin-bottom: 20px;
+   h6,h4{
     margin: 10px 0px;
    }
+   blockquote{
+    margin: 10px 0px;
+   }
+   
 }
 //subtitle
 
@@ -49,6 +39,7 @@ ion-button{
     flex-wrap: wrap;
     .ourteam_card{
         flex: 0 0 calc(33.33% - 20px);
+        min-width: 300px;
     }
     .ourteam_image{
         position: relative;
@@ -91,6 +82,7 @@ ion-button{
     margin: 0 auto;
     .ourteam_card{
         flex: 0 0 calc(33.33% - 20px);
+        min-width: 300px;
     }
     .ourteam_two_image{
         position: relative;
@@ -378,24 +370,20 @@ ion-button{
       }
     .feature_card{
         border-radius: 10px;
-        /* height: 62px; */
-        /* width: 62px; */
         padding: 25px;
         border: 1px solid #ddd;
-        /* background: #fff; */
         margin: 0px auto;
+        min-width: 300px;
+        flex: 0 0 calc(33.33% - 20px);
     }
     .faq_icon{
         border-radius: 50%;
+        display: flex;
     height: 62px;
     width: 62px;
     border: 1px solid #ddd;
     background: #f1f1f1;
     margin: 0 auto;
-        img{
-            margin: 5px auto;
-
-        }
      }
      .title,.content{
         text-align: center;
@@ -605,6 +593,7 @@ border: 1px solid var(--primary-color);
            .card_list{
             flex-direction: column;
             flex:0 0 calc(33.33% - 20px);
+            min-width: 300px;
             background-color:hsl(37deg 100% 96%);
             border-radius: 0 20px 20px 20px;
             padding: 35px;
@@ -644,9 +633,10 @@ border: 1px solid var(--primary-color);
     .card_list{
         text-align: center;
         flex:0 0 calc(33.33% - 20px);
+        min-width: 300px;
         box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;   
                padding: 20px 20px;
-               border-radius: 20px;
+               border-radius: 10px;
             }
 }//==========================
 //section-4
@@ -654,6 +644,7 @@ border: 1px solid var(--primary-color);
   flex-wrap: wrap;
 .icon_count{
     flex:0 0 calc(33.33% - 20px);
+    min-width: 300px;
     align-items: center;
     justify-content: center;
    .icon_back{
@@ -678,6 +669,7 @@ border: 1px solid var(--primary-color);
         border: 1px solid #4b55631f;
         border-radius: 5px;
         flex:0 0 calc(33.33% - 20px);
+        min-width: 300px;
         padding: 25px;
         border-bottom: 1px solid #4b55631f;
     }
@@ -689,7 +681,8 @@ border: 1px solid var(--primary-color);
     gap: 20px;
     .counter_section{
         text-align: center;
-        flex:0 0 calc(33.33% - 20px);     
+        flex:0 0 calc(33.33% - 20px);  
+        min-width: 300px;   
    }
 }
 
@@ -702,6 +695,7 @@ border: 1px solid var(--primary-color);
         gap: 20px;
         .container_bg{
             flex:0 0 calc(33.33% - 20px);
+            min-width: 300px;
             background-color: var(--primary-color);
            color: var(--white);
           padding: 20px;
@@ -769,6 +763,7 @@ border: 1px solid var(--primary-color);
         padding: 5%;
         border-radius: 10px;
         flex: 0 0 calc(33% - 15px);
+        min-width: 300px;
         .testimonial_card_image{
             img{
                 height: 80px;
@@ -787,11 +782,11 @@ border: 1px solid var(--primary-color);
     flex-wrap: wrap;
     .testimonialtwo_card{
         flex: 0 0 calc(33% - 15px);
+        min-width: 300px;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
             margin:auto;
             padding: 2%;
             border-radius: 10px;
-            flex: 0 0 calc(33% - 15px);
             .testimonial_details{
             text-align: left;
             margin-top: 5%;
@@ -819,6 +814,7 @@ border: 1px solid var(--primary-color);
         margin: 50px auto;
         border-radius: 20px;
         flex: 0 0 calc(33% - 15px);
+        min-width: 300px;
         .image_position{
             position: absolute;
             padding: 0px 10%;
@@ -930,6 +926,8 @@ border: 1px solid var(--primary-color);
         padding: 20px;
         border: 1px solid lightgray;
         flex: 0 0 calc(33.33% - 20px);
+        min-width: 300px;
+        text-align: left;
         .testimonialThree_image{
             img{
                 max-height: 150px;

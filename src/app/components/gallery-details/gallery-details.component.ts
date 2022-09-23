@@ -28,6 +28,8 @@ export class GalleryDetailsComponent implements OnInit {
   @Input() item;
   @Input() scrollable;
   @Input() data;
+  @Input() row_count;
+
   @ViewChild('scrollable_cnt') scrollable_cnt:ElementRef;
   @ViewChild('left_arrow') left_arrow:ElementRef;
   @ViewChild('right_arrow') right_arrow:ElementRef;

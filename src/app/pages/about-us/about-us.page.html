@@ -1,5 +1,5 @@
 
-<app-header title="About Us" [no_home]="true" [back_route]="db.ismobile?'/home':'/'" [no_cart]="true"></app-header>
+<app-header *ngIf="db.ismobile"  title="About Us" [no_home]="true" [back_route]="db.ismobile?'/home':'/'" [no_cart]="true"></app-header>
 
 <!-- [scrollEvents]="true" (ionScroll)="db.scrolled($event)" -->
 

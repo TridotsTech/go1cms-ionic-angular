@@ -6,7 +6,7 @@
             </div>
             <ion-slides class="web-slider mouse" loop="true" pager='true' [options]="web_slider">
               <ion-slide *ngFor="let data of row.data.data" class="slider_component1_slide"
-                style=' background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("{{db.image(data.image)}}");'>
+               >
                 <div class="slider_content">
                   <div>
                     <h1>{{data.title}}</h1>

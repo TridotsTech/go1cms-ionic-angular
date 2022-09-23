@@ -5,7 +5,7 @@ import {
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import $ from 'jquery';
 import {
   AlertController,
@@ -87,7 +87,7 @@ export class DbService {
   header_within_slider = 1;
   transparent_header;
   sub_header_data;
-
+  // ui_block = new Subject();
 
 //bala
 
@@ -120,13 +120,24 @@ export class DbService {
  route_url(url){
   if(url){
     if(url.indexOf('https') == -1){
-      this.router.navigateByUrl(url);
+       this.router.navigateByUrl(url);
     } else if(url.indexOf('https') == 0){
-       window.open(url,'_blank');
-      
+       window.open(url,'_blank');  
     }
   }
 }
+
+//  route_url(url){
+//   if(url && url != "/landing-page"){
+//     if(url.indexOf('https') == -1){
+//        this.router.navigateByUrl(url);
+//     } else if(url.indexOf('https') == 0){
+//        window.open(url,'_blank');  
+//     }
+//   }else{
+//     this.ui_block.next('trigger');
+//   }
+// }
 
  scrolled(data){
 
@@ -266,7 +277,8 @@ isInViewport(class_name){
     var data={
         application_type: this.ismobile?"mobile":"web",
         domain : this.domainurl,
-        route : "home-page",
+        route : "core-home",
+        // route : "landing-page",
         business : ""
     }
     this.get_mobile_homepage(data).subscribe( res => {
@@ -411,13 +423,15 @@ isInViewport(class_name){
   }
 
   check_footer_layout(){
-    this.footer_info.layout_json.map(res =>{
-      res.columns.map((rec,index) =>{
-        let check = this.footer_info.items.find(res => res.column_index == index);     
-          if(check)
-            rec.layout_data = check.items;
-        })
-    }) 
+    if(this.footer_info.layout_json){
+      this.footer_info.layout_json.map(res =>{
+        res.columns.map((rec,index) =>{
+          let check = this.footer_info.items.find(res => res.column_index == index);     
+            if(check)
+              rec.layout_data = check.items;
+          })
+      }) 
+    }
   }
 
   check_header_layout(){

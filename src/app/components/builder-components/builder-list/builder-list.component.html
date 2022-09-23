@@ -26,7 +26,7 @@
           </div>
           <!-- List 3 -->
           <ul class="list_element component_container" *ngIf="row.component_type=='List Style2'">            
-                <li class="divst_items d__flex title" *ngFor="let data of row.data">
+                <li class="divst_items d__flex title" *ngFor="let data of row.data.data">
                   <img [src]="db.product_img(data.image)" alt="icon">
                   {{data.title}}
                 </li>  

@@ -1,15 +1,18 @@
 <!-- New section kailasam 12-08-2022  -->
-<div *ngIf="item.section_type == 'Custom Section' && item.section_name =='FAQ Style 1'" class="left__accordion_right_image section__border container_reverce  {{item.class_name}} animate mb-40" [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+<div *ngIf="item.section_type == 'Custom Section' && item.section_name =='FAQ Style 1'"
+  class="left__accordion_right_image section__border container_reverce  {{item.class_name}} animate mb-40"
+  [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
   <div class="d__flex" [ngClass]="db.ismobile?'flex_direction':''">
     <div class="box__1">
       <p *ngIf="item.sub_title" class="m-0 faq_subtitle">{{item.sub_title}}</p>
       <h2 *ngIf="item.title" class="faq_title">{{item.title}}</h2>
       <ul *ngIf="item.data && item.data.length != 0" class="accordion">
         <li class="accordion_box" *ngFor="let data of item.data;let i = index" [class.active_box]="data.show">
-          <div *ngIf="data.answer && data.question" (click)="open_close(i,item.data)" class="header__ mouse d__flex just-s">
+          <div *ngIf="data.answer && data.question" (click)="open_close(i,item.data)"
+            class="header__ mouse d__flex just-s">
             <h5 class="m-0 title__">{{data.question}}</h5>
             <ion-icon class="mouse" [name]="data.show ? 'chevron-up-outline':'chevron-down-outline'"></ion-icon>
-              <!-- <i class="fa fa-heart"></i> -->
+            <!-- <i class="fa fa-heart"></i> -->
           </div>
           <p *ngIf="data.show" class="m-0">{{data.answer}}</p>
         </li>
@@ -22,8 +25,10 @@
     </div>
   </div>
 </div>
-<div *ngIf="item.section_type == 'Custom Section' && item.section_name =='FAQ Style 2'" class="left__accordion_right_image section__border container_reverce mb-40 {{item.class_name}} animate" [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
-  <div class="d__flex"  [ngClass]="db.ismobile?'flex_direction':''">
+<div *ngIf="item.section_type == 'Custom Section' && item.section_name =='FAQ Style 2'"
+  class="left__accordion_right_image section__border container_reverce mb-40 {{item.class_name}} animate"
+  [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+  <div class="d__flex" [ngClass]="db.ismobile?'flex_direction':''">
     <div class="box__3">
       <h2 *ngIf="item.title" class="faq_title">{{item.title}}</h2>
       <p *ngIf="item.sub_title" class="faq_subtitle">{{item.sub_title}}</p>
@@ -43,15 +48,19 @@
 </div>
 <!-- section by bala -->
 <!-- Section faq-Having queries Button (section-3)-->
-<div class="{{item.class_name}} container container_reverce" *ngIf="item.section_type == 'Custom Section' && item.section_name == 'FAQ Style 3'" [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+<div class="{{item.class_name}} container container_reverce"
+  *ngIf="item.section_type == 'Custom Section' && item.section_name == 'FAQ Style 3'"
+  [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
   <div class="top_section mb-20">
     <h2 class="faq_title">{{item.title}}</h2>
   </div>
   <div class="d__flex faq_flex_3">
-    <ion-button *ngIf="item.btn_text" (click)="db.route_url(item.btn_text.btn_redirect_url)" class="ion-query-buttton btn_text">{{item.btn_text.btn_text}}</ion-button>
+    <ion-button *ngIf="item.btn_text" (click)="db.route_url(item.btn_text.btn_redirect_url)"
+      class="ion-query-buttton btn_text">{{item.btn_text.btn_text}}</ion-button>
     <ul class="accordion_faq">
       <li class="accordion_faq_box" *ngFor="let data of item.data;let i = index" [class.active_faq_bgcolor]="data.show">
-        <div *ngIf="data.answer && data.question" (click)="open_close(i,item.data)" [class.active_faq_color]="data.show" class="accordion_faq_box_header d__flex mouse">
+        <div *ngIf="data.answer && data.question" (click)="open_close(i,item.data)" [class.active_faq_color]="data.show"
+          class="accordion_faq_box_header d__flex mouse">
           <h5 class="m-0 title__">{{data.question}}</h5>
           <!-- <h5 class=" qz-size faq--title webkit-text question ">{{data.question}}</h5> -->
           <ion-icon class="fnt-32" [name]="data.show ? 'remove-circle-outline':'add-circle-outline'"></ion-icon>
@@ -62,26 +71,33 @@
   </div>
 </div>
 <!-- Section Faq-Table format (section-5)-->
-<div class="{{item.class_name}} container container_reverce" *ngIf="item.section_type == 'Custom Section' && item.section_name == 'FAQ Style 5'" [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
-  <div class="top_section d__flex mb-20" >
-    <h2 class="m-0 faq_title ">{{item.title}}</h2>
-    <div class="ask_more_btn d__flex mouse" *ngIf="item.btn_text">
-      <h2 class="m-0 btn_text color_sample" (click)="db.route_url(item.btn_text.btn_redirect_url)">{{item.btn_text.btn_text}}</h2>
-      <ion-icon class="ion-icon-position color_sample" name="arrow-forward-outline"></ion-icon>
+<div class="{{item.class_name}} container_reverce"
+  *ngIf="item.section_type == 'Custom Section' && item.section_name == 'FAQ Style 5'"
+  [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+  <div class="main-width">
+    <div class="top_section d__flex mb-20">
+      <h2 class="m-0 faq_title ">{{item.title}}</h2>
+      <div class="ask_more_btn d__flex mouse" *ngIf="item.btn_text">
+        <h2 class="m-0 btn_text color_sample" (click)="db.route_url(item.btn_text.btn_redirect_url)">
+          {{item.btn_text.btn_text}}</h2>
+        <ion-icon class="ion-icon-position color_sample" name="arrow-forward-outline"></ion-icon>
+      </div>
     </div>
-  </div>
-  <div class="table_title_faq d__flex">
-    <h5 class="table_question">Questions</h5>
-    <h5 class="table_answer">Answers</h5>
-  </div>
-  <div class="table_content_faq d__flex" *ngFor="let data of item.data">
-    <h5 class="table_question question ">{{data.question}}</h5>
-    <p class="">{{data.answer}}</p>
+    <div class="table_title_faq d__flex">
+      <h5 class="table_question">Questions</h5>
+      <h5 class="table_answer">Answers</h5>
+    </div>
+    <div class="table_content_faq d__flex" *ngFor="let data of item.data">
+      <h5 class="table_question question ">{{data.question}}</h5>
+      <p class="">{{data.answer}}</p>
+    </div>
   </div>
 </div>
 <!-- Section Faq-Table format (section-4)-->
-<div *ngIf="item.section_type == 'Custom Section' && item.section_name =='FAQ Style 4'" class="left__accordion_right_image section__border container_reverce  {{item.class_name}} mb-40" [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
-  <div class=" d__flex"  [ngClass]="db.ismobile?'flex_direction':''">
+<div *ngIf="item.section_type == 'Custom Section' && item.section_name =='FAQ Style 4'"
+  class="left__accordion_right_image section__border container_reverce  {{item.class_name}} mb-40"
+  [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
+  <div class=" d__flex" [ngClass]="db.ismobile?'flex_direction':''">
     <div class="box__2 left_image_faq">
       <div class="image setimage_padd">
         <img class="left_image" *ngIf="item.left_image" src="{{db.product_img(item.left_image)}}">
@@ -92,9 +108,11 @@
       <h2 *ngIf="item.title" class="m-0 pt-15 faq_title">{{item.title}}</h2>
       <ul *ngIf="item.data && item.data.length != 0" class="accordion">
         <li class="accordion_box" *ngFor="let data of item.data;let i = index">
-          <div *ngIf="data.answer && data.question" (click)="open_close(i,item.data)" [class.active_box_sample_color]="data.show" class="padding_faq4 faq-sec-4 header__ mouse d__flex just-s">
+          <div *ngIf="data.answer && data.question" (click)="open_close(i,item.data)"
+            [class.active_box_sample_color]="data.show" class="padding_faq4 faq-sec-4 header__ mouse d__flex just-s">
             <h5 class="fnt-18 m-0 title__">{{data.question}}</h5>
-            <ion-icon class="plus_icon_faq" [name]="data.show ? 'remove-circle-outline':'add-circle-outline'"></ion-icon>
+            <ion-icon class="plus_icon_faq" [name]="data.show ? 'remove-circle-outline':'add-circle-outline'">
+            </ion-icon>
           </div>
           <p *ngIf="data.show" class="m-0">{{data.answer}}</p>
         </li>
