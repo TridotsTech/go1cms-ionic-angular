@@ -52,48 +52,5 @@ export class MobileMenuComponent implements OnInit {
         this.menuCtrl.enable(true)
       }, 1000);
     }
-   
   }
-
-  open_close(count,data){
-    data.map((res,i)=>{
-      if(i==count){
-        res.show = res.show ? false : true;
-      }else{
-        res.show = false;
-      }
-    })
-  }
-
-  show_more(){
-    this.showmore1 = !this.showmore1;
-  }
-
-  policy =[  
-    {
-      title: 'About us',
-      route:'/p/about-us',
-      icon: '/assets/icon/about.svg',
-      enable: 1
-    },
-    {
-      title: 'Terms & conditions',
-      route:'/terms-condition',
-      icon: '/assets/icon/terms.svg',
-      enable: 1
-    },
-    {
-      title:'Privacy Policy',
-      route:'/privacy-policy',
-      icon: '/assets/icon/privacy-policy.svg',
-      enable: 1
-    },
-    {
-      title:'Cancellation Policy',
-      route:'/cancellation-policy',
-      icon: '/assets/icon/cancellation-policy.svg',
-      enable: 1
-    }
-  ]
-
 }

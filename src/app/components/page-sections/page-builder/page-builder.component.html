@@ -425,49 +425,7 @@
           </ion-col>
         </ion-row>
       </div>
-      <!-- [ngStyle]="db.img_style(item.bg,'full-bg-img')" -->
-      <!-- <ion-grid class="birthday_club" *ngIf="item.section_type == 'Static Section' && item.section_name == 'BirthDay Club Registration'" >
-   <ion-icon class="lft-img" src="/assets/imgs/lft-bdy.svg"></ion-icon>
-   <ion-row class="text-center main-width1">
-   <div class="ion-text-center w-100">
-     <div class="ion-text-center headings">
-       <h6 class="fnt-20 m-0 ion-text-center">Birthday club</h6>
-       <p class="m-0 fnt-12">Register to get offers</p>
-     </div>
-     <div >
-   
-   
-       <form [formGroup]="emailform">
-         <ion-item lines='none'>
-           <ion-input type="number" [class.focused]="focus.birth_date" (ionFocus)="focus.birth_date = true" (ionBlur)="focus.birth_date = false" name="birth_date" formControlName="birth_date" required="true" placeholder="Enter your Birth Date"></ion-input>
-         </ion-item>
-         <div *ngIf="submitted && !birth_date?.valid"> 
-           <p class="error m-0" *ngIf="birth_date.errors.required">Birthday date is required</p>  
-         </div>
-         <ion-item lines="none">
-           <ion-select name="month" [class.focused]="focus.month" (ionFocus)="focus.month = true" (ionBlur)="focus.month = false" required="true" formControlName="month" class="form-input form-select" interface="popover" value="{{birthday_info.month}}">
-             <ion-select-option  *ngFor="let m of month_list" value="{{m.name}}">{{m.name}}</ion-select-option>
-           </ion-select>
-         </ion-item>
-         <div *ngIf="submitted && !month?.valid"> 
-           <p class="error m-0" *ngIf="month.errors.required">Birthday date is required</p>  
-         </div>
-         <ion-item lines='none'>
-             <ion-input type="email" [class.focused]="focus.email" (keyup.enter)="birthday_club()" (ionFocus)="focus.email = true" (ionBlur)="focus.email = false"  required="true" name="email" formControlName="email" placeholder="Enter your email address"></ion-input>
-         </ion-item>
-         <div *ngIf="submitted && !email.valid">
-           <p class="m-0 error" *ngIf="email.errors.required" > Email-Id is required </p>
-           <p class="m-0 error" *ngIf="email.errors.email" > Not a valid Email </p>
-         </div>
-       </form>
-       <div class="ion-text-center"><ion-button fill="clear" (click)="birthday_club()">Register</ion-button></div>
-   
-       
-     </div>
-   </div>
-   </ion-row>
-   <ion-icon class="rht-img" src="/assets/imgs/rht-bdy.svg"></ion-icon>
-   </ion-grid> -->
+
       <div class="d__flex"
         *ngIf="item.section_type == 'Predefined Section' && item.section_name == 'My Orders And Wishlist'">
         <img *ngIf="!db.ismobile" class="w-100" [src]="db.product_img(item.orders_bg)"
@@ -482,12 +440,7 @@
         <h6 class="title-card pl-10"><strong>{{item.title}}</strong></h6>
         <!-- <app-sliders *ngIf="db.ismobile" class="mobile-category" [category_slide]="item"></app-sliders> -->
         <div class="desktop-category">
-          <!-- <div class="image"><img lazyLoad="{{db.product_img(item['image1'])}}" defaultImage="" alt=""></div> -->
-          <!-- <div class="image"><img lazyLoad="{{db.product_img(item['image2'])}}" defaultImage="" alt=""></div> -->
-          <!-- <div class="image"><img lazyLoad="{{db.product_img(item['image3'])}}" defaultImage="" alt=""></div> -->
-          <!-- <div class="image"><img lazyLoad="{{db.product_img(item['image4'])}}" defaultImage="" alt=""></div> -->
-          <!-- <div class="image"><img lazyLoad="{{db.product_img(item['image5'])}}" defaultImage="" alt=""></div> -->
-          <!-- <div class="image"><img lazyLoad="{{db.product_img(item['image6'])}}" defaultImage="" alt=""></div> -->
+
         </div>
       </div>
       <!-- Static Section With Four Items -->

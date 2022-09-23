@@ -1,24 +1,4 @@
-// Our Team Section
 
-// .main_container {
-//   ::-webkit-scrollbar {
-//     display: none;
-//   }
-
-//   // border-radius: 5px;
-//   // margin: 10px auto;
-//   // //margin-top: 5%;
-//   // padding-bottom: 2%;
-//   img {
-//     transition: 0.5s all ease-in-out;
-//     border-radius: 10px;
-//     object-fit: cover;
-//     width: 100%;
-//     height: 100%;
-//   }
-// }
-
-// .mt-15
 .flex_box {
   display: flex;
 }
@@ -43,31 +23,10 @@
   }
 }
 
-// .ourteam_three_name {
-//   font-size: 20px;
-//   margin-bottom: 10px;
-//   font-family: outfit;
-// }
-
-// .ourteam_three_role {
-//   font-size: 16px;
-//   opacity: 0.5;
-//   font-family: outfit;
-// }
-
-// Testimonials
 .testionial_cards {
   overflow: auto;
   gap: 20px;
 }
-
-.testimonial_card_div {
-  // overflow: auto;
-  // .testimonial_card{
-  //     flex: 0 0 calc(33.33% - 20px);
-  // }
-}
-
 
 // ourteam_two
 .ourteam_two_images {
@@ -154,15 +113,6 @@
   }
 }
 
-// our team
-.ourteam_content {
-  // margin-bottom: 20px;
-  // line-height: 30px;
-  // font-size: 15px;
-  // font-family: poppins;
-  // opacity: 0.6;
-}
-
 .ourteam_image {
   position: relative;
 }
@@ -170,11 +120,6 @@
 .ourteam_images {
   display: flex;
   gap: 20px;
-}
-
-.ourteam_header_title {
-  // font-weight: 600;
-  // font-family: outfit;
 }
 
 .ourteam_details {
@@ -189,18 +134,8 @@
 }
 
 .ourteam_name {
-  // font-size: 24px;
-  // margin-bottom: 10px;
-  // font-family: outfit;
   color: #fff;
 }
-
-// .ourteam_role {
-//   // font-size: 16px;
-//   opacity: 0.5;
-//   // font-family: outfit;
-//   color: #fff;
-// }
 
 .ourteam_info {
   // margin-top:107%;
@@ -209,10 +144,6 @@
   width: 100%;
 }
 
-// creative team
-// .align_center{
-//     text-align: center;
-// }
 .purple_color {
   color: #663399;
 }
@@ -255,18 +186,12 @@
   }
 
   .ourteam_two_images {
-    // width: 100%;
 
     .ourteam_second_card {
       flex: 0 0 calc(25% - 15px);
 
       .team_img_height {
         height: 19.5rem;
-
-        // .team_two_name {
-        //   font-size: 20px;
-        //   text-align: center;
-        // }
       }
     }
   }
@@ -320,11 +245,6 @@
 
 
 @media screen and (min-width:768px) {
-
-  // .main_container{
-  //     width: 78%;
-  // }
-  //our team three 
   .ourteam_three_card {
     flex: 0 0 calc(25% - 20px);
   }
@@ -357,12 +277,6 @@
     flex: 0 0 calc(33.33% - 20px);
   }
 
-  // .ourteam_header_title{
-  //     font-size: 43px;
-  // }
-  // .ourteam_info{
-  //     margin-top:107%;
-  // }
 
 }
 

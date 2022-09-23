@@ -3,7 +3,7 @@
     width: 100%;
   }
 
-  .flex_direction{
+  .flex_direction {
     flex-direction: column;
   }
 
@@ -25,54 +25,15 @@
     .setimage_padd {
       padding: 0 0 25px 0;
 
-      // text-align: center;
-      // width: 100%;
-      // margin-bottom: 20px;
       img.left_image {
         width: 500px
       }
     }
   }
-
 }
 
 // section kailasam
 .left__accordion_right_image {
-  // .box__1 {
-  //   margin: 0 0px 0 0 !important;
-
-  //   .head {
-  //     text-align: center;
-  //   }
-
-  //   .sub_head {
-  //     padding: 10px 0 15px 0 !important;
-  //   }
-
-  // }
-
-  // .box__3 {
-  //   .sub_head__ {
-  //     text-align: center;
-  //   }
-
-  //   .head__ {
-  //     padding: 10px 0 5px 0 !important;
-  //   }
-
-  // }
-
-  // .box__4 {
-  //   .accordion {
-  //     .accordion_box {
-  //       .header__ {
-  //         // padding: 10px 0;
-  //       }
-
-  //     }
-  //   }
-  // }
-
   .accordion {
     .accordion_box {
       .header__ {
@@ -92,23 +53,16 @@
 
   .box__1 {
     flex: 0 0 calc(50%);
-    // flex: 0 0 calc(50% - 20px);
-    // margin: 0 20px 0 0;
   }
 
   .box__2 {
     flex: 0 0 calc(50%);
-    // flex: 0 0 calc(50% - 20px);
-    // margin: 0 0 0 20px;
 
     .image {
       text-align: center;
-      // padding: 15px;
-      // padding: 0 0 0 30px;
 
       img {
         width: 500px;
-        // width: 100%;
       }
     }
   }
@@ -116,18 +70,6 @@
   .box__3 {
     flex: 0 0 calc(50% - 10px);
     margin: 5px;
-
-    // .sub_head__ {
-    //   //font-size: 30px;
-    //   //color: var(--heading-text-color);
-    //   //font-weight: 500;
-    // }
-
-    // .head__ {
-    //   //font-size: 34px;
-    //   //padding: 10px 0 30px 0;
-    //   //font-weight: 500;
-    // }
   }
 }
 
@@ -137,11 +79,6 @@
       padding: 25px 0;
       border-bottom: 1px solid var(--border);
 
-      .title__ {
-        // font-size: 20px;
-        // font-weight: 500;
-      }
-
       ion-icon {
         font-size: 20px;
       }
@@ -149,14 +86,6 @@
 
     .padding_faq4 {
       padding: 30px 0 !important;
-    }
-
-    .subtitle__ {
-      //font-size: 24px;
-      // font-weight: 400;
-      // padding: 10px;
-      // color: var(--body-text-color);
-      // line-height: 28px;
     }
   }
 }
@@ -181,22 +110,12 @@
     .left__accordion_right_image {
       .box__1 {
         margin: 0 0px 0 0 !important;
-
-        // .head {
-        //   text-align: center;
-        // }
-
-        // .sub_head {
-        //   padding: 10px 0 15px 0 !important;
-        // }
-
       }
 
       .box__3 {
         .sub_head__ {
           text-align: center;
         }
-
       }
 
       .accordion {
@@ -213,16 +132,6 @@
       }
     }
   }
-
-  .title {
-    // font-size: 24px;
-    // font-weight: 700;
-    // color: var(--heading-text-color);
-    // margin-bottom: 5px;
-    // margin-top: 0;
-    // text-align: center;
-  }
-
 }
 
 // Section faq-Having queries Button (section-3)
@@ -253,10 +162,6 @@
     width: 100%;
 
     .accordion_faq_box {
-      // .qz-size {
-      //   font-size: 24px;
-      // }
-
       border-bottom: 1px solid #4b556321;
       padding: 20px;
 
@@ -297,13 +202,6 @@
       margin-bottom: 40px;
     }
 
-    // .accordion_faq {
-    //   .accordion_faq_box {
-    //     .qz-size {
-    //       font-size: 16px;
-    //     }
-    //   }
-    // }
   }
 
   .top_section {
@@ -351,8 +249,6 @@
 @media screen and (max-width:768px) {
   .table_content_faq {
     display: block;
-    // margin-top: 30px;
-    // margin-bottom: 20px;
   }
 
   .table_title_faq {
@@ -385,32 +281,9 @@
 // css by bala faq-4
 .left__accordion_right_image {
   .main-width {
-    // .box__2.left_image_faq {
-    //   // margin: 0 0 0 0;
-
-    //   .setimage_padd {
-    //     // padding: 0 30px 0 0;
-    //     // width: 85%;
-    //   }
-    // }
-
-    // .box__1.right_faq {
-    //   // color: var(--primary-bg);
-
-    //   .accordion {
-    //     .accordion_box {
-    //       .faq-sec-4 {
-    //         .plus_icon_faq {
-    //           // font-size: 28px;
-    //         }
-    //       }
-    //     }
-    //   }
-
-      .more_ques_faq {
-        text-align: end;
-      }
-    // }
+    .more_ques_faq {
+      text-align: end;
+    }
   }
 }
 

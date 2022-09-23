@@ -47,50 +47,6 @@ export class PageBuilderPage implements OnInit {
         this.db.sub_header_data = data.message.sub_header;
         this.db.check_header_footer(this.content_data,data);
         
-        // this.content_data.map(res =>{
-        
-        //   if(res.layout_json){
-        //     res.layout_json = JSON.parse(res.layout_json);
-        //   }
-
-        //   if(res.btn != undefined || res.btn != null){
-        //     res.btn ? res.btn_text = JSON.parse(res.btn):'';
-        //   }
-        //   if(res.btn1 != undefined || res.btn1 != null){
-        //     res.btn1 ? res.btn_text1 = JSON.parse(res.btn1):''; 
-        //   }
-        // })
-
-        // if(data.message && data.message.footer_content){
-        //   // this.db.footer_info = data.message.footer_content.items;
-        //    this.db.footer_info =  data.message.footer_content;
-        //    this.db.footer_info.layout_json =  JSON.parse(this.db.footer_info.layout_json);
-        //    this.db.check_footer_layout();
-        //   //  console.log(this.db.footer_info)
-        // }else {
-         
-        //   if(this.db.website_settings && this.db.website_settings.footer_template){
-        //     this.db.footer_info = this.db.website_settings.footer_template;
-        //     this.db.footer_info.layout_json =  JSON.parse(this.db.footer_info.layout_json);
-        //     this.db.check_footer_layout();
-        //   }else{
-        //     this.db.get_website_settings();
-        //   }
-          
-        // }
-           
-        // if(data.message && data.message.header_content){
-        //   this.db.header_info = data.message.header_content;
-        //   // console.log('aklcasscalmc')
-        // }else{
-
-        //   if(this.db.website_settings && this.db.website_settings.header_template){
-        //     this.db.header_info = this.db.website_settings.header_template;
-        //   }else{
-        //     this.db.get_website_settings();
-        //   }
-        // }
-
       
       }, 
       error => {

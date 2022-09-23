@@ -10,22 +10,10 @@ import { DbService } from 'src/app/services/db.service';
 export class LandingPageComponent implements OnInit {
 
   @Input() item;
-  // @ViewChild(IonContent) private content: IonContent;
   
   constructor(public db:DbService) { }
 
   ngOnInit() {
-    // this.db.ui_block.subscribe(res=>{
-    //   console.log('jjjjjjj',res)
-    //   res == 'trigger' ? this.goto_rating() : null;
-    // })
   }
-  
-
-  // goto_rating(){
-  //   console.log('jjjjjjj')
-  //   let itemList = document.getElementById('ui-blocks');
-  //   this.content.scrollToPoint(0,itemList.offsetTop,1000);
-  // }
 
 }

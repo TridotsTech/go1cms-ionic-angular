@@ -114,7 +114,6 @@
 <!-- Section counter- Banner with counter  (Section-6)-->
 <div class="{{item.class_name}} py-30 relative counters_6" *ngIf="item.section_type == 'Static Section' && item.section_name == 'Counters 6'">
   <div class="">
-    <!-- [style.background-image]="'url('+db.product_img(item.bg_image)+')'" -->
     <ul class="container_bg d__flex bg_image">
       <li class="counter--list" [ngClass]="db.ismobile?'':'d__flex'" *ngFor="let data of item.counter_data">
         <h4 class="count_value">{{data.count_value}}</h4>
