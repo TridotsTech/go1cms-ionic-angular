@@ -1,7 +1,9 @@
 .flex_direction {
   flex-direction: column;
 }
-
+.feature_icon{
+  font-size: 35px;
+}
 .line-h {
   line-height: 1.5;
 }
@@ -15,4 +17,8 @@
   .feature_content_width {
     margin-bottom: 25px;
   }
+}
+.leftright_icon{
+  font-size: 30px;
+  padding-top: 12px;
 }

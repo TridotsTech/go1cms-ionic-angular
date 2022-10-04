@@ -118,7 +118,7 @@
   }
 
   .full_bg_right_img {
-    object-fit: cover;
+    object-fit: contain;
     max-height: 425px;
     width: 100%;
     min-height: 425px;
@@ -959,7 +959,7 @@
           top: unset !important;
           bottom: unset;
           right: unset !important;
-          background: rgb(255 255 255 / 17%);
+          background:var(--primary-color);
           padding: 10px;
         }
       }
@@ -1032,13 +1032,17 @@
         position: relative;
 
         .card-b {
-          margin-left: 18%;
+          margin-left: 20%;
           text-align: left;
           padding: 0;
+        
 
           h3 {
             margin-bottom: 10px;
           }
+        }
+        .feature_grid_icon_img{
+          flex: 0 0 40%;
         }
 
         img {
@@ -1114,17 +1118,18 @@
       .card-box {
         cursor: pointer;
         padding: 20px;
-        flex: 0 0 23%;
+        flex: 0 0 calc(25% - 20px);
         display: flex;
-        justify-content: unset;
+        justify-content: center;
+        align-items: flex-start;
         min-height: auto;
         position: relative;
 
         .card-b {
-          margin-left: 18%;
+          margin-left: 8%;
           text-align: left;
           padding: 0;
-
+          flex: 0 0 60%;
           h3 {
             margin-bottom: 10px;
           }
@@ -1200,30 +1205,30 @@
     text-align: center;
 
     .left_div {
+      // flex: 0 0 50%;
       .section {
         .title {
-          font-size: 35px;
-          font-weight: 700;
-
+          // font-size: 35px;
+          // font-weight: 700;
         }
 
         .subtitle {
-          font-size: 20px;
-          font-weight: 500;
-          color: var(--heading-text-color);
+          // font-size: 20px;
+          // font-weight: 500;
+          // color: var(--heading-text-color);
           line-height: normal;
           margin-bottom: 20px;
         }
 
         .content {
-          font-size: 18px;
+          // font-size: 18px;
         }
 
         .button {
           margin: 0;
           border-radius: 5px;
           margin-top: 16px;
-          font-weight: 600;
+          // font-weight: 600;
           text-transform: capitalize;
           margin-right: 5px;
           border: 1px solid var(--heading-text-color);
@@ -1262,7 +1267,12 @@
     background-size: cover;
     padding: 30px 15px;
     position: relative;
+    .jst-space{
+      justify-content: space-between;
+      flex-direction: row;
+    }
     .left_div {
+      flex: 0 0 50%;
       margin-right: 30px;
       .section {
         .title {
@@ -1275,20 +1285,20 @@
           margin: 0;
           border-radius: 5px;
           margin-top: 16px;
-          font-weight: 600;
+          // font-weight: 600;
           text-transform: capitalize;
           margin-right: 5px;
-          border: 1px solid #3893cc;
+          // border: 1px solid #3893cc;
         }
       }
     }
 
     .right_div {
-      flex: 0 0 50%;
+      flex: 0 0 calc(48% - 7px);
       position: relative;
       .image {
         img {
-          width: 100%;
+          width: 380px;
           border-radius: 8px 8px;
 
         }
@@ -1318,8 +1328,8 @@
           margin: 0;
           border-radius: 5px;
           margin-top: 10px;
-          font-weight: 600;
-          font-size: 14px;
+          // font-weight: 600;
+          // font-size: 14px;
           float: left;
           text-transform: capitalize;
         }
@@ -1351,8 +1361,8 @@
 
       .section {
         .title {
-          font-size: 35px;
-          font-weight: 700;
+          // font-size: 35px;
+          // font-weight: 700;
           color: var(--heading-text-color);
           margin-bottom: 5px;
           text-align: left;
@@ -1361,13 +1371,13 @@
         }
 
         .subtitle {
-          font-size: 20px;
-          font-weight: 500;
+          // font-size: 20px;
+          // font-weight: 500;
           color: var(--heading-text-color);
         }
 
         .content {
-          font-size: 18px;
+          // font-size: 18px;
           text-align: left;
         }
 
@@ -1375,8 +1385,8 @@
           margin: 0;
           border-radius: 5px;
           margin-top: 10px;
-          font-weight: 600;
-          font-size: 14px;
+          // font-weight: 600;
+          // font-size: 14px;
           float: left;
         }
       }
@@ -1412,10 +1422,10 @@
       .section {
         .content {
           width: 100%;
-          margin: 0 auto;
-          font-size: 16px;
+          // margin: 0 auto;
+          // font-size: 16px;
           text-align: center;
-          font-weight: 400;
+          // font-weight: 400;
           line-height: normal;
           margin-bottom: 20px !important;
         }
@@ -1459,6 +1469,22 @@
 
 @media screen and (max-width:768px) {
 
+  .jst-space{
+    flex-direction: column!important;
+  }
+  .left_div {
+    width: 100%;
+      }
+  .right_div {
+ width: 100%;
+    .image {
+      img {
+          object-fit: contain!important;
+      }
+    }
+  }
+
+
   .mobile_b {
     flex-direction: column;
   }
@@ -1488,7 +1514,7 @@
             }
 
             .item_name {
-              font-size: 18px !important;
+              // font-size: 18px !important;
             }
           }
         }
@@ -1537,7 +1563,7 @@
   }
 
   .full_bg_right_img {
-    object-fit: cover;
+    object-fit: contain;
     max-height: 253px;
     width: 100%;
     min-height: 252px;
@@ -2032,8 +2058,8 @@
 
   .cardsection-main1 {
     .title-center {
-      font-size: 20px;
-      font-weight: 700;
+      // font-size: 20px;
+      // font-weight: 700;
       color: var(--heading-text-color);
       text-align: center;
     }
@@ -2065,7 +2091,7 @@
 
         h3 {
           margin-bottom: 10px;
-          font-size: 20px;
+          // font-size: 20px;
           color: var(--heading-text-color);
         }
 
@@ -2261,7 +2287,7 @@
         position: relative;
 
         .card-b {
-          margin-left: 20%;
+          margin-left: 8%;
           text-align: left;
           padding: 0;
 
@@ -2441,24 +2467,20 @@
           font-weight: 700;
           color: var(--heading-text-color);
         }
-
         .subtitle {
 
           color: var(--heading-text-color);
         }
-
         .content {
           font-size: 18px;
           margin-bottom: 10px;
         }
-
         .content.overlay-t {
           width: 50%;
           text-align: justify;
           line-height: normal;
           margin: unset;
         }
-
         .button {
           margin: 0;
           border-radius: 5px;
@@ -2469,7 +2491,6 @@
         }
       }
     }
-
   }
 
   // for about us
@@ -2481,7 +2502,6 @@
   .back_no_repeat {
     background-repeat: no-repeat;
     background-size: cover;
-
   }
 
   .banners {
@@ -5613,24 +5633,33 @@ a:hover {
 }
 
 .bg_icon {
-  font-size: 36px;
-  background-color: #f6f0ff;
   border-radius: 162px;
   padding: 22px;
-  max-height: 82px;
-  max-width: 74px;
+  max-height: 80px;
+  max-width: 82px;
+  position: relative;
 }
+.bg_icon::after{
+  content: "";
+  border-radius: 162px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color:var(--primary-color);
+  opacity: .05;
+  top: 0;left: 0;
+} 
 
 .icon_width {
   width: 82px;
-  max-width: 82px;
+  max-width: 80px;
 }
 
 .image_container {
   width: 49.99%;
 
   .image {
-    text-align: center;
+    // text-align: center;
 
     img {
       width: 500px;
@@ -5662,6 +5691,9 @@ a:hover {
 }
 
 //(feature_section_1)
+.wd-85{
+  width: 85%;
+}
 .image_container {
   .cards_con {
     flex-wrap: wrap;
@@ -5703,20 +5735,22 @@ a:hover {
       .sub_card_con {
         padding: 0px 15px 5px 15px;
         .top_number {
-          .h4 {
-            color: #ddd;
+          .number_count {
+            color: var(--go1-all-border-color);
           }
         }
-
+        .feature_title_{
+          padding: 0 10px;
+        }
         .title_ {
           padding: 0 30px 10px 30px;
         }
 
-        background-color: white;
+        background-color: var(--white);
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
         .description_text {
-          padding: 20px 0 30px 0;
+          padding: 20px 10px 30px 10px;
           border-bottom: 6px solid var(--primary-color);
         }
       }
@@ -5729,7 +5763,14 @@ a:hover {
 .feat-width {
   width: 80%;
 }
-
+.flx_dir{
+  flex-direction: row;
+}
+@media screen and (max-width:768px) {
+  .flx_dir{
+    flex-direction: column!important;
+  }
+}
 .knowmore_feature_button {
   text-transform: none;
   --background: var(--primary-color);
@@ -5782,7 +5823,7 @@ a:hover {
       // .font-24{font-size: 24px;}}
       // background-color: white;
       .description_text {
-        height: 80px;
+        height: 100px;
       }
 
       .learn_more {
@@ -5851,12 +5892,13 @@ a:hover {
       }
 
       .des_border {
-        border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid var(--go1-all-border-color);
         border-radius: unset;
+        padding-bottom: 40px;
       }
 
       .learn_more {
-        padding: 10px 0 0 0;
+        // padding: 10px 0 0 0;
 
         .righticon {
           padding: 19px 0 0 0;
@@ -6051,7 +6093,7 @@ a:hover {
 }
 
 .loop_count_icon {
-  gap: 10px;
+  gap: 20px;
 
   .icon_count {
     align-items: center;
@@ -6060,8 +6102,8 @@ a:hover {
     .icon_back {
       background-color: #fff;
       padding: 10px;
-      width: 48px;
-      height: 48px;
+      width: 58px;
+      height: 58px;
       border-radius: 5px;
       margin-right: 20px;
       box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -6077,7 +6119,7 @@ a:hover {
   }
 
   .count_value_mobile_size {
-    font-size: 24px !important;
+    // font-size: 24px !important;
   }
 
   .counter_elem {
@@ -6280,7 +6322,7 @@ a:hover {
           align-items: center;
           width: 100%;
           ion-icon {
-            font-size: 18px;
+            font-size: 22px;
             padding: 0 10px 0 0;
           }
 
@@ -6327,6 +6369,7 @@ a:hover {
 
     .left__accordion_right_image {
       .box__1 {
+             
         .head {
           text-align: center;
         }
@@ -6348,8 +6391,8 @@ a:hover {
     height: 400px;
 
     .content {
-      height: 200px !important;
-      top: 50% !important;
+      height: 236px !important;
+      top: 36% !important;
       right: 10px !important;
       left: 10px !important;
       padding: 20px 10px !important;
@@ -6661,10 +6704,15 @@ a:hover {
 }
 
 .box__4 {
+  ._box2{
+      height: 580px;
+  }
   .accordion {
     .accordion_box {
-      border: 1px solid transparent;
+      border: 1px solid var(--go1-all-border-color);
+      border-radius: 5px;
       padding: 10px;
+      margin-bottom: 20px;
 
       .header__ {
         padding: 15px 0;
@@ -6684,12 +6732,13 @@ a:hover {
     color: var(--heading-text-color);
   }
 }
-
 .active_box__ {
   border-radius: 5px;
+  border: 1px solid var(--primary-color)!important;
   .title__ {
     color: var(--primary-color);
   }
+
 }
 
 .About_contact-us {
@@ -6861,7 +6910,7 @@ a:hover {
 
   .description_text {
     text-align: justify;
-    padding-right: 30px;
+    padding-right: 95px;
   }
 
 }
@@ -6884,7 +6933,7 @@ a:hover {
 
 .title_width_center {
   width: 75%;
-  margin: 0 auto 40px auto;
+  margin: 0 auto 60px auto;
 }
 
 .desc_width_center {
@@ -6893,6 +6942,11 @@ a:hover {
 }
 
 @media screen and (max-width:768px) {
+  .counters_1{
+    .description_text {
+      padding-right: 0px;
+    }
+  }
   .title_width_center {
     width: 100%;
     margin: 0 auto 30px auto;
@@ -6995,6 +7049,7 @@ a:hover {
   margin: auto;
 
   .counter_boxs {
+    position: relative;
     flex: 0 0 33.33%;
     padding: 25px;
     border-bottom: 1px solid #4b55631f;
@@ -7009,8 +7064,16 @@ a:hover {
     border-right: 1px solid #4b55631f;
   }
 
-  .counter_boxs:hover {
-    background-color: hsl(217deg 100% 95%);
+  .counter_boxs:hover::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    opacity: 0.09;
+    top: 0;
+    right: 0;
+    position: absolute;
+    z-index: 0;
   }
 }
 
@@ -7156,24 +7219,22 @@ a:hover {
 
 
 //Section counter- Banner with counter (Section-6)
-.fnt-36 {
-  font-size: 36px;
-}
 
 .container_bg {
-  justify-content: space-between;
-  padding: 15px 30px;
+  justify-content: flex-start;
+  padding: 15px 40px;
+  gap:20px;
   .counter--list {
     .count_value {
-      font-size: 65px;
+      // font-size: 65px;
       margin: 0;
       width: auto;
-      color: var(--white)
+       color: var(--white)
     }
     .set--width {
       width: auto;
       align-self: flex-end;
-      color: var(--white);
+       color: var(--white);
     }
   }
 }
@@ -7205,7 +7266,7 @@ a:hover {
     .round_img {
       width: 200px;
       height: 200px;
-      border: 2px solid #663294;
+      border: 2px solid var(--primary-color);
       border-radius: 50%;
       overflow: hidden;
 
@@ -7267,7 +7328,7 @@ a:hover {
   position: relative;
   width: 15%;
   left: 42%;
-  border-bottom: 4px solid #663294;
+  border-bottom: 4px solid var(--primary-color);
   margin-top: 8px;
 }
 
@@ -7318,7 +7379,7 @@ a:hover {
   position: relative;
   width: 5%;
   bottom: 3px;
-  border: 2px solid #663294;
+  border: 2px solid var(--primary-color);
   border-radius: 50px;
   margin-right: 10px;
 }
@@ -7375,12 +7436,12 @@ a:hover {
 
       .t-profile__icons {
         .social_icon {
-          width: 25px;
+          width: 20px;
         }
-
+ 
         gap: 20px;
         position: absolute;
-        bottom: 15px;
+        bottom: 6px;              
         opacity: 0;
       }
     }
@@ -7425,7 +7486,9 @@ a:hover {
       }
     }
   }
-
+.prm-color{
+  color: var(--primary-color);
+}
   .card_image_sections {
     flex: 0 0 calc(60% - 10px);
     justify-content: end;
@@ -7481,7 +7544,10 @@ a:hover {
     }
   }
 }
-
+.header_sec_right_icon{
+  font-size: 25px;
+  margin-right: 12px;
+}
 //--------------------------------------End here
 
 // bala
@@ -7492,5 +7558,44 @@ a:hover {
 .mt-20 {
   margin-top: 20px;
 }
+.threecol_icon{
+  font-size: 50px;
+}
+.grid_icon{
+  color: var(--go1-light-color);
+  background-color: var(--primary-color);
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  top: unset!important;
+  bottom: unset;
+  right: unset!important;
+  padding: 12px;
+  flex: 12%;
+}
+.abs_icon{
+  position: absolute!important;
+  top: -30px!important;
+}
 
-// List 1
+@media screen and (max-width:768px) {
+  .abs_icon{
+    position: relative!important;
+    top: 0px!important;
+  }
+}
+
+.grid_feature_icon{
+  color: var(--go1-light-color);
+  background-color: var(--primary-color);
+  width: 40px;
+  height: 40px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 12px;
+}
+.primary_tone{
+  color: var(--primary-color);
+}

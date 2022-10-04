@@ -25,33 +25,33 @@
   }
 
   .slider_content {
-    width: 45%;
+    width: 50%;
 
     .slider_subtitle {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--sample);
+      // font-size: 18px;
+      // font-weight: 600;
+      // color: var(--sample);
     }
 
     .slider_title {
       //   max-width: 82%;
-      font-weight: 700;
-      font-size: 55px;
-      color: var(--white);
+      // font-weight: 700;
+      // font-size: 55px;
+      // color: var(--white);
     }
 
     .slider_sec_title {
       max-width: 95%;
-      line-height: 24px;
-      color: var(--white);
-      opacity: 0.8;
+      // line-height: 24px;
+      // color: var(--white);
+      // opacity: 0.8;
     }
 
     ion-button.header_btn {
       text-align: start;
       // --background:var(--sample) ;
       //  color: var(--white);
-      font-size: 15px;
+      // font-size: 15px;
     }
   }
 }
@@ -66,15 +66,15 @@
       padding: 0 0 0 20px;
 
       .slider_subtitle {
-        font-size: 14px;
-        font-weight: 600;
+        // font-size: 14px;
+        // font-weight: 600;
         text-align: start;
       }
 
       .slider_title {
         max-width: 100%;
-        font-weight: 400;
-        font-size: 40px;
+        // font-weight: 400;
+        // font-size: 40px;
         text-align: start;
       }
 
@@ -198,6 +198,13 @@
 
 
 // slider 4
+.slider_four_title{
+  color: var(--go1-light-color);
+}
+.slider_sec_four_title{
+  color:  var(--go1-light-color);
+}
+
 .header_slider_four_bg {
   background-repeat: no-repeat;
   background-size: cover;
@@ -207,7 +214,7 @@
   margin-bottom: 60px;
 .slider_four_content{
   text-align: center;
-  padding: 100px 30px 50px 30px;
+  padding: 120px 30px 50px 30px;
   width: 65%;
   margin: 0 auto;
 }
@@ -265,30 +272,30 @@
     justify-content: center;
 
     .slider_five_subtitle {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--primary-bg);
+      // font-size: 18px;
+      // font-weight: 600;
+      // color: var(--primary-bg);
     }
 
     .slider_five_title {
       width: 70%;
-      font-weight: 700;
-      font-size: 55px;
-      color: var(--white);
+      // font-weight: 700;
+      // font-size: 55px;
+      // color: var(--white);
     }
 
     .slider_sec_five_title {
       width: 70%;
-      font-size: 18px;
-      line-height: 24px;
-      color: var(--white);
-      opacity: 0.8;
+      // font-size: 18px;
+      // line-height: 24px;
+      // color: var(--white);
+      // opacity: 0.8;
     }
 
     ion-button.header_five_btn {
     
-      color: var(--white);
-      font-size: 14px;
+      // color: var(--white);
+      // font-size: 14px;
     }
   }
 
@@ -313,6 +320,9 @@
   }
 }
 @media screen and (max-width:768px) {
+  .main_flex{
+    flex-direction: column;
+  }
   .header_slider_five_bg {
     .slider_five_content {
       flex: 0 0 100%;
@@ -335,15 +345,15 @@
     width: 100%;
   }
     .slider_five_rgt_image {
-      flex: 0 0 40%;
+      flex: 0 0 100%;
       display: flex;
       align-items: center;
       .bg2_image{
-        width: 85%;
+        width: 100%;
         margin: 0 auto;
-        overflow: hidden;
+        overflow: visible;
         img{
-         max-width: 420px;
+         max-width: 320px;
          vertical-align: middle;
         }
       }
@@ -371,30 +381,30 @@
     justify-content: center;
 
     .slider_six_subtitle {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--primary-bg);
+      // font-size: 18px;
+      // font-weight: 600;
+      // color: var(--primary-bg);
     }
 
     .slider_six_title {
       width: 70%;
-      font-weight: 700;
-      font-size: 55px;
-      color: var(--white);
+      // font-weight: 700;
+      // font-size: 55px;
+      // color: var(--white);
     }
 
     .slider_sec_six_title {
       width: 70%;
-      font-size: 18px;
-      line-height: 24px;
-      color: var(--white);
-      opacity: 0.8;
+      // font-size: 18px;
+      // line-height: 24px;
+      // color: var(--white);
+      // opacity: 0.8;
     }
 
     ion-button.header_six_btn {
     
-      color: var(--white);
-      font-size: 14px;
+      // color: var(--white);
+      // font-size: 14px;
     }
   }
 }
@@ -415,3 +425,6 @@
     }
   }
 }
+
+
+

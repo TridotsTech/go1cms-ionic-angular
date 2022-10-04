@@ -7,7 +7,7 @@
     [ngStyle]="db.img_style(item.background_image,'img')">
     <div class="box__1" [class.margin-none]="item.section_name == 'Brands'" [class.just-c]="!db.ismobile">
       <h2 *ngIf="item.title" class="title" [ngClass]="db.ismobile?'txt-l':'txt-c'">{{item.title}}<span
-          class="span spantitle">{{item.spantitle}}</span></h2>
+          class="span spantitle spantitle-color">{{item.spantitle}}</span></h2>
       <p *ngIf="item.subtitle" class="subtitle" [ngClass]="db.ismobile?'txt-l':'txt-c'">{{item.subtitle}}</p>
     </div>
   </div>
@@ -36,7 +36,7 @@
     <div class="d__flex" [class.just-c]="!db.ismobile" [class.just-s]="db.ismobile"
       [ngStyle]="db.img_style(item.background_image,'img')">
       <div class="box__1" [class.margin-none]="item.section_name == 'Brands'" [class.just-c]="!db.ismobile">
-        <h2 *ngIf="item.title" class="txt-c title">{{item.title}} <span class="span spantitle">{{item.spantitle}}</span>
+        <h2 *ngIf="item.title" class="txt-c title">{{item.title}} <span class="span spantitle spantitle-color">{{item.spantitle}}</span>
         </h2>
         <p *ngIf="item.subtitle" class="m-0 txt-c">{{item.subtitle}}</p>
       </div>

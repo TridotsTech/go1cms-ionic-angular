@@ -1,9 +1,12 @@
 .about_button {
     background-color: var(--primary-color);
     margin-top: 20px;
-    color: #fff;
+    color: var(--white);
     border-radius: 5px;
     text-transform: none;
     height: 40px;
     font-size: 16px;
+  }
+  .default_clr{
+    background-color: var(--primary-color);
   }

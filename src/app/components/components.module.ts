@@ -27,25 +27,28 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { FooterComponent } from './footer/footer.component';
 import { ReferenceSiteComponent } from './reference-site/reference-site.component';
 import { DefaultHeaderComponent } from './headers/default-header/default-header.component';
-import { TestimonialsviewComponent } from './testimonialsview/testimonialsview.component';
 import { Webform1Component } from './webform1/webform1.component';
 import {
   RecaptchaModule,
   RecaptchaV3Module,
 } from 'ng-recaptcha';
-import { OurTeamComponent } from './page-sections/our-team/our-team.component';
-import { TestimonialsComponent } from './page-sections/testimonials/testimonials.component';
-import { ClientsComponent } from './page-sections/clients/clients.component';
-import { FAQComponent } from './page-sections/faq/faq.component';
-import { PricingComponent } from './page-sections/pricing/pricing.component';
-import { PageBuilderComponent } from './page-sections/page-builder/page-builder.component';
-import { FeaturesComponent } from './page-sections/features/features.component';
-import { CountersComponent } from './page-sections/counters/counters.component';
-import { SlidersComponent } from './page-sections/sliders/sliders.component';
-import { BlogsComponent } from './page-sections/blogs/blogs.component';
+import { TestimonialsviewComponent } from './testimonialsview/testimonialsview.component';
 
+import { PageBuilderComponent } from './page-sections/page-builder/page-builder.component';
+import { BlogsComponent } from './page-sections/blogs/blogs.component';
+import { ClientsComponent } from './page-sections/clients/clients.component';
+import { CountersComponent } from './page-sections/counters/counters.component';
 import { CTAComponent } from './page-sections/cta/cta.component';
+import { FeaturesComponent } from './page-sections/features/features.component';
+import { FAQComponent } from './page-sections/faq/faq.component';
+import { LandingPageComponent } from './page-sections/landing-page/landing-page.component';
+import { ListSectionComponent } from './page-sections/list-section/list-section.component';
+import { OurTeamComponent } from './page-sections/our-team/our-team.component';
 import { PortfolioComponent } from './page-sections/portfolio/portfolio.component';
+import { PricingComponent } from './page-sections/pricing/pricing.component';
+import { SlidersComponent } from './page-sections/sliders/sliders.component';
+import { TestimonialsComponent } from './page-sections/testimonials/testimonials.component';
+
 import { ImagesListComponent } from './images-list/images-list.component';
 import { GalleryDetailsComponent } from './gallery-details/gallery-details.component';
 import { LightgalleryModule } from 'lightgallery/angular';
@@ -54,7 +57,6 @@ import { ListBoxComponent } from './list/list-box/list-box.component';
 import { ListBoxMasonryComponent } from './list/list-box-masonry/list-box-masonry.component';
 import { ListHorizontalComponent } from './list/list-horizontal/list-horizontal.component';
 import { SubListHeaderComponent } from './headers/sub-list-header/sub-list-header.component';
-import { ListSectionComponent } from './page-sections/list-section/list-section.component';
 import { DetailStyleComponent } from './detail/detail-style/detail-style.component';
 import { ListFilterComponent } from './list/list-filter/list-filter.component';
 
@@ -68,7 +70,6 @@ import { TextComponent } from './builder-components/text/text.component';
 import { BuilderSliderComponent } from './builder-components/builder-slider/builder-slider.component';
 import { TemplateBuilderComponent } from './builder-components/template-builder/template-builder.component';
 import { BuilderListComponent } from './builder-components/builder-list/builder-list.component';
-import { LandingPageComponent } from './page-sections/landing-page/landing-page.component';
 
 
 @NgModule({

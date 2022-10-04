@@ -1,6 +1,6 @@
     <div>
       <!-- Testimonial one -->
-       <div class="main_container align-center {{item.class_name}}" *ngIf="item.section_type == 'Custom Section' && item.section_name =='Testimonials Style 1'"
+       <div class="main_container align-center {{item.class_name}} mb-40" *ngIf="item.section_type == 'Custom Section' && item.section_name =='Testimonials Style 1'"
        [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
   
         <div class="position-relative">
@@ -8,7 +8,7 @@
             <h2 class="txt-c title">{{item.title}}</h2>
           </div>
           
-          <ion-slides class="web-slider mouse testimonial_slides" pager="true" loop="true" [options]="db.ismobile?mobile_slider:web_slider_one">
+          <ion-slides [options]="{pagination: true}" class="web-slider mouse testimonial_slides" pager="true" loop="true" [options]="db.ismobile?mobile_slider:web_slider_one">
             <ion-slide *ngFor="let data of item.data;let i=index">
                  <div class="testimonial_card">
                     <div class="testimonial_card_image txt-l">
@@ -35,7 +35,7 @@
       </div>
      
          <!-- Testimonial two -->
-         <div class="main_container align-center {{item.class_name}}" *ngIf="item.section_type == 'Custom Section' && item.section_name =='Testimonials Style 2'"
+         <div class="main_container align-center {{item.class_name}} mb-40" *ngIf="item.section_type == 'Custom Section' && item.section_name =='Testimonials Style 2'"
          [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
            <div class="position-relative" >
              <div class="creative_header">
@@ -88,8 +88,8 @@
             </div>
             </div>
                 <div class="testimonial_details">
-                    <h4 class="mg_10 name title heading cent-text  h2titile">{{data.person_name}}</h4>
-                    <h6 class=" role heading cent-text">{{data.person_role}}</h6>
+                    <h4 class="mg_10 name title heading cent-text  h2titile mb-10">{{data.person_name}}</h4>
+                    <h6 class=" role heading cent-text m-0">{{data.person_role}}</h6>
                     <p class="mg_30 content webkit-text" [style.--line]="5">{{data.content}}</p>
                     <div class="mg_30">
                       <ion-icon color="warning" name="star"></ion-icon>
@@ -124,8 +124,8 @@
                   <img [src]="db.product_img(data.company_log)">
                 </div>
                 <div>
-                <h4 class="txt_size title heading">{{data.person_name}}</h4>
-                <h6 class="role ">{{data.person_role}}</h6>
+                <h4 class="txt_size title heading m-0">{{data.person_name}}</h4>
+                <h6 class="role m-0">{{data.person_role}}</h6>
               </div>
               </div>
               <div>
@@ -145,7 +145,7 @@
 <!--  testimonial four-->
 <div class="testimonialFour_container align_center mb-40" *ngIf="item.section_type == 'Custom Section' && item.section_name =='Testimonials Style 4'"
 [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
-  <h2 class="title heading testi_4_title txt-c">{{item.title}}</h2>
+  <h2 class="title heading testi_4_title txt-c mb-10">{{item.title}}</h2>
   <div class="line"></div>
   <ion-slides class="web-slider mouse testimonial_slides"  loop="true" [options]="db.ismobile?mobile_slider:web_slider_two"> 
   <ion-slide *ngFor="let data of item.data">
@@ -156,8 +156,8 @@
       <div class="testimonial_col2">
         <h4 class="command">"{{data.title}}"</h4>
         <p class="mg_40 content webkit-text" [style.--line]="5">{{data.content}}</p>
-        <h4 class="mg_40 name">{{data.person_name}}</h4>
-        <h6 class=" role">{{data.person_role}}</h6>
+        <h4 class="mg_40 name mb-10">{{data.person_name}}</h4>
+        <h6 class=" role m-0">{{data.person_role}}</h6>
       </div>
     </div>
   </ion-slide>
@@ -167,8 +167,8 @@
 
   <div class="testimonialThree_container align_center mb-40" *ngIf="item.section_type == 'Custom Section' && item.section_name =='Testimonials Style 3'"
   [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
-    <p class="title txt-c">{{item.title}}</p>
-    <h2 class="subtitle txt-c">{{item.sub_title}}</h2>
+    <p class="title txt-c m-0">{{item.title}}</p>
+    <h2 class="subtitle txt-c m-0">{{item.sub_title}}</h2>
     <ion-slides class="web-slider mouse testimonial_slides" pager="true" loop="true" 
     [options]="db.ismobile?mobile_slider:web_slider_one">
     <ion-slide *ngFor="let data of item.data">
@@ -185,8 +185,8 @@
           <ion-icon color="warning" name="star"></ion-icon>
         </div>
         <p class="mg_10  content webkit-text" [style.--line]="5">"{{data.content}}"</p>
-        <h4 class="heading">{{data.person_name}}</h4>
-        <h6 class="">{{data.person_role}}</h6>
+        <h4 class="heading mb-10">{{data.person_name}}</h4>
+        <h6 class="m-0">{{data.person_role}}</h6>
       </div>
     </ion-slide>
     </ion-slides>

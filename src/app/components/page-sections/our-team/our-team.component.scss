@@ -12,10 +12,10 @@
 }
 
 .opacity_05 {
-  opacity: 0.5;
+  // opacity: 0.5;
 }
 
-.t-profile__content {
+.t-profile_image {
   &:hover {
     .role {
       opacity: 0;
@@ -81,19 +81,19 @@
   display: block;
 }
 
-.creative_image:hover img {
+.creative_image:hover .img {
   display: none;
 }
 
 .creative_image:hover {
-  background-color: #663399;
+  background-color: var(--primary-color);
   border-radius: 10px;
 }
 
 .creative_details {
   display: none;
   position: absolute;
-  padding-top: 35%;
+  padding-top: 26%;
   width: 100%;
   color: white;
 }
@@ -145,7 +145,7 @@
 }
 
 .purple_color {
-  color: #663399;
+  color: var(--primary-color);
 }
 
 .gray_color {
@@ -169,7 +169,7 @@
   width: 200px;
   padding: 5px;
   border-radius: 50%;
-  border: 2px solid #663399;
+  border: 2px solid var(--primary-color);
   margin: 0 auto;
 
   img {
@@ -215,7 +215,7 @@
 
 @media screen and (min-width:1600px) {
   .ourteam_image {
-    height: 550px;
+    height: 350px;
   }
 
   .creative_image,
@@ -251,7 +251,7 @@
 
   // our team two
   .ourteam_two_card {
-    flex: 0 0 calc(33.33% - 20px);
+    flex: 0 0 calc(33.33% - 14px);
   }
 
   .ourteam_two_images {
@@ -287,8 +287,8 @@
     width: 95%;
 
     .title {
-      font-weight: 700 !important;
-      font-size: 24px !important;
+      // font-weight: 700 !important;
+      // font-size: 24px !important;
       color: var(--primary-bg) !important;
       margin-bottom: 10px;
     }
@@ -317,7 +317,7 @@
     line-height: normal;
     font-size: 15px;
     font-family: poppins;
-    opacity: 0.6;
+    // opacity: 0.6;
     margin-bottom: 15px;
   }
 
@@ -327,12 +327,12 @@
 
   // our team two
   .ourteam_two_card {
-    flex: 0 0 calc(75% - 20px);
+    flex: 0 0 calc(100% - 20px);
   }
 
   .creative_image,
   .ourteam_two_image {
-    height: 270px;
+    height: 470px;
   }
 
   .ourteam_two_images {
@@ -341,6 +341,9 @@
     width: 95%;
     padding: 10px 0px;
     margin: 0px;
+  }
+  .ot-three{
+    flex: 0 0 calc(100% - 20px)!important;
   }
 
   //our team    
@@ -360,7 +363,7 @@
   }
 
   .ourteam_card {
-    flex: 0 0 calc(100% - 20px);
+    flex: 0 0 calc(85% - 20px);
   }
 
   .ourteam_header_title {

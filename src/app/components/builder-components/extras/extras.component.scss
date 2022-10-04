@@ -1,0 +1,52 @@
+.img-hover-zoom--brightness img {
+    transition: transform .5s, filter 0.5s ease-in-out;
+    transform-origin: center center;
+    filter: brightness(75%);
+  }
+  .img-hover-zoom--brightness:hover img {
+    filter: brightness(100%); 
+  }
+  .image:hover{
+    img{
+        background: rgba(255,255,255,0.8);
+        transform: scale(1.2);
+    }
+}
+  .image{border-radius: 7px;} 
+.text_label:hover{
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    transition: 0.9s cubic-bezier(0, 0, 0.2, 1);
+}
+.grid{
+    gap: 25px;
+    .grid-4{
+        flex: 0 0 calc(25% - 19px);
+    }
+}
+.not-scroll{
+  flex-wrap: wrap;
+}
+ .scroll,.grid{
+    .image{
+        height: 100%;
+        flex-direction: column;
+        overflow: hidden;
+         img{
+           max-height: 350px;
+           width: 100%;
+           object-fit: cover;
+           border-radius: 5px;
+         }
+      }
+  }
+  
+@media screen and (max-width:768px) {
+
+        .grid-4{
+            flex: 0 0 calc(100% - 0px)!important;
+        }
+        .text_label{
+            text-align: center;
+        }
+}

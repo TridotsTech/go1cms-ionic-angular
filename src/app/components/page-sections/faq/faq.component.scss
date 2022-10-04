@@ -50,16 +50,21 @@
 
 .main-width {
   align-items: unset !important;
-
+   .gap-3{
+    gap:30px
+   }
   .box__1 {
-    flex: 0 0 calc(50%);
+    flex: 0 0 calc(50% - 15px);
+    ._box1{
+      height: 526px;
+   }
   }
 
   .box__2 {
-    flex: 0 0 calc(50%);
+    flex: 0 0 calc(50% - 15px);
 
     .image {
-      text-align: center;
+      // text-align: center;
 
       img {
         width: 500px;
@@ -68,8 +73,9 @@
   }
 
   .box__3 {
-    flex: 0 0 calc(50% - 10px);
-    margin: 5px;
+    flex: 0 0 calc(51% - 7px);
+    margin-top: -50px;
+   
   }
 }
 
@@ -77,7 +83,7 @@
   .accordion_box {
     .header__ {
       padding: 25px 0;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--go1-all-border-color);
 
       ion-icon {
         font-size: 20px;
@@ -157,12 +163,12 @@
   }
 
   .accordion_faq {
-    border: 1px solid #4b556321;
+    border: 1px solid var(--go1-all-border-color);
     border-radius: 5px;
     width: 100%;
 
     .accordion_faq_box {
-      border-bottom: 1px solid #4b556321;
+      border-bottom: 1px solid var(--go1-all-border-color);
       padding: 20px;
 
       .accordion_faq_box_header {
@@ -185,7 +191,7 @@
 
   h2,
   ion-icon {
-    color: #663294;
+    color: var(--primary-color);
   }
 }
 
@@ -279,6 +285,10 @@
 
 
 // css by bala faq-4
+.ht_faq{
+  height: 519px;
+}
+
 .left__accordion_right_image {
   .main-width {
     .more_ques_faq {

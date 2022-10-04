@@ -20,7 +20,7 @@
     <app-accordion [row]="row"></app-accordion>
   </div>
   <!-- 8 Gallary -->
-  <!-- <div *ngIf="row.component_type=='Gallary Style1' || row.component_type=='Gallary Style2'">
+  <!-- <div *ngIf="row.component_type=='Gallery' || row.component_type=='Gallary Style2'">
     <app-gallary [row]="row"></app-gallary>
   </div> -->
   <!-- 10 Slider -->
@@ -49,11 +49,11 @@
   </div>
   <!-- 18 Blurb -->
   <div
-    *ngIf="row.component_type== 'Card Style1' || row.component_type=='Card Style2' || row.component_type=='Card Style3' || row.component_type=='Card Style4' || row.component_type=='Card Style5'">
+    *ngIf="row.component_type== 'Card Style1' || row.component_type=='Card Style2' || row.component_type=='Card Style3' || row.component_type=='Card Style4' || row.component_type=='Card Style5' || row.component_type=='Card Style6'">
     <app-blurb [row]="row"></app-blurb>
   </div>
   <!-- Extras -->
-  <div *ngIf="row.component_type== 'contact_form' || row.component_type=='break' || row.component_type=='divider' || row.component_type=='CTA Style1' || row.component_type=='Menu Style1' || row.component_type=='SubHeader Style1'">
+  <div *ngIf="row.component_type== 'contact_form' || row.component_type=='break' || row.component_type=='divider' || row.component_type=='CTA Style1' || row.component_type=='Menu Style1' || row.component_type=='SubHeader Style1'|| row.component_type=='Gallery'">
     <app-extras [row]="row"></app-extras>
   </div>
   <!-- </div>    -->

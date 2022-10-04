@@ -20,22 +20,15 @@
             <ul class="list_row">
               <li *ngFor="let data of row.data.data " class="d__flex list-item title" >
                   <img [src]="db.product_img(data.image)" alt="">
-                  {{data.title}}
+                  <div> {{data.title}}</div>
               </li>
             </ul>
           </div>
-          <!-- List 3 -->
-          <ul class="list_element component_container" *ngIf="row.component_type=='List Style2'">            
-                <li class="divst_items d__flex title" *ngFor="let data of row.data.data">
-                  <img [src]="db.product_img(data.image)" alt="icon">
-                  {{data.title}}
-                </li>  
-              </ul>
-          <!--List 4  -->
+          <!--List 3  -->
           <ul class="list_element2 component_container" *ngIf="row.component_type=='List Style3'">
             <li class="list_content mb-20" *ngFor="let data of row.data.data">
               <div class="list_data">
-                <span class="title">{{data.title}} </span>
+                <h4 class="title">{{data.title}} </h4>
                 <p class="content">{{data.content}}</p>
               </div>
             </li>
@@ -47,9 +40,9 @@
                 <img [src]="db.product_img(data.image)">
               </div>
               <div class="title_ side_title">
-                 <span  class="title">
+                 <h4  class="title">
                   {{data.title}}
-                 </span>
+                 </h4>
                  <p class="content">{{data.content}}</p>
               </div>
             </li>
@@ -65,7 +58,7 @@
                     <div class="content__box d__flex" >
                        <div class="d__flex content_value">
                           <img  class="icon__ list_icon" [src]="db.product_img(row.data.avatar_image)" alt="">
-                          <span class="title">{{row.title}}</span>
+                          <h4 class="title">{{row.title}}</h4>
                        </div>
                        <p class="content">{{row.content}}</p>
                     </div>

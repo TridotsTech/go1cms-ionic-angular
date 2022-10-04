@@ -3,18 +3,12 @@
           <div class="component_container __wrap d__flex color_card_list" 
           *ngIf="row.component_type=='Counter Style1'">
           <div *ngFor="let data of row.data.data;let i=index" class="card_list">
-            <h2 class="c-section  count_color_change count_value">
+            <h1 class="c-section  count_color_change count_value">
               {{data.count_value}} 
-            </h2>
-            <div class="title_">
-              <h4 class="m-0 count_title">
+            </h1>
+              <h4 class="count_title">
                 {{data.count_title}}
               </h4>
-            </div>
-            <p class="count_description webkit-text"
-              [style.--line]="1">
-              {{data.count_description}}
-            </p>
           </div>    
           </div>
           <!-- Counter 2 -->

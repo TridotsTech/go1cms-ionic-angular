@@ -2,10 +2,11 @@
 <div *ngIf="item.section_type == 'Custom Section' && item.section_name =='FAQ Style 1'"
   class="left__accordion_right_image section__border container_reverce  {{item.class_name}} animate mb-40"
   [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
-  <div class="d__flex" [ngClass]="db.ismobile?'flex_direction':''">
+  <div class="d__flex gap-3" [ngClass]="db.ismobile?'flex_direction':''">
     <div class="box__1">
       <p *ngIf="item.sub_title" class="m-0 faq_subtitle">{{item.sub_title}}</p>
       <h2 *ngIf="item.title" class="faq_title">{{item.title}}</h2>
+      <div class="_box1">
       <ul *ngIf="item.data && item.data.length != 0" class="accordion">
         <li class="accordion_box" *ngFor="let data of item.data;let i = index" [class.active_box]="data.show">
           <div *ngIf="data.answer && data.question" (click)="open_close(i,item.data)"
@@ -18,7 +19,8 @@
         </li>
       </ul>
     </div>
-    <div class="box__2">
+    </div>
+    <div class="box__2 text-right">
       <div class="image">
         <img class="right_image" *ngIf="item.right_image" src="{{db.product_img(item.right_image)}}">
       </div>
@@ -34,6 +36,7 @@
       <p *ngIf="item.sub_title" class="faq_subtitle">{{item.sub_title}}</p>
     </div>
     <div class="box__1 box__4">
+      <div class="_box2">
       <ul *ngIf="item.data && item.data.length != 0" class="accordion">
         <li class="accordion_box" *ngFor="let data of item.data;let i = index" [class.active_box__]="data.show">
           <div (click)="open_close(i,item.data)" class="header__ mouse d__flex just-s">
@@ -43,6 +46,7 @@
           <p *ngIf="data.show" class="m-0  fnt-14">{{data.answer}}</p>
         </li>
       </ul>
+    </div>
     </div>
   </div>
 </div>
@@ -74,7 +78,7 @@
 <div class="{{item.class_name}} container_reverce"
   *ngIf="item.section_type == 'Custom Section' && item.section_name == 'FAQ Style 5'"
   [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
-  <div class="main-width">
+  <div class="">
     <div class="top_section d__flex mb-20">
       <h2 class="m-0 faq_title ">{{item.title}}</h2>
       <div class="ask_more_btn d__flex mouse" *ngIf="item.btn_text">
@@ -103,7 +107,7 @@
         <img class="left_image" *ngIf="item.left_image" src="{{db.product_img(item.left_image)}}">
       </div>
     </div>
-    <div class="box__1 right_faq">
+    <div class="box__1 ht_faq right_faq">
       <h5 *ngIf="item.subtitle" class="m-0 faq_subtitle">{{item.subtitle}}</h5>
       <h2 *ngIf="item.title" class="m-0 pt-15 faq_title">{{item.title}}</h2>
       <ul *ngIf="item.data && item.data.length != 0" class="accordion">

@@ -22,9 +22,11 @@ export class TemplateBuilderComponent implements OnInit {
   
         assign(data){
           let new_columns = ''
-          data.columns.map(c=>{
-             new_columns += new_columns.length==0 ? `${c.width}` : ` ${c.width}`
-          })
+          if(data && data.columns){
+            data.columns.map(c=>{
+              new_columns += new_columns.length==0 ? `${c.width}` : ` ${c.width}`
+           })
+          }          
           let grid_columns = {
             'grid-template-columns':new_columns
           }

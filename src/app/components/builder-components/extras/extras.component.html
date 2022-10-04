@@ -29,8 +29,8 @@
             <div class="about_container" *ngIf="row.component_type=='CTA Style1'">
               <h2 class="title">{{row.data.title}}</h2>
               <p class="content">{{row.data.content}}</p>
-              <ion-button class="button_name" fill="clear"> {{row.data.button_name}}</ion-button>
-            </div>
+              <ion-button>{{row.data.button_name}}</ion-button>
+              </div>
           </div>
           <!-- 21 Menu -->
           <div class="d__flex Menu Component" *ngIf="row.component_type=='Horizontal Menu'">
@@ -71,3 +71,12 @@
               {{row.content}}
             </div>
           </div> -->  
+          <div  class="d__flex grid gap-15 not-scroll" *ngIf="row.data && row.component_type=='Gallery'">
+            <div class="grid-4"  *ngFor="let item of row.data.data"  > 
+              <!-- <pre>{{item | json}}</pre> -->
+                  <div class="image position-relative d__flex img-hover-zoom--brightness">
+                    <img [class.min-height-400]="item.display_type == 'vertical'" *ngIf="item.image" class="" src="{{db.product_img(item.image)}}">
+                  </div>
+                  <h5 class="text_label" *ngIf="item.label">{{item.label}}</h5>
+            </div>
+          </div>

@@ -22,8 +22,8 @@
                 <img [src]="db.product_img(card.image)" alt="icon" class="image">
               </div>
               <div class="title_ text-left">
-                <h4 class="title" [style.--line]="1">{{card.title}}</h4>
-                <p class="content" [style.--line]="5">{{card.content}} </p>
+                <h4 class="title webkit-text" [style.--line]="1">{{card.title}}</h4>
+                <p class="content webkit-text" [style.--line]="5">{{card.content}} </p>
               </div>
             </div>
           </div>  
@@ -32,7 +32,7 @@
             <div class="cards_list" *ngFor="let card of row.data.data">
               <div class="sub_card_con">
                 <div class="feature_title_">
-                  <h4 class="title">
+                  <h4 class="title webkit-text"  [style.--line]="1">
                     {{card.title}}
                   </h4>
                 </div>
@@ -50,11 +50,11 @@
                 <img *ngIf="card.image" [src]="db.product_img(card.image)">
               </div>
               <div class="feature__title_">
-                <h4 class="title">
+                <h4 class="title webkit-text" [style.--line]="1">
                   {{card.title}}
                 </h4>
               </div>
-              <p class="content">{{card.content}}</p>
+              <p class="content webkit-text" [style.--line]="3">{{card.content}}</p>
               <div class="learn_more d__flex">
                 <h5 class="button_name">
                   {{card.button_name}}
@@ -71,11 +71,9 @@
                   <!-- <ion-icon name="mail" class="counter_icon"></ion-icon> -->
                   <img *ngIf="card.image" [src]="db.product_img(card.image)" class="image">
                 </div>
-                <div class="hover_title_">
-                  <h4 class="title">
+                  <h4 class="title webkit-text" [style.--line]="1">
                     {{card.title}}
                   </h4>
-                </div>
                 <p class="content webkit-text"
                   [style.--line]="3">{{card.content}} </p>
                 <!-- <div class="learn_more d__flex">
@@ -87,6 +85,27 @@
               </div>
             </div>
           </div>
+
+          <!-- 5 -->
+        <div class="list_style5 component_container d__flex" *ngIf="row.component_type=='Card Style5'">
+          <div class="cards_list" *ngFor="let card of row.data.data">
+            <img *ngIf="card.image" [src]="db.product_img(card.image)" class="image">
+            <h4 class="title webkit-text" [style.--line]="1">
+              {{card.title}}
+            </h4>
+            <p class="content webkit-text"
+                    [style.--line]="3">{{card.content}} </p>
+          </div>
+        </div>
+        <!-- 6 -->
+        <div *ngIf="row.component_type=='Card Style6'" class="list_style6 component_container d__flex">
+          <div *ngFor="let card of row.data.data;let i=index" class="card_list d__flex">
+            <img *ngIf="card.image" [src]="db.product_img(card.image)" class="image">
+            <h4 class="count_title  webkit-text" [style.--line]="1">
+             {{card.title}}
+            </h4>
+          </div>
+        </div>
           <!-- List Card -->
 <!-- 5 -->
 <!-- <div class="cardsection-main1" *ngIf="row.component_type=='Card Style4'">

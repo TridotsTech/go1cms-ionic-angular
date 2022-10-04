@@ -4,7 +4,6 @@
     class="accordion_block">
     <label for="accordion_{{i}}" (click)="checking(row.data.data,i)" class="accordion_label">
       <div class="d__flex" class="accordion_item">
-        <img *ngIf="data.image" [src]="db.product_img(data.image)" alt="" class="list_icon image">
           <h5 class="m-0 title">{{data.title}}</h5>
         <div class="arrow_icon">
           <ion-icon name="chevron-forward-outline"></ion-icon>

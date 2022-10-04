@@ -8,18 +8,22 @@
 }
 
 .counters_6 {
-  width: 80%;
   margin: 15px auto;
   border-radius: 10px;
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+     height: 150px;
+     background-color: var(--primary-color);
   ion-icon{
   	 align-self: flex-start;
-    color: var(--white);
   }
 }
 
 @media screen and (max-width:768px) {
   .counters_6 {
     width: 90%;
+    height: 570px;
   }
   .box--list{
     flex:0 0 50% !important;
@@ -30,6 +34,9 @@
     justify-content:space-between;
     flex-wrap:wrap;
     flex-direction:initial;
+    position: absolute;
+    top: 0;
+    gap: 10px;
     .counter--list{
       width: auto;
       flex: 0 0 50%;
@@ -46,4 +53,16 @@
       }
     }
   }
+}
+.count_one_value{
+  color: var(--primary-color);
+}
+.counter_icon{
+  font-size: 40px;
+}
+.highlight{
+  color: var(--primary-color);
+}
+.box_radius{
+  border-radius: 20px;
 }

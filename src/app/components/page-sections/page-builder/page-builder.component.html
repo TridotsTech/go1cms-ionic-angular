@@ -870,7 +870,8 @@
               <h1 class="white-text title">{{item.title}}</h1>
               <div class="Breadcrumb mb-15 robot-font">
                 <div class="mr-5 mouse white-text font-14 home" (click)="Animation()">{{item.home}}</div>
-                <ion-icon class="top-v  white-text" name="chevron-forward"></ion-icon>
+                <ion-icon  class="top-v  white-text" name="chevron-forward-outline"></ion-icon>
+
                 <span class="mouse mr-5 primary primary-name white-text font-14">{{item.breadcrumb_title}}</span>
               </div>
             </div>
@@ -1229,8 +1230,8 @@
         <!-- <div class="main-width"> -->
         <div class="right_div">
           <div class="section">
-            <h2 class=" m-0 title">{{item.title}} <span class="title1">{{item.title1}}</span></h2>
-            <p class="subtitle">{{item.content}}</p>
+            <h2 class=" m-0 title txt-c">{{item.title}} <span class="title1">{{item.title1}}</span></h2>
+            <p class="subtitle txt-c">{{item.content}}</p>
             <div class="d__grid13">
               <ion-card class="ion-text-center cardbox" *ngFor="let data of item.cardimage">
                 <div *ngIf="data.image1" class="card-head img-wrapper">
@@ -1259,8 +1260,8 @@
         <!-- <div class=""> -->
         <div class="right_div">
           <div class="section">
-            <h2 class="m-0 title">{{item.title}} <span class="title1">{{item.title1}}</span></h2>
-            <p class="subtitle">{{item.content}}</p>
+            <h2 class="m-0 title txt-c">{{item.title}} <span class="title1">{{item.title1}}</span></h2>
+            <p class="subtitle txt-c">{{item.content}}</p>
             <div class="d__grid12">
               <ion-card class="ion-text-center cardbox" *ngFor="let data of item.cardimage1">
                 <div *ngIf="data.image1" class="card-head img-wrapper">
@@ -1285,7 +1286,9 @@
           <p class="sub_title-center m-0 subtitle">{{item.subtitle}}</p>
           <div class="cardsection d__flex">
             <div *ngFor="let data of item.cardsectionmain" class="card-box">
-              <img src="{{db.product_img(data.icon1)}}" alt="" class="icon1">
+              <!-- <img src="{{db.product_img(data.icon1)}}" alt="" class="icon1"> -->
+                <ion-icon  *ngIf="data.fonticon && data.fonticon.length!=0" name={{data.fonticon}} class="threecol_icon"></ion-icon>
+              <img *ngIf="data.icon1 && data.fonticon.length==0" [src]="db.product_img(data.icon1)">
               <h5 class="m-0 title1">{{data.title1}}</h5>
               <p class="txt-l subtitle">{{data.content}}</p>
             </div>
@@ -1296,14 +1299,16 @@
       <div class="cardsection-main6 {{item.class_name}}" [class.main-width]="item.is_full_width == 0"
         [class.main-width-full]="item.is_full_width == 1"
         *ngIf="item.section_name == '4x2 grid on brand' && item.section_type == 'Static Section'">
-        <div class="main-width">
-          <h2 class="pt-15 title-center pad-left-30 title">{{item.title}} <span class="title0">{{item.title0}}</span>
+        <div class="">
+          <h2 class="pt-15 title-center pad-left-30 title txt-c mb-15">{{item.title}} <span class="title0">{{item.title0}}</span>
           </h2>
-          <p class="m-0 pad-left-30  content">{{item.content}}</p>
+          <p class="m-0 pad-left-30  content txt-c">{{item.content}}</p>
           <div class="cardsection d__flex">
             <div class="card-box" *ngFor="let data of item.cardsection6">
-              <img src="{{db.product_img(data.icon1)}}" alt="" class="icon1">
-              <h4 class="m-0 title1 white-text">{{data.title1}}</h4>
+              <!-- <img src="{{db.product_img(data.icon1)}}" alt="" class="icon1"> -->
+              <ion-icon  *ngIf="data.fonticon && data.fonticon.length!=0" name={{data.fonticon}} class="grid_icon"></ion-icon>
+              <img *ngIf="data.icon1 && data.fonticon.length==0" [src]="db.product_img(data.icon1)">
+              <h4 class="m-0 title1">{{data.title1}}</h4>
               <p class="content">{{data.content1}}</p>
             </div>
           </div>
@@ -1378,11 +1383,13 @@
         *ngIf="item.section_name == 'Grid with offset icons' && item.section_type == 'Static Section'"
         [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
         <div class="">
-          <h2 class=" title-center m-0 title">{{item.title}} <span class="title0">{{item.title0}}</span></h2>
-          <h5 class="sub_title-center subtitle">{{item.subtitle}}</h5>
+          <h2 class=" title-center mb-15 title">{{item.title}} <span class="title0">{{item.title0}}</span></h2>
+          <h5 class="sub_title-center subtitle m-0">{{item.subtitle}}</h5>
           <div class="cardsection d__flex">
             <div *ngFor="let data of item.cardsectionmain2" class="card-box">
-              <img src="{{db.product_img(data.icon1)}}" alt="" class="icon1">
+              <!-- <img src="{{db.product_img(data.icon1)}}" alt="" class="icon1"> -->
+              <ion-icon  *ngIf="data.fonticon && data.fonticon.length!=0" name={{data.fonticon}} class="grid_icon abs_icon"></ion-icon>
+              <img *ngIf="data.icon1 && data.fonticon.length==0" [src]="db.product_img(data.icon1)">
               <div class="card-b">
                 <h4 class="m-0 title1">{{data.title1}}</h4>
                 <p class="m-0 content1">{{data.content1}}</p>
@@ -1392,31 +1399,39 @@
         </div>
       </div>
       <!-- Header -->
-      <div class="d__flex bg-size Left_Content_Right_Image bg_image p-80 Header_Section {{item.class_name}}"
+      <div class=" bg-size Left_Content_Right_Image bg_image p-80 Header_Section {{item.class_name}}"
         [class.about_us]="about_us && db.ismobile"
         *ngIf="item.section_type == 'Static Section' && item.section_name == 'Header Section'"
         [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0"
         [style.background-image]="'url('+db.product_img(item.bg_image)+')'">
         <!-- d__flex grid-layout -->
-        <div class="main-width d__flex just-c">
+        <div class=" d__flex jst-space">
           <div class="left_div">
             <div class="section">
-              <h2 class=" m-b-15 m-0 title">{{item.title}}</h2>
-              <h5 class="m-0 subtitle">{{item.subtitle}}</h5>
+              <h2 class="  title heading">{{item.title}}</h2>
+              <p class="subtitle">{{item.subtitle}}</p>
               <p class="content m-0" [innerHtml]="item.content"></p>
               <ul class="header-list m-b-15">
-                <li class="list1 listpoint" *ngFor="let data of item.list1">{{data.listpoint}}</li>
+                <li class="list1 listpoint d__flex mb-10" *ngFor="let data of item.list1">
+                  <ion-icon  *ngIf="data.fonticon && data.fonticon.length!=0" name={{data.fonticon}} class="header_sec_right_icon"></ion-icon>
+                  <img *ngIf="data.list_icon && data.fonticon.length==0" [src]="db.product_img(data.list_icon)">
+                 <p *ngIf="data.listpoint" class="m-0 icon_text txt-c"> {{data.listpoint}}</p>
+                </li>
               </ul>
-              <ion-button *ngIf="item.btn_text1" class="button button1 header-btn bg__clr btn_text1" fill="clear"
+              <!-- <ion-button *ngIf="item.btn_text1" class="button button1 header-btn bg__clr btn_text1" fill="clear"
                 (click)="redirect_next_page(item.btn_link1)" [style.color]="item.btn_text_color1"
                 [style.background]="item.btn_bg_color1">{{item.btn_text1}}</ion-button> -->
-              <ion-button *ngIf="item.btn" (click)="redirect_next_page(item.btn_text.btn_redirect_url)"
-                class="button header-btn btn" fill="clear">{{item.btn_text.btn_text}}</ion-button>
+              <!-- <ion-button *ngIf="item.btn" (click)="redirect_next_page(item.btn_text.btn_redirect_url)"
+                class="button header-btn btn" fill="clear">{{item.btn_text.btn_text}}</ion-button> -->
+
+                <ion-button *ngIf="item.btn_text" class="primary-btn btn" fill="clear" 
+                (click)="db.route_url(item.btn_text.btn_redirect_url)">{{item.btn_text.btn_text}}</ion-button>
+
             </div>
           </div>
-          <div *ngIf="item.right_image">
-            <div class="image">
-              <img class="right_div" src="{{db.product_img(item.right_image)}}" alt="" class="header_img right_image">
+          <div *ngIf="item.right_image" class="right_div">
+            <div class="image txt-r">
+              <img class="rightdiv" src="{{db.product_img(item.right_image)}}" alt="" class="header_img right_image">
             </div>
           </div>
         </div>
@@ -1436,7 +1451,9 @@
           <ion-col>
             <div class="cardsection d__flex">
               <div *ngFor="let data of item.cardsectionmain5" class="card-box">
-                <img src="{{db.product_img(data.icon1)}}" alt="" class="icon1">
+                <!-- <img src="{{db.product_img(data.icon1)}}" alt="" class="icon1"> -->
+                <ion-icon  *ngIf="data.fonticon && data.fonticon.length!=0" name={{data.fonticon}} class="grid_icon"></ion-icon>
+                <img *ngIf="data.icon1 && data.fonticon.length==0" [src]="db.product_img(data.icon1)">
                 <div class="card-b">
                   <h4 class="m-0 title1">{{data.title1}}</h4>
                   <p class="content1">{{data.content1}}</p>
@@ -1448,7 +1465,7 @@
       </div>
       <div class="Left_Content_Right_Image bg_image {{item.class_name}} animate"
         [class.about_us]="about_us && db.ismobile"
-        *ngIf="false && item.section_type == 'Static Section' && item.section_name == 'Left Content Right Image'"
+        *ngIf=" item.section_type == 'Static Section' && item.section_name == 'Left Content Right Image'"
         [style.background-image]="'url('+db.product_img(item.bg_image)+')'"
         [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
         <div class="d__flex wrap">
@@ -1460,7 +1477,7 @@
             </div>
           </div>
           <div *ngIf="item.right_image" class="right_div">
-            <div class="image">
+            <div class="image txt-r">
               <img src="{{db.product_img(item.right_image)}}" alt="" class="right_image1 right_image">
             </div>
           </div>
@@ -1496,13 +1513,15 @@
         <div class="">
           <!-- <p class="title-center m-0">{{item.title}}</p> -->
           <div class="pad-15">
-            <h2 class="txt-c m-0 title">{{item.title}} <span class="title0">{{item.title0}}</span></h2>
-            <h5 class="sub_title-center subtitle">{{item.subtitle}}</h5>
+            <h5 class="sub_title-center subtitle m-0">{{item.subtitle}}</h5>
+            <h2 class="txt-c mb-10 title">{{item.title}} <span class="title0">{{item.title0}}</span></h2>
             <p class="txt-c">{{item.content}}</p>
           </div>
           <div class="cardsection d__flex">
             <div *ngFor="let data of item.cardsectionmain1" class="card-box">
-              <img src="{{db.product_img(data.icon1)}}" alt="" class="icon1">
+              <!-- <img src="{{db.product_img(data.icon1)}}" alt="" class="icon1"> -->
+              <ion-icon  *ngIf="data.fonticon && data.fonticon.length!=0" name={{data.fonticon}} class="grid_icon"></ion-icon>
+              <img *ngIf="data.icon1 && data.fonticon.length==0" [src]="db.product_img(data.icon1)">
               <div class="card-b">
                 <h4 class="m-0 title1">{{data.title1}}</h4>
                 <p class="content1">{{data.content1}}</p>
@@ -1562,7 +1581,9 @@
         <div class="">
           <div class="cardsection d__flex">
             <div *ngFor="let data of item.cardsection1" class="card-box">
-              <img src="{{db.product_img(data.icon1)}}" alt="" class="icon1">
+              <!-- <img src="{{db.product_img(data.icon1)}}" alt="" class="icon1"> -->
+              <ion-icon  *ngIf="data.fonticon && data.fonticon.length!=0" name={{data.fonticon}} class="threecol_icon"></ion-icon>
+              <img *ngIf="data.icon1 && data.fonticon.length==0" [src]="db.product_img(data.icon1)">
               <h4 class="m-0 title1">{{data.title1}}</h4>
               <p class="m-0 content1">{{data.content1}}</p>
             </div>
@@ -1579,7 +1600,10 @@
           <h5 class="sub_title-center m-0 subtitle">{{item.subtitle}}</h5>
           <div class="cardsection d__flex">
             <div *ngFor="let data of item.cardsection4" class="card-box">
-              <img src="{{db.product_img(data.icon1)}}" alt="" class="icon1">
+              <div class="feature_grid_icon_img">
+              <ion-icon  *ngIf="data.fonticon && data.fonticon.length!=0" name={{data.fonticon}} class="grid_feature_icon"></ion-icon>
+              <img *ngIf="data.icon1 && data.fonticon.length==0"  class="grid_feature_icon" [src]="db.product_img(data.icon1)">
+              </div>
               <div class="card-b">
                 <h4 class="m-0 title1">{{data.title1}}</h4>
                 <p class="content1">{{data.content1}}</p>
@@ -1592,7 +1616,7 @@
         *ngIf="item.section_type == 'Static Section' && item.section_name =='Left Side List Style Two and Right Image'"
         class="container_reverce Left_List_Right_Image d__flex d__flex {{item.class_name}} animate"
         [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
-        <div class="main-width d__flex mobile_b">
+        <div class=" d__flex mobile_b">
           <div class="content_container">
             <div class="content_element">
               <div class="lr_title_ mb-20 ">
@@ -1679,7 +1703,9 @@
               <div class="content">
                 <div class="content__box d__flex">
                   <div class="d__flex content_value">
-                    <img class="icon__ list_icon" [src]="db.product_img(data.list_icon)" alt="">
+                    <!-- <img class="icon__ list_icon" [src]="db.product_img(data.list_icon)" alt=""> -->
+                    <ion-icon  *ngIf="data.fonticon&& data.fonticon.length!=0" name={{data.fonticon}} class=" icon__ list_icon"></ion-icon>
+                    <img *ngIf="data.list_icon && data.fonticon.length==0" [src]="db.product_img(data.list_icon)">
                     <h5 class="m-0 list_title">{{data.list_title}}</h5>
                   </div>
                   <p class="listconent">{{data.listconent}}</p>
@@ -1706,9 +1732,9 @@
         style="background-image:url('{{db.product_img(item.right_image)}}')">
         <div class="main-width">
           <div class="right_div">
-            <div class="section">
-              <h2 class=" m-0 title txt-c">{{item.title}} <span class="title1">{{item.title1}}</span></h2>
-              <h5 class="txt-c m-0 subtitle">{{item.subtitle}}</h5>
+            <div class="section">   
+              <h5 class="txt-c m-0 subtitle primary_tone">{{item.subtitle}}</h5>
+              <h2 class=" mb-10 title txt-c">{{item.title}} <span class="title1">{{item.title1}}</span></h2>         
               <p class="content" [class.m-0]="db.ismobile" [innerHtml]="item.content"></p>
               <div *ngIf="item.center_image">
                 <div class="image">
@@ -1737,7 +1763,7 @@
               <h2 class=" m-0 title white-text">{{item.title}} <span class="title1">{{item.title1}}</span></h2>
               <h5 class="txt-c m-0 subtitle white-text">{{item.subtitle}}</h5>
               <p class="content overlay-t white-text" [class.m-0]="db.ismobile" [innerHtml]="item.content"></p>
-              <div class="txt-c">
+              <div class="txt-l">
                 <ion-button *ngIf="item.btn" (click)="redirect_next_page(item.btn_text.btn_redirect_url)"
                   [style.color]="item.btn_text_color" [style.background]="item.btn_bg_color"
                   class="button header-btn btn" fill="clear">{{item.btn_text.btn_text}}</ion-button>
@@ -1747,7 +1773,6 @@
         </div>
       </div>
       <!-- Full Bg with overlay Text and Right Image -->
-      <!-- -->
       <div class="d__flex center_title overlay-right-img back_no_repeat {{item.class_name}} animate"
         [style.background-image]="'url('+db.product_img(item.bg_image)+')'"
         [class.just-c]="item.section_name == 'Full Bg with overlay Text Right Image'"
@@ -1783,7 +1808,7 @@
           </div>
         </div>
         <div class="image_container">
-          <div class="image">
+          <div class="image txt-r">
             <img [src]="db.product_img(item.right_img)" alt="banner_img">
           </div>
         </div>

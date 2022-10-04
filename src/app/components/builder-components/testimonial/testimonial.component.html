@@ -19,7 +19,7 @@
           </div>
           <!-- Testimonial 2 -->
           <div *ngIf="row.component_type=='Testimonial Style2'" class="testimonial_component2 component_container d__flex">
-            <div class="testimonialtwo_card" *ngFor="let data of row.data.data;let i=index">
+            <div class="testimonial_card" *ngFor="let data of row.data.data;let i=index">
               <div class="testimonial_details">
                 <div class="d__flex star_count">
                   <div *ngFor="let count of [0,1,2,3,4]">
@@ -43,7 +43,7 @@
           </div>
           <!-- Testimonial 3 -->
           <div *ngIf="row.component_type=='Testimonial Style3'" class="testimonial_component3 component_container d__flex">       
-                <div *ngFor="let data of row.data.data" class="testimonialThree_card">
+                <div *ngFor="let data of row.data.data" class="testimonial_card">
                     <div class="image_position testimonialThree_image image">
                       <img [src]="db.product_img(data.image)" alt="">
                   </div>
@@ -121,7 +121,7 @@
           </div>
           <!-- Testimonial 6 -->
           <div *ngIf="row.component_type=='Testimonial Style4'" class="testimonial_component6 component_container d__flex">
-            <div class="testimonialThree_card" *ngFor="let data of row.data.data">
+            <div class="testimonial_card" *ngFor="let data of row.data.data">
               <div class="testimonialThree_image">
                 <img
                   [src]="db.product_img(data.image)"

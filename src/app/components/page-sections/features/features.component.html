@@ -17,7 +17,7 @@
     <ul class="cards_list d__flex">
       <li *ngFor="let data of item.list_points" class="sub_card_con">
         <div class="top_number">
-          <h4 *ngIf="data.number_count">{{data.number_count}}</h4>
+          <h4 class="number_count" *ngIf="data.number_count">{{data.number_count}}</h4>
         </div>
         <div class="feature_title_">
           <h4 *ngIf="data.list_title" class="my-5">{{data.list_title}}</h4>
@@ -35,7 +35,7 @@
 <div *ngIf="item.section_type == 'Static Section' && item.section_name =='Features Style 3'"
   class="container  d__flex wrap align-start {{item.class_name}} animate py-30"
   [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
-  <div class="main-width">
+  <div class=" d__flex flx_dir">
   <div class="content_container ">
     <div class="content_element">
       <div class="title_ mb-20">
@@ -55,8 +55,9 @@
   <div class="image_container">
     <ul class="cards_con">
       <li *ngFor="let data of item.liststyle" class="card_list d__flex align-center">
-        <div class="side_icon bg_icon">
-          <img *ngIf="data.list_icon" [src]="db.product_img(data.list_icon)">
+        <div class="side_icon bg_icon icon_width">
+          <ion-icon  *ngIf="data.fonticon && data.fonticon.length!=0" name={{data.fonticon}} class="feature_icon"></ion-icon>
+          <img *ngIf="data.list_icon && data.fonticon.length==0" [src]="db.product_img(data.list_icon)">
         </div>
         <div class="title_ side_title">
           <h4 *ngIf="data.list_title" class="mb-20 ">{{data.list_title}}</h4>
@@ -82,15 +83,16 @@
   <div class="card_list__container">
     <ul class="cards_list d__flex flex-w">
       <li *ngFor="let data of item.list_points" class="card_container_with_icon d__flex">
-        <div class="top_icon bg_icon icon_width">
-          <img *ngIf="data.list_icon" [src]="db.product_img(data.list_icon)">
+        <div class="top_icon bg_icon ">
+          <ion-icon  *ngIf="data.fonticon && data.fonticon.length!=0" name={{data.fonticon}} class="feature_icon"></ion-icon>
+          <img *ngIf="data.list_icon && data.fonticon.length==0" [src]="db.product_img(data.list_icon)">
         </div>
         <div class="feature__title_">
           <h4 *ngIf="data.list_title" class="">{{data.list_title}}</h4>
         </div>
-        <p *ngIf="data.listconent" class="description_text">{{data.listconent}} </p>
+        <p *ngIf="data.listconent" class="description_text text-center">{{data.listconent}} </p>
         <div class="learn_more d__flex mouse">
-          <h5 *ngIf="data.btn_text" class="m-0">{{data.btn_text}}</h5>
+          <h6 *ngIf="data.btn_text" class="m-0">{{data.btn_text}}</h6>
           <ion-icon name="chevron-forward-outline"></ion-icon>
         </div>
       </li>
@@ -106,7 +108,7 @@
 <div *ngIf="item.section_type == 'Static Section' && item.section_name =='Features Style 5'"
   class="{{item.class_name}} animate py-30" [class.main-width-full]="item.is_full_width == 1"
   [class.main-width]="item.is_full_width == 0">
-  <div class="main-width">
+  <div class="">
     <div class="title_container txt-c title_width_center">
       <div class="tittle_ mb-20">
         <h2 *ngIf="item.title" class="title">{{item.title}}</h2>
@@ -119,12 +121,13 @@
       <ul class="cards_list d__flex flex-w">
         <li class="top_icon_card_container d__flex" *ngFor="let data of item.list_points">
           <div class="top_icon">
-            <img *ngIf="data.list_icon" [src]="db.product_img(data.list_icon)">
+            <ion-icon  *ngIf="data.fonticon && data.fonticon.length!=0" name={{data.fonticon}} class="feature_icon"></ion-icon>
+            <img *ngIf="data.list_icon && data.fonticon.length==0" [src]="db.product_img(data.list_icon)">
           </div>
           <!-- <div class="hover_title_"> -->
           <h4 *ngIf="data.list_title" class="hover_title_">{{data.list_title}}</h4>
           <!-- </div> -->
-          <p *ngIf="data.listconent" class="line-h txt-c webkit-text" [style.--line]="3">{{data.listconent}}</p>
+          <p *ngIf="data.listconent" class="line-h txt-c webkit-text des_border" [style.--line]="3">{{data.listconent}}</p>
           <div *ngIf="data.btn_text" class="learn_more d__flex mouse">
             <h6 *ngIf="data.btn_text" class="m-0">{{data.btn_text}}</h6>
             <ion-icon name="chevron-forward-outline"></ion-icon>
@@ -135,7 +138,7 @@
   </div>
 </div>
 <div *ngIf="item.section_type == 'Static Section' && item.section_name =='Features Style 6'"
-  class=" {{item.class_name}} py-30 container d__flex section_with_icons animate"
+  class=" {{item.class_name}} py-30 mb-40 container d__flex section_with_icons animate"
   [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
   <div class="box__1">
     <h2 *ngIf="item.title" class="title">{{item.title}}<span class="spantitle"
@@ -153,6 +156,8 @@
         (mouseenter)="data.show = true" (mouseleave)="data.show = false">
         <div [class.active-custom_box]="data.show " class="custom_box mouse">
           <img *ngIf="data.list_icon" class="icon__" [src]="db.product_img(data.list_icon)">
+          <!-- <ion-icon  *ngIf="data.fonticon.length!=0" name={{data.fonticon}}></ion-icon>
+          <img *ngIf="data.list_icon && data.fonticon.length==0" [src]="db.product_img(data.list_icon)"> -->
           <h5 *ngIf="data.list_title" class="m-0 ">{{data.list_title}}</h5>
         </div>
       </li>
@@ -164,18 +169,19 @@
 <div class="{{item.class_name}} py-30"
   *ngIf="item.section_type == 'Static Section' && item.section_name == 'Features Style 1'"
   [class.main-width-full]="item.is_full_width == 1" [class.main-width]="item.is_full_width == 0">
-  <div class="d__flex main-width" [ngClass]="db.ismobile?'flex_direction':''">
+  <div class="d__flex " [ngClass]="db.ismobile?'flex_direction':''">
     <!-- <div class="container flex_gap d__flex main-width"> -->
     <div class="feature_content_width">
-      <h2 class="title">{{item.title}}</h2>
-      <p class="description_text content">{{item.content}}</p>
+      <h2 class="title wd-85">{{item.title}}</h2>
+      <p class="description_text content wd-85">{{item.content}}</p>
       <ion-button *ngIf="item.btn_text" size="large" button class="primary-btn btn" fill="clear"
         (click)="db.route_url(item.btn_text.btn_redirect_url)">{{item.btn_text.btn_text}}</ion-button>
     </div>
     <ul class="feature_image_width d__flex flex-w">
       <li class="sub_card_container" *ngFor="let data of item.cards_item;let i = index">
         <div class="faq_icon">
-          <img src="{{db.product_img(data.icon)}}" alt="icon">
+            <ion-icon  *ngIf="data.fonticon && data.fonticon.length!=0" name={{data.fonticon}} class="feature_icon"></ion-icon>
+          <img *ngIf="data.icon && data.fonticon.length==0" [src]="db.product_img(data.icon)">
         </div>
         <div class="title_ txt-l">
           <h4 class="webkit-text m-0" [style.--line]="1">{{data.title1}}</h4>
@@ -188,7 +194,7 @@
 <div *ngIf="item.section_type == 'Static Section' && item.section_name =='Left Image Right Side List Style One'"
   class="container_reverce d__flex py-30 {{item.class_name}} animate" [class.main-width-full]="item.is_full_width == 1"
   [class.main-width]="item.is_full_width == 0">
-  <div class="d__flex mobile- main-width" [ngClass]="db.ismobile?'flex_direction':''">
+  <div class="d__flex mobile- " [ngClass]="db.ismobile?'flex_direction':''">
     <div class="image_container">
       <div class="image txt-l">
         <img *ngIf="item.left_image" [src]="db.product_img(item.left_image)" alt="banner_img">
@@ -196,7 +202,7 @@
     </div>
     <div class="content_container">
       <div class="content_con">
-        <h2 class="fnt-38">
+        <h2>
           <span *ngIf="item.title" class="title ">{{item.title}}</span>
           <span class="span_text">
             <span *ngIf="item.spantitle" class="text_two spantitle"> {{item.spantitle}}</span>
@@ -211,8 +217,10 @@
           <div>
             <ul class="">
               <li class="list_items d__flex align-center" *ngFor="let data of item.listpoints">
-                <div *ngIf="data.list_icon" class="icon"><img [src]="db.product_img(data.list_icon)" style="width:22px;"
-                    alt="icon"></div>
+                <div *ngIf="data.list_icon" class="icon">
+                  <ion-icon  *ngIf="data.fonticon && data.fonticon.length!=0" name={{data.fonticon}} class="leftright_icon"></ion-icon>
+                  <img *ngIf="data.list_icon && data.fonticon.length==0" [src]="db.product_img(data.list_icon)">
+                  </div>
                 <p *ngIf="data.list_title" class="m-0 icon_text txt-c">{{data.list_title}}</p>
               </li>
             </ul>
